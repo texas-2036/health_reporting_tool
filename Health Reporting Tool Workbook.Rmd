@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Package Setup 
+
+```{r load packages}
+library(tidyverse)
+library(janitor)
+library(tidycensus)
+library(reticulate)
+```
+
+# Aging Data 
+
+## Population Projections
+
+```{python}
+import pandas as pd
+pop_prok = pd.read_csv("raw_data/2018allcntyindage.csv")
+pop_prok = pop_prok.loc[pop_prok['area_name'] == 'State of Texas']
+
+```
+
+```{r}
+
+pop_prop <- py$pop_prok %>% 
+  filter(age_in_yrs_num == "-1")
+
+pop_proj <- read_csv("raw_data/2018allcntyindage.csv") %>% 
+  mutate(age_keeps = case_when(
+    age_in_yrs_num %>% between(0,17) ~ "Keep",
+    age_in_yrs_num %>% between(18,64) ~ "Keep",
+    TRUE ~ "Remove"
+  )) %>% 
+  filter(age_keeps == "Keep") %>% 
+  write_rds("clean_data/pop_proj_data.rds")
+
+```
+
+## Census Data
+
+```{r}
+
+tarr <- get_acs(geography = "tract", variables = "B19013_001",
+                state = "TX", county = "Tarrant") %>%
+  write_rds("clean_data/tarr_data.rds")
+```
+
+# Childhood Data
+
+# Working Age Data
