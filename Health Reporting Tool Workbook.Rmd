@@ -16,36 +16,90 @@ library(reticulate)
 
 ## Population Projections
 
-```{python}
-import pandas as pd
-pop_prok = pd.read_csv("raw_data/2018allcntyindage.csv")
-pop_prok = pop_prok.loc[pop_prok['area_name'] == 'State of Texas']
-
-```
-
 ```{r}
-
-pop_prop <- py$pop_prok %>% 
-  filter(age_in_yrs_num == "-1")
-
-pop_proj <- read_csv("raw_data/2018allcntyindage.csv") %>% 
+#reading in the CSV downloaded from the state demographer. Keeping only relevant data
+pop_proj <- read_csv("raw_data/Aging/2018allcntyindage.csv") %>% 
   mutate(age_keeps = case_when(
     age_in_yrs_num %>% between(0,17) ~ "Keep",
     age_in_yrs_num %>% between(18,64) ~ "Keep",
+    age_in_yrs_num %>% between(65,95) ~ "Keep",
     TRUE ~ "Remove"
-  )) %>% 
-  filter(age_keeps == "Keep") %>% 
-  write_rds("clean_data/pop_proj_data.rds")
+  )) %>%
+  filter(age_keeps == "Keep") %>%
+  write_rds("clean_data/Aging/pop_proj_data.rds")
 
 ```
-
-## Census Data
-
+## Diabetes Data
 ```{r}
+#Starting with the county level -- these do not have age breakdowns
+#reading in the CSV from the CDC.Skipping the first two rows as they do not contain any relevant information
+diabetes_stats_county <- read_csv("raw_data/Aging/DiabetesAtlasCountyData.csv", skip = 2) %>%
+  write_rds("clean_data/Aging/diabetes_county_stats.rds")
 
-tarr <- get_acs(geography = "tract", variables = "B19013_001",
-                state = "TX", county = "Tarrant") %>%
-  write_rds("clean_data/tarr_data.rds")
+#Moving on to Texas level data -- these have age breakdowns
+#make sure to only keep data after 2012
+#same process as above, reading in the CSV and skipping the first two rows. This is 75+ only
+diabetes_stats_TX_75_raw <- read_csv("raw_data/Aging/DiabetesAtlasData75+.csv", skip = 2)%>%
+  write_rds("clean_data/Aging/diabetes_tx_75+_stats.rds")
+
+#same process as above, reading in the CSV and skipping the first two rows. This is 65-74 only
+diabetes_stats_TX_65_raw <- read_csv("raw_data/Aging/DiabetesAtlasData65-74.csv", skip = 2) %>%
+  write_rds("clean_data/Aging/diabetes_tx_65-74_stats.rds")
+```
+
+
+## Physical Inactivity Data
+```{r}
+#reading in the CSV from America's health rankings and keeping the relevant information
+physicial_inactivity <- read_csv("raw_data/Aging/2019-Senior_TX.csv")
+physicial_inactivity <- physicial_inactivity[which(physicial_inactivity$`Measure Name` == "Physical Inactivity - Ages 65+"), ] %>%
+  write_rds('clean_data/Aging/physical_inactivity_data.rds')
+```
+
+## Social Isolation Data
+```{r}
+#reading in the CSV. I'll keep all the records for social isolation from all the different states
+social_iso <- read_csv("raw_data/Aging/2020-Senior.csv")
+social_iso <- social_iso[which(social_iso$`Measure Name` == "Risk of Social Isolation - Ages 65+"), ] %>%
+  write_rds('clean_data/Aging/social_iso_data.rds')
+```
+## Mental Health Data
+```{r}
+#reading in the CSV. I'll keep all the records for mental health from all the different states
+mental_health <- read_csv("raw_data/Aging/2020-Senior.csv")
+mental_health <- mental_health[which(mental_health$`Measure Name` == "Frequent Mental Distress - Ages 65+"), ] %>%
+  write_rds('clean_data/Aging/mental_health_data.rds')
+```
+## Alzheimer’s Data
+```{r}
+#reading in CSV and saving the data
+alh_data <- read_csv("raw_data/Aging/Data Table.csv")%>%
+  write_rds('clean_data/Aging/alzheimers_data.rds')
+```
+## Primary Care Access
+```{r}
+#reading in the CSV. I'll keep all the records for health providers from all the different states
+dedi_health <- read_csv("raw_data/Aging/2020-Senior.csv") %>%
+ janitor::clean_names() %>%
+ select(date, measure_name, (contains("pct"))
+  filter(`Measure Name`=="Dedicated Health Care Provider - Ages 65+")
+
+dedi_health <- dedi_health[which(dedi_health$`Measure Name` == "Dedicated Health Care Provider - Ages 65+"), ] %>%
+  write_rds('clean_data/Aging/dedicated_health_provider_data.rds')
+```
+## Immunization Rates
+```{r}
+#reading in the CSV. I'll keep all the records for immunization rates from all the different states
+imm_rates <- read_csv("raw_data/Aging/2020-Senior.csv")
+imm_rates <- imm_rates[which(imm_rates$`Measure Name` == "Immunizations - Senior"), ] %>%
+  write_rds('clean_data/Aging/immunization_rates_data.rds')
+```
+## Nursing Home Quality
+```{r}
+#reading in the CSV. I'll keep all the records for nursing home quality from all the different states
+nursing_homes <- read_csv("raw_data/Aging/2020-Senior.csv")
+nursing_homes <- nursing_homes[which(nursing_homes$`Measure Name` == "Nursing Home Quality"), ] %>%
+  write_rds('clean_data/Aging/nursing_homes_data.rds')
 ```
 
 # Childhood Data

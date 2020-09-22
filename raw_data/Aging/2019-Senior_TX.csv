@@ -1,0 +1,561 @@
+Edition,Report Type,Measure Name,State Name,Rank,Value,Score,Lower CI,Upper CI,Source,Source Year
+2019,2019 Senior,Able-bodied,Texas,39,62.7,-0.74,63.2,62.2,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Air Pollution,Texas,41,8.6,0.15,,,AHR data,
+2019,2019 Senior,All Determinants - Seniors,Texas,39,-0.206,-0.206,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,All Outcomes - Seniors,Texas,38,-0.112,-0.112,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Arthritis Management - Seniors,Texas,40,50.5,-0.78,56.4,44.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Arthritis Management - Seniors - $25-$49,999",Texas,39,50.8,-0.69,65.3,36.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Arthritis Management - Seniors - $50-$74,999",Texas,42,52,-0.67,68.5,35.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Arthritis Management - Seniors - $75,000 or More",Texas,41,55.7,-0.79,69.9,41.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Black,Texas,,46.9,,65.7,28.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - College Grad,Texas,49,46.5,-2,57.1,35.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Female,Texas,38,49.9,-0.58,57.1,42.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - High School Grad,Texas,47,46.7,-1.51,58.1,35.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Hispanic,Texas,,55.3,,66.7,44,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Arthritis Management - Seniors - Less Than $25,000",Texas,31,42.8,-0.31,52.5,33.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Less Than High School,Texas,,53.7,,68.2,39.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Male,Texas,35,53.4,-0.22,63.2,43.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Rural,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Some College,Texas,17,54.7,0.58,65.2,44.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Suburban,Texas,,47.6,,62.5,32.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - Urban,Texas,,47.1,,57.4,36.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Arthritis Management - Seniors - White,Texas,41,49.5,-1.16,56.7,42.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+,Texas,43,6.5,1.06,8.4,4.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Avoided Care Due to Cost - Ages 65+ - $25-$49,999",Texas,,6.6,,10,3.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Avoided Care Due to Cost - Ages 65+ - $50-$74,999",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Avoided Care Due to Cost - Ages 65+ - $75,000 or More",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Black,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - College Grad,Texas,,3.2,,5,1.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Female,Texas,40,6.4,0.63,8.7,4.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - High School Grad,Texas,,10.5,,15.7,5.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Hispanic,Texas,,8.5,,12.6,4.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Avoided Care Due to Cost - Ages 65+ - Less Than $25,000",Texas,,11,,15.2,6.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Less Than High School,Texas,,7,,10.8,3.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Male,Texas,,6.8,,10,3.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Rural,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Some College,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Suburban,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - Urban,Texas,,3.4,,5.1,1.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Avoided Care Due to Cost - Ages 65+ - White,Texas,34,4.6,0.58,6.5,2.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Behaviors - Seniors,Texas,36,-0.076,-0.076,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Cancer Screenings - Ages 65+,Texas,37,68.5,-0.93,72.6,64.3,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Cancer Screenings - Ages 65+ - $25-$49,999",Texas,37,68.5,-0.62,77,59.9,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Cancer Screenings - Ages 65+ - $50-$74,999",Texas,38,74.6,-0.83,84.6,64.6,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Cancer Screenings - Ages 65+ - $75,000 or More",Texas,32,81.7,-0.5,88.5,74.9,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Black,Texas,,76.8,,90.8,62.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - College Grad,Texas,36,77.9,-0.68,83.4,72.4,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Female,Texas,32,65.8,-0.36,71.6,60,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - High School Grad,Texas,29,67.4,-0.42,75.4,59.3,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Hispanic,Texas,,57.3,,67.9,46.7,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Cancer Screenings - Ages 65+ - Less Than $25,000",Texas,34,57.7,-0.57,66.5,48.9,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Less Than High School,Texas,,53.8,,65.4,42.2,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Male,Texas,45,71.5,-1.55,77.5,65.5,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Rural,Texas,,60.8,,75.6,46,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Some College,Texas,39,69.3,-0.99,77.7,61,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Suburban,Texas,,68.2,,78.6,57.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - Urban,Texas,,74.5,,82.2,66.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Cancer Screenings - Ages 65+ - White,Texas,32,70.9,-0.69,75.6,66.3,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Clinical Care - Seniors,Texas,19,0.019,0.019,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Cognitive Difficulty - Seniors,Texas,40,9.6,0.75,9.8,9.4,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Community & Environment - Macro - Seniors,Texas,47,-0.095,-0.095,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Community & Environment - Micro - Seniors,Texas,40,-0.047,-0.047,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Community & Environment Total - Seniors,Texas,46,-0.142,-0.142,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Community Support,Texas,48,206,-0.65,,,"U.S. HHS, Administration for Community Living, State Program Reports; U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Community Support Expenditure,Texas,47,22,-0.68,,,AHR data,
+2019,2019 Senior,"Dedicated HC Provider - Ages 65+ - $25-$49,999",Texas,39,93.3,-0.68,97.4,89.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Dedicated HC Provider - Ages 65+ - $50-$74,999",Texas,28,95.9,0,0,91.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Dedicated HC Provider - Ages 65+ - $75,000 or More",Texas,12,97.3,0.69,0,94.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - American Indian/Alaska Native,Texas,,86.4,,101.2,71.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Black,Texas,,98.2,,100.5,96,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - College Grad,Texas,5,97.4,0.9,98.9,95.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Female,Texas,35,94.4,-0.47,96.6,92.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - High School Grad,Texas,38,92.4,-0.7,96.9,87.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Hispanic,Texas,,85.0,,91.2,78.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Dedicated HC Provider - Ages 65+ - Less Than $25,000",Texas,34,91.0,-0.34,94.7,87.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Less Than High School,Texas,42,87.0,-0.82,93.5,80.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Male,Texas,33,92.0,-0.3,95.5,88.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Multiracial,Texas,,86.9,,107.4,66.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Rural,Texas,,96.3,,102.1,90.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Some College,Texas,23,94.7,0,97.6,91.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Suburban,Texas,,95.8,,99,92.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - Urban,Texas,26,95.0,0.08,97.6,92.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated HC Provider - Ages 65+ - White,Texas,20,95.3,0.19,97.5,93,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dedicated Health Care Provider - Ages 65+,Texas,33,93.4,-0.38,95.3,91.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Dental Visit - Seniors,Texas,37,63.1,-0.62,66.3,59.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Dental Visit - Seniors - $25-$49,999",Texas,49,56.8,-1.6,63.9,49.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Dental Visit - Seniors - $50-$74,999",Texas,35,76.7,-0.58,83.8,69.6,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Dental Visit - Seniors - $75,000 or More",Texas,50,78.2,-2,85.1,71.4,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Black,Texas,,68.1,,79.6,56.7,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - College Grad,Texas,49,78.3,-2,82.8,73.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Female,Texas,37,63.3,-0.72,67.4,59.1,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - High School Grad,Texas,18,62.4,0.24,68.5,56.4,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Hispanic,Texas,,46.2,,55,37.4,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Dental Visit - Seniors - Less Than $25,000",Texas,14,50.8,0.55,57.6,44.1,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Less Than High School,Texas,,41.3,,50.7,31.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Male,Texas,34,62.8,-0.46,68.1,57.6,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Rural,Texas,,65.5,,77.8,53.1,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Some College,Texas,39,66.2,-0.75,72.1,60.3,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Suburban,Texas,,68.2,,75,61.4,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - Urban,Texas,30,69,-0.05,74.7,63.3,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Dental Visit - Seniors - White,Texas,33,67.6,-0.33,71.3,64,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Depression - Seniors,Texas,45,18.8,1.18,22.2,15.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Depression - Seniors - $25-$49,999",Texas,49,21.8,1.75,30.5,13.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Depression - Seniors - $50-$74,999",Texas,,20.1,,28.3,12,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Depression - Seniors - $75,000 or More",Texas,,12.9,,18.9,6.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Black,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - College Grad,Texas,25,13.8,0.14,18.3,9.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Female,Texas,41,21.2,0.82,26,16.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - High School Grad,Texas,48,18.9,1.33,24.8,13,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Hispanic,Texas,,18.2,,24.6,11.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Depression - Seniors - Less Than $25,000",Texas,38,23.1,0.66,29.8,16.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Less Than High School,Texas,,24.9,,35.1,14.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Male,Texas,44,15.1,1.15,19.3,10.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Rural,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Some College,Texas,41,19.8,0.82,26.3,13.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Suburban,Texas,,12.4,,17.9,6.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - Urban,Texas,,11.1,,14.5,7.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Depression - Seniors - White,Texas,40,17.9,0.81,22,13.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Diabetes Management,Texas,16,80.7,0.22,81.1,80.3,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Diabetes Management - Seniors - Black,Texas,13,75.3,0.2,76.4,74.2,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Diabetes Management - Seniors - Non-black,Texas,19,81.3,0.19,81.7,80.9,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Disability,Texas,40,38.79999924,1.04,,,"U.S. Census Bureau, American Community Survey",2013-2017
+2019,2019 Senior,"Divorced, Separated or Widowed",Texas,36,40,0.52,,,"U.S. Census Bureau, American Community Survey",2013-2017
+2019,2019 Senior,Drinking Water Violations,Texas,46,6.3,1.16,,,AHR data,
+2019,2019 Senior,Drug Deaths - Ages 65-74,Texas,,6.5,,7.1,5.8,AHR data,
+2019,2019 Senior,Drug Deaths (1-year) - Ages 65-74,Texas,,7.3,,8.5,6.2,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74,Texas,33,1884,0.33,1903,1865,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74 - American Indian/Alaska Native,Texas,,700,,892,540,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74 - Asian,Texas,,877,,939,816,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74 - Black,Texas,,2591,,2660,2521,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74 - Female,Texas,,1516,,1539,1493,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74 - Hispanic,Texas,,1618,,1653,1582,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74 - Male,Texas,,2302,,2333,2272,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Early Death - Ages 65-74 - White,Texas,,1942,,1966,1918,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Education - Seniors,Texas,28,27,-0.12,27.5,26.5,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+,Texas,19,6.7,-0.38,8.7,4.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Excessive Drinking - Ages 65+ - $25-$49,999",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Excessive Drinking - Ages 65+ - $50-$74,999",Texas,,10.9,,17.1,4.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Excessive Drinking - Ages 65+ - $75,000 or More",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Black,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - College Grad,Texas,42,10.7,0.68,15.5,6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Female,Texas,25,5.8,0,8.4,3.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - High School Grad,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Hispanic,Texas,,4.1,,6.4,1.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Excessive Drinking - Ages 65+ - Less Than $25,000",Texas,,3.4,,5.2,1.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Less Than High School,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Male,Texas,14,7.9,-0.65,11.1,4.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Rural,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Some College,Texas,,4.8,,7.2,2.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Suburban,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - Urban,Texas,,7.3,,11.1,3.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Excessive Drinking - Ages 65+ - White,Texas,17,6.9,-0.41,9.3,4.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+,Texas,24,16.8,-0.06,19,14.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Exercise - Ages 65+ - $25-$49,999",Texas,31,14.1,-0.54,18.4,9.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Exercise - Ages 65+ - $50-$74,999",Texas,39,17.0,-0.68,22.7,11.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Exercise - Ages 65+ - $75,000 or More",Texas,7,31.7,0.87,38.3,25.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - American Indian/Alaskan Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Black,Texas,,,,23.3,6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - College Grad,Texas,28,25.8,-0.31,29.8,21.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Female,Texas,40,11.6,-0.83,14,9.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - High School Grad,Texas,,14.5,,19,9.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Hispanic,Texas,,14.6,,19.9,9.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Exercise - Ages 65+ - Less Than $25,000",Texas,,11.4,,15.5,7.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Less Than High School,Texas,,9.4,,14.6,4.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Male,Texas,7,23.2,0.63,27.2,19.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - Some College,Texas,33,15.5,-0.73,19.6,11.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Exercise - Ages 65+ - White,Texas,23,17.6,0.03,20.2,15,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Falls - Ages 65+,Texas,27,30.1,0.22,33.2,27,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Falls - Ages 65+ - $25-$49,999",Texas,15,28.4,-0.3,34.3,22.5,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Falls - Ages 65+ - $50-$74,999",Texas,40,30.9,0.74,38.9,22.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Falls - Ages 65+ - $75,000 or More",Texas,26,26.7,0.03,33.5,20,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Black,Texas,,23.9,,35.4,12.3,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - College Grad,Texas,5,27.3,-0.75,31.8,22.9,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Female,Texas,46,35.5,1.42,39.8,31.2,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - High School Grad,Texas,35,30.1,0.32,36.1,24.1,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Hispanic,Texas,,30.6,,38.3,22.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Falls - Ages 65+ - Less Than $25,000",Texas,31,34.7,0.39,41.2,28.2,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Less Than High School,Texas,,30.8,,38.8,22.7,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Male,Texas,5,23.5,-0.92,27.8,19.2,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Rural,Texas,,28.3,,38.2,18.5,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Some College,Texas,41,32.5,0.79,38.8,26.2,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Suburban,Texas,,25.7,,31.8,19.5,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - Urban,Texas,35,31.7,0.69,37.5,25.9,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Falls - Ages 65+ - White,Texas,27,31.2,0.23,34.8,27.7,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Flu Vaccination - Ages 65+,Texas,31,59.4,-0.23,63.5,55.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Flu Vaccination - Ages 65+ - $25-$49,999",Texas,43,54.3,-1.05,64.3,44.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Flu Vaccination - Ages 65+ - $50-$74,999",Texas,31,60.9,-0.29,71.1,50.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Flu Vaccination - Ages 65+ - $75,000 or More",Texas,30,63.9,-0.14,72.9,54.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Black,Texas,,48.1,,64.8,31.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - College Grad,Texas,38,62.3,-0.78,69,55.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Female,Texas,35,57.8,-0.53,63.4,52.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - High School Grad,Texas,36,53.6,-0.81,61.9,45.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Hispanic,Texas,,63.9,,72.7,55.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Flu Vaccination - Ages 65+ - Less Than $25,000",Texas,17,59.4,0.41,67.3,51.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Less Than High School,Texas,6,65.6,1.04,76.8,54.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Male,Texas,26,60.9,0,67.4,54.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Rural,Texas,,70.1,,92.6,47.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Some College,Texas,32,57.6,-0.33,65.8,49.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Suburban,Texas,,58.5,,69.9,47,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - Urban,Texas,15,66.9,0.86,74.9,58.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Flu Vaccination - Ages 65+ - White,Texas,33,59,-0.57,63.9,54,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Food Insecurity - Ages 60+,Texas,37,16.5,0.8,,,"Feeding America, The State of Senior Hunger in America",2016
+2019,2019 Senior,Frequent Mental Distress - Ages 65+,Texas,36,8.3,0.27,10.5,6.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Mental Distress - Ages 65+ - $25-$49,999",Texas,,8.2,,12.7,3.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Mental Distress - Ages 65+ - $50-$74,999",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Black,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - College Grad,Texas,,2.9,,4.5,1.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Female,Texas,24,8.2,-0.3,11.3,5.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - High School Grad,Texas,,9.7,,14,5.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Hispanic,Texas,,12.3,,18,6.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Mental Distress - Ages 65+ - Less Than $25,000",Texas,,12.1,,17.1,7.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Less Than High School,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Male,Texas,,8.5,,11.7,5.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Rural,Texas,,1,,1.5,0.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Some College,Texas,,9.6,,13.4,5.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Suburban,Texas,,7,,10.8,3.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - Urban,Texas,,7.7,,11.4,4.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Mental Distress - Ages 65+ - White,Texas,18,6.6,-0.45,8.8,4.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Mental Distress - Ages 65+- $75,000 or More",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+,Texas,29,17.2,0.07,20.1,14.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Physical Distress - Ages 65+ - $25-$49,999",Texas,26,16.3,0,22.2,10.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Physical Distress - Ages 65+ - $50-$74,999",Texas,,15.2,,23.2,7.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Physical Distress - Ages 65+ - $75,000 or More",Texas,,,,12.5,3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - American Indian/Alaskan Native,Texas,,,,32.4,0,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Black,Texas,,,,30.9,6.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - College Grad,Texas,21,10.6,-0.16,14.1,7.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Female,Texas,33,18.8,0.29,22.7,14.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - High School Grad,Texas,26,17.7,-0.18,23.5,12,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Hispanic,Texas,,23.0,,30.4,15.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Frequent Physical Distress - Ages 65+ - Less Than $25,000",Texas,18,23.4,-0.44,29.3,17.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Less Than High School,Texas,,24.6,,34,15.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Male,Texas,22,15.4,-0.17,19.6,11.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - Some College,Texas,31,17.7,0.18,23,12.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Frequent Physical Distress - Ages 65+ - White,Texas,16,15.0,-0.49,18.2,11.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+,Texas,34,27.7,-0.62,30.3,25.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Fruit Consumption - Ages 65+ - $25-$49,999",Texas,42,22.3,-1.29,26.8,17.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Fruit Consumption - Ages 65+ - $50-$74,999",Texas,44,23.9,-1.23,30.6,17.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Fruit Consumption - Ages 65+ - $75,000 or More",Texas,32,31.4,-0.58,37.4,25.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - American Indian/Alaskan Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Black,Texas,,39.8,,51.8,27.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - College Grad,Texas,37,33.0,-0.78,37.5,28.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Female,Texas,40,28.6,-0.93,31.7,25.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - High School Grad,Texas,43,22.5,-0.96,26.8,18.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Hispanic,Texas,,30.9,,37.2,24.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Fruit Consumption - Ages 65+ - Less Than $25,000",Texas,25,28.4,0,33.5,23.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Less Than High School,Texas,,29.8,,37.1,22.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Male,Texas,16,26.7,0.07,30.8,22.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - Some College,Texas,41,25.9,-1.02,30.4,21.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Fruit Consumption - Ages 65+ - White,Texas,41,24.7,-0.98,27.3,22,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Geriatrician Shortfall ,Texas,28,70.8,0.36,,,American Geriatrics Society,2016
+2019,2019 Senior,Geriatricians,Texas,19,13.9,0.18,,,"U.S. HHS, Centers for Medicare & Medicaid Services, National Plan and Provider Enumeration System, Sept. 2019; CDC WONDER Single Race Population Estimates 2010-2018",2018
+2019,2019 Senior,Health Care Associated Infection (HAI) Policies,Texas,15,66.7,0.72,,,"CDC, National and State Healthcare Associated Infections Progress Report",2014
+2019,2019 Senior,High Health Status - Ages 65+,Texas,43,37.2,-0.79,40.9,33.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"High Health Status - Ages 65+ - $25-$49,999",Texas,47,32.3,-1.25,40.7,23.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"High Health Status - Ages 65+ - $50-$74,999",Texas,46,41.5,-1.57,51.7,31.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"High Health Status - Ages 65+ - $75,000 or More",Texas,19,62.4,0.15,70.9,53.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Black,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - College Grad,Texas,32,55,-0.47,61.3,48.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Female,Texas,41,37.2,-0.81,42.2,32.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - High School Grad,Texas,44,29.4,-1.13,36.6,22.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Hispanic,Texas,,13.7,,18.7,8.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"High Health Status - Ages 65+ - Less Than $25,000",Texas,27,25.9,-0.04,32.2,19.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Less Than High School,Texas,,16,,23.6,8.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Male,Texas,38,37.6,-0.61,43.4,31.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Rural,Texas,,39.2,,58.6,19.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Some College,Texas,36,41.1,-0.6,48.8,33.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Suburban,Texas,,45.1,,55.8,34.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - Urban,Texas,44,33.5,-1.05,41.1,26,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,High Health Status - Ages 65+ - White,Texas,18,46.8,0.29,51.5,42.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Hip Fracture - Seniors - Female,Texas,40,8.6,1.01,8.8,8.4,The Dartmouth Atlas of Health Care,2014
+2019,2019 Senior,Hip Fracture - Seniors - Male,Texas,40,4.1,1.01,4.3,4,The Dartmouth Atlas of Health Care,2014
+2019,2019 Senior,Hip Fractures,Texas,41,6.6,1.01,6.7,6.5,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Home Health Care Workers,Texas,7,217,0.69,,,"U.S. Department of Labor, Bureau of Labor Statistics; U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Home-delivered Meals,Texas,28,9.2,0.04,,,"U.S. HHS, Administration for Community Living, State Program Reports; U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Hospice Care,Texas,7,60.7,0.75,,,The Dartmouth Atlas of Health Care,2016
+2019,2019 Senior,Hospital Deaths,Texas,14,18.6,-0.71,18.9,18.3,The Dartmouth Atlas of Health Care,2016
+2019,2019 Senior,Hospital Readmissions,Texas,29,14.7,-0.2,14.9,14.6,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Hospital Readmissions - Ages 65-74,Texas,22,16,0,,,AHR data,
+2019,2019 Senior,ICU Use ,Texas,41,15.8,0.37,16,15.5,The Dartmouth Atlas of Health Care,2016
+2019,2019 Senior,Independent Living Difficulty,Texas,42,16.3,1.18,,,"U.S. Census Bureau, American Community Survey",2013-2017
+2019,2019 Senior,Insufficient Sleep - Ages 65+,Texas,18,23.9,-0.71,27,20.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Insufficient Sleep - Ages 65+ - $25-$49,999",Texas,39,28.2,0.36,35.2,21.1,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Insufficient Sleep - Ages 65+ - $50-$74,999",Texas,42,26.8,0.51,34.7,18.9,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Insufficient Sleep - Ages 65+ - $75,000 or More",Texas,,15.1,,20.4,9.7,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - American Indian/Alaskan Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Black,Texas,,34.6,,48.7,20.5,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - College Grad,Texas,34,22,-0.1,26.5,17.5,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Female,Texas,10,23.3,-1.03,26.9,19.7,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - High School Grad,Texas,8,22.2,-1.32,27.7,16.6,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Hispanic,Texas,,24.4,,32.4,16.5,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Insufficient Sleep - Ages 65+ - Less Than $25,000",Texas,2,23.9,-1.66,29.2,18.6,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Less Than High School,Texas,,31.4,,41,21.8,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Male,Texas,30,24.7,-0.21,30,19.4,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - Some College,Texas,12,22.5,-0.89,27.7,17.2,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Insufficient Sleep - Ages 65+ - White,Texas,11,21.2,-1.07,24.4,18,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,Live Alone,Texas,3,8.1,-0.23,,,"U.S. Census Bureau, American Community Survey",2013-2017
+2019,2019 Senior,Low-care Nursing Home Residents,Texas,23,11.3,-0.14,,,"Brown University, Shaping Long Term Care in America Project",2016
+2019,2019 Senior,Membership Organizations,Texas,43,7.7,-0.56,,,AHR data,
+2019,2019 Senior,Multiple Chronic Conditions - Ages 65+,Texas,39,40.1,0.38,,,"U.S. HHS, Centers for Medicare & Medicaid Services",2015
+2019,2019 Senior,Never Married,Texas,11,4,-0.99,,,"U.S. Census Bureau, American Community Survey",2013-2017
+2019,2019 Senior,Non-smoking Regulation,Texas,27,44.8,-0.32,,,AHR data,
+2019,2019 Senior,Nursing Home Quality,Texas,50,30.1,-1.8,,,"U.S. HHS, Centers for Medicare & Medicaid Services, Nursing Home Compare",Dec 2018 - Feb 2019
+2019,2019 Senior,Obesity - Ages 65+,Texas,34,30.6,0.62,34.4,26.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Obesity - Ages 65+ - $25-$49,999",Texas,2,23.6,-1.76,31.1,16,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Obesity - Ages 65+ - $50-$74,999",Texas,26,29.3,0.02,38.5,20.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Obesity - Ages 65+ - $75,000 or More",Texas,46,30.4,1.54,38.6,22.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Black,Texas,,39.4,,54.8,24,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - College Grad,Texas,36,26.5,1.01,32.4,20.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Female,Texas,44,32.9,1.35,38.1,27.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - High School Grad,Texas,18,29.7,-0.3,37,22.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Hispanic,Texas,,40.7,,50.3,31.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Obesity - Ages 65+ - Less Than $25,000",Texas,36,35.9,0.72,43.5,28.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Less Than High School,Texas,43,39.2,1.12,50.7,27.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Male,Texas,18,28.3,-0.15,33.9,22.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Rural,Texas,,51.3,,74.5,28.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Some College,Texas,18,30,0.05,36.9,23.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Suburban,Texas,,24.3,,33.7,14.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - Urban,Texas,17,25.6,-0.31,32.5,18.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Obesity - Ages 65+ - White,Texas,18,27.6,-0.03,32,23.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Overall - Seniors,Texas,40,-0.318,-0.318,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Overuse--Mammography,Texas,5,20.7,-0.95,,,The Dartmouth Atlas of Health Care,2014
+2019,2019 Senior,Overuse--PSA Test,Texas,39,19,0.23,,,The Dartmouth Atlas of Health Care,2014
+2019,2019 Senior,Physical Inactivity - Ages 65+,Texas,45,35.3,1.35,39.7,31,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Physical Inactivity - Ages 65+ - $25-$49,999",Texas,48,41.5,1.88,51.6,31.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Physical Inactivity - Ages 65+ - $50-$74,999",Texas,35,26.8,0.57,37,16.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Physical Inactivity - Ages 65+ - $75,000 or More",Texas,37,21.4,0.95,28.9,14,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Black,Texas,,24.4,,38.3,10.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - College Grad,Texas,44,22.1,1.26,27.7,16.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Female,Texas,47,40.6,1.55,46.2,35,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - High School Grad,Texas,31,38.5,0.3,46.8,30.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Hispanic,Texas,,55.3,,66,44.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Physical Inactivity - Ages 65+ - Less Than $25,000",Texas,44,43.7,0.96,52.8,34.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Less Than High School,Texas,,56.4,,69.7,43.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Male,Texas,36,29.5,0.86,36.3,22.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Rural,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Some College,Texas,48,35.1,1.84,43,27.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Suburban,Texas,,30.4,,39.7,21,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - Urban,Texas,34,32.6,0.41,44.1,21.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Physical Inactivity - Ages 65+ - White,Texas,41,33.4,1.02,38.3,28.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+,Texas,30,74.2,-0.14,77.9,70.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Pneumonia Vaccination - Ages 65+ - $25-$49,999",Texas,25,77.2,0.31,85.3,69,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Pneumonia Vaccination - Ages 65+ - $50-$74,999",Texas,48,70.8,-1.21,81.4,60.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Pneumonia Vaccination - Ages 65+ - $75,000 or More",Texas,28,77.4,0.05,85.6,69.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - American Indian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Black,Texas,,68.1,,83.8,52.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - College Grad,Texas,45,73.3,-1.29,79.5,67,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Female,Texas,24,77.1,0.24,81.7,72.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - High School Grad,Texas,38,71.8,-0.57,79.3,64.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Hispanic,Texas,,69.2,,77.7,60.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Pneumonia Vaccination - Ages 65+ - Less than $25,000",Texas,41,69.2,-0.42,76.1,62.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Less Than High School,Texas,34,68.8,0.11,79.7,57.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Male,Texas,40,69.8,-0.8,75.9,63.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - Some College,Texas,9,79.4,0.97,86.1,72.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Pneumonia Vaccination - Ages 65+ - White,Texas,28,76.8,-0.03,81.1,72.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Policy - Seniors,Texas,21,-0.007,-0.007,,,America's Health Rankings composite measure,2019
+2019,2019 Senior,Poor Mental Health Days - Seniors,Texas,32,2.6,0.27,3.1,2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Poor Mental Health Days - Seniors - $25-$49,999",Texas,31,2.5,0.21,3.5,1.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Poor Mental Health Days - Seniors - $50-$74,999",Texas,,2.9,,4.5,1.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Black,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - College Grad,Texas,3,1.3,-1.47,1.8,0.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Female,Texas,9,2.4,-0.93,3,1.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - High School Grad,Texas,40,3.1,0.76,4.3,1.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Hispanic,Texas,,3.8,,5.5,2.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Poor Mental Health Days - Seniors - Less Than $25,000",Texas,,3.7,,4.8,2.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Less Than High School,Texas,,3.6,,5.4,1.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Male,Texas,46,2.8,1.43,3.8,1.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Rural,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Some College,Texas,36,2.7,0.47,3.7,1.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Suburban,Texas,,2.3,,3.3,1.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - Urban,Texas,,2.3,,3.2,1.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poor Mental Health Days - Seniors - White,Texas,15,2.2,-0.51,2.8,1.6,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Poor Mental Health Days - Seniors- $75,000 or More",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Poverty - Ages 65+,Texas,46,10.8,0.96,11.1,10.5,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Poverty - Ages 65+,Texas,45,10.7,0.39,,,"U.S. Census Bureau, American Community Survey",2013-2017
+2019,2019 Senior,Poverty - Ages 65+ - American Indian/Alaska Native,Texas,,12.7,,17.6,7.8,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Poverty - Ages 65+ - Asian,Texas,,9.7,,11.3,8.1,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Poverty - Ages 65+ - Black,Texas,,16.5,,17.8,15.2,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Poverty - Ages 65+ - Hispanic,Texas,,20.2,,21.2,19.2,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Poverty - Ages 65+ - White,Texas,47,9.8,,10.1,9.5,"U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Prescription Drug Coverage,Texas,25,85,-0.69,,,"The Henry J. Kaiser Family Foundation, State Health Facts",2014
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74,Texas,32,2716,0.3,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74 - American Indian/Alaska Native,Texas,,9194.3,,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74 - Asian/Pacific Islander,Texas,41,4736.7,0.38,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74 - Black,Texas,39,8976.3,0.67,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74 - Female,Texas,41,6716.7,1.47,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74 - Hispanic,Texas,40,7055.3,0.82,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74 - Other Race,Texas,26,4365.7,0.45,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-74 - White,Texas,37,6266.3,1.45,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Ages 65-75  - Male,Texas,31,6310,1.25,,,AHR data,
+2019,2019 Senior,Preventable Hospitalizations - Seniors,Texas,34,53.2,0.33,53.6,52.9,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Preventable Hospitalizations - Seniors - Black,Texas,,66,,67.5,64.5,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Preventable Hospitalizations - Seniors - Non-black,Texas,,52.2,,52.6,51.8,The Dartmouth Atlas of Health Care,2015
+2019,2019 Senior,Risk of Social Isolation - Ages 65+,Texas,34,65,0.14,,,"U.S. Census Bureau, American Community Survey",2013-2017
+2019,2019 Senior,Severe Housing Problems,Texas,37,18.0,-0.11,0,0,AHR data,
+2019,2019 Senior,Smoking - Ages 65+,Texas,4,6.7,-1.16,8.5,4.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Smoking - Ages 65+ - $25-$49,999",Texas,,8.2,,12,4.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Smoking - Ages 65+ - $50-$74,999",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Smoking - Ages 65+ - $75,000 or More",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Black,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - College Grad,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Female,Texas,6,6.2,-0.89,8.3,4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - High School Grad,Texas,12,9.2,-0.53,13.2,5.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Hispanic,Texas,,4.7,,7,2.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Smoking - Ages 65+ - Less Than $25,000",Texas,,9.3,,13.2,5.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Less Than High School,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Male,Texas,2,6.6,-1.47,9.1,4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Rural,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Some College,Texas,14,8,-0.45,11.8,4.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Suburban,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - Urban,Texas,,5.2,,8.2,2.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Smoking - Ages 65+ - White,Texas,4,6.1,-1.37,8.2,4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,SNAP Reach - Ages 60+,Texas,18,79.7,-0.05,,,"U.S. Department of Agriculture, Characteristics of Supplemental Nutrition Assistance Program Households; U.S. Census Bureau, American Community Survey",2017
+2019,2019 Senior,Suicide - Ages 65+,Texas,18,15.9,-0.14,16.7,15.1,AHR data,
+2019,2019 Senior,Suicide - Ages 65-74,Texas,,15,,16.7,13.4,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Suicide - Ages 65-74,Texas,,14.2,,15.1,13.2,AHR data,
+2019,2019 Senior,Suicide - Ages 75-84,Texas,,17.5,,20.1,14.9,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Suicide - Ages 75-84,Texas,,17.2,,18.7,15.7,AHR data,
+2019,2019 Senior,Suicide - Ages 85+,Texas,,19.2,,24.1,15.1,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Suicide - Ages 85+,Texas,,20.8,,23.4,18.2,AHR data,
+2019,2019 Senior,Suicide - Female - Ages 65+,Texas,,4.5,,5,3.9,AHR data,
+2019,2019 Senior,Suicide - Male  - Ages 65+,Texas,18,31.2,,32.9,29.5,AHR data,
+2019,2019 Senior,Suicide - Seniors,Texas,17,15.8,-0.16,16.5,15,AHR data,
+2019,2019 Senior,Suicide - Seniors,Texas,15,16.2,,17.6,14.9,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Suicide - Seniors - Female,Texas,,4.8,,5.9,3.9,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Suicide - Seniors - Male,Texas,,30.4,,33.1,27.6,"CDC WONDER Online Database, Underlying Cause of Death, Multiple Cause of Death files",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+,Texas,23,13.8,-0.15,16.2,11.4,"CDC, Behavioral Risk Factor Surveillance System",2016
+2019,2019 Senior,"Teeth Extractions - Ages 65+ - $25-$49,999",Texas,23,13.5,-0.11,18.3,8.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Teeth Extractions - Ages 65+ - $50-$74,999",Texas,,8.2,,12.1,4.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Teeth Extractions - Ages 65+ - $75,000 or More",Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - American Indian/Alaska Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Black,Texas,,22.3,,32.5,12,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - College Grad,Texas,,4.8,,6.9,2.7,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Female,Texas,28,15.5,0.16,18.8,12.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - High School Grad,Texas,15,16.6,-0.39,21.2,12,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Hispanic,Texas,,14.6,,20.8,8.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Teeth Extractions - Ages 65+ - Less Than $25,000",Texas,5,18.6,-1.05,23.5,13.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Less Than High School,Texas,,22.1,,29.7,14.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Male,Texas,15,11.8,-0.46,15.1,8.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Rural,Texas,,6.7,,10.6,2.8,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Some College,Texas,36,13,0.61,17.1,9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Suburban,Texas,,14.9,,20.5,9.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - Urban,Texas,,13.9,,18.5,9.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Teeth Extractions - Ages 65+ - White,Texas,12,11.9,-0.45,14.4,9.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+,Texas,5,18.4,1.17,20.6,16.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Vegetable Consumption - Ages 65+ - $25-$49,999",Texas,12,15.2,0.56,18.8,11.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Vegetable Consumption - Ages 65+ - $50-$74,999",Texas,15,16.3,0.31,22.7,9.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Vegetable Consumption - Ages 65+ - $75,000 or More",Texas,12,20.6,0.61,25.7,15.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - American Indian/Alaskan Native,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Asian,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Black,Texas,,17.7,,26.4,9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - College Grad,Texas,8,22.9,0.85,26.9,18.9,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Female,Texas,6,21.4,1.12,24.4,18.4,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Hawaiian/Pacific Islander,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - High School Grad,Texas,3,15.6,1.35,19.6,11.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Hispanic,Texas,,19.1,,24,14.3,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,"Vegetable Consumption - Ages 65+ - Less Than $25,000",Texas,,17.1,,21,13.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Less Than High School,Texas,,21.6,,28.1,15.1,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Male,Texas,5,14.7,1.07,17.9,11.5,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Multiracial,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Other Race,Texas,,,,,,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - Some College,Texas,18,16.1,0.16,20,12.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Vegetable Consumption - Ages 65+ - White,Texas,5,17.7,1.05,20.1,15.2,"CDC, Behavioral Risk Factor Surveillance System",2017
+2019,2019 Senior,Violent Crime,Texas,34,439,0.3,,,AHR data,
+2019,2019 Senior,Volunteerism - Ages 65+,Texas,36,27.5,-0.08,,,Corporation for National & Community Service,2017
+2019,2019 Senior,Voter Turnout - Ages 65+,Texas,28,65.5,-0.1,68.7,62.3,AHR data,
