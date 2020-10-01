@@ -11,12 +11,28 @@ library(janitor)
 library(tidycensus)
 library(reticulate)
 ```
+# Peer States Prep
+```{r}
+#making the peer states df that can be joined to other dfs
+states <- c('California', 'Colorado', 'Florida', 'Georgia', 'Illinois', 'New York', 'North Carolina', 'Ohio', 'Pennsylvania', 'Virginia', 'Washington')
+
+state_short <- c('CA', 'CO', 'FL', 'GA', 'IL', 'NY', 'NC', 'OH', 'PA', 'VA', 'WA')
+
+peer <- c('Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y')
+
+states <- data.frame(states, state_short, peer)
+
+```
+
+
 
 # Aging Data 
 
 ## Population Projections
 
 ```{r}
+## This is complete
+
 #reading in the CSV downloaded from the state demographer. Keeping only relevant data
 pop_proj <- read_csv("raw_data/Aging/2018allcntyindage.csv") %>% 
   mutate(age_keeps = case_when(
@@ -31,6 +47,8 @@ pop_proj <- read_csv("raw_data/Aging/2018allcntyindage.csv") %>%
 ```
 ## Diabetes Data
 ```{r}
+## This is complete
+
 #Starting with the county level -- these do not have age breakdowns
 #reading in the CSV from the CDC.Skipping the first two rows as they do not contain any relevant information
 diabetes_stats_county <- read_csv("raw_data/Aging/DiabetesAtlasCountyData.csv", skip = 2) %>%
@@ -50,58 +68,251 @@ diabetes_stats_TX_65_raw <- read_csv("raw_data/Aging/DiabetesAtlasData65-74.csv"
 
 ## Physical Inactivity Data
 ```{r}
+## This is complete
+
 #reading in the CSV from America's health rankings and keeping the relevant information
-physicial_inactivity <- read_csv("raw_data/Aging/2019-Senior_TX.csv")
-physicial_inactivity <- physicial_inactivity[which(physicial_inactivity$`Measure Name` == "Physical Inactivity - Ages 65+"), ] %>%
+physicial_inactivity <- read_csv("raw_data/Aging/2019-Senior_TX.csv") %>%
+  clean_names() %>%
+  filter(`measure_name` == "Physical Inactivity - Ages 65+") %>%
   write_rds('clean_data/Aging/physical_inactivity_data.rds')
 ```
 
 ## Social Isolation Data
 ```{r}
+## This is complete
+
 #reading in the CSV. I'll keep all the records for social isolation from all the different states
-social_iso <- read_csv("raw_data/Aging/2020-Senior.csv")
-social_iso <- social_iso[which(social_iso$`Measure Name` == "Risk of Social Isolation - Ages 65+"), ] %>%
+social_iso <- read_csv("raw_data/Aging/2020-Senior.csv") %>%
+  clean_names() %>%
+  filter(`measure_name` == "Risk of Social Isolation - Ages 65+") %>%
+  merge(x=social_iso, y=states, by.x='state_name', by.y='states', all.x = TRUE) %>%
   write_rds('clean_data/Aging/social_iso_data.rds')
 ```
 ## Mental Health Data
 ```{r}
+## This is complete
+
 #reading in the CSV. I'll keep all the records for mental health from all the different states
-mental_health <- read_csv("raw_data/Aging/2020-Senior.csv")
-mental_health <- mental_health[which(mental_health$`Measure Name` == "Frequent Mental Distress - Ages 65+"), ] %>%
+mental_health <- read_csv("raw_data/Aging/2020-Senior.csv") %>%
+  clean_names() %>%
+  filter(`measure_name` == "Frequent Mental Distress - Ages 65+") %>%
+  merge(x=mental_health, y=states, by.x='state_name', by.y='states', all.x = TRUE) %>%
   write_rds('clean_data/Aging/mental_health_data.rds')
 ```
-## Alzheimer’s Data
+## Alzheimer’s 
 ```{r}
+## This is complete
+
 #reading in CSV and saving the data
 alh_data <- read_csv("raw_data/Aging/Data Table.csv")%>%
+  clean_names() %>%
+  merge(x=alh_data, y=states, by.x='state', by.y='state_short', all.x = TRUE) %>%
   write_rds('clean_data/Aging/alzheimers_data.rds')
 ```
 ## Primary Care Access
 ```{r}
+## This is complete
+
 #reading in the CSV. I'll keep all the records for health providers from all the different states
 dedi_health <- read_csv("raw_data/Aging/2020-Senior.csv") %>%
- janitor::clean_names() %>%
- select(date, measure_name, (contains("pct"))
-  filter(`Measure Name`=="Dedicated Health Care Provider - Ages 65+")
-
-dedi_health <- dedi_health[which(dedi_health$`Measure Name` == "Dedicated Health Care Provider - Ages 65+"), ] %>%
+ clean_names() %>%
+  filter(`measure_name`=="Dedicated Health Care Provider - Ages 65+") %>%
+  merge(x=dedi_health, y=states, by.x='state_name', by.y='states', all.x = TRUE) %>%
   write_rds('clean_data/Aging/dedicated_health_provider_data.rds')
 ```
 ## Immunization Rates
 ```{r}
+## This is complete
+
 #reading in the CSV. I'll keep all the records for immunization rates from all the different states
-imm_rates <- read_csv("raw_data/Aging/2020-Senior.csv")
-imm_rates <- imm_rates[which(imm_rates$`Measure Name` == "Immunizations - Senior"), ] %>%
+imm_rates <- read_csv("raw_data/Aging/2020-Senior.csv") %>% 
+  clean_names() %>%
+  filter(`measure_name` == "Immunizations - Senior")%>%
+  merge(x=imm_rates, y=states, by.x='state_name', by.y='states', all.x = TRUE) %>%
   write_rds('clean_data/Aging/immunization_rates_data.rds')
 ```
+
 ## Nursing Home Quality
 ```{r}
+## This is complete
+
 #reading in the CSV. I'll keep all the records for nursing home quality from all the different states
-nursing_homes <- read_csv("raw_data/Aging/2020-Senior.csv")
-nursing_homes <- nursing_homes[which(nursing_homes$`Measure Name` == "Nursing Home Quality"), ] %>%
+nursing_homes <- read_csv("raw_data/Aging/2020-Senior.csv") %>%
+  clean_names() %>%
+  filter(`measure_name` == "Nursing Home Quality")  %>%
+  merge(x=nursing_homes, y=states, by.x='state_name', by.y='states', all.x = TRUE) %>%
   write_rds('clean_data/Aging/nursing_homes_data.rds')
 ```
 
 # Childhood Data
+## Obesity and Overweight
+```{r}
+## This is complete
+
+# Starting with obesity and overweight data for children across all states
+#reading in the data and only keeping childhood obesity and overweight rates
+chd_obes <- read_csv('raw_data/Children/2019-HWC.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Overweight or Obesity-Youth") %>%
+  merge(x=chd_obes, y=states, by.x='state_name', by.y='states', all.x = TRUE) %>%
+  write_rds('clean_data/Children/childhood_obesity_data.rds')
+
+#reading in the data and only keeping childhood obesity and overweight rates for children in WIC between the ages of 2-4
+wic_obes <- read_csv('raw_data/Children/ExportCSV.csv') %>%
+  clean_names() %>%
+  merge(x=wic_obes, y=states, by.x='location_desc', by.y='states', all.x = TRUE) %>%
+  write_rds('clean_data/Children/wic_obesity_data.rds')
+```
+## Physical Inactivity 
+```{r}
+## This is complete
+
+##reading data for youth inactivity
+chld_inac <- read_csv('raw_data/Children/child_inactivity.csv') %>%
+  clean_names() %>%
+  write_rds('clean_data/Children/child_inactivity_data.rds')
+```
+## Smoking
+```{r}
+## This is complete
+
+#reading in the data for youth smoking rates
+
+#this is electronic vape usage
+child_vape_use <- read_csv('raw_data/Children/current_vape_use.csv') %>%
+  clean_names() %>%
+  merge(x=child_vape_use, y=states, by.x='location_desc', by.y='states', all.x = TRUE) %>%
+  write_rds('clean_data/Children/child_vape_data.rds')
+
+#this if for any tobacco use
+child_tob_use <- read_csv('raw_data/Children/current_any_tobacco_use.csv') %>%
+  clean_names() %>%
+  merge(x=child_tob_use, y=states, by.x='location_desc', by.y='states', all.x = TRUE) %>%
+  write_rds('clean_data/Children/child_tobacco_data.rds')
+
+#this if for any tobacco usage trend
+child_tob_use <- read_csv('raw_data/Children/current_any_tobacco_trend.csv') %>%
+  clean_names() %>%
+  write_rds('clean_data/Children/child_tobacco_trend.rds')
+
+```
+
+## Mental Health
+```{r}
+## This is complete
+
+#reading in the mental health data
+child_mental_health <- read_csv('raw_data/Children/child_mental_health.csv') %>%
+  clean_names() %>%
+  write_rds('clean_data/Children/child_mental_health_data.rds')
+```
+## Suicide Data
+```{r}
+## This is complete
+
+## keeping on teen suicide data for Texas and the US, first for 2019
+teen_suici_19 <- read_csv('raw_data/Children/2019-HWC.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Teen Suicide") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+
+#2018
+teen_suici_18 <- read_csv('raw_data/Children/2018-HWC.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Teen Suicide") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+
+#2016
+teen_suici_16 <- read_csv('raw_data/Children/2016-HWC.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Teen Suicide") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+
+
+teen_suici <- rbind(teen_suici_19, teen_suici_18, teen_suici_16) %>%
+  write_rds('clean_data/Children/teen_suicide_data.rds')
+```
+## Childhood uninsured rates
+```{r}
+## This is complete
+
+child_inse <- read_csv('raw_data/Children/SAHIE_28SEP20_15_39_23_13.csv') %>%
+  clean_names() %>%
+  merge(x=child_inse, y=states, by.x='name', by.y='states', all.x = TRUE) %>%
+  write_rds('clean_data/Children/child_uninsured_data.rds')
+```
+## Access to primary care
+```{r}
+## This is complete
+
+chd_pc <- read_csv('raw_data/Children/2019-HWC.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Clinical Care-Children") %>%
+  merge(x=chd_pc, y=states, by.x='state_name', by.y='states', all.x = TRUE) %>%
+  write_rds('clean_data/Children/childhood_primary_care.rds')
+```
 
 # Working Age Data
+
+## phyisical inactivity 
+```{r}
+## This is NOT complete
+
+working_activity <- read_csv('raw_data/Working Age/Physical Activity.csv') %>%
+  clean_names() %>%
+  write_rds('clean_data/Working Age/working_activity.rds')
+```
+
+## Mental Health
+```{r}
+## This is complete
+
+mental_2019 <- read_csv('raw_data/Working Age/2019-Annual.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Frequent Mental Distress") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+  
+mental_2018 <- read_csv('raw_data/Working Age/2018-Annual.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Frequent Mental Distress") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+
+mental_2017 <- read_csv('raw_data/Working Age/2017-Annual.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Frequent Mental Distress") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+
+mental_2016 <- read_csv('raw_data/Working Age/2016-Annual.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Frequent Mental Distress") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+
+mental_2015 <- read_csv('raw_data/Working Age/2015-Annual.csv') %>%
+  clean_names() %>%
+  filter(`measure_name` == "Frequent Mental Distress") %>%
+  filter((`state_name` == "Texas") |  (`state_name` == "United States"))
+
+mental_health_working <- rbind(mental_2019, mental_2018, mental_2017, mental_2016, mental_2015) %>%
+  write_rds('clean_data/Working Age/mental_health_data.rds')
+```
+
+
+## Cardiovascular Health
+```{r}
+## This is complete
+
+card_health = read_csv('raw_data/Working Age/report.csv') %>%
+  clean_names() %>%
+  write_rds('clean_data/Working Age/cardio_health.rds')
+
+```
+
+## Adult uninsured rates
+```{r}
+## This is complete
+
+adul_inse <- read_csv('raw_data/Working Age/SAHIE_28SEP20_16_32_06_79.csv') %>%
+  clean_names() %>%
+  merge(x=adul_inse, y=states, by.x='name', by.y='states', all.x = TRUE) %>%
+  write_rds('clean_data/Working Age/adult_uninsured_data.rds')
+```
