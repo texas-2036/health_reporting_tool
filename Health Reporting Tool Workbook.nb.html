@@ -1753,37 +1753,12 @@ summary {
 <h1>Package Setup</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxuLS0gQXR0YWNoaW5nIHBhY2thZ2VzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2UgMS4zLjAgLS1cbnYgZ2dwbG90MiAzLjMuMiAgICAgdiBwdXJyciAgIDAuMy40XG52IHRpYmJsZSAgMy4wLjMgICAgIHYgZHBseXIgICAxLjAuMVxudiB0aWR5ciAgIDEuMS4yICAgICB2IHN0cmluZ3IgMS40LjBcbnYgcmVhZHIgICAxLjMuMSAgICAgdiBmb3JjYXRzIDAuNS4wXG4tLSBDb25mbGljdHMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZV9jb25mbGljdHMoKSAtLVxueCBkcGx5cjo6ZmlsdGVyKCkgbWFza3Mgc3RhdHM6OmZpbHRlcigpXG54IGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbiJ9 -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
--- Attaching packages --------------------------------------- tidyverse 1.3.0 --
-v ggplot2 3.3.2     v purrr   0.3.4
-v tibble  3.0.3     v dplyr   1.0.1
-v tidyr   1.1.2     v stringr 1.4.0
-v readr   1.3.1     v forcats 0.5.0
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShqYW5pdG9yKVxuYGBgIn0= -->
-<pre class="r"><code>library(janitor)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog46S847ixamFuaXRvcuOkvOO4slxuXG5UaGUgZm9sbG93aW5nIG9iamVjdHMgYXJlIG1hc2tlZCBmcm9tIOOkvOO4sXBhY2thZ2U6c3RhdHPjpLzjuLI6XG5cbiAgICBjaGlzcS50ZXN0LCBmaXNoZXIudGVzdFxuIn0= -->
-<pre><code>
-Attaching package: 㤼㸱janitor㤼㸲
-
-The following objects are masked from 㤼㸱package:stats㤼㸲:
-
-    chisq.test, fisher.test</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5Y2Vuc3VzKVxubGlicmFyeShyZXRpY3VsYXRlKVxuYGBgIn0= -->
-<pre class="r"><code>library(tidycensus)
-library(reticulate)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGphbml0b3IpXG5saWJyYXJ5KHRpZHljZW5zdXMpXG5saWJyYXJ5KHJldGljdWxhdGUpXG5saWJyYXJ5KGRwbHlyKVxuYGBgIn0= -->
+<pre class="r"><code>library(tidyverse)
+library(janitor)
+library(tidycensus)
+library(reticulate)
+library(dplyr)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1792,15 +1767,15 @@ library(reticulate)</code></pre>
 <h1>Peer States Prep</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI21ha2luZyB0aGUgcGVlciBzdGF0ZXMgZGYgdGhhdCBjYW4gYmUgam9pbmVkIHRvIG90aGVyIGRmc1xuc3RhdGVzIDwtIGMoJ0NhbGlmb3JuaWEnLCAnQ29sb3JhZG8nLCAnRmxvcmlkYScsICdHZW9yZ2lhJywgJ0lsbGlub2lzJywgJ05ldyBZb3JrJywgJ05vcnRoIENhcm9saW5hJywgJ09oaW8nLCAnUGVubnN5bHZhbmlhJywgJ1ZpcmdpbmlhJywgJ1dhc2hpbmd0b24nKVxuXG5zdGF0ZV9zaG9ydCA8LSBjKCdDQScsICdDTycsICdGTCcsICdHQScsICdJTCcsICdOWScsICdOQycsICdPSCcsICdQQScsICdWQScsICdXQScpXG5cbnBlZXIgPC0gYygnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJylcblxuc3RhdGVzIDwtIGRhdGEuZnJhbWUoc3RhdGVzLCBzdGF0ZV9zaG9ydCwgcGVlcilcblxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI21ha2luZyB0aGUgcGVlciBzdGF0ZXMgZGYgdGhhdCBjYW4gYmUgam9pbmVkIHRvIG90aGVyIGRmc1xuc3RhdGVzX25hbWVzIDwtIGMoJ0NhbGlmb3JuaWEnLCAnQ29sb3JhZG8nLCAnRmxvcmlkYScsICdHZW9yZ2lhJywgJ0lsbGlub2lzJywgJ05ldyBZb3JrJywgJ05vcnRoIENhcm9saW5hJywgJ09oaW8nLCAnUGVubnN5bHZhbmlhJywgJ1ZpcmdpbmlhJywgJ1dhc2hpbmd0b24nKVxuXG5zdGF0ZV9zaG9ydCA8LSBjKCdDQScsICdDTycsICdGTCcsICdHQScsICdJTCcsICdOWScsICdOQycsICdPSCcsICdQQScsICdWQScsICdXQScpXG5cbnBlZXIgPC0gYygnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJylcblxuc3RhdGVzIDwtIGRhdGEuZnJhbWUoc3RhdGVzX25hbWVzLCBzdGF0ZV9zaG9ydCwgcGVlcilcblxuYGBgIn0= -->
 <pre class="r"><code>#making the peer states df that can be joined to other dfs
-states &lt;- c(&#39;California&#39;, &#39;Colorado&#39;, &#39;Florida&#39;, &#39;Georgia&#39;, &#39;Illinois&#39;, &#39;New York&#39;, &#39;North Carolina&#39;, &#39;Ohio&#39;, &#39;Pennsylvania&#39;, &#39;Virginia&#39;, &#39;Washington&#39;)
+states_names &lt;- c(&#39;California&#39;, &#39;Colorado&#39;, &#39;Florida&#39;, &#39;Georgia&#39;, &#39;Illinois&#39;, &#39;New York&#39;, &#39;North Carolina&#39;, &#39;Ohio&#39;, &#39;Pennsylvania&#39;, &#39;Virginia&#39;, &#39;Washington&#39;)
 
 state_short &lt;- c(&#39;CA&#39;, &#39;CO&#39;, &#39;FL&#39;, &#39;GA&#39;, &#39;IL&#39;, &#39;NY&#39;, &#39;NC&#39;, &#39;OH&#39;, &#39;PA&#39;, &#39;VA&#39;, &#39;WA&#39;)
 
 peer &lt;- c(&#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;)
 
-states &lt;- data.frame(states, state_short, peer)
+states &lt;- data.frame(states_names, state_short, peer)
 </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -1812,8 +1787,10 @@ states &lt;- data.frame(states, state_short, peer)
 <h2>Population Projections</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jcmVhZGluZyBpbiB0aGUgQ1NWIGRvd25sb2FkZWQgZnJvbSB0aGUgc3RhdGUgZGVtb2dyYXBoZXIuIEtlZXBpbmcgb25seSByZWxldmFudCBkYXRhXG5wb3BfcHJvaiA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMThhbGxjbnR5aW5kYWdlLmNzdlwiKSAlPiUgXG4gIG11dGF0ZShhZ2Vfa2VlcHMgPSBjYXNlX3doZW4oXG4gICAgYWdlX2luX3lyc19udW0gJT4lIGJldHdlZW4oMCwxNykgfiBcIktlZXBcIixcbiAgICBhZ2VfaW5feXJzX251bSAlPiUgYmV0d2VlbigxOCw2NCkgfiBcIktlZXBcIixcbiAgICBhZ2VfaW5feXJzX251bSAlPiUgYmV0d2Vlbig2NSw5NSkgfiBcIktlZXBcIixcbiAgICBUUlVFIH4gXCJSZW1vdmVcIlxuICApKSAlPiVcbiAgZmlsdGVyKGFnZV9rZWVwcyA9PSBcIktlZXBcIikgJT4lXG4gIHdyaXRlX3JkcyhcImNsZWFuX2RhdGEvQWdpbmcvcG9wX3Byb2pfZGF0YS5yZHNcIilcblxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogaHR0cHM6Ly9kZW1vZ3JhcGhpY3MudGV4YXMuZ292L0RhdGEvVFBFUFAvUHJvamVjdGlvbnMvXG5cbiNyZWFkaW5nIGluIHRoZSBDU1YgZG93bmxvYWRlZCBmcm9tIHRoZSBzdGF0ZSBkZW1vZ3JhcGhlci4gS2VlcGluZyBvbmx5IHJlbGV2YW50IGRhdGFcbnBvcF9wcm9qIDwtIHJlYWRfY3N2KFwicmF3X2RhdGEvQWdpbmcvMjAxOGFsbGNudHlpbmRhZ2UuY3N2XCIpICU+JSBcbiAgbXV0YXRlKGFnZV9rZWVwcyA9IGNhc2Vfd2hlbihcbiAgICBhZ2VfaW5feXJzX251bSAlPiUgYmV0d2VlbigwLDE3KSB+IFwiS2VlcFwiLFxuICAgIGFnZV9pbl95cnNfbnVtICU+JSBiZXR3ZWVuKDE4LDY0KSB+IFwiS2VlcFwiLFxuICAgIGFnZV9pbl95cnNfbnVtICU+JSBiZXR3ZWVuKDY1LDk1KSB+IFwiS2VlcFwiLFxuICAgIFRSVUUgfiBcIlJlbW92ZVwiXG4gICkpICU+JVxuICBmaWx0ZXIoYWdlX2tlZXBzID09IFwiS2VlcFwiKSAlPiVcbiAgd3JpdGVfcmRzKFwiY2xlYW5fZGF0YS9BZ2luZy9wb3BfcHJval9kYXRhLnJkc1wiKVxuYGBgIn0= -->
 <pre class="r"><code>## This is complete
+
+## Data Source: https://demographics.texas.gov/Data/TPEPP/Projections/
 
 #reading in the CSV downloaded from the state demographer. Keeping only relevant data
 pop_proj &lt;- read_csv(&quot;raw_data/Aging/2018allcntyindage.csv&quot;) %&gt;% 
@@ -1824,9 +1801,18 @@ pop_proj &lt;- read_csv(&quot;raw_data/Aging/2018allcntyindage.csv&quot;) %&gt;%
     TRUE ~ &quot;Remove&quot;
   )) %&gt;%
   filter(age_keeps == &quot;Keep&quot;) %&gt;%
-  write_rds(&quot;clean_data/Aging/pop_proj_data.rds&quot;)
-</code></pre>
+  write_rds(&quot;clean_data/Aging/pop_proj_data.rds&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgRklQUyA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYXJlYV9uYW1lID0gY29sX2NoYXJhY3RlcigpLFxuICBhZ2VfaW5feXJzX2NoYXIgPSBjb2xfY2hhcmFjdGVyKClcbilcblNlZSBzcGVjKC4uLikgZm9yIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb25zLlxuIn0= -->
+<pre><code>Parsed with column specification:
+cols(
+  .default = col_double(),
+  FIPS = col_character(),
+  area_name = col_character(),
+  age_in_yrs_char = col_character()
+)
+See spec(...) for full column specifications.</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1834,8 +1820,12 @@ pop_proj &lt;- read_csv(&quot;raw_data/Aging/2018allcntyindage.csv&quot;) %&gt;%
 <h2>Diabetes Data</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1N0YXJ0aW5nIHdpdGggdGhlIGNvdW50eSBsZXZlbCAtLSB0aGVzZSBkbyBub3QgaGF2ZSBhZ2UgYnJlYWtkb3duc1xuI3JlYWRpbmcgaW4gdGhlIENTViBmcm9tIHRoZSBDREMuU2tpcHBpbmcgdGhlIGZpcnN0IHR3byByb3dzIGFzIHRoZXkgZG8gbm90IGNvbnRhaW4gYW55IHJlbGV2YW50IGluZm9ybWF0aW9uXG5kaWFiZXRlc19zdGF0c19jb3VudHkgPC0gcmVhZF9jc3YoXCJyYXdfZGF0YS9BZ2luZy9EaWFiZXRlc0F0bGFzQ291bnR5RGF0YS5jc3ZcIiwgc2tpcCA9IDIpICU+JVxuICB3cml0ZV9yZHMoXCJjbGVhbl9kYXRhL0FnaW5nL2RpYWJldGVzX2NvdW50eV9zdGF0cy5yZHNcIilcbmBgYCJ9 -->
-<pre class="r"><code>#Starting with the county level -- these do not have age breakdowns
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQ0RDIEJSRlNTXG5cbiNTdGFydGluZyB3aXRoIHRoZSBjb3VudHkgbGV2ZWwgLS0gdGhlc2UgZG8gbm90IGhhdmUgYWdlIGJyZWFrZG93bnNcbiNyZWFkaW5nIGluIHRoZSBDU1YgZnJvbSB0aGUgQ0RDLlNraXBwaW5nIHRoZSBmaXJzdCB0d28gcm93cyBhcyB0aGV5IGRvIG5vdCBjb250YWluIGFueSByZWxldmFudCBpbmZvcm1hdGlvblxuZGlhYmV0ZXNfc3RhdHNfY291bnR5IDwtIHJlYWRfY3N2KFwicmF3X2RhdGEvQWdpbmcvRGlhYmV0ZXNBdGxhc0NvdW50eURhdGEuY3N2XCIsIHNraXAgPSAyKSAlPiVcbiAgd3JpdGVfcmRzKFwiY2xlYW5fZGF0YS9BZ2luZy9kaWFiZXRlc19jb3VudHlfc3RhdHMucmRzXCIpXG5gYGAifQ== -->
+<pre class="r"><code>## This is complete
+
+## Data Source: CDC BRFSS
+
+#Starting with the county level -- these do not have age breakdowns
 #reading in the CSV from the CDC.Skipping the first two rows as they do not contain any relevant information
 diabetes_stats_county &lt;- read_csv(&quot;raw_data/Aging/DiabetesAtlasCountyData.csv&quot;, skip = 2) %&gt;%
   write_rds(&quot;clean_data/Aging/diabetes_county_stats.rds&quot;)</code></pre>
@@ -1899,8 +1889,12 @@ row col  expected    actual                                        file
 <h2>Physical Inactivity Data</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gdGhlIENTViBmcm9tIEFtZXJpY2EncyBoZWFsdGggcmFua2luZ3MgYW5kIGtlZXBpbmcgdGhlIHJlbGV2YW50IGluZm9ybWF0aW9uXG5waHlzaWNpYWxfaW5hY3Rpdml0eSA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMTktU2VuaW9yX1RYLmNzdlwiKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09IFwiUGh5c2ljYWwgSW5hY3Rpdml0eSAtIEFnZXMgNjUrXCIpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvcGh5c2ljYWxfaW5hY3Rpdml0eV9kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>#reading in the CSV from America&#39;s health rankings and keeping the relevant information
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jcmVhZGluZyBpbiB0aGUgQ1NWIGZyb20gQW1lcmljYSdzIGhlYWx0aCByYW5raW5ncyBhbmQga2VlcGluZyB0aGUgcmVsZXZhbnQgaW5mb3JtYXRpb25cbnBoeXNpY2lhbF9pbmFjdGl2aXR5IDwtIHJlYWRfY3N2KFwicmF3X2RhdGEvQWdpbmcvMjAxOS1TZW5pb3JfVFguY3N2XCIpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gXCJQaHlzaWNhbCBJbmFjdGl2aXR5IC0gQWdlcyA2NStcIikgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9waHlzaWNhbF9pbmFjdGl2aXR5X2RhdGEucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+#reading in the CSV from America&#39;s health rankings and keeping the relevant information
 physicial_inactivity &lt;- read_csv(&quot;raw_data/Aging/2019-Senior_TX.csv&quot;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Physical Inactivity - Ages 65+&quot;) %&gt;%
@@ -1929,12 +1923,16 @@ cols(
 <h2>Social Isolation Data</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gdGhlIENTVi4gSSdsbCBrZWVwIGFsbCB0aGUgcmVjb3JkcyBmb3Igc29jaWFsIGlzb2xhdGlvbiBmcm9tIGFsbCB0aGUgZGlmZmVyZW50IHN0YXRlc1xuc29jaWFsX2lzbyA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdlwiKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09IFwiUmlzayBvZiBTb2NpYWwgSXNvbGF0aW9uIC0gQWdlcyA2NStcIikgJT4lXG4gIG1lcmdlKHg9c29jaWFsX2lzbywgeT1zdGF0ZXMsIGJ5Lng9J3N0YXRlX25hbWUnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvc29jaWFsX2lzb19kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>#reading in the CSV. I&#39;ll keep all the records for social isolation from all the different states
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBzb2NpYWwgaXNvbGF0aW9uIGZyb20gYWxsIHRoZSBkaWZmZXJlbnQgc3RhdGVzXG5zb2NpYWxfaXNvIDwtIHJlYWRfY3N2KFwicmF3X2RhdGEvQWdpbmcvMjAyMC1TZW5pb3IuY3N2XCIpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gXCJSaXNrIG9mIFNvY2lhbCBJc29sYXRpb24gLSBBZ2VzIDY1K1wiKSAlPiVcbiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ3N0YXRlX25hbWUnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PSBGQUxTRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9zb2NpYWxfaXNvX2RhdGEucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+#reading in the CSV. I&#39;ll keep all the records for social isolation from all the different states
 social_iso &lt;- read_csv(&quot;raw_data/Aging/2020-Senior.csv&quot;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Risk of Social Isolation - Ages 65+&quot;) %&gt;%
-  merge(x=social_iso, y=states, by.x=&#39;state_name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state_name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Aging/social_iso_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBFZGl0aW9uID0gY29sX2RvdWJsZSgpLFxuICBgUmVwb3J0IFR5cGVgID0gY29sX2NoYXJhY3RlcigpLFxuICBgTWVhc3VyZSBOYW1lYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFN0YXRlIE5hbWVgID0gY29sX2NoYXJhY3RlcigpLFxuICBSYW5rID0gY29sX2RvdWJsZSgpLFxuICBWYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgU2NvcmUgPSBjb2xfZG91YmxlKCksXG4gIGBMb3dlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIGBVcHBlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIFNvdXJjZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNvdXJjZSBZZWFyYCA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
@@ -1960,12 +1958,16 @@ cols(
 <h2>Mental Health Data</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gdGhlIENTVi4gSSdsbCBrZWVwIGFsbCB0aGUgcmVjb3JkcyBmb3IgbWVudGFsIGhlYWx0aCBmcm9tIGFsbCB0aGUgZGlmZmVyZW50IHN0YXRlc1xubWVudGFsX2hlYWx0aCA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdlwiKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09IFwiRnJlcXVlbnQgTWVudGFsIERpc3RyZXNzIC0gQWdlcyA2NStcIikgJT4lXG4gIG1lcmdlKHg9bWVudGFsX2hlYWx0aCwgeT1zdGF0ZXMsIGJ5Lng9J3N0YXRlX25hbWUnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvbWVudGFsX2hlYWx0aF9kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>#reading in the CSV. I&#39;ll keep all the records for mental health from all the different states
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBtZW50YWwgaGVhbHRoIGZyb20gYWxsIHRoZSBkaWZmZXJlbnQgc3RhdGVzXG5tZW50YWxfaGVhbHRoIDwtIHJlYWRfY3N2KFwicmF3X2RhdGEvQWdpbmcvMjAyMC1TZW5pb3IuY3N2XCIpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gXCJGcmVxdWVudCBNZW50YWwgRGlzdHJlc3MgLSBBZ2VzIDY1K1wiKSAlPiVcbiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ3N0YXRlX25hbWUnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PSBGQUxTRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9tZW50YWxfaGVhbHRoX2RhdGEucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+#reading in the CSV. I&#39;ll keep all the records for mental health from all the different states
 mental_health &lt;- read_csv(&quot;raw_data/Aging/2020-Senior.csv&quot;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Frequent Mental Distress - Ages 65+&quot;) %&gt;%
-  merge(x=mental_health, y=states, by.x=&#39;state_name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state_name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Aging/mental_health_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBFZGl0aW9uID0gY29sX2RvdWJsZSgpLFxuICBgUmVwb3J0IFR5cGVgID0gY29sX2NoYXJhY3RlcigpLFxuICBgTWVhc3VyZSBOYW1lYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFN0YXRlIE5hbWVgID0gY29sX2NoYXJhY3RlcigpLFxuICBSYW5rID0gY29sX2RvdWJsZSgpLFxuICBWYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgU2NvcmUgPSBjb2xfZG91YmxlKCksXG4gIGBMb3dlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIGBVcHBlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIFNvdXJjZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNvdXJjZSBZZWFyYCA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
@@ -1991,11 +1993,15 @@ cols(
 <h2>Alzheimer’s</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gQ1NWIGFuZCBzYXZpbmcgdGhlIGRhdGFcbmFsaF9kYXRhIDwtIHJlYWRfY3N2KFwicmF3X2RhdGEvQWdpbmcvRGF0YSBUYWJsZS5jc3ZcIiklPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgbWVyZ2UoeD1hbGhfZGF0YSwgeT1zdGF0ZXMsIGJ5Lng9J3N0YXRlJywgYnkueT0nc3RhdGVfc2hvcnQnLCBhbGwueCA9IFRSVUUpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvYWx6aGVpbWVyc19kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>#reading in CSV and saving the data
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jRGF0YSBTb3VyY2U6IENEQyBXT05ERVJcblxuI3JlYWRpbmcgaW4gQ1NWIGFuZCBzYXZpbmcgdGhlIGRhdGFcbmFsaF9kYXRhIDwtIHJlYWRfY3N2KFwicmF3X2RhdGEvQWdpbmcvRGF0YSBUYWJsZS5jc3ZcIiklPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ3N0YXRlJyA9ICdzdGF0ZV9zaG9ydCcpLCBjb3B5PSBGQUxTRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9hbHpoZWltZXJzX2RhdGEucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+#Data Source: CDC WONDER
+
+#reading in CSV and saving the data
 alh_data &lt;- read_csv(&quot;raw_data/Aging/Data Table.csv&quot;)%&gt;%
   clean_names() %&gt;%
-  merge(x=alh_data, y=states, by.x=&#39;state&#39;, by.y=&#39;state_short&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state&#39; = &#39;state_short&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Aging/alzheimers_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBZRUFSID0gY29sX2RvdWJsZSgpLFxuICBTVEFURSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgUkFURSA9IGNvbF9kb3VibGUoKSxcbiAgREVBVEhTID0gY29sX251bWJlcigpLFxuICBVUkwgPSBjb2xfY2hhcmFjdGVyKClcbilcbiJ9 -->
@@ -2015,12 +2021,16 @@ cols(
 <h2>Primary Care Access</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gdGhlIENTVi4gSSdsbCBrZWVwIGFsbCB0aGUgcmVjb3JkcyBmb3IgaGVhbHRoIHByb3ZpZGVycyBmcm9tIGFsbCB0aGUgZGlmZmVyZW50IHN0YXRlc1xuZGVkaV9oZWFsdGggPC0gcmVhZF9jc3YoXCJyYXdfZGF0YS9BZ2luZy8yMDIwLVNlbmlvci5jc3ZcIikgJT4lXG4gY2xlYW5fbmFtZXMoKSAlPiVcbiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgPT1cIkRlZGljYXRlZCBIZWFsdGggQ2FyZSBQcm92aWRlciAtIEFnZXMgNjUrXCIpICU+JVxuICBtZXJnZSh4PWRlZGlfaGVhbHRoLCB5PXN0YXRlcywgYnkueD0nc3RhdGVfbmFtZScsIGJ5Lnk9J3N0YXRlcycsIGFsbC54ID0gVFJVRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9kZWRpY2F0ZWRfaGVhbHRoX3Byb3ZpZGVyX2RhdGEucmRzJylcbmBgYCJ9 -->
-<pre class="r"><code>#reading in the CSV. I&#39;ll keep all the records for health providers from all the different states
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBoZWFsdGggcHJvdmlkZXJzIGZyb20gYWxsIHRoZSBkaWZmZXJlbnQgc3RhdGVzXG5kZWRpX2hlYWx0aCA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdlwiKSAlPiVcbiBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWA9PVwiRGVkaWNhdGVkIEhlYWx0aCBDYXJlIFByb3ZpZGVyIC0gQWdlcyA2NStcIikgJT4lXG4gIGZ1bGxfam9pbih5PXN0YXRlcywgYnkgPSBjKCdzdGF0ZV9uYW1lJyA9ICdzdGF0ZXNfbmFtZXMnKSwgY29weT0gRkFMU0UpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvZGVkaWNhdGVkX2hlYWx0aF9wcm92aWRlcl9kYXRhLnJkcycpXG5gYGAifQ== -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+#reading in the CSV. I&#39;ll keep all the records for health providers from all the different states
 dedi_health &lt;- read_csv(&quot;raw_data/Aging/2020-Senior.csv&quot;) %&gt;%
  clean_names() %&gt;%
   filter(`measure_name`==&quot;Dedicated Health Care Provider - Ages 65+&quot;) %&gt;%
-  merge(x=dedi_health, y=states, by.x=&#39;state_name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state_name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Aging/dedicated_health_provider_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBFZGl0aW9uID0gY29sX2RvdWJsZSgpLFxuICBgUmVwb3J0IFR5cGVgID0gY29sX2NoYXJhY3RlcigpLFxuICBgTWVhc3VyZSBOYW1lYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFN0YXRlIE5hbWVgID0gY29sX2NoYXJhY3RlcigpLFxuICBSYW5rID0gY29sX2RvdWJsZSgpLFxuICBWYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgU2NvcmUgPSBjb2xfZG91YmxlKCksXG4gIGBMb3dlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIGBVcHBlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIFNvdXJjZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNvdXJjZSBZZWFyYCA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
@@ -2046,16 +2056,34 @@ cols(
 <h2>Immunization Rates</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBpbW11bml6YXRpb24gcmF0ZXMgZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXNcbmltbV9yYXRlcyA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdlwiKSAlPiUgXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSBcIkltbXVuaXphdGlvbnMgLSBTZW5pb3JcIiklPiVcbiAgbWVyZ2UoeD1pbW1fcmF0ZXMsIHk9c3RhdGVzLCBieS54PSdzdGF0ZV9uYW1lJywgYnkueT0nc3RhdGVzJywgYWxsLnggPSBUUlVFKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL2ltbXVuaXphdGlvbl9yYXRlc19kYXRhLnJkcycpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBpbW11bml6YXRpb24gcmF0ZXMgZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXNcbmltbV9yYXRlcyA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdlwiKSAlPiUgXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSBcIkltbXVuaXphdGlvbnMgLSBTZW5pb3JcIiklPiVcbiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ3N0YXRlX25hbWUnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PSBGQUxTRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9pbW11bml6YXRpb25fcmF0ZXNfZGF0YS5yZHMnKVxuYGBgIn0= -->
 <pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
 
 #reading in the CSV. I&#39;ll keep all the records for immunization rates from all the different states
 imm_rates &lt;- read_csv(&quot;raw_data/Aging/2020-Senior.csv&quot;) %&gt;% 
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Immunizations - Senior&quot;)%&gt;%
-  merge(x=imm_rates, y=states, by.x=&#39;state_name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state_name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Aging/immunization_rates_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBFZGl0aW9uID0gY29sX2RvdWJsZSgpLFxuICBgUmVwb3J0IFR5cGVgID0gY29sX2NoYXJhY3RlcigpLFxuICBgTWVhc3VyZSBOYW1lYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFN0YXRlIE5hbWVgID0gY29sX2NoYXJhY3RlcigpLFxuICBSYW5rID0gY29sX2RvdWJsZSgpLFxuICBWYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgU2NvcmUgPSBjb2xfZG91YmxlKCksXG4gIGBMb3dlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIGBVcHBlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIFNvdXJjZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNvdXJjZSBZZWFyYCA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
+<pre><code>Parsed with column specification:
+cols(
+  Edition = col_double(),
+  `Report Type` = col_character(),
+  `Measure Name` = col_character(),
+  `State Name` = col_character(),
+  Rank = col_double(),
+  Value = col_double(),
+  Score = col_double(),
+  `Lower CI` = col_double(),
+  `Upper CI` = col_double(),
+  Source = col_character(),
+  `Source Year` = col_character()
+)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -2063,12 +2091,16 @@ imm_rates &lt;- read_csv(&quot;raw_data/Aging/2020-Senior.csv&quot;) %&gt;%
 <h2>Nursing Home Quality</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gdGhlIENTVi4gSSdsbCBrZWVwIGFsbCB0aGUgcmVjb3JkcyBmb3IgbnVyc2luZyBob21lIHF1YWxpdHkgZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXNcbm51cnNpbmdfaG9tZXMgPC0gcmVhZF9jc3YoXCJyYXdfZGF0YS9BZ2luZy8yMDIwLVNlbmlvci5jc3ZcIikgJT4lXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSBcIk51cnNpbmcgSG9tZSBRdWFsaXR5XCIpICAlPiVcbiAgbWVyZ2UoeD1udXJzaW5nX2hvbWVzLCB5PXN0YXRlcywgYnkueD0nc3RhdGVfbmFtZScsIGJ5Lnk9J3N0YXRlcycsIGFsbC54ID0gVFJVRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9udXJzaW5nX2hvbWVzX2RhdGEucmRzJylcbmBgYCJ9 -->
-<pre class="r"><code>#reading in the CSV. I&#39;ll keep all the records for nursing home quality from all the different states
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBudXJzaW5nIGhvbWUgcXVhbGl0eSBmcm9tIGFsbCB0aGUgZGlmZmVyZW50IHN0YXRlc1xubnVyc2luZ19ob21lcyA8LSByZWFkX2NzdihcInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdlwiKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09IFwiTnVyc2luZyBIb21lIFF1YWxpdHlcIikgICU+JVxuICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnc3RhdGVfbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL251cnNpbmdfaG9tZXNfZGF0YS5yZHMnKVxuYGBgIn0= -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+#reading in the CSV. I&#39;ll keep all the records for nursing home quality from all the different states
 nursing_homes &lt;- read_csv(&quot;raw_data/Aging/2020-Senior.csv&quot;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Nursing Home Quality&quot;)  %&gt;%
-  merge(x=nursing_homes, y=states, by.x=&#39;state_name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state_name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Aging/nursing_homes_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBFZGl0aW9uID0gY29sX2RvdWJsZSgpLFxuICBgUmVwb3J0IFR5cGVgID0gY29sX2NoYXJhY3RlcigpLFxuICBgTWVhc3VyZSBOYW1lYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFN0YXRlIE5hbWVgID0gY29sX2NoYXJhY3RlcigpLFxuICBSYW5rID0gY29sX2RvdWJsZSgpLFxuICBWYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgU2NvcmUgPSBjb2xfZG91YmxlKCksXG4gIGBMb3dlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIGBVcHBlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIFNvdXJjZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNvdXJjZSBZZWFyYCA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
@@ -2097,13 +2129,17 @@ cols(
 <h2>Obesity and Overweight</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTdGFydGluZyB3aXRoIG9iZXNpdHkgYW5kIG92ZXJ3ZWlnaHQgZGF0YSBmb3IgY2hpbGRyZW4gYWNyb3NzIGFsbCBzdGF0ZXNcbiNyZWFkaW5nIGluIHRoZSBkYXRhIGFuZCBvbmx5IGtlZXBpbmcgY2hpbGRob29kIG9iZXNpdHkgYW5kIG92ZXJ3ZWlnaHQgcmF0ZXNcbmNoZF9vYmVzIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi8yMDE5LUhXQy5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09IFwiT3ZlcndlaWdodCBvciBPYmVzaXR5LVlvdXRoXCIpICU+JVxuICBtZXJnZSh4PWNoZF9vYmVzLCB5PXN0YXRlcywgYnkueD0nc3RhdGVfbmFtZScsIGJ5Lnk9J3N0YXRlcycsIGFsbC54ID0gVFJVRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi9jaGlsZGhvb2Rfb2Jlc2l0eV9kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code># Starting with obesity and overweight data for children across all states
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jIFN0YXJ0aW5nIHdpdGggb2Jlc2l0eSBhbmQgb3ZlcndlaWdodCBkYXRhIGZvciBjaGlsZHJlbiBhY3Jvc3MgYWxsIHN0YXRlc1xuI3JlYWRpbmcgaW4gdGhlIGRhdGEgYW5kIG9ubHkga2VlcGluZyBjaGlsZGhvb2Qgb2Jlc2l0eSBhbmQgb3ZlcndlaWdodCByYXRlc1xuY2hkX29iZXMgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuLzIwMTktSFdDLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gXCJPdmVyd2VpZ2h0IG9yIE9iZXNpdHktWW91dGhcIikgJT4lXG4gIGZ1bGxfam9pbih5PXN0YXRlcywgYnkgPSBjKCdzdGF0ZV9uYW1lJyA9ICdzdGF0ZXNfbmFtZXMnKSwgY29weT0gRkFMU0UpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRob29kX29iZXNpdHlfZGF0YS5yZHMnKVxuYGBgIn0= -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+# Starting with obesity and overweight data for children across all states
 #reading in the data and only keeping childhood obesity and overweight rates
 chd_obes &lt;- read_csv(&#39;raw_data/Children/2019-HWC.csv&#39;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Overweight or Obesity-Youth&quot;) %&gt;%
-  merge(x=chd_obes, y=states, by.x=&#39;state_name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state_name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Children/childhood_obesity_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBFZGl0aW9uID0gY29sX2RvdWJsZSgpLFxuICBgUmVwb3J0IFR5cGVgID0gY29sX2NoYXJhY3RlcigpLFxuICBgTWVhc3VyZSBOYW1lYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFN0YXRlIE5hbWVgID0gY29sX2NoYXJhY3RlcigpLFxuICBSYW5rID0gY29sX2RvdWJsZSgpLFxuICBWYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgU2NvcmUgPSBjb2xfZG91YmxlKCksXG4gIGBMb3dlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIGBVcHBlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIFNvdXJjZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNvdXJjZSBZZWFyYCA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
@@ -2122,11 +2158,13 @@ cols(
   `Source Year` = col_character()
 )</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gdGhlIGRhdGEgYW5kIG9ubHkga2VlcGluZyBjaGlsZGhvb2Qgb2Jlc2l0eSBhbmQgb3ZlcndlaWdodCByYXRlcyBmb3IgY2hpbGRyZW4gaW4gV0lDIGJldHdlZW4gdGhlIGFnZXMgb2YgMi00XG53aWNfb2JlcyA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vRXhwb3J0Q1NWLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtZXJnZSh4PXdpY19vYmVzLCB5PXN0YXRlcywgYnkueD0nbG9jYXRpb25fZGVzYycsIGJ5Lnk9J3N0YXRlcycsIGFsbC54ID0gVFJVRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi93aWNfb2Jlc2l0eV9kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>#reading in the data and only keeping childhood obesity and overweight rates for children in WIC between the ages of 2-4
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgRGF0YSBTb3VyY2U6IGh0dHBzOi8vc3RhdGVvZmNoaWxkaG9vZG9iZXNpdHkub3JnL3dpYy9cblxuI3JlYWRpbmcgaW4gdGhlIGRhdGEgYW5kIG9ubHkga2VlcGluZyBjaGlsZGhvb2Qgb2Jlc2l0eSBhbmQgb3ZlcndlaWdodCByYXRlcyBmb3IgY2hpbGRyZW4gaW4gV0lDIGJldHdlZW4gdGhlIGFnZXMgb2YgMi00XG53aWNfb2JlcyA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vRXhwb3J0Q1NWLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnbG9jYXRpb25fZGVzYycgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL3dpY19vYmVzaXR5X2RhdGEucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## Data Source: https://stateofchildhoodobesity.org/wic/
+
+#reading in the data and only keeping childhood obesity and overweight rates for children in WIC between the ages of 2-4
 wic_obes &lt;- read_csv(&#39;raw_data/Children/ExportCSV.csv&#39;) %&gt;%
   clean_names() %&gt;%
-  merge(x=wic_obes, y=states, by.x=&#39;location_desc&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;location_desc&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Children/wic_obesity_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgSUQgPSBjb2xfZG91YmxlKCksXG4gIFllYXJTdGFydCA9IGNvbF9kb3VibGUoKSxcbiAgWWVhckVuZCA9IGNvbF9kb3VibGUoKSxcbiAgRGVzY3JpcHRpb24gPSBjb2xfZG91YmxlKCksXG4gIFJlc3BvbnNlID0gY29sX2xvZ2ljYWwoKSxcbiAgRGF0YV9WYWx1ZV9Vbml0ID0gY29sX2xvZ2ljYWwoKSxcbiAgRGF0YV9WYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgRGF0YV9WYWx1ZV9Gb290bm90ZV9TeW1ib2wgPSBjb2xfbG9naWNhbCgpLFxuICBEYXRhX1ZhbHVlX0Zvb3Rub3RlID0gY29sX2xvZ2ljYWwoKSxcbiAgTG93X0NvbmZpZGVuY2VfTGltaXQgPSBjb2xfZG91YmxlKCksXG4gIEhpZ2hfQ29uZmlkZW5jZV9MaW1pdCA9IGNvbF9kb3VibGUoKSxcbiAgU2FtcGxlX1NpemUgPSBjb2xfbnVtYmVyKCksXG4gIEdlb0xvY2F0aW9uX0xhdCA9IGNvbF9kb3VibGUoKSxcbiAgR2VvTG9jYXRpb25fTG9uZyA9IGNvbF9kb3VibGUoKSxcbiAgUmVzcG9uc2VJZCA9IGNvbF9sb2dpY2FsKCksXG4gIFN0cmF0aWZpY2F0aW9uQ2F0ZWdvcnkyID0gY29sX2xvZ2ljYWwoKSxcbiAgU3RyYXRpZmljYXRpb25DYXRlZ29yeUlkMiA9IGNvbF9sb2dpY2FsKCksXG4gIFN0cmF0aWZpY2F0aW9uMiA9IGNvbF9sb2dpY2FsKCksXG4gIFN0cmF0aWZpY2F0aW9uSWQyID0gY29sX2xvZ2ljYWwoKSxcbiAgU3RyYXRpZmljYXRpb25DYXRlZ29yeTMgPSBjb2xfbG9naWNhbCgpXG4gICMgLi4uIHdpdGggNCBtb3JlIGNvbHVtbnNcbilcblNlZSBzcGVjKC4uLikgZm9yIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb25zLlxuIn0= -->
@@ -2164,8 +2202,12 @@ See spec(...) for full column specifications.</code></pre>
 <h2>Physical Inactivity</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyNyZWFkaW5nIGRhdGEgZm9yIHlvdXRoIGluYWN0aXZpdHlcbmNobGRfaW5hYyA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY2hpbGRfaW5hY3Rpdml0eS5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX2luYWN0aXZpdHlfZGF0YS5yZHMnKVxuYGBgIn0= -->
-<pre class="r"><code>##reading data for youth inactivity
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogaHR0cHM6Ly95cmJzLWV4cGxvcmVyLnNlcnZpY2VzLmNkYy5nb3YvIy9cblxuIyNyZWFkaW5nIGRhdGEgZm9yIHlvdXRoIGluYWN0aXZpdHlcbmNobGRfaW5hYyA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY2hpbGRfaW5hY3Rpdml0eS5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX2luYWN0aXZpdHlfZGF0YS5yZHMnKVxuYGBgIn0= -->
+<pre class="r"><code>## This is complete
+
+## Data Source: https://yrbs-explorer.services.cdc.gov/#/
+
+##reading data for youth inactivity
 chld_inac &lt;- read_csv(&#39;raw_data/Children/child_inactivity.csv&#39;) %&gt;%
   clean_names() %&gt;%
   write_rds(&#39;clean_data/Children/child_inactivity_data.rds&#39;)</code></pre>
@@ -2184,13 +2226,18 @@ cols(
 <h2>Smoking</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3JlYWRpbmcgaW4gdGhlIGRhdGEgZm9yIHlvdXRoIHNtb2tpbmcgcmF0ZXNcblxuI3RoaXMgaXMgZWxlY3Ryb25pYyB2YXBlIHVzYWdlXG5jaGlsZF92YXBlX3VzZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY3VycmVudF92YXBlX3VzZS5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgbWVyZ2UoeD1jaGlsZF92YXBlX3VzZSwgeT1zdGF0ZXMsIGJ5Lng9J2xvY2F0aW9uX2Rlc2MnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfdmFwZV9kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>#reading in the data for youth smoking rates
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jcmVhZGluZyBpbiB0aGUgZGF0YSBmb3IgeW91dGggc21va2luZyByYXRlc1xuXG5cbiMjIHNvdXJjZSBmb3IgY3VycmVudCB1c2Ugb2YgZWxlY3Ryb25pYyB2YXBvciBwcm9kdWN0czogIGh0dHBzOi8veXJicy1leHBsb3Jlci5zZXJ2aWNlcy5jZGMuZ292LyMvdGFibGVzP3F1ZXN0aW9uQ29kZT1IMzUmdG9waWNDb2RlPUMwMiZsb2NhdGlvbj1UWCZ5ZWFyPTIwMTlcblxuI3RoaXMgaXMgZWxlY3Ryb25pYyB2YXBlIHVzYWdlXG5jaGlsZF92YXBlX3VzZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY3VycmVudF92YXBlX3VzZS5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZnVsbF9qb2luKHN0YXRlcywgYnkgPSBjKCdsb2NhdGlvbl9kZXNjJyA9ICdzdGF0ZXNfbmFtZXMnKSwgY29weT1GQUxTRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi9jaGlsZF92YXBlX2RhdGEucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+#reading in the data for youth smoking rates
+
+
+## source for current use of electronic vapor products:  https://yrbs-explorer.services.cdc.gov/#/tables?questionCode=H35&amp;topicCode=C02&amp;location=TX&amp;year=2019
 
 #this is electronic vape usage
 child_vape_use &lt;- read_csv(&#39;raw_data/Children/current_vape_use.csv&#39;) %&gt;%
   clean_names() %&gt;%
-  merge(x=child_vape_use, y=states, by.x=&#39;location_desc&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(states, by = c(&#39;location_desc&#39; = &#39;states_names&#39;), copy=FALSE) %&gt;%
   write_rds(&#39;clean_data/Children/child_vape_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgWWVhciA9IGNvbF9kb3VibGUoKSxcbiAgTWVkaWFuID0gY29sX2RvdWJsZSgpLFxuICBNaW5pbXVtID0gY29sX2RvdWJsZSgpLFxuICBNYXhpbXVtID0gY29sX2RvdWJsZSgpLFxuICBEYXRhVmFsdWUgPSBjb2xfZG91YmxlKCksXG4gIExvd0NJID0gY29sX2RvdWJsZSgpLFxuICBIaWdoQ0kgPSBjb2xfZG91YmxlKCksXG4gIEZvb3Rub3RlMiA9IGNvbF9sb2dpY2FsKCksXG4gIEZvb3Rub3RlMyA9IGNvbF9sb2dpY2FsKClcbilcblNlZSBzcGVjKC4uLikgZm9yIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb25zLlxuIn0= -->
@@ -2209,11 +2256,13 @@ cols(
 )
 See spec(...) for full column specifications.</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3RoaXMgaWYgZm9yIGFueSB0b2JhY2NvIHVzZVxuY2hpbGRfdG9iX3VzZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY3VycmVudF9hbnlfdG9iYWNjb191c2UuY3N2JykgJT4lXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIG1lcmdlKHg9Y2hpbGRfdG9iX3VzZSwgeT1zdGF0ZXMsIGJ5Lng9J2xvY2F0aW9uX2Rlc2MnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfdG9iYWNjb19kYXRhLnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>#this if for any tobacco use
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgc291cmNlIGZvciBjdXJyZW50IGFueSB0b2JhY2NvIHVzZS4gaHR0cHM6Ly95cmJzLWV4cGxvcmVyLnNlcnZpY2VzLmNkYy5nb3YvIy90YWJsZXM/cXVlc3Rpb25Db2RlPVFOVEI0JnRvcGljQ29kZT1DMDImbG9jYXRpb249WFgmeWVhcj0yMDE5XG5cbiN0aGlzIGlmIGZvciBhbnkgdG9iYWNjbyB1c2VcbmNoaWxkX3RvYl91c2UgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuL2N1cnJlbnRfYW55X3RvYmFjY29fdXNlLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmdWxsX2pvaW4oc3RhdGVzLCBieSA9IGMoJ2xvY2F0aW9uX2Rlc2MnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PUZBTFNFKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX3RvYmFjY29fZGF0YS5yZHMnKVxuYGBgIn0= -->
+<pre class="r"><code>## source for current any tobacco use. https://yrbs-explorer.services.cdc.gov/#/tables?questionCode=QNTB4&amp;topicCode=C02&amp;location=XX&amp;year=2019
+
+#this if for any tobacco use
 child_tob_use &lt;- read_csv(&#39;raw_data/Children/current_any_tobacco_use.csv&#39;) %&gt;%
   clean_names() %&gt;%
-  merge(x=child_tob_use, y=states, by.x=&#39;location_desc&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(states, by = c(&#39;location_desc&#39; = &#39;states_names&#39;), copy=FALSE) %&gt;%
   write_rds(&#39;clean_data/Children/child_tobacco_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgWWVhciA9IGNvbF9kb3VibGUoKSxcbiAgTWVkaWFuID0gY29sX2RvdWJsZSgpLFxuICBNaW5pbXVtID0gY29sX2RvdWJsZSgpLFxuICBNYXhpbXVtID0gY29sX2RvdWJsZSgpLFxuICBEYXRhVmFsdWUgPSBjb2xfZG91YmxlKCksXG4gIExvd0NJID0gY29sX2RvdWJsZSgpLFxuICBIaWdoQ0kgPSBjb2xfZG91YmxlKCksXG4gIEZvb3Rub3RlMiA9IGNvbF9sb2dpY2FsKCksXG4gIEZvb3Rub3RlMyA9IGNvbF9sb2dpY2FsKClcbilcblNlZSBzcGVjKC4uLikgZm9yIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb25zLlxuIn0= -->
@@ -2232,8 +2281,11 @@ cols(
 )
 See spec(...) for full column specifications.</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3RoaXMgaWYgZm9yIGFueSB0b2JhY2NvIHVzYWdlIHRyZW5kXG5jaGlsZF90b2JfdXNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9jdXJyZW50X2FueV90b2JhY2NvX3RyZW5kLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfdG9iYWNjb190cmVuZC5yZHMnKVxuYGBgIn0= -->
-<pre class="r"><code>#this if for any tobacco usage trend
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyNzb3VyY2UgZm9yIGN1cnJlbnQgc21va2luZy4gOiBodHRwczovL3lyYnMtZXhwbG9yZXIuc2VydmljZXMuY2RjLmdvdi8jL2dyYXBocz9xdWVzdGlvbkNvZGU9UU5UQjQmdG9waWNDb2RlPUMwMiZsb2NhdGlvbj1YWCZ5ZWFyPTIwMTkgXG5cblxuI3RoaXMgaWYgZm9yIGFueSB0b2JhY2NvIHVzYWdlIHRyZW5kXG5jaGlsZF90b2JfdXNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9jdXJyZW50X2FueV90b2JhY2NvX3RyZW5kLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfdG9iYWNjb190cmVuZC5yZHMnKVxuYGBgIn0= -->
+<pre class="r"><code>##source for current smoking. : https://yrbs-explorer.services.cdc.gov/#/graphs?questionCode=QNTB4&amp;topicCode=C02&amp;location=XX&amp;year=2019 
+
+
+#this if for any tobacco usage trend
 child_tob_use &lt;- read_csv(&#39;raw_data/Children/current_any_tobacco_trend.csv&#39;) %&gt;%
   clean_names() %&gt;%
   write_rds(&#39;clean_data/Children/child_tobacco_trend.rds&#39;)</code></pre>
@@ -2265,8 +2317,14 @@ cols(
 <h2>Mental Health</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hpbGRfbWVudGFsX2hlYWx0aCA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY2hpbGRfbWVudGFsX2hlYWx0aC5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX21lbnRhbF9oZWFsdGhfZGF0YS5yZHMnKVxuYGBgIn0= -->
-<pre class="r"><code>child_mental_health &lt;- read_csv(&#39;raw_data/Children/child_mental_health.csv&#39;) %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogaHR0cHM6Ly93d3cuanBlZHMuY29tL2FydGljbGUvUzAwMjItMzQ3NigxOCkzMTI5Mi03L2Z1bGx0ZXh0IFxuXG5cbiNyZWFkaW5nIGluIHRoZSBtZW50YWwgaGVhbHRoIGRhdGFcbmNoaWxkX21lbnRhbF9oZWFsdGggPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuL2NoaWxkX21lbnRhbF9oZWFsdGguY3N2JykgJT4lXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi9jaGlsZF9tZW50YWxfaGVhbHRoX2RhdGEucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+## Data Source: https://www.jpeds.com/article/S0022-3476(18)31292-7/fulltext 
+
+
+#reading in the mental health data
+child_mental_health &lt;- read_csv(&#39;raw_data/Children/child_mental_health.csv&#39;) %&gt;%
   clean_names() %&gt;%
   write_rds(&#39;clean_data/Children/child_mental_health_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
@@ -2295,8 +2353,12 @@ cols(
 <h2>Suicide Data</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMga2VlcGluZyBvbiB0ZWVuIHN1aWNpZGUgZGF0YSBmb3IgVGV4YXMgYW5kIHRoZSBVUywgZmlyc3QgZm9yIDIwMTlcbnRlZW5fc3VpY2lfMTkgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuLzIwMTktSFdDLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gXCJUZWVuIFN1aWNpZGVcIikgJT4lXG4gIGZpbHRlcigoYHN0YXRlX25hbWVgID09IFwiVGV4YXNcIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSBcIlVuaXRlZCBTdGF0ZXNcIikpXG5gYGAifQ== -->
-<pre class="r"><code>## keeping on teen suicide data for Texas and the US, first for 2019
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG4jIyBrZWVwaW5nIG9uIHRlZW4gc3VpY2lkZSBkYXRhIGZvciBUZXhhcyBhbmQgdGhlIFVTLCBmaXJzdCBmb3IgMjAxOVxudGVlbl9zdWljaV8xOSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vMjAxOS1IV0MuY3N2JykgJT4lXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSBcIlRlZW4gU3VpY2lkZVwiKSAlPiVcbiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gXCJUZXhhc1wiKSB8ICAoYHN0YXRlX25hbWVgID09IFwiVW5pdGVkIFN0YXRlc1wiKSlcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+## keeping on teen suicide data for Texas and the US, first for 2019
 teen_suici_19 &lt;- read_csv(&#39;raw_data/Children/2019-HWC.csv&#39;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Teen Suicide&quot;) %&gt;%
@@ -2384,10 +2446,15 @@ cols(
 <h2>Childhood uninsured rates</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hpbGRfaW5zZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vU0FISUVfMjhTRVAyMF8xNV8zOV8yM18xMy5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgbWVyZ2UoeD1jaGlsZF9pbnNlLCB5PXN0YXRlcywgYnkueD0nbmFtZScsIGJ5Lnk9J3N0YXRlcycsIGFsbC54ID0gVFJVRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi9jaGlsZF91bmluc3VyZWRfZGF0YS5yZHMnKVxuYGBgIn0= -->
-<pre class="r"><code>child_inse &lt;- read_csv(&#39;raw_data/Children/SAHIE_28SEP20_15_39_23_13.csv&#39;) %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogaHR0cHM6Ly93d3cuY2Vuc3VzLmdvdi9kYXRhLXRvb2xzL2RlbW8vc2FoaWUvIy9cblxuXG5jaGlsZF9pbnNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9TQUhJRV8yOFNFUDIwXzE1XzM5XzIzXzEzLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX3VuaW5zdXJlZF9kYXRhLnJkcycpXG5gYGAifQ== -->
+<pre class="r"><code>## This is complete
+
+## Data Source: https://www.census.gov/data-tools/demo/sahie/#/
+
+
+child_inse &lt;- read_csv(&#39;raw_data/Children/SAHIE_28SEP20_15_39_23_13.csv&#39;) %&gt;%
   clean_names() %&gt;%
-  merge(x=child_inse, y=states, by.x=&#39;name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Children/child_uninsured_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBgQWdlIENhdGVnb3J5YCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYEluY29tZSBDYXRlZ29yeWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBSYWNlIENhdGVnb3J5YCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNleCBDYXRlZ29yeWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIFllYXIgPSBjb2xfZG91YmxlKCksXG4gIElEID0gY29sX2NoYXJhY3RlcigpLFxuICBOYW1lID0gY29sX2NoYXJhY3RlcigpLFxuICBgRGVtb2dyYXBoaWMgR3JvdXA6IE51bWJlcmAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBEZW1vZ3JhcGhpYyBHcm91cDogTU9FYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFVuaW5zdXJlZDogTnVtYmVyYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFVuaW5zdXJlZDogTU9FYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFVuaW5zdXJlZDogJWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBVbmluc3VyZWQ6ICVNT0VgID0gY29sX2NoYXJhY3RlcigpLFxuICBgSW5zdXJlZDogTnVtYmVyYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYEluc3VyZWQ6IE1PRWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBJbnN1cmVkOiAlYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYEluc3VyZWQ6ICVNT0VgID0gY29sX2NoYXJhY3RlcigpXG4pXG4ifQ== -->
@@ -2419,11 +2486,15 @@ cols(
 <h2>Access to primary care</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hkX3BjIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi8yMDE5LUhXQy5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09IFwiQ2xpbmljYWwgQ2FyZS1DaGlsZHJlblwiKSAlPiVcbiAgbWVyZ2UoeD1jaGRfcGMsIHk9c3RhdGVzLCBieS54PSdzdGF0ZV9uYW1lJywgYnkueT0nc3RhdGVzJywgYWxsLnggPSBUUlVFKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkaG9vZF9wcmltYXJ5X2NhcmUucmRzJylcbmBgYCJ9 -->
-<pre class="r"><code>chd_pc &lt;- read_csv(&#39;raw_data/Children/2019-HWC.csv&#39;) %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG5jaGRfcGMgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuLzIwMTktSFdDLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gXCJDbGluaWNhbCBDYXJlLUNoaWxkcmVuXCIpICU+JVxuICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnc3RhdGVfbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkaG9vZF9wcmltYXJ5X2NhcmUucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+chd_pc &lt;- read_csv(&#39;raw_data/Children/2019-HWC.csv&#39;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Clinical Care-Children&quot;) %&gt;%
-  merge(x=chd_pc, y=states, by.x=&#39;state_name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;state_name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Children/childhood_primary_care.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBFZGl0aW9uID0gY29sX2RvdWJsZSgpLFxuICBgUmVwb3J0IFR5cGVgID0gY29sX2NoYXJhY3RlcigpLFxuICBgTWVhc3VyZSBOYW1lYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFN0YXRlIE5hbWVgID0gY29sX2NoYXJhY3RlcigpLFxuICBSYW5rID0gY29sX2RvdWJsZSgpLFxuICBWYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgU2NvcmUgPSBjb2xfZG91YmxlKCksXG4gIGBMb3dlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIGBVcHBlciBDSWAgPSBjb2xfZG91YmxlKCksXG4gIFNvdXJjZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNvdXJjZSBZZWFyYCA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
@@ -2452,13 +2523,79 @@ cols(
 <h2>phyisical inactivity</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBOT1QgY29tcGxldGVcblxud29ya2luZ19hY3Rpdml0eSA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvUGh5c2ljYWwgQWN0aXZpdHkuY3N2JykgJT4lXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9Xb3JraW5nIEFnZS93b3JraW5nX2FjdGl2aXR5LnJkcycpXG5gYGAifQ== -->
-<pre class="r"><code>## This is NOT complete
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZWRcblxuIyMgRGF0YSBTb3VyY2U6IGh0dHBzOi8vbmNjZC5jZGMuZ292L2RucGFvX2R0bS9yZFBhZ2UuYXNweD9yZFJlcG9ydD1ETlBBT19EVE0uRXhwbG9yZUJ5TG9jYXRpb24mcmRSZXF1ZXN0Rm9yd2FyZGluZz1Gb3JtXG5cbiNUZXhhcyBkYXRhXG5cbndvcmtpbmdfYWN0X3R4IDwtcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlL0V4cG9ydENTVl9UWC5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL1dvcmtpbmcgQWdlL3dvcmtpbmdfYWN0aXZpdHlfdHgucmRzJylcbmBgYCJ9 -->
+<pre class="r"><code>## This is completed
 
-working_activity &lt;- read_csv(&#39;raw_data/Working Age/Physical Activity.csv&#39;) %&gt;%
+## Data Source: https://nccd.cdc.gov/dnpao_dtm/rdPage.aspx?rdReport=DNPAO_DTM.ExploreByLocation&amp;rdRequestForwarding=Form
+
+#Texas data
+
+working_act_tx &lt;-read_csv(&#39;raw_data/Working Age/ExportCSV_TX.csv&#39;) %&gt;%
   clean_names() %&gt;%
-  write_rds(&#39;clean_data/Working Age/working_activity.rds&#39;)</code></pre>
+  write_rds(&#39;clean_data/Working Age/working_activity_tx.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgSUQgPSBjb2xfZG91YmxlKCksXG4gIFllYXJTdGFydCA9IGNvbF9kb3VibGUoKSxcbiAgWWVhckVuZCA9IGNvbF9kb3VibGUoKSxcbiAgRGVzY3JpcHRpb24gPSBjb2xfZG91YmxlKCksXG4gIFJlc3BvbnNlID0gY29sX2xvZ2ljYWwoKSxcbiAgRGF0YV9WYWx1ZV9Vbml0ID0gY29sX2xvZ2ljYWwoKSxcbiAgRGF0YV9WYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgRGF0YV9WYWx1ZV9Gb290bm90ZV9TeW1ib2wgPSBjb2xfbG9naWNhbCgpLFxuICBEYXRhX1ZhbHVlX0Zvb3Rub3RlID0gY29sX2xvZ2ljYWwoKSxcbiAgTG93X0NvbmZpZGVuY2VfTGltaXQgPSBjb2xfZG91YmxlKCksXG4gIEhpZ2hfQ29uZmlkZW5jZV9MaW1pdCA9IGNvbF9kb3VibGUoKSxcbiAgU2FtcGxlX1NpemUgPSBjb2xfbnVtYmVyKCksXG4gIEdlb0xvY2F0aW9uX0xhdCA9IGNvbF9kb3VibGUoKSxcbiAgR2VvTG9jYXRpb25fTG9uZyA9IGNvbF9kb3VibGUoKSxcbiAgUmVzcG9uc2VJZCA9IGNvbF9sb2dpY2FsKCksXG4gIFN0cmF0aWZpY2F0aW9uQ2F0ZWdvcnkyID0gY29sX2xvZ2ljYWwoKSxcbiAgU3RyYXRpZmljYXRpb25DYXRlZ29yeUlkMiA9IGNvbF9sb2dpY2FsKCksXG4gIFN0cmF0aWZpY2F0aW9uMiA9IGNvbF9sb2dpY2FsKCksXG4gIFN0cmF0aWZpY2F0aW9uSWQyID0gY29sX2xvZ2ljYWwoKSxcbiAgU3RyYXRpZmljYXRpb25DYXRlZ29yeTMgPSBjb2xfbG9naWNhbCgpXG4gICMgLi4uIHdpdGggNCBtb3JlIGNvbHVtbnNcbilcblNlZSBzcGVjKC4uLikgZm9yIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb25zLlxuIn0= -->
+<pre><code>Parsed with column specification:
+cols(
+  .default = col_character(),
+  ID = col_double(),
+  YearStart = col_double(),
+  YearEnd = col_double(),
+  Description = col_double(),
+  Response = col_logical(),
+  Data_Value_Unit = col_logical(),
+  Data_Value = col_double(),
+  Data_Value_Footnote_Symbol = col_logical(),
+  Data_Value_Footnote = col_logical(),
+  Low_Confidence_Limit = col_double(),
+  High_Confidence_Limit = col_double(),
+  Sample_Size = col_number(),
+  GeoLocation_Lat = col_double(),
+  GeoLocation_Long = col_double(),
+  ResponseId = col_logical(),
+  StratificationCategory2 = col_logical(),
+  StratificationCategoryId2 = col_logical(),
+  Stratification2 = col_logical(),
+  StratificationId2 = col_logical(),
+  StratificationCategory3 = col_logical()
+  # ... with 4 more columns
+)
+See spec(...) for full column specifications.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBVUyBEYXRhXG53b3JraW5nX2FjdF91cyA8LXJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS9FeHBvcnRDU1ZfVVMuY3N2JykgJT4lXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9Xb3JraW5nIEFnZS93b3JraW5nX2FjdGl2aXR5X3VzLnJkcycpXG5gYGAifQ== -->
+<pre class="r"><code># US Data
+working_act_us &lt;-read_csv(&#39;raw_data/Working Age/ExportCSV_US.csv&#39;) %&gt;%
+  clean_names() %&gt;%
+  write_rds(&#39;clean_data/Working Age/working_activity_us.rds&#39;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgSUQgPSBjb2xfZG91YmxlKCksXG4gIFllYXJTdGFydCA9IGNvbF9kb3VibGUoKSxcbiAgWWVhckVuZCA9IGNvbF9kb3VibGUoKSxcbiAgRGVzY3JpcHRpb24gPSBjb2xfZG91YmxlKCksXG4gIFJlc3BvbnNlID0gY29sX2xvZ2ljYWwoKSxcbiAgRGF0YV9WYWx1ZV9Vbml0ID0gY29sX2xvZ2ljYWwoKSxcbiAgRGF0YV9WYWx1ZSA9IGNvbF9kb3VibGUoKSxcbiAgRGF0YV9WYWx1ZV9Gb290bm90ZV9TeW1ib2wgPSBjb2xfbG9naWNhbCgpLFxuICBEYXRhX1ZhbHVlX0Zvb3Rub3RlID0gY29sX2xvZ2ljYWwoKSxcbiAgTG93X0NvbmZpZGVuY2VfTGltaXQgPSBjb2xfZG91YmxlKCksXG4gIEhpZ2hfQ29uZmlkZW5jZV9MaW1pdCA9IGNvbF9kb3VibGUoKSxcbiAgU2FtcGxlX1NpemUgPSBjb2xfbnVtYmVyKCksXG4gIEdlb0xvY2F0aW9uX0xhdCA9IGNvbF9sb2dpY2FsKCksXG4gIEdlb0xvY2F0aW9uX0xvbmcgPSBjb2xfbG9naWNhbCgpLFxuICBSZXNwb25zZUlkID0gY29sX2xvZ2ljYWwoKSxcbiAgU3RyYXRpZmljYXRpb25DYXRlZ29yeTIgPSBjb2xfbG9naWNhbCgpLFxuICBTdHJhdGlmaWNhdGlvbkNhdGVnb3J5SWQyID0gY29sX2xvZ2ljYWwoKSxcbiAgU3RyYXRpZmljYXRpb24yID0gY29sX2xvZ2ljYWwoKSxcbiAgU3RyYXRpZmljYXRpb25JZDIgPSBjb2xfbG9naWNhbCgpLFxuICBTdHJhdGlmaWNhdGlvbkNhdGVnb3J5MyA9IGNvbF9sb2dpY2FsKClcbiAgIyAuLi4gd2l0aCA0IG1vcmUgY29sdW1uc1xuKVxuU2VlIHNwZWMoLi4uKSBmb3IgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
+<pre><code>Parsed with column specification:
+cols(
+  .default = col_character(),
+  ID = col_double(),
+  YearStart = col_double(),
+  YearEnd = col_double(),
+  Description = col_double(),
+  Response = col_logical(),
+  Data_Value_Unit = col_logical(),
+  Data_Value = col_double(),
+  Data_Value_Footnote_Symbol = col_logical(),
+  Data_Value_Footnote = col_logical(),
+  Low_Confidence_Limit = col_double(),
+  High_Confidence_Limit = col_double(),
+  Sample_Size = col_number(),
+  GeoLocation_Lat = col_logical(),
+  GeoLocation_Long = col_logical(),
+  ResponseId = col_logical(),
+  StratificationCategory2 = col_logical(),
+  StratificationCategoryId2 = col_logical(),
+  Stratification2 = col_logical(),
+  StratificationId2 = col_logical(),
+  StratificationCategory3 = col_logical()
+  # ... with 4 more columns
+)
+See spec(...) for full column specifications.</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -2466,8 +2603,12 @@ working_activity &lt;- read_csv(&#39;raw_data/Working Age/Physical Activity.csv&
 <h2>Mental Health</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVudGFsXzIwMTkgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlLzIwMTktQW5udWFsLmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gXCJGcmVxdWVudCBNZW50YWwgRGlzdHJlc3NcIikgJT4lXG4gIGZpbHRlcigoYHN0YXRlX25hbWVgID09IFwiVGV4YXNcIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSBcIlVuaXRlZCBTdGF0ZXNcIikpXG5gYGAifQ== -->
-<pre class="r"><code>mental_2019 &lt;- read_csv(&#39;raw_data/Working Age/2019-Annual.csv&#39;) %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5nc1xuXG5tZW50YWxfMjAxOSA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvMjAxOS1Bbm51YWwuY3N2JykgJT4lXG4gIGNsZWFuX25hbWVzKCkgJT4lXG4gIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSBcIkZyZXF1ZW50IE1lbnRhbCBEaXN0cmVzc1wiKSAlPiVcbiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gXCJUZXhhc1wiKSB8ICAoYHN0YXRlX25hbWVgID09IFwiVW5pdGVkIFN0YXRlc1wiKSlcbmBgYCJ9 -->
+<pre class="r"><code>## This is complete
+
+## Data Source: America&#39;s Health Rankings
+
+mental_2019 &lt;- read_csv(&#39;raw_data/Working Age/2019-Annual.csv&#39;) %&gt;%
   clean_names() %&gt;%
   filter(`measure_name` == &quot;Frequent Mental Distress&quot;) %&gt;%
   filter((`state_name` == &quot;Texas&quot;) |  (`state_name` == &quot;United States&quot;))</code></pre>
@@ -2588,8 +2729,12 @@ cols(
 <h2>Cardiovascular Health</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FyZF9oZWFsdGggPSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvcmVwb3J0LmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvV29ya2luZyBBZ2UvY2FyZGlvX2hlYWx0aC5yZHMnKVxuYGBgIn0= -->
-<pre class="r"><code>card_health = read_csv(&#39;raw_data/Working Age/report.csv&#39;) %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogaHR0cHM6Ly9uY2NkLmNkYy5nb3YvREhEU1BBdGxhcy9EZWZhdWx0LmFzcHg/c3RhdGU9VFhcblxuY2FyZF9oZWFsdGggPSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvcmVwb3J0LmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvV29ya2luZyBBZ2UvY2FyZGlvX2hlYWx0aC5yZHMnKVxuYGBgIn0= -->
+<pre class="r"><code>## This is complete
+
+## Data Source: https://nccd.cdc.gov/DHDSPAtlas/Default.aspx?state=TX
+
+card_health = read_csv(&#39;raw_data/Working Age/report.csv&#39;) %&gt;%
   clean_names() %&gt;%
   write_rds(&#39;clean_data/Working Age/cardio_health.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
@@ -2609,10 +2754,14 @@ cols(
 <h2>Adult uninsured rates</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWR1bF9pbnNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS9TQUhJRV8yOFNFUDIwXzE2XzMyXzA2Xzc5LmNzdicpICU+JVxuICBjbGVhbl9uYW1lcygpICU+JVxuICBtZXJnZSh4PWFkdWxfaW5zZSwgeT1zdGF0ZXMsIGJ5Lng9J25hbWUnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JVxuICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvV29ya2luZyBBZ2UvYWR1bHRfdW5pbnN1cmVkX2RhdGEucmRzJylcbmBgYCJ9 -->
-<pre class="r"><code>adul_inse &lt;- read_csv(&#39;raw_data/Working Age/SAHIE_28SEP20_16_32_06_79.csv&#39;) %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhpcyBpcyBjb21wbGV0ZVxuXG4jIyBEYXRhIFNvdXJjZTogIGh0dHBzOi8vd3d3LmNlbnN1cy5nb3YvZGF0YS10b29scy9kZW1vL3NhaGllLyMvXG5cbmFkdWxfaW5zZSA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvU0FISUVfMjhTRVAyMF8xNl8zMl8wNl83OS5jc3YnKSAlPiVcbiAgY2xlYW5fbmFtZXMoKSAlPiVcbiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ25hbWUnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PSBGQUxTRSkgJT4lXG4gIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9Xb3JraW5nIEFnZS9hZHVsdF91bmluc3VyZWRfZGF0YS5yZHMnKVxuYGBgIn0= -->
+<pre class="r"><code>## This is complete
+
+## Data Source:  https://www.census.gov/data-tools/demo/sahie/#/
+
+adul_inse &lt;- read_csv(&#39;raw_data/Working Age/SAHIE_28SEP20_16_32_06_79.csv&#39;) %&gt;%
   clean_names() %&gt;%
-  merge(x=adul_inse, y=states, by.x=&#39;name&#39;, by.y=&#39;states&#39;, all.x = TRUE) %&gt;%
+  full_join(y=states, by = c(&#39;name&#39; = &#39;states_names&#39;), copy= FALSE) %&gt;%
   write_rds(&#39;clean_data/Working Age/adult_uninsured_data.rds&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBgQWdlIENhdGVnb3J5YCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYEluY29tZSBDYXRlZ29yeWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBSYWNlIENhdGVnb3J5YCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFNleCBDYXRlZ29yeWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIFllYXIgPSBjb2xfZG91YmxlKCksXG4gIElEID0gY29sX2NoYXJhY3RlcigpLFxuICBOYW1lID0gY29sX2NoYXJhY3RlcigpLFxuICBgRGVtb2dyYXBoaWMgR3JvdXA6IE51bWJlcmAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBEZW1vZ3JhcGhpYyBHcm91cDogTU9FYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFVuaW5zdXJlZDogTnVtYmVyYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFVuaW5zdXJlZDogTU9FYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYFVuaW5zdXJlZDogJWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBVbmluc3VyZWQ6ICVNT0VgID0gY29sX2NoYXJhY3RlcigpLFxuICBgSW5zdXJlZDogTnVtYmVyYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYEluc3VyZWQ6IE1PRWAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBJbnN1cmVkOiAlYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYEluc3VyZWQ6ICVNT0VgID0gY29sX2NoYXJhY3RlcigpXG4pXG4ifQ== -->
@@ -2641,7 +2790,7 @@ cols(
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFBhY2thZ2UgU2V0dXAgDQoNCmBgYHtyIGxvYWQgcGFja2FnZXN9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoamFuaXRvcikNCmxpYnJhcnkodGlkeWNlbnN1cykNCmxpYnJhcnkocmV0aWN1bGF0ZSkNCmBgYA0KIyBQZWVyIFN0YXRlcyBQcmVwDQpgYGB7cn0NCiNtYWtpbmcgdGhlIHBlZXIgc3RhdGVzIGRmIHRoYXQgY2FuIGJlIGpvaW5lZCB0byBvdGhlciBkZnMNCnN0YXRlcyA8LSBjKCdDYWxpZm9ybmlhJywgJ0NvbG9yYWRvJywgJ0Zsb3JpZGEnLCAnR2VvcmdpYScsICdJbGxpbm9pcycsICdOZXcgWW9yaycsICdOb3J0aCBDYXJvbGluYScsICdPaGlvJywgJ1Blbm5zeWx2YW5pYScsICdWaXJnaW5pYScsICdXYXNoaW5ndG9uJykNCg0Kc3RhdGVfc2hvcnQgPC0gYygnQ0EnLCAnQ08nLCAnRkwnLCAnR0EnLCAnSUwnLCAnTlknLCAnTkMnLCAnT0gnLCAnUEEnLCAnVkEnLCAnV0EnKQ0KDQpwZWVyIDwtIGMoJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScpDQoNCnN0YXRlcyA8LSBkYXRhLmZyYW1lKHN0YXRlcywgc3RhdGVfc2hvcnQsIHBlZXIpDQoNCmBgYA0KDQoNCg0KIyBBZ2luZyBEYXRhIA0KDQojIyBQb3B1bGF0aW9uIFByb2plY3Rpb25zDQoNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojcmVhZGluZyBpbiB0aGUgQ1NWIGRvd25sb2FkZWQgZnJvbSB0aGUgc3RhdGUgZGVtb2dyYXBoZXIuIEtlZXBpbmcgb25seSByZWxldmFudCBkYXRhDQpwb3BfcHJvaiA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvMjAxOGFsbGNudHlpbmRhZ2UuY3N2IikgJT4lIA0KICBtdXRhdGUoYWdlX2tlZXBzID0gY2FzZV93aGVuKA0KICAgIGFnZV9pbl95cnNfbnVtICU+JSBiZXR3ZWVuKDAsMTcpIH4gIktlZXAiLA0KICAgIGFnZV9pbl95cnNfbnVtICU+JSBiZXR3ZWVuKDE4LDY0KSB+ICJLZWVwIiwNCiAgICBhZ2VfaW5feXJzX251bSAlPiUgYmV0d2Vlbig2NSw5NSkgfiAiS2VlcCIsDQogICAgVFJVRSB+ICJSZW1vdmUiDQogICkpICU+JQ0KICBmaWx0ZXIoYWdlX2tlZXBzID09ICJLZWVwIikgJT4lDQogIHdyaXRlX3JkcygiY2xlYW5fZGF0YS9BZ2luZy9wb3BfcHJval9kYXRhLnJkcyIpDQoNCmBgYA0KIyMgRGlhYmV0ZXMgRGF0YQ0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiNTdGFydGluZyB3aXRoIHRoZSBjb3VudHkgbGV2ZWwgLS0gdGhlc2UgZG8gbm90IGhhdmUgYWdlIGJyZWFrZG93bnMNCiNyZWFkaW5nIGluIHRoZSBDU1YgZnJvbSB0aGUgQ0RDLlNraXBwaW5nIHRoZSBmaXJzdCB0d28gcm93cyBhcyB0aGV5IGRvIG5vdCBjb250YWluIGFueSByZWxldmFudCBpbmZvcm1hdGlvbg0KZGlhYmV0ZXNfc3RhdHNfY291bnR5IDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy9EaWFiZXRlc0F0bGFzQ291bnR5RGF0YS5jc3YiLCBza2lwID0gMikgJT4lDQogIHdyaXRlX3JkcygiY2xlYW5fZGF0YS9BZ2luZy9kaWFiZXRlc19jb3VudHlfc3RhdHMucmRzIikNCg0KI01vdmluZyBvbiB0byBUZXhhcyBsZXZlbCBkYXRhIC0tIHRoZXNlIGhhdmUgYWdlIGJyZWFrZG93bnMNCiNtYWtlIHN1cmUgdG8gb25seSBrZWVwIGRhdGEgYWZ0ZXIgMjAxMg0KI3NhbWUgcHJvY2VzcyBhcyBhYm92ZSwgcmVhZGluZyBpbiB0aGUgQ1NWIGFuZCBza2lwcGluZyB0aGUgZmlyc3QgdHdvIHJvd3MuIFRoaXMgaXMgNzUrIG9ubHkNCmRpYWJldGVzX3N0YXRzX1RYXzc1X3JhdyA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvRGlhYmV0ZXNBdGxhc0RhdGE3NSsuY3N2Iiwgc2tpcCA9IDIpJT4lDQogIHdyaXRlX3JkcygiY2xlYW5fZGF0YS9BZ2luZy9kaWFiZXRlc190eF83NStfc3RhdHMucmRzIikNCg0KI3NhbWUgcHJvY2VzcyBhcyBhYm92ZSwgcmVhZGluZyBpbiB0aGUgQ1NWIGFuZCBza2lwcGluZyB0aGUgZmlyc3QgdHdvIHJvd3MuIFRoaXMgaXMgNjUtNzQgb25seQ0KZGlhYmV0ZXNfc3RhdHNfVFhfNjVfcmF3IDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy9EaWFiZXRlc0F0bGFzRGF0YTY1LTc0LmNzdiIsIHNraXAgPSAyKSAlPiUNCiAgd3JpdGVfcmRzKCJjbGVhbl9kYXRhL0FnaW5nL2RpYWJldGVzX3R4XzY1LTc0X3N0YXRzLnJkcyIpDQpgYGANCg0KDQojIyBQaHlzaWNhbCBJbmFjdGl2aXR5IERhdGENCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojcmVhZGluZyBpbiB0aGUgQ1NWIGZyb20gQW1lcmljYSdzIGhlYWx0aCByYW5raW5ncyBhbmQga2VlcGluZyB0aGUgcmVsZXZhbnQgaW5mb3JtYXRpb24NCnBoeXNpY2lhbF9pbmFjdGl2aXR5IDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy8yMDE5LVNlbmlvcl9UWC5jc3YiKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJQaHlzaWNhbCBJbmFjdGl2aXR5IC0gQWdlcyA2NSsiKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL3BoeXNpY2FsX2luYWN0aXZpdHlfZGF0YS5yZHMnKQ0KYGBgDQoNCiMjIFNvY2lhbCBJc29sYXRpb24gRGF0YQ0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiNyZWFkaW5nIGluIHRoZSBDU1YuIEknbGwga2VlcCBhbGwgdGhlIHJlY29yZHMgZm9yIHNvY2lhbCBpc29sYXRpb24gZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXMNCnNvY2lhbF9pc28gPC0gcmVhZF9jc3YoInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdiIpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIlJpc2sgb2YgU29jaWFsIElzb2xhdGlvbiAtIEFnZXMgNjUrIikgJT4lDQogIG1lcmdlKHg9c29jaWFsX2lzbywgeT1zdGF0ZXMsIGJ5Lng9J3N0YXRlX25hbWUnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvc29jaWFsX2lzb19kYXRhLnJkcycpDQpgYGANCiMjIE1lbnRhbCBIZWFsdGggRGF0YQ0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiNyZWFkaW5nIGluIHRoZSBDU1YuIEknbGwga2VlcCBhbGwgdGhlIHJlY29yZHMgZm9yIG1lbnRhbCBoZWFsdGggZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXMNCm1lbnRhbF9oZWFsdGggPC0gcmVhZF9jc3YoInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdiIpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIkZyZXF1ZW50IE1lbnRhbCBEaXN0cmVzcyAtIEFnZXMgNjUrIikgJT4lDQogIG1lcmdlKHg9bWVudGFsX2hlYWx0aCwgeT1zdGF0ZXMsIGJ5Lng9J3N0YXRlX25hbWUnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvbWVudGFsX2hlYWx0aF9kYXRhLnJkcycpDQpgYGANCiMjIEFsemhlaW1lcuKAmXMgDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KI3JlYWRpbmcgaW4gQ1NWIGFuZCBzYXZpbmcgdGhlIGRhdGENCmFsaF9kYXRhIDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy9EYXRhIFRhYmxlLmNzdiIpJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIG1lcmdlKHg9YWxoX2RhdGEsIHk9c3RhdGVzLCBieS54PSdzdGF0ZScsIGJ5Lnk9J3N0YXRlX3Nob3J0JywgYWxsLnggPSBUUlVFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL2FsemhlaW1lcnNfZGF0YS5yZHMnKQ0KYGBgDQojIyBQcmltYXJ5IENhcmUgQWNjZXNzDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KI3JlYWRpbmcgaW4gdGhlIENTVi4gSSdsbCBrZWVwIGFsbCB0aGUgcmVjb3JkcyBmb3IgaGVhbHRoIHByb3ZpZGVycyBmcm9tIGFsbCB0aGUgZGlmZmVyZW50IHN0YXRlcw0KZGVkaV9oZWFsdGggPC0gcmVhZF9jc3YoInJhd19kYXRhL0FnaW5nLzIwMjAtU2VuaW9yLmNzdiIpICU+JQ0KIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYD09IkRlZGljYXRlZCBIZWFsdGggQ2FyZSBQcm92aWRlciAtIEFnZXMgNjUrIikgJT4lDQogIG1lcmdlKHg9ZGVkaV9oZWFsdGgsIHk9c3RhdGVzLCBieS54PSdzdGF0ZV9uYW1lJywgYnkueT0nc3RhdGVzJywgYWxsLnggPSBUUlVFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL2RlZGljYXRlZF9oZWFsdGhfcHJvdmlkZXJfZGF0YS5yZHMnKQ0KYGBgDQojIyBJbW11bml6YXRpb24gUmF0ZXMNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBpbW11bml6YXRpb24gcmF0ZXMgZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXMNCmltbV9yYXRlcyA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvMjAyMC1TZW5pb3IuY3N2IikgJT4lIA0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIkltbXVuaXphdGlvbnMgLSBTZW5pb3IiKSU+JQ0KICBtZXJnZSh4PWltbV9yYXRlcywgeT1zdGF0ZXMsIGJ5Lng9J3N0YXRlX25hbWUnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvaW1tdW5pemF0aW9uX3JhdGVzX2RhdGEucmRzJykNCmBgYA0KDQojIyBOdXJzaW5nIEhvbWUgUXVhbGl0eQ0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiNyZWFkaW5nIGluIHRoZSBDU1YuIEknbGwga2VlcCBhbGwgdGhlIHJlY29yZHMgZm9yIG51cnNpbmcgaG9tZSBxdWFsaXR5IGZyb20gYWxsIHRoZSBkaWZmZXJlbnQgc3RhdGVzDQpudXJzaW5nX2hvbWVzIDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy8yMDIwLVNlbmlvci5jc3YiKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJOdXJzaW5nIEhvbWUgUXVhbGl0eSIpICAlPiUNCiAgbWVyZ2UoeD1udXJzaW5nX2hvbWVzLCB5PXN0YXRlcywgYnkueD0nc3RhdGVfbmFtZScsIGJ5Lnk9J3N0YXRlcycsIGFsbC54ID0gVFJVRSkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9udXJzaW5nX2hvbWVzX2RhdGEucmRzJykNCmBgYA0KDQojIENoaWxkaG9vZCBEYXRhDQojIyBPYmVzaXR5IGFuZCBPdmVyd2VpZ2h0DQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyBTdGFydGluZyB3aXRoIG9iZXNpdHkgYW5kIG92ZXJ3ZWlnaHQgZGF0YSBmb3IgY2hpbGRyZW4gYWNyb3NzIGFsbCBzdGF0ZXMNCiNyZWFkaW5nIGluIHRoZSBkYXRhIGFuZCBvbmx5IGtlZXBpbmcgY2hpbGRob29kIG9iZXNpdHkgYW5kIG92ZXJ3ZWlnaHQgcmF0ZXMNCmNoZF9vYmVzIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi8yMDE5LUhXQy5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJPdmVyd2VpZ2h0IG9yIE9iZXNpdHktWW91dGgiKSAlPiUNCiAgbWVyZ2UoeD1jaGRfb2JlcywgeT1zdGF0ZXMsIGJ5Lng9J3N0YXRlX25hbWUnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRob29kX29iZXNpdHlfZGF0YS5yZHMnKQ0KDQojcmVhZGluZyBpbiB0aGUgZGF0YSBhbmQgb25seSBrZWVwaW5nIGNoaWxkaG9vZCBvYmVzaXR5IGFuZCBvdmVyd2VpZ2h0IHJhdGVzIGZvciBjaGlsZHJlbiBpbiBXSUMgYmV0d2VlbiB0aGUgYWdlcyBvZiAyLTQNCndpY19vYmVzIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9FeHBvcnRDU1YuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIG1lcmdlKHg9d2ljX29iZXMsIHk9c3RhdGVzLCBieS54PSdsb2NhdGlvbl9kZXNjJywgYnkueT0nc3RhdGVzJywgYWxsLnggPSBUUlVFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL3dpY19vYmVzaXR5X2RhdGEucmRzJykNCmBgYA0KIyMgUGh5c2ljYWwgSW5hY3Rpdml0eSANCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojI3JlYWRpbmcgZGF0YSBmb3IgeW91dGggaW5hY3Rpdml0eQ0KY2hsZF9pbmFjIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9jaGlsZF9pbmFjdGl2aXR5LmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfaW5hY3Rpdml0eV9kYXRhLnJkcycpDQpgYGANCiMjIFNtb2tpbmcNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojcmVhZGluZyBpbiB0aGUgZGF0YSBmb3IgeW91dGggc21va2luZyByYXRlcw0KDQojdGhpcyBpcyBlbGVjdHJvbmljIHZhcGUgdXNhZ2UNCmNoaWxkX3ZhcGVfdXNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9jdXJyZW50X3ZhcGVfdXNlLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBtZXJnZSh4PWNoaWxkX3ZhcGVfdXNlLCB5PXN0YXRlcywgYnkueD0nbG9jYXRpb25fZGVzYycsIGJ5Lnk9J3N0YXRlcycsIGFsbC54ID0gVFJVRSkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi9jaGlsZF92YXBlX2RhdGEucmRzJykNCg0KI3RoaXMgaWYgZm9yIGFueSB0b2JhY2NvIHVzZQ0KY2hpbGRfdG9iX3VzZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY3VycmVudF9hbnlfdG9iYWNjb191c2UuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIG1lcmdlKHg9Y2hpbGRfdG9iX3VzZSwgeT1zdGF0ZXMsIGJ5Lng9J2xvY2F0aW9uX2Rlc2MnLCBieS55PSdzdGF0ZXMnLCBhbGwueCA9IFRSVUUpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfdG9iYWNjb19kYXRhLnJkcycpDQoNCiN0aGlzIGlmIGZvciBhbnkgdG9iYWNjbyB1c2FnZSB0cmVuZA0KY2hpbGRfdG9iX3VzZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY3VycmVudF9hbnlfdG9iYWNjb190cmVuZC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX3RvYmFjY29fdHJlbmQucmRzJykNCg0KYGBgDQoNCiMjIE1lbnRhbCBIZWFsdGgNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojcmVhZGluZyBpbiB0aGUgbWVudGFsIGhlYWx0aCBkYXRhDQpjaGlsZF9tZW50YWxfaGVhbHRoIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9jaGlsZF9tZW50YWxfaGVhbHRoLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfbWVudGFsX2hlYWx0aF9kYXRhLnJkcycpDQpgYGANCiMjIFN1aWNpZGUgRGF0YQ0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiMjIGtlZXBpbmcgb24gdGVlbiBzdWljaWRlIGRhdGEgZm9yIFRleGFzIGFuZCB0aGUgVVMsIGZpcnN0IGZvciAyMDE5DQp0ZWVuX3N1aWNpXzE5IDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi8yMDE5LUhXQy5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJUZWVuIFN1aWNpZGUiKSAlPiUNCiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gIlRleGFzIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSAiVW5pdGVkIFN0YXRlcyIpKQ0KDQojMjAxOA0KdGVlbl9zdWljaV8xOCA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vMjAxOC1IV0MuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiVGVlbiBTdWljaWRlIikgJT4lDQogIGZpbHRlcigoYHN0YXRlX25hbWVgID09ICJUZXhhcyIpIHwgIChgc3RhdGVfbmFtZWAgPT0gIlVuaXRlZCBTdGF0ZXMiKSkNCg0KIzIwMTYNCnRlZW5fc3VpY2lfMTYgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuLzIwMTYtSFdDLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIlRlZW4gU3VpY2lkZSIpICU+JQ0KICBmaWx0ZXIoKGBzdGF0ZV9uYW1lYCA9PSAiVGV4YXMiKSB8ICAoYHN0YXRlX25hbWVgID09ICJVbml0ZWQgU3RhdGVzIikpDQoNCg0KdGVlbl9zdWljaSA8LSByYmluZCh0ZWVuX3N1aWNpXzE5LCB0ZWVuX3N1aWNpXzE4LCB0ZWVuX3N1aWNpXzE2KSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL3RlZW5fc3VpY2lkZV9kYXRhLnJkcycpDQpgYGANCiMjIENoaWxkaG9vZCB1bmluc3VyZWQgcmF0ZXMNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQpjaGlsZF9pbnNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9TQUhJRV8yOFNFUDIwXzE1XzM5XzIzXzEzLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBtZXJnZSh4PWNoaWxkX2luc2UsIHk9c3RhdGVzLCBieS54PSduYW1lJywgYnkueT0nc3RhdGVzJywgYWxsLnggPSBUUlVFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX3VuaW5zdXJlZF9kYXRhLnJkcycpDQpgYGANCiMjIEFjY2VzcyB0byBwcmltYXJ5IGNhcmUNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQpjaGRfcGMgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuLzIwMTktSFdDLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIkNsaW5pY2FsIENhcmUtQ2hpbGRyZW4iKSAlPiUNCiAgbWVyZ2UoeD1jaGRfcGMsIHk9c3RhdGVzLCBieS54PSdzdGF0ZV9uYW1lJywgYnkueT0nc3RhdGVzJywgYWxsLnggPSBUUlVFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkaG9vZF9wcmltYXJ5X2NhcmUucmRzJykNCmBgYA0KDQojIFdvcmtpbmcgQWdlIERhdGENCg0KIyMgcGh5aXNpY2FsIGluYWN0aXZpdHkgDQpgYGB7cn0NCiMjIFRoaXMgaXMgTk9UIGNvbXBsZXRlDQoNCndvcmtpbmdfYWN0aXZpdHkgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlL1BoeXNpY2FsIEFjdGl2aXR5LmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvV29ya2luZyBBZ2Uvd29ya2luZ19hY3Rpdml0eS5yZHMnKQ0KYGBgDQoNCiMjIE1lbnRhbCBIZWFsdGgNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQptZW50YWxfMjAxOSA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvMjAxOS1Bbm51YWwuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiRnJlcXVlbnQgTWVudGFsIERpc3RyZXNzIikgJT4lDQogIGZpbHRlcigoYHN0YXRlX25hbWVgID09ICJUZXhhcyIpIHwgIChgc3RhdGVfbmFtZWAgPT0gIlVuaXRlZCBTdGF0ZXMiKSkNCiAgDQptZW50YWxfMjAxOCA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvMjAxOC1Bbm51YWwuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiRnJlcXVlbnQgTWVudGFsIERpc3RyZXNzIikgJT4lDQogIGZpbHRlcigoYHN0YXRlX25hbWVgID09ICJUZXhhcyIpIHwgIChgc3RhdGVfbmFtZWAgPT0gIlVuaXRlZCBTdGF0ZXMiKSkNCg0KbWVudGFsXzIwMTcgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlLzIwMTctQW5udWFsLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIkZyZXF1ZW50IE1lbnRhbCBEaXN0cmVzcyIpICU+JQ0KICBmaWx0ZXIoKGBzdGF0ZV9uYW1lYCA9PSAiVGV4YXMiKSB8ICAoYHN0YXRlX25hbWVgID09ICJVbml0ZWQgU3RhdGVzIikpDQoNCm1lbnRhbF8yMDE2IDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS8yMDE2LUFubnVhbC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJGcmVxdWVudCBNZW50YWwgRGlzdHJlc3MiKSAlPiUNCiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gIlRleGFzIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSAiVW5pdGVkIFN0YXRlcyIpKQ0KDQptZW50YWxfMjAxNSA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvMjAxNS1Bbm51YWwuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiRnJlcXVlbnQgTWVudGFsIERpc3RyZXNzIikgJT4lDQogIGZpbHRlcigoYHN0YXRlX25hbWVgID09ICJUZXhhcyIpIHwgIChgc3RhdGVfbmFtZWAgPT0gIlVuaXRlZCBTdGF0ZXMiKSkNCg0KbWVudGFsX2hlYWx0aF93b3JraW5nIDwtIHJiaW5kKG1lbnRhbF8yMDE5LCBtZW50YWxfMjAxOCwgbWVudGFsXzIwMTcsIG1lbnRhbF8yMDE2LCBtZW50YWxfMjAxNSkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9Xb3JraW5nIEFnZS9tZW50YWxfaGVhbHRoX2RhdGEucmRzJykNCmBgYA0KDQoNCiMjIENhcmRpb3Zhc2N1bGFyIEhlYWx0aA0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCmNhcmRfaGVhbHRoID0gcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlL3JlcG9ydC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL1dvcmtpbmcgQWdlL2NhcmRpb19oZWFsdGgucmRzJykNCg0KYGBgDQoNCiMjIEFkdWx0IHVuaW5zdXJlZCByYXRlcw0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCmFkdWxfaW5zZSA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvU0FISUVfMjhTRVAyMF8xNl8zMl8wNl83OS5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgbWVyZ2UoeD1hZHVsX2luc2UsIHk9c3RhdGVzLCBieS54PSduYW1lJywgYnkueT0nc3RhdGVzJywgYWxsLnggPSBUUlVFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL1dvcmtpbmcgQWdlL2FkdWx0X3VuaW5zdXJlZF9kYXRhLnJkcycpDQpgYGA=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFBhY2thZ2UgU2V0dXAgDQoNCmBgYHtyIGxvYWQgcGFja2FnZXN9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoamFuaXRvcikNCmxpYnJhcnkodGlkeWNlbnN1cykNCmxpYnJhcnkocmV0aWN1bGF0ZSkNCmxpYnJhcnkoZHBseXIpDQpgYGANCiMgUGVlciBTdGF0ZXMgUHJlcA0KYGBge3J9DQojbWFraW5nIHRoZSBwZWVyIHN0YXRlcyBkZiB0aGF0IGNhbiBiZSBqb2luZWQgdG8gb3RoZXIgZGZzDQpzdGF0ZXNfbmFtZXMgPC0gYygnQ2FsaWZvcm5pYScsICdDb2xvcmFkbycsICdGbG9yaWRhJywgJ0dlb3JnaWEnLCAnSWxsaW5vaXMnLCAnTmV3IFlvcmsnLCAnTm9ydGggQ2Fyb2xpbmEnLCAnT2hpbycsICdQZW5uc3lsdmFuaWEnLCAnVmlyZ2luaWEnLCAnV2FzaGluZ3RvbicpDQoNCnN0YXRlX3Nob3J0IDwtIGMoJ0NBJywgJ0NPJywgJ0ZMJywgJ0dBJywgJ0lMJywgJ05ZJywgJ05DJywgJ09IJywgJ1BBJywgJ1ZBJywgJ1dBJykNCg0KcGVlciA8LSBjKCdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knLCAnWScsICdZJywgJ1knKQ0KDQpzdGF0ZXMgPC0gZGF0YS5mcmFtZShzdGF0ZXNfbmFtZXMsIHN0YXRlX3Nob3J0LCBwZWVyKQ0KDQpgYGANCg0KDQoNCiMgQWdpbmcgRGF0YSANCg0KIyMgUG9wdWxhdGlvbiBQcm9qZWN0aW9ucw0KDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyMgRGF0YSBTb3VyY2U6IGh0dHBzOi8vZGVtb2dyYXBoaWNzLnRleGFzLmdvdi9EYXRhL1RQRVBQL1Byb2plY3Rpb25zLw0KDQojcmVhZGluZyBpbiB0aGUgQ1NWIGRvd25sb2FkZWQgZnJvbSB0aGUgc3RhdGUgZGVtb2dyYXBoZXIuIEtlZXBpbmcgb25seSByZWxldmFudCBkYXRhDQpwb3BfcHJvaiA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvMjAxOGFsbGNudHlpbmRhZ2UuY3N2IikgJT4lIA0KICBtdXRhdGUoYWdlX2tlZXBzID0gY2FzZV93aGVuKA0KICAgIGFnZV9pbl95cnNfbnVtICU+JSBiZXR3ZWVuKDAsMTcpIH4gIktlZXAiLA0KICAgIGFnZV9pbl95cnNfbnVtICU+JSBiZXR3ZWVuKDE4LDY0KSB+ICJLZWVwIiwNCiAgICBhZ2VfaW5feXJzX251bSAlPiUgYmV0d2Vlbig2NSw5NSkgfiAiS2VlcCIsDQogICAgVFJVRSB+ICJSZW1vdmUiDQogICkpICU+JQ0KICBmaWx0ZXIoYWdlX2tlZXBzID09ICJLZWVwIikgJT4lDQogIHdyaXRlX3JkcygiY2xlYW5fZGF0YS9BZ2luZy9wb3BfcHJval9kYXRhLnJkcyIpDQoNCmBgYA0KDQojIyBEaWFiZXRlcyBEYXRhDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyMgRGF0YSBTb3VyY2U6IENEQyBCUkZTUw0KDQojU3RhcnRpbmcgd2l0aCB0aGUgY291bnR5IGxldmVsIC0tIHRoZXNlIGRvIG5vdCBoYXZlIGFnZSBicmVha2Rvd25zDQojcmVhZGluZyBpbiB0aGUgQ1NWIGZyb20gdGhlIENEQy5Ta2lwcGluZyB0aGUgZmlyc3QgdHdvIHJvd3MgYXMgdGhleSBkbyBub3QgY29udGFpbiBhbnkgcmVsZXZhbnQgaW5mb3JtYXRpb24NCmRpYWJldGVzX3N0YXRzX2NvdW50eSA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvRGlhYmV0ZXNBdGxhc0NvdW50eURhdGEuY3N2Iiwgc2tpcCA9IDIpICU+JQ0KICB3cml0ZV9yZHMoImNsZWFuX2RhdGEvQWdpbmcvZGlhYmV0ZXNfY291bnR5X3N0YXRzLnJkcyIpDQoNCiNNb3Zpbmcgb24gdG8gVGV4YXMgbGV2ZWwgZGF0YSAtLSB0aGVzZSBoYXZlIGFnZSBicmVha2Rvd25zDQojbWFrZSBzdXJlIHRvIG9ubHkga2VlcCBkYXRhIGFmdGVyIDIwMTINCiNzYW1lIHByb2Nlc3MgYXMgYWJvdmUsIHJlYWRpbmcgaW4gdGhlIENTViBhbmQgc2tpcHBpbmcgdGhlIGZpcnN0IHR3byByb3dzLiBUaGlzIGlzIDc1KyBvbmx5DQpkaWFiZXRlc19zdGF0c19UWF83NV9yYXcgPC0gcmVhZF9jc3YoInJhd19kYXRhL0FnaW5nL0RpYWJldGVzQXRsYXNEYXRhNzUrLmNzdiIsIHNraXAgPSAyKSU+JQ0KICB3cml0ZV9yZHMoImNsZWFuX2RhdGEvQWdpbmcvZGlhYmV0ZXNfdHhfNzUrX3N0YXRzLnJkcyIpDQoNCiNzYW1lIHByb2Nlc3MgYXMgYWJvdmUsIHJlYWRpbmcgaW4gdGhlIENTViBhbmQgc2tpcHBpbmcgdGhlIGZpcnN0IHR3byByb3dzLiBUaGlzIGlzIDY1LTc0IG9ubHkNCmRpYWJldGVzX3N0YXRzX1RYXzY1X3JhdyA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvRGlhYmV0ZXNBdGxhc0RhdGE2NS03NC5jc3YiLCBza2lwID0gMikgJT4lDQogIHdyaXRlX3JkcygiY2xlYW5fZGF0YS9BZ2luZy9kaWFiZXRlc190eF82NS03NF9zdGF0cy5yZHMiKQ0KYGBgDQoNCg0KIyMgUGh5c2ljYWwgSW5hY3Rpdml0eSBEYXRhDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyMgRGF0YSBTb3VyY2U6IEFtZXJpY2EncyBIZWFsdGggUmFua2luZ3MNCg0KI3JlYWRpbmcgaW4gdGhlIENTViBmcm9tIEFtZXJpY2EncyBoZWFsdGggcmFua2luZ3MgYW5kIGtlZXBpbmcgdGhlIHJlbGV2YW50IGluZm9ybWF0aW9uDQpwaHlzaWNpYWxfaW5hY3Rpdml0eSA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvMjAxOS1TZW5pb3JfVFguY3N2IikgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiUGh5c2ljYWwgSW5hY3Rpdml0eSAtIEFnZXMgNjUrIikgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9waHlzaWNhbF9pbmFjdGl2aXR5X2RhdGEucmRzJykNCmBgYA0KDQojIyBTb2NpYWwgSXNvbGF0aW9uIERhdGENCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5ncw0KDQojcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBzb2NpYWwgaXNvbGF0aW9uIGZyb20gYWxsIHRoZSBkaWZmZXJlbnQgc3RhdGVzDQpzb2NpYWxfaXNvIDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy8yMDIwLVNlbmlvci5jc3YiKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJSaXNrIG9mIFNvY2lhbCBJc29sYXRpb24gLSBBZ2VzIDY1KyIpICU+JQ0KICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnc3RhdGVfbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL3NvY2lhbF9pc29fZGF0YS5yZHMnKQ0KYGBgDQojIyBNZW50YWwgSGVhbHRoIERhdGENCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5ncw0KDQojcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBtZW50YWwgaGVhbHRoIGZyb20gYWxsIHRoZSBkaWZmZXJlbnQgc3RhdGVzDQptZW50YWxfaGVhbHRoIDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy8yMDIwLVNlbmlvci5jc3YiKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJGcmVxdWVudCBNZW50YWwgRGlzdHJlc3MgLSBBZ2VzIDY1KyIpICU+JQ0KICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnc3RhdGVfbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL21lbnRhbF9oZWFsdGhfZGF0YS5yZHMnKQ0KYGBgDQojIyBBbHpoZWltZXLigJlzIA0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiNEYXRhIFNvdXJjZTogQ0RDIFdPTkRFUg0KDQojcmVhZGluZyBpbiBDU1YgYW5kIHNhdmluZyB0aGUgZGF0YQ0KYWxoX2RhdGEgPC0gcmVhZF9jc3YoInJhd19kYXRhL0FnaW5nL0RhdGEgVGFibGUuY3N2IiklPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ3N0YXRlJyA9ICdzdGF0ZV9zaG9ydCcpLCBjb3B5PSBGQUxTRSkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9BZ2luZy9hbHpoZWltZXJzX2RhdGEucmRzJykNCmBgYA0KIyMgUHJpbWFyeSBDYXJlIEFjY2Vzcw0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiMjIERhdGEgU291cmNlOiBBbWVyaWNhJ3MgSGVhbHRoIFJhbmtpbmdzDQoNCiNyZWFkaW5nIGluIHRoZSBDU1YuIEknbGwga2VlcCBhbGwgdGhlIHJlY29yZHMgZm9yIGhlYWx0aCBwcm92aWRlcnMgZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXMNCmRlZGlfaGVhbHRoIDwtIHJlYWRfY3N2KCJyYXdfZGF0YS9BZ2luZy8yMDIwLVNlbmlvci5jc3YiKSAlPiUNCiBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWA9PSJEZWRpY2F0ZWQgSGVhbHRoIENhcmUgUHJvdmlkZXIgLSBBZ2VzIDY1KyIpICU+JQ0KICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnc3RhdGVfbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL2RlZGljYXRlZF9oZWFsdGhfcHJvdmlkZXJfZGF0YS5yZHMnKQ0KYGBgDQojIyBJbW11bml6YXRpb24gUmF0ZXMNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5ncw0KDQojcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBpbW11bml6YXRpb24gcmF0ZXMgZnJvbSBhbGwgdGhlIGRpZmZlcmVudCBzdGF0ZXMNCmltbV9yYXRlcyA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvMjAyMC1TZW5pb3IuY3N2IikgJT4lIA0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIkltbXVuaXphdGlvbnMgLSBTZW5pb3IiKSU+JQ0KICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnc3RhdGVfbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0FnaW5nL2ltbXVuaXphdGlvbl9yYXRlc19kYXRhLnJkcycpDQpgYGANCg0KIyMgTnVyc2luZyBIb21lIFF1YWxpdHkNCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5ncw0KDQojcmVhZGluZyBpbiB0aGUgQ1NWLiBJJ2xsIGtlZXAgYWxsIHRoZSByZWNvcmRzIGZvciBudXJzaW5nIGhvbWUgcXVhbGl0eSBmcm9tIGFsbCB0aGUgZGlmZmVyZW50IHN0YXRlcw0KbnVyc2luZ19ob21lcyA8LSByZWFkX2NzdigicmF3X2RhdGEvQWdpbmcvMjAyMC1TZW5pb3IuY3N2IikgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiTnVyc2luZyBIb21lIFF1YWxpdHkiKSAgJT4lDQogIGZ1bGxfam9pbih5PXN0YXRlcywgYnkgPSBjKCdzdGF0ZV9uYW1lJyA9ICdzdGF0ZXNfbmFtZXMnKSwgY29weT0gRkFMU0UpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQWdpbmcvbnVyc2luZ19ob21lc19kYXRhLnJkcycpDQpgYGANCg0KIyBDaGlsZGhvb2QgRGF0YQ0KIyMgT2Jlc2l0eSBhbmQgT3ZlcndlaWdodA0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiMjIERhdGEgU291cmNlOiBBbWVyaWNhJ3MgSGVhbHRoIFJhbmtpbmdzDQoNCiMgU3RhcnRpbmcgd2l0aCBvYmVzaXR5IGFuZCBvdmVyd2VpZ2h0IGRhdGEgZm9yIGNoaWxkcmVuIGFjcm9zcyBhbGwgc3RhdGVzDQojcmVhZGluZyBpbiB0aGUgZGF0YSBhbmQgb25seSBrZWVwaW5nIGNoaWxkaG9vZCBvYmVzaXR5IGFuZCBvdmVyd2VpZ2h0IHJhdGVzDQpjaGRfb2JlcyA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vMjAxOS1IV0MuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiT3ZlcndlaWdodCBvciBPYmVzaXR5LVlvdXRoIikgJT4lDQogIGZ1bGxfam9pbih5PXN0YXRlcywgYnkgPSBjKCdzdGF0ZV9uYW1lJyA9ICdzdGF0ZXNfbmFtZXMnKSwgY29weT0gRkFMU0UpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRob29kX29iZXNpdHlfZGF0YS5yZHMnKQ0KDQoNCiMjIERhdGEgU291cmNlOiBodHRwczovL3N0YXRlb2ZjaGlsZGhvb2RvYmVzaXR5Lm9yZy93aWMvDQoNCiNyZWFkaW5nIGluIHRoZSBkYXRhIGFuZCBvbmx5IGtlZXBpbmcgY2hpbGRob29kIG9iZXNpdHkgYW5kIG92ZXJ3ZWlnaHQgcmF0ZXMgZm9yIGNoaWxkcmVuIGluIFdJQyBiZXR3ZWVuIHRoZSBhZ2VzIG9mIDItNA0Kd2ljX29iZXMgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuL0V4cG9ydENTVi5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ2xvY2F0aW9uX2Rlc2MnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PSBGQUxTRSkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi93aWNfb2Jlc2l0eV9kYXRhLnJkcycpDQpgYGANCiMjIFBoeXNpY2FsIEluYWN0aXZpdHkgDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyMgRGF0YSBTb3VyY2U6IGh0dHBzOi8veXJicy1leHBsb3Jlci5zZXJ2aWNlcy5jZGMuZ292LyMvDQoNCiMjcmVhZGluZyBkYXRhIGZvciB5b3V0aCBpbmFjdGl2aXR5DQpjaGxkX2luYWMgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuL2NoaWxkX2luYWN0aXZpdHkuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi9jaGlsZF9pbmFjdGl2aXR5X2RhdGEucmRzJykNCmBgYA0KIyMgU21va2luZw0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiNyZWFkaW5nIGluIHRoZSBkYXRhIGZvciB5b3V0aCBzbW9raW5nIHJhdGVzDQoNCg0KIyMgc291cmNlIGZvciBjdXJyZW50IHVzZSBvZiBlbGVjdHJvbmljIHZhcG9yIHByb2R1Y3RzOiAgaHR0cHM6Ly95cmJzLWV4cGxvcmVyLnNlcnZpY2VzLmNkYy5nb3YvIy90YWJsZXM/cXVlc3Rpb25Db2RlPUgzNSZ0b3BpY0NvZGU9QzAyJmxvY2F0aW9uPVRYJnllYXI9MjAxOQ0KDQojdGhpcyBpcyBlbGVjdHJvbmljIHZhcGUgdXNhZ2UNCmNoaWxkX3ZhcGVfdXNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9jdXJyZW50X3ZhcGVfdXNlLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmdWxsX2pvaW4oc3RhdGVzLCBieSA9IGMoJ2xvY2F0aW9uX2Rlc2MnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PUZBTFNFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX3ZhcGVfZGF0YS5yZHMnKQ0KDQojIyBzb3VyY2UgZm9yIGN1cnJlbnQgYW55IHRvYmFjY28gdXNlLiBodHRwczovL3lyYnMtZXhwbG9yZXIuc2VydmljZXMuY2RjLmdvdi8jL3RhYmxlcz9xdWVzdGlvbkNvZGU9UU5UQjQmdG9waWNDb2RlPUMwMiZsb2NhdGlvbj1YWCZ5ZWFyPTIwMTkNCg0KI3RoaXMgaWYgZm9yIGFueSB0b2JhY2NvIHVzZQ0KY2hpbGRfdG9iX3VzZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY3VycmVudF9hbnlfdG9iYWNjb191c2UuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZ1bGxfam9pbihzdGF0ZXMsIGJ5ID0gYygnbG9jYXRpb25fZGVzYycgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9RkFMU0UpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfdG9iYWNjb19kYXRhLnJkcycpDQoNCg0KIyNzb3VyY2UgZm9yIGN1cnJlbnQgc21va2luZy4gOiBodHRwczovL3lyYnMtZXhwbG9yZXIuc2VydmljZXMuY2RjLmdvdi8jL2dyYXBocz9xdWVzdGlvbkNvZGU9UU5UQjQmdG9waWNDb2RlPUMwMiZsb2NhdGlvbj1YWCZ5ZWFyPTIwMTkgDQoNCg0KI3RoaXMgaWYgZm9yIGFueSB0b2JhY2NvIHVzYWdlIHRyZW5kDQpjaGlsZF90b2JfdXNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi9jdXJyZW50X2FueV90b2JhY2NvX3RyZW5kLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRfdG9iYWNjb190cmVuZC5yZHMnKQ0KDQpgYGANCg0KIyMgTWVudGFsIEhlYWx0aA0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiMjIERhdGEgU291cmNlOiBodHRwczovL3d3dy5qcGVkcy5jb20vYXJ0aWNsZS9TMDAyMi0zNDc2KDE4KTMxMjkyLTcvZnVsbHRleHQgDQoNCg0KI3JlYWRpbmcgaW4gdGhlIG1lbnRhbCBoZWFsdGggZGF0YQ0KY2hpbGRfbWVudGFsX2hlYWx0aCA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vY2hpbGRfbWVudGFsX2hlYWx0aC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL0NoaWxkcmVuL2NoaWxkX21lbnRhbF9oZWFsdGhfZGF0YS5yZHMnKQ0KYGBgDQojIyBTdWljaWRlIERhdGENCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZQ0KDQojIyBEYXRhIFNvdXJjZTogQW1lcmljYSdzIEhlYWx0aCBSYW5raW5ncw0KDQojIyBrZWVwaW5nIG9uIHRlZW4gc3VpY2lkZSBkYXRhIGZvciBUZXhhcyBhbmQgdGhlIFVTLCBmaXJzdCBmb3IgMjAxOQ0KdGVlbl9zdWljaV8xOSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vMjAxOS1IV0MuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiVGVlbiBTdWljaWRlIikgJT4lDQogIGZpbHRlcigoYHN0YXRlX25hbWVgID09ICJUZXhhcyIpIHwgIChgc3RhdGVfbmFtZWAgPT0gIlVuaXRlZCBTdGF0ZXMiKSkNCg0KIzIwMTgNCnRlZW5fc3VpY2lfMTggPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL0NoaWxkcmVuLzIwMTgtSFdDLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIlRlZW4gU3VpY2lkZSIpICU+JQ0KICBmaWx0ZXIoKGBzdGF0ZV9uYW1lYCA9PSAiVGV4YXMiKSB8ICAoYHN0YXRlX25hbWVgID09ICJVbml0ZWQgU3RhdGVzIikpDQoNCiMyMDE2DQp0ZWVuX3N1aWNpXzE2IDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi8yMDE2LUhXQy5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJUZWVuIFN1aWNpZGUiKSAlPiUNCiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gIlRleGFzIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSAiVW5pdGVkIFN0YXRlcyIpKQ0KDQoNCnRlZW5fc3VpY2kgPC0gcmJpbmQodGVlbl9zdWljaV8xOSwgdGVlbl9zdWljaV8xOCwgdGVlbl9zdWljaV8xNikgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi90ZWVuX3N1aWNpZGVfZGF0YS5yZHMnKQ0KYGBgDQojIyBDaGlsZGhvb2QgdW5pbnN1cmVkIHJhdGVzDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyMgRGF0YSBTb3VyY2U6IGh0dHBzOi8vd3d3LmNlbnN1cy5nb3YvZGF0YS10b29scy9kZW1vL3NhaGllLyMvDQoNCg0KY2hpbGRfaW5zZSA8LSByZWFkX2NzdigncmF3X2RhdGEvQ2hpbGRyZW4vU0FISUVfMjhTRVAyMF8xNV8zOV8yM18xMy5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZnVsbF9qb2luKHk9c3RhdGVzLCBieSA9IGMoJ25hbWUnID0gJ3N0YXRlc19uYW1lcycpLCBjb3B5PSBGQUxTRSkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9DaGlsZHJlbi9jaGlsZF91bmluc3VyZWRfZGF0YS5yZHMnKQ0KYGBgDQojIyBBY2Nlc3MgdG8gcHJpbWFyeSBjYXJlDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyMgRGF0YSBTb3VyY2U6IEFtZXJpY2EncyBIZWFsdGggUmFua2luZ3MNCg0KY2hkX3BjIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9DaGlsZHJlbi8yMDE5LUhXQy5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJDbGluaWNhbCBDYXJlLUNoaWxkcmVuIikgJT4lDQogIGZ1bGxfam9pbih5PXN0YXRlcywgYnkgPSBjKCdzdGF0ZV9uYW1lJyA9ICdzdGF0ZXNfbmFtZXMnKSwgY29weT0gRkFMU0UpICU+JQ0KICB3cml0ZV9yZHMoJ2NsZWFuX2RhdGEvQ2hpbGRyZW4vY2hpbGRob29kX3ByaW1hcnlfY2FyZS5yZHMnKQ0KYGBgDQoNCiMgV29ya2luZyBBZ2UgRGF0YQ0KDQojIyBwaHlpc2ljYWwgaW5hY3Rpdml0eSANCmBgYHtyfQ0KIyMgVGhpcyBpcyBjb21wbGV0ZWQNCg0KIyMgRGF0YSBTb3VyY2U6IGh0dHBzOi8vbmNjZC5jZGMuZ292L2RucGFvX2R0bS9yZFBhZ2UuYXNweD9yZFJlcG9ydD1ETlBBT19EVE0uRXhwbG9yZUJ5TG9jYXRpb24mcmRSZXF1ZXN0Rm9yd2FyZGluZz1Gb3JtDQoNCiNUZXhhcyBkYXRhDQoNCndvcmtpbmdfYWN0X3R4IDwtcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlL0V4cG9ydENTVl9UWC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL1dvcmtpbmcgQWdlL3dvcmtpbmdfYWN0aXZpdHlfdHgucmRzJykNCg0KIyBVUyBEYXRhDQp3b3JraW5nX2FjdF91cyA8LXJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS9FeHBvcnRDU1ZfVVMuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIHdyaXRlX3JkcygnY2xlYW5fZGF0YS9Xb3JraW5nIEFnZS93b3JraW5nX2FjdGl2aXR5X3VzLnJkcycpDQpgYGANCg0KIyMgTWVudGFsIEhlYWx0aA0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiMjIERhdGEgU291cmNlOiBBbWVyaWNhJ3MgSGVhbHRoIFJhbmtpbmdzDQoNCm1lbnRhbF8yMDE5IDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS8yMDE5LUFubnVhbC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJGcmVxdWVudCBNZW50YWwgRGlzdHJlc3MiKSAlPiUNCiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gIlRleGFzIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSAiVW5pdGVkIFN0YXRlcyIpKQ0KICANCm1lbnRhbF8yMDE4IDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS8yMDE4LUFubnVhbC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJGcmVxdWVudCBNZW50YWwgRGlzdHJlc3MiKSAlPiUNCiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gIlRleGFzIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSAiVW5pdGVkIFN0YXRlcyIpKQ0KDQptZW50YWxfMjAxNyA8LSByZWFkX2NzdigncmF3X2RhdGEvV29ya2luZyBBZ2UvMjAxNy1Bbm51YWwuY3N2JykgJT4lDQogIGNsZWFuX25hbWVzKCkgJT4lDQogIGZpbHRlcihgbWVhc3VyZV9uYW1lYCA9PSAiRnJlcXVlbnQgTWVudGFsIERpc3RyZXNzIikgJT4lDQogIGZpbHRlcigoYHN0YXRlX25hbWVgID09ICJUZXhhcyIpIHwgIChgc3RhdGVfbmFtZWAgPT0gIlVuaXRlZCBTdGF0ZXMiKSkNCg0KbWVudGFsXzIwMTYgPC0gcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlLzIwMTYtQW5udWFsLmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmaWx0ZXIoYG1lYXN1cmVfbmFtZWAgPT0gIkZyZXF1ZW50IE1lbnRhbCBEaXN0cmVzcyIpICU+JQ0KICBmaWx0ZXIoKGBzdGF0ZV9uYW1lYCA9PSAiVGV4YXMiKSB8ICAoYHN0YXRlX25hbWVgID09ICJVbml0ZWQgU3RhdGVzIikpDQoNCm1lbnRhbF8yMDE1IDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS8yMDE1LUFubnVhbC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgZmlsdGVyKGBtZWFzdXJlX25hbWVgID09ICJGcmVxdWVudCBNZW50YWwgRGlzdHJlc3MiKSAlPiUNCiAgZmlsdGVyKChgc3RhdGVfbmFtZWAgPT0gIlRleGFzIikgfCAgKGBzdGF0ZV9uYW1lYCA9PSAiVW5pdGVkIFN0YXRlcyIpKQ0KDQptZW50YWxfaGVhbHRoX3dvcmtpbmcgPC0gcmJpbmQobWVudGFsXzIwMTksIG1lbnRhbF8yMDE4LCBtZW50YWxfMjAxNywgbWVudGFsXzIwMTYsIG1lbnRhbF8yMDE1KSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL1dvcmtpbmcgQWdlL21lbnRhbF9oZWFsdGhfZGF0YS5yZHMnKQ0KYGBgDQoNCg0KIyMgQ2FyZGlvdmFzY3VsYXIgSGVhbHRoDQpgYGB7cn0NCiMjIFRoaXMgaXMgY29tcGxldGUNCg0KIyMgRGF0YSBTb3VyY2U6IGh0dHBzOi8vbmNjZC5jZGMuZ292L0RIRFNQQXRsYXMvRGVmYXVsdC5hc3B4P3N0YXRlPVRYDQoNCmNhcmRfaGVhbHRoID0gcmVhZF9jc3YoJ3Jhd19kYXRhL1dvcmtpbmcgQWdlL3JlcG9ydC5jc3YnKSAlPiUNCiAgY2xlYW5fbmFtZXMoKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL1dvcmtpbmcgQWdlL2NhcmRpb19oZWFsdGgucmRzJykNCg0KYGBgDQoNCiMjIEFkdWx0IHVuaW5zdXJlZCByYXRlcw0KYGBge3J9DQojIyBUaGlzIGlzIGNvbXBsZXRlDQoNCiMjIERhdGEgU291cmNlOiAgaHR0cHM6Ly93d3cuY2Vuc3VzLmdvdi9kYXRhLXRvb2xzL2RlbW8vc2FoaWUvIy8NCg0KYWR1bF9pbnNlIDwtIHJlYWRfY3N2KCdyYXdfZGF0YS9Xb3JraW5nIEFnZS9TQUhJRV8yOFNFUDIwXzE2XzMyXzA2Xzc5LmNzdicpICU+JQ0KICBjbGVhbl9uYW1lcygpICU+JQ0KICBmdWxsX2pvaW4oeT1zdGF0ZXMsIGJ5ID0gYygnbmFtZScgPSAnc3RhdGVzX25hbWVzJyksIGNvcHk9IEZBTFNFKSAlPiUNCiAgd3JpdGVfcmRzKCdjbGVhbl9kYXRhL1dvcmtpbmcgQWdlL2FkdWx0X3VuaW5zdXJlZF9kYXRhLnJkcycpDQpgYGA=</div>
 
 
 
