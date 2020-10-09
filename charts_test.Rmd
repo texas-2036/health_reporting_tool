@@ -29,20 +29,13 @@ teen_suicides <- readRDS(file = 'clean_data/Children/teen_suicide_data.rds')
 child_uninsurance <- readRDS(file = 'clean_data/Children/child_uninsured_data.rds')
 ```
 
-```{r}
-View(childhood_obesity)
-View(wic_obesity)
-View(tobacco_trends)
-View(vaping_use)
-View(teen_suicides)
-View(childhood_inactivity)
-```
-
 
 # Making the charts 
 
 ## Teen suicide rates
 ```{r}
+## Seems to be complete, need formatting
+
 highchart() 
 
 hchart(teen_suicides, 
@@ -54,6 +47,8 @@ hc_title(text = "Teen Suicide Rates") %>%
 
 ## Physical Inactivity
 ```{r}
+## need formatting
+
 highchart() 
 
 hchart(childhood_inactivity, 
@@ -65,6 +60,8 @@ hc_title(text = "Percentage of Texas high school students who were physically ac
 
 ## Current Smoking Rates
 ```{r}
+## Ask and see if there is more data about this
+
 highchart() 
 
 hchart(tobacco_trends, 
@@ -75,6 +72,7 @@ hc_title(text = "Percentage of US high school students who currently use tobacco
 ```
 
 ```{r}
+## this needs more data too
 
 ## this needs to become a line chart, fix this
 hchart(child_uninsurance%>%filter(`peer` == 'Y' | `name` == 'Texas'),
