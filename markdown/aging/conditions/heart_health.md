@@ -1,0 +1,5 @@
+Nothing kills more Americans than [heart disease](https://www.cdc.gov/heartdisease/about.htm) and [stroke.](https://www.cdc.gov/stroke) More than 859,000 Americans die of heart disease or stroke every year—that’s one-third of all deaths. These diseases take an economic toll, as well, costing our health care system $199 billion per year and causing $131 billion in lost productivity on the job.3  Top condition costs for Medicare – Heart-related (highlight high blood pressure), 
+
+
+Our results suggest that Medicare beneficiaries with CVD spend 30.5% more than those without CVD. Those with diabetes spend 20.8% more than their non-diabetes counterparts. Additional spending is 14.1% and 12.4% for hypertension and cancer, respectively. These estimates are higher than those for chronic lung disease (11.8%) and arthritis (11.7%). Thus, on an adjusted basis, the four ‘costliest’ chronic conditions are ((CVD, diabetes, hypertension, and cancer), whether in absolute or relative terms.
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0222539#:~:text=These%20estimates%20are%20higher%20than,in%20absolute%20or%20relative%20terms.
