@@ -1,0 +1,5 @@
+Tobacco use is the leading cause of preventable disease and death in the United States. Nearly 9 out of 10 adults who smoke cigarettes daily first try smoking by age 18, so preventing adolescents from starting is key to reducing smoking in adults.
+
+Texas and the federal government have now taken the major policy step of raising the minimum age for tobacco sales to 21 years. The change became effective in Texas in September 2019 and throughout the U.S. in February 2020. Other population-level interventions to reduce tobacco use include price increases, mass media campaigns, and smoke-free policies.
+
+Texas compares favorably to the United States in terms of the percent of high school students who currently smoke or use other tobacco products. However, the recent progress in declining use of other tobacco products, including cigarettes, cigars, and smokeless tobacco, have been wiped out by a dramatic increase in the use of electronic vaping products. The rate of current tobacco use for any tobacco product, including electronic vaping products, was 36.5 percent in the U.S. and 21.8 percent in Texas in 2019, which ranks Texas 5th in the nation.

@@ -1,0 +1,1 @@
+Children’s well-being determines the health of the next generation - healthy children are more likely to become healthy adults. We want Texas children to be as healthy as possible, and their health can help predict future health challenges for families, communities, and the health care system.

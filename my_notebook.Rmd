@@ -1,0 +1,1198 @@
+---
+title: "Matt's Notebook"
+author: "Matthew Worthington, M.Ed., M.PAff."
+date: "9/29/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(janitor)
+library(vroom)
+library(Knoema)
+library(readxl)
+library(lubridate)
+```
+
+
+## General Assets
+
+### Peer States List
+
+```{r}
+states_long <- "California|Colorado|Florida|Georgia|Illinois|New York|North Carolina|Ohio|Pennsylvania|Virginia|Texas|Washington|United States"
+
+states_short <- "CA|CO|FL|GA|IL|NY|NC|OH|PA|VA|TX|WA|US"
+```
+
+# Peer States Prep
+
+```{r}
+#making the peer states df that can be joined to other dfs
+states_list <- c('California', 'Colorado', 'Florida', 'Georgia', 'Illinois', 'New York', 'North Carolina', 'Ohio', 'Pennsylvania', 'Virginia', 'Washington', 'Texas', 'United States')
+
+state_abbr <- c('CA', 'CO', 'FL', 'GA', 'IL', 'NY', 'NC', 'OH', 'PA', 'VA', 'WA', 'TX', 'US')
+
+peer <- c('Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y')
+
+states_df <- data.frame(states_list, state_abbr, peer)
+
+```
+
+## AHR Reports
+
+### AHR Annual
+
+```{r}
+files_list <- fs::dir_ls(path="raw_data/ahr_annual/", pattern=".csv")
+
+ahr_annual <- map_df(files_list,
+                        ~read_csv(.x, col_types = cols(`Source Year` = col_character())) %>%
+                          clean_names() %>%
+                          filter(str_detect(state_name, states_long),
+                                 state_name != "West Virginia"),
+                        .id = "file_name") %>% 
+  select(2:5, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  left_join(states_df, by = c("state_name" = "states_list")) %>% 
+  arrange(edition)
+```
+
+### AHR Senior
+
+```{r}
+files_list <- fs::dir_ls(path="raw_data/ahr_senior/", pattern=".csv") 
+
+## keeping on teen suicide data for Texas and the US, first for 2019
+ahr_senior <- map_df(files_list,
+                        ~read_csv(.x, col_types = cols(`Source Year` = col_character())) %>%
+                          clean_names() %>%
+                          filter(str_detect(state_name, states_long),
+                                 state_name != "West Virginia"),
+                        .id = "file_name") %>% 
+  select(2:5, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  left_join(states_df, by = c("state_name" = "states_list")) %>% 
+  arrange(edition)
+```
+
+### AHR Women and Children
+
+```{r}
+files_list <- fs::dir_ls(path="raw_data/ahr_hwc/", pattern=".csv")
+
+ahr_hwc <- map_df(files_list,
+                        ~read_csv(.x, col_types = cols(`Source Year` = col_character())) %>%
+                          clean_names() %>%
+                          filter(str_detect(state_name, states_long)),
+                        .id = "file_name") %>% 
+  select(2:5, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  left_join(states_df, by = c("state_name" = "states_list")) %>% 
+  arrange(edition)
+```
+
+
+## Texas Map
+
+```{r}
+my_map <- hcmap("countries/us/us-tx-all",
+                download_map_data = TRUE) %>% 
+  write_rds("clean_data/texas_hc_map.rds")
+```
+
+# Aging 
+
+## Overview
+
+### Pop Proj - All Groups
+
+```{r}
+
+pop_proj_all <- vroom("raw_data/2018allcntyindage.csv") %>% 
+  clean_names() %>% 
+  filter(fips=="000") %>% 
+  mutate(age_groups = case_when(
+    age_in_yrs_num %>% between(0,17) ~ "Ages 0-17",
+    age_in_yrs_num %>% between(18,64) ~ "Ages 18-64",
+    age_in_yrs_num>=65 ~ "Age 65+",
+  )) %>% 
+  drop_na(age_groups) %>% 
+  group_by(year, age_groups) %>% 
+  summarise(group_pop=sum(total)) %>% 
+  write_rds("clean_data/Aging/overview/pop_proj_all.rds")
+
+
+```
+
+
+### Pop Proj - 65+ by Race
+
+```{r}
+
+# pop_proj_tot <- vroom("raw_data/2018allcntyindage.csv") %>% 
+#   clean_names() %>% 
+#   filter(fips=="000",
+#          age_in_yrs_num>=65)
+
+pop_proj_65 <- vroom("raw_data/2018allcntyindage.csv") %>% 
+  clean_names() %>% 
+  mutate(age_groups = case_when(
+    age_in_yrs_num %>% between(0,17) ~ "Ages 0-17",
+    age_in_yrs_num %>% between(18,64) ~ "Ages 18-64",
+    age_in_yrs_num>=65 ~ "Age 65+",
+  )) %>% 
+  filter(fips=="000",
+         age_in_yrs_num>=65) %>%
+  group_by(year, age_groups) %>% 
+  summarise(across(starts_with(c("nh","hispanic","total")), ~sum(.x))) %>% 
+  select(year, age_groups, contains("total"), -contains(c("male", "female"))) %>% 
+  pivot_longer(cols=3:7,
+               names_to="dem_groups",values_to="group_pop") %>% 
+  mutate(group_pct = group_pop/total,
+         group_pct_label = group_pct) %>% 
+  mutate_at(vars("group_pct_label"), scales::percent) %>% 
+  write_rds("clean_data/Aging/overview/pop_proj_65.rds")
+
+```
+
+
+## Risk Factors
+
+### Obesity - 65+
+
+* [Raw Data Link](https://datalab.texas2036.org/bwhqgjc/behavioral-risk-factor-surveillance-system-brfss-prevalence-data?accesskey=xclhoac)
+
+```{r}
+aging_rf_obesity <- vroom("raw_data/Aging/risk_factors/aging_rf_obesity.csv") %>% 
+  clean_names() %>% 
+  select(location, data_value, date, unit) %>% 
+  mutate(date = as.character(date)) %>% 
+  write_rds("clean_data/Aging/risk_factors/aging_rf_obesity.rds")
+```
+
+
+### Physical Inactivity
+
+#### Time-Series Chart Data
+
+```{r}
+phys_inactivity_ts <- vroom("raw_data/Aging/risk_factors/aging_rf_phys_inactivity.csv") %>% 
+  clean_names() %>% 
+  select(source_year, report_type, states, value, edition) %>% 
+  replace_na(list(source_year="2013")) %>% 
+  write_rds("clean_data/Aging/risk_factors/aging_rf_phys_inactivity.rds")
+```
+
+
+#### Map Data
+
+```{r}
+
+phys_inactivity_map_raw <- Knoema('fywtqfb', client.id = Sys.getenv("knoema_id"), 
+                                 client.secret=Sys.getenv("knoema_secret"), 
+                                 type = "DataTable", list('Region' = '48001;48003;48005;48007;48009;48011;48013;48015;48017;48019;48021;48023;48025;48027;48029;48031;48033;48035;48037;48039;48041;48043;48045;48047;48049;48051;48053;48055;48057;48059;48061;48063;48065;48067;48069;48071;48073;48075;48077;48079;48081;48083;48085;48087;48089;48091;48093;48095;48097;48099;48101;48103;48105;48107;48109;48111;48113;48115;48117;48119;48121;48125;48127;48129;48131;48133;48135;48137;48139;48141;48143;48145;48147;48149;48151;48153;48155;48157;48159;48161;48163;48165;48167;48169;48171;48173;48175;48177;48179;48181;48183;48185;48187;48189;48191;48193;48195;48197;48199;48201;48203;48205;48207;48209;48211;48213;48215;48217;48219;48221;48223;48225;48227;48229;48231;48233;48235;48237;48239;48241;48243;48245;48247;48249;48251;48253;48255;48257;48259;48261;48263;48265;48267;48269;48271;48273;48275;48277;48279;48281;48283;48285;48287;48289;48291;48293;48295;48297;48299;48301;48303;48305;48307;48309;48311;48313;48315;48317;48319;48321;48323;48325;48327;48329;48331;48333;48335;48337;48339;48341;48343;48345;48347;48349;48351;48353;48355;48357;48359;48361;48363;48365;48367;48369;48371;48373;48375;48377;48379;48381;48383;48385;48387;48389;48391;48393;48395;48397;48399;48401;48403;48405;48407;48409;48411;48413;48415;48417;48419;48421;48423;48425;48427;48429;48431;48433;48435;48437;48439;48441;48443;48445;48447;48449;48451;48453;48455;48457;48459;48461;48463;48465;48467;48469;48471;48473;48475;48477;48479;48481;48483;48485;48487;48489;48491;48493;48495;48497;48499;48501;48503;48505;48507;48123', 'Indicator' = 'KN.I20', 'Measure' = 'KN.M6', 'Race' = 'KN.G1'), host='datalab.texas2036.org') %>% 
+  as_tibble() 
+
+counties_sf <- read_rds("raw_data/county_pop.rds") %>% 
+  mutate(NAME=str_remove(NAME, " County, Texas")) %>% 
+  select(fips=GEOID, county=NAME, -estimate)
+
+phys_inactivity_map_df <- phys_inactivity_map_raw %>% 
+  clean_names() %>% 
+  filter(date=="2020-01-01") %>% 
+  mutate(date=str_remove(date, "-01-01")) %>% 
+  select(date, county=region, indicator,value=freq) %>% 
+  write_rds("clean_data/Aging/risk_factors/phys_inactivity_map.rds")
+
+```
+
+### Social Isolation
+
+#### US Map
+
+```{r}
+social_iso_map_df <- read_rds("clean_data/Aging/social_iso_data.rds") %>% 
+  clean_names() %>% 
+  select(edition, state_name, state_short, measure_name, value, peer, source)
+```
+
+## Conditions
+
+### Diabetes
+
+```{r}
+diabetes <- vroom("raw_data/Aging/diabetes_access_mental_health.csv") %>% 
+  clean_names() %>% 
+  filter(str_detect(indicator, "Diabetes")) %>% 
+  select(1:4, value, source, source_year) %>% 
+  mutate(peer_states = case_when(
+    str_detect(states, states_long) ~ "Peer State",
+    TRUE ~ "Not Peer State"
+  )) %>% 
+  mutate(edition=as.character(edition)) %>%
+  arrange(edition) %>% 
+  write_rds("clean_data/Aging/conditions/diabetes_data.rds")
+```
+
+### Mental Health
+
+```{r}
+mental_distress <- vroom("raw_data/Aging/diabetes_access_mental_health.csv") %>% 
+  clean_names() %>% 
+  filter(str_detect(indicator, "Mental Distress")) %>% 
+  select(1:4, value, source, source_year) %>% 
+  group_by(edition) %>% 
+  mutate(rank=dense_rank(value)) %>% 
+  arrange(edition, rank)  %>% 
+  ungroup() %>% 
+  mutate(peer_states = case_when(
+    str_detect(states, states_long) ~ "Peer State",
+    TRUE ~ "Not Peer State"
+  )) %>% 
+  mutate(edition=as.character(edition)) %>%
+  arrange(edition) %>% 
+  write_rds("clean_data/Aging/conditions/mental_distress.rds")
+```
+
+### Heart Health
+
+```{r}
+heart_health <- sf::read_sf("raw_data/Aging/heart_health/Total_Cardiovascular_Disease_Death_Rate_per_100000_65plus_All_Races_Ethnicities_Both_Genders_2016to2018.shp") %>% 
+  as_tibble() %>% 
+  clean_names() %>% 
+  select(-geometry, -shape_leng, -shape_area,-objectid) %>% 
+  mutate(rank=dense_rank(value)) %>% 
+  arrange(rank)  %>% 
+  mutate(peer_states = case_when(
+    str_detect(state_name, states_long) ~ "Peer State",
+    TRUE ~ "Not Peer State"
+  )) %>% 
+  mutate(measure = "Total Cardiovascular Disease Death Rate per 100,000, 65+, All Races/Ethnicities, Both Genders, 2016-2018",
+         source = "Interactive Atlas of Heart Disease and Stroke, by Center for Disease Control and Prevention.") %>% 
+  write_rds("clean_data/Aging/conditions/heart_health.rds")
+
+```
+
+### Alzheimer's
+
+```{r}
+alzheimers <- vroom("raw_data/Aging/Alzheimer's Disease Mortality by State.csv") %>% 
+  clean_names() %>% 
+  group_by(year) %>% 
+  mutate(rank=dense_rank(rate)) %>% 
+  arrange(year, rank)  %>% 
+  ungroup() %>% 
+  mutate(peer_states = case_when(
+    str_detect(state, states_short) ~ "Peer State",
+    TRUE ~ "Not Peer State"
+  )) %>% 
+  write_rds("clean_data/Aging/conditions/alzheimers_data.rds")
+
+```
+
+## Policy & Clinical Care
+
+### Access to HC
+
+```{r}
+access_to_hc <- vroom("raw_data/Aging/diabetes_access_mental_health.csv") %>% 
+  clean_names() %>% 
+  filter(str_detect(indicator, "Dedicated HC")) %>% 
+  select(1:4, value, source, source_year) %>% 
+    mutate(peer_states = case_when(
+    str_detect(states, states_long) ~ "Peer State",
+    TRUE ~ "Not Peer State"
+  )) %>% 
+  mutate(edition=as.character(edition)) %>%
+  arrange(edition) %>%  
+  write_rds("clean_data/Aging/policy/access_pcp.rds")
+```
+
+### Prevention
+
+```{r}
+
+immunizations <- vroom("raw_data/Aging/ahr_2020_senior.csv") %>% 
+  clean_names() %>% 
+  filter(measure_name == "Flu Vaccination - Ages 65+" | measure_name=="Pneumonia Vaccination - Ages 65+" | measure_name=="Shingles Vaccination - Ages 65+") %>% 
+  filter(str_detect(state_name, states_long)) %>%
+  select(1:4, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  arrange(edition) %>% 
+  write_rds("clean_data/Aging/policy/immunizations.rds")
+
+```
+
+### Nursing Home Quality
+
+#### Nursing Home Quality Peers Chart
+
+```{r}
+files_list <- fs::dir_ls(path="raw_data/Aging/", pattern=".csv") %>% 
+  as_tibble() %>% 
+  filter(str_detect(value, "Senior|senior"),
+         value!="raw_data/Aging/2019-Senior_TX.csv",
+         value!="raw_data/Aging/2020-Senior.csv") %>% 
+  simplify()
+
+## keeping on teen suicide data for Texas and the US, first for 2019
+nh_quality_peers <- map_df(files_list,
+                        ~read_csv(.x, col_types = cols(`Source Year` = col_character())) %>%
+                          clean_names() %>%
+                          filter(`measure_name` == "Nursing Home Quality") %>%
+                          filter(str_detect(state_name, states_long)),
+                        .id = "file_name") %>% 
+  filter(!str_detect(edition, "2013|2014|2015|2016")) %>% 
+  select(2:5, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  left_join(states_df, by = c("state_name" = "states_list")) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Aging/policy/nh_quality_peers.rds")
+
+```
+
+#### Nursing Home Quality Map
+
+```{r}
+nh_quality <- vroom("raw_data/Aging/ahr_2020_senior.csv") %>% 
+  clean_names() %>% 
+  filter(measure_name == "Nursing Home Quality") %>% 
+  select(1:4, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  arrange(edition) %>% 
+  write_rds("clean_data/Aging/policy/nh_quality.rds")
+
+
+```
+
+
+# Working Age 
+
+## Overview
+
+### Pop Proj - All Groups
+
+```{r}
+
+pop_proj_all <- vroom("raw_data/2018allcntyindage.csv") %>% 
+  clean_names() %>% 
+  filter(fips=="000") %>% 
+  mutate(age_groups = case_when(
+    age_in_yrs_num %>% between(0,17) ~ "Ages 0-17",
+    age_in_yrs_num %>% between(18,64) ~ "Ages 18-64",
+    age_in_yrs_num>=65 ~ "Age 65+",
+  )) %>% 
+  drop_na(age_groups) %>% 
+  group_by(year, age_groups) %>% 
+  summarise(group_pop=sum(total)) %>% 
+  write_rds("clean_data/Aging/overview/pop_proj_all.rds")
+
+
+```
+
+
+### Pop Proj - 65+ by Race
+
+```{r}
+
+# pop_proj_tot <- vroom("raw_data/2018allcntyindage.csv") %>% 
+#   clean_names() %>% 
+#   filter(fips=="000",
+#          age_in_yrs_num>=65)
+
+pop_proj_65 <- vroom("raw_data/2018allcntyindage.csv") %>% 
+  clean_names() %>% 
+  mutate(age_groups = case_when(
+    age_in_yrs_num %>% between(0,17) ~ "Ages 0-17",
+    age_in_yrs_num %>% between(18,64) ~ "Ages 18-64",
+    age_in_yrs_num>=65 ~ "Age 65+",
+  )) %>% 
+  filter(fips=="000",
+         age_in_yrs_num>=65) %>%
+  group_by(year, age_groups) %>% 
+  summarise(across(starts_with(c("nh","hispanic","total")), ~sum(.x))) %>% 
+  select(year, age_groups, contains("total"), -contains(c("male", "female"))) %>% 
+  pivot_longer(cols=3:7,
+               names_to="dem_groups",values_to="group_pop") %>% 
+  mutate(group_pct = group_pop/total,
+         group_pct_label = group_pct) %>% 
+  mutate_at(vars("group_pct_label"), scales::percent) %>% 
+  write_rds("clean_data/Aging/overview/pop_proj_65.rds")
+
+```
+
+
+## Risk Factors
+
+### Obesity - Working Age
+
+```{r}
+obesity_map_wk <- read_csv("raw_data/Working Age/DiabetesAtlasCountyData.csv", skip=2) %>% 
+  clean_names() %>% 
+  mutate(county=str_remove(county, " County")) %>% 
+  select(1,fips=county_fips,4) %>% 
+  write_rds("clean_data/Working Age/risk_factors/obesity_county_map.rds")
+```
+
+```{r}
+obesity_chart_wk <- ahr_annual %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition >= 2012,
+         measure_name == "Obesity") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Working Age/risk_factors/obesity_chart.rds")
+```
+
+### Physical Inactivity
+
+```{r}
+# Data: https://datalab.texas2036.org/fywtqfb/texas-county-health-ranking?accesskey=hvqeiwb
+
+phys_inactivity_map_raw <- Knoema('fywtqfb', client.id = Sys.getenv("knoema_id"), 
+                                 client.secret=Sys.getenv("knoema_secret"), 
+                                 type = "DataTable", list('Region' = '48001;48003;48005;48007;48009;48011;48013;48015;48017;48019;48021;48023;48025;48027;48029;48031;48033;48035;48037;48039;48041;48043;48045;48047;48049;48051;48053;48055;48057;48059;48061;48063;48065;48067;48069;48071;48073;48075;48077;48079;48081;48083;48085;48087;48089;48091;48093;48095;48097;48099;48101;48103;48105;48107;48109;48111;48113;48115;48117;48119;48121;48125;48127;48129;48131;48133;48135;48137;48139;48141;48143;48145;48147;48149;48151;48153;48155;48157;48159;48161;48163;48165;48167;48169;48171;48173;48175;48177;48179;48181;48183;48185;48187;48189;48191;48193;48195;48197;48199;48201;48203;48205;48207;48209;48211;48213;48215;48217;48219;48221;48223;48225;48227;48229;48231;48233;48235;48237;48239;48241;48243;48245;48247;48249;48251;48253;48255;48257;48259;48261;48263;48265;48267;48269;48271;48273;48275;48277;48279;48281;48283;48285;48287;48289;48291;48293;48295;48297;48299;48301;48303;48305;48307;48309;48311;48313;48315;48317;48319;48321;48323;48325;48327;48329;48331;48333;48335;48337;48339;48341;48343;48345;48347;48349;48351;48353;48355;48357;48359;48361;48363;48365;48367;48369;48371;48373;48375;48377;48379;48381;48383;48385;48387;48389;48391;48393;48395;48397;48399;48401;48403;48405;48407;48409;48411;48413;48415;48417;48419;48421;48423;48425;48427;48429;48431;48433;48435;48437;48439;48441;48443;48445;48447;48449;48451;48453;48455;48457;48459;48461;48463;48465;48467;48469;48471;48473;48475;48477;48479;48481;48483;48485;48487;48489;48491;48493;48495;48497;48499;48501;48503;48505;48507;48123', 'Indicator' = 'KN.I20', 'Measure' = 'KN.M6', 'Race' = 'KN.G1'), host='datalab.texas2036.org') %>% 
+  as_tibble() 
+
+counties_sf <- read_rds("raw_data/county_pop.rds") %>% 
+  mutate(NAME=str_remove(NAME, " County, Texas")) %>% 
+  select(fips=GEOID, county=NAME, -estimate)
+
+phys_inactivity_map_df <- phys_inactivity_map_raw %>% 
+  clean_names() %>% 
+  filter(date=="2020-01-01") %>% 
+  mutate(date=str_remove(date, "-01-01")) %>% 
+  select(date, county=region, indicator,value=freq) %>% 
+  write_rds("clean_data/Aging/risk_factors/phys_inactivity_map.rds")
+```
+
+```{r}
+phys_inactivity_chart_wk <- ahr_annual %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition >= 2012,
+         measure_name == "Physical Inactivity") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Working Age/risk_factors/phys_inactivity_chart_wk.rds")
+```
+
+### Smoking
+
+```{r}
+
+smoking_map_wk_raw <- Knoema('fywtqfb', client.id = Sys.getenv("knoema_id"), 
+                                 client.secret=Sys.getenv("knoema_secret"), 
+                                 type = "DataTable", list('Region' = '48001;48003;48005;48007;48009;48011;48013;48015;48017;48019;48021;48023;48025;48027;48029;48031;48033;48035;48037;48039;48041;48043;48045;48047;48049;48051;48053;48055;48057;48059;48061;48063;48065;48067;48069;48071;48073;48075;48077;48079;48081;48083;48085;48087;48089;48091;48093;48095;48097;48099;48101;48103;48105;48107;48109;48111;48113;48115;48117;48119;48121;48125;48127;48129;48131;48133;48135;48137;48139;48141;48143;48145;48147;48149;48151;48153;48155;48157;48159;48161;48163;48165;48167;48169;48171;48173;48175;48177;48179;48181;48183;48185;48187;48189;48191;48193;48195;48197;48199;48201;48203;48205;48207;48209;48211;48213;48215;48217;48219;48221;48223;48225;48227;48229;48231;48233;48235;48237;48239;48241;48243;48245;48247;48249;48251;48253;48255;48257;48259;48261;48263;48265;48267;48269;48271;48273;48275;48277;48279;48281;48283;48285;48287;48289;48291;48293;48295;48297;48299;48301;48303;48305;48307;48309;48311;48313;48315;48317;48319;48321;48323;48325;48327;48329;48331;48333;48335;48337;48339;48341;48343;48345;48347;48349;48351;48353;48355;48357;48359;48361;48363;48365;48367;48369;48371;48373;48375;48377;48379;48381;48383;48385;48387;48389;48391;48393;48395;48397;48399;48401;48403;48405;48407;48409;48411;48413;48415;48417;48419;48421;48423;48425;48427;48429;48431;48433;48435;48437;48439;48441;48443;48445;48447;48449;48451;48453;48455;48457;48459;48461;48463;48465;48467;48469;48471;48473;48475;48477;48479;48481;48483;48485;48487;48489;48491;48493;48495;48497;48499;48501;48503;48505;48507;48123', 'Indicator' = 'KN.I17', 'Measure' = 'KN.M6', 'Race' = 'KN.G1'), host='datalab.texas2036.org') %>% 
+  as_tibble() 
+
+smoking_map_wk <- smoking_map_wk_raw %>% 
+  clean_names() %>% 
+  filter(date=="2020-01-01") %>% 
+  mutate(date=str_remove(date, "-01-01")) %>% 
+  select(date, county=region, indicator,value=freq) %>% 
+  write_rds("clean_data/Working Age/risk_factors/smoking_map_wk.rds")
+```
+
+```{r}
+smoking_chart_wk <- ahr_annual %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition == 2019,
+         str_detect(state_name, "United States|Texas"),
+         measure_name == "Smoking - American Indian/Alaska Native" | measure_name == "Smoking - Black") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Working Age/risk_factors/smoking_chart_wk.rds")
+  
+```
+
+
+## Conditions
+
+### Diabetes
+
+```{r}
+diabetes_chart_wk <- ahr_annual %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition >= 2012,
+         measure_name == "Diabetes") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Working Age/conditions/diabetes_chart_wk.rds")
+```
+
+### Mental Health
+
+```{r}
+mh_chart_ts_wk <- ahr_annual %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition >= 2012,
+         measure_name == "Frequent Mental Distress") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Working Age/conditions/mh_chart_ts_wk.rds")
+```
+
+
+```{r}
+mh_chart_bar_wk <- ahr_annual %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition == 2019,
+         str_detect(state_name, "United States|Texas"),
+         measure_name == "Frequent Mental Distress - Ages 18-44" | measure_name == "Frequent Mental Distress - Ages 45-64") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Working Age/conditions/mh_chart_bar_wk.rds")
+```
+
+
+
+### Heart Health
+
+```{r}
+heart_health <- sf::read_sf("raw_data/Working Age/heart_health_under_75/Total_Cardiovascular_Disease_Death_Rate_per_100000_Under_75_All_Races_Ethnicities_Both_Genders_2016to2018.shp") %>% 
+  as_tibble() %>% 
+  clean_names() %>% 
+  select(-geometry, -shape_leng, -shape_area,-objectid) %>% 
+  mutate(rank=dense_rank(value)) %>% 
+  arrange(rank)  %>% 
+  mutate(peer_states = case_when(
+    str_detect(state_name, states_long) ~ "Peer State",
+    TRUE ~ "Not Peer State"
+  )) %>% 
+  mutate(measure = "Total Cardiovascular Disease Death Rate per 100,000, Under 75, All Races/Ethnicities, Both Genders, 2016-2018",
+         source = "Interactive Atlas of Heart Disease and Stroke, by Center for Disease Control and Prevention.") %>% 
+  write_rds("clean_data/Working Age/conditions/heart_health.rds")
+
+```
+
+## Policy & Clinical Care
+
+### Access to HC
+
+```{r}
+pcp_access_working_age <- ahr_annual %>% 
+  filter(str_detect(measure_name, "Primary Care Physicians")) %>% 
+  mutate(edition=as.character(edition)) %>%
+  arrange(edition) %>%  
+  write_rds("clean_data/Working Age/policy/access_pcp.rds")
+```
+
+```{r}
+mh_access_working_age <- ahr_annual %>% 
+  filter(str_detect(measure_name, "Mental Health Providers")) %>% 
+  mutate(edition=as.character(edition)) %>%
+  arrange(edition) %>%  
+  write_rds("clean_data/Working Age/policy/access_mh.rds")
+```
+
+
+### Prevention
+
+```{r}
+
+
+flu_immunizations <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSFp3wcSiRZuFDTcZPJ4Kkq8rgPk9XxrAxtoI3fXxU-no_4VQfSumYJjksRApUyjka3BCgVMGFey5MO/pub?output=csv", 
+    col_types = cols(year = col_character(), 
+        pct_yes = col_number(), pct = col_number()))
+
+
+  
+  flu_immunizations <- tibble(year = c('2011','2012','2013','2014','2015','2016','2017','2018'),
+pct_yes =  c(.318,.291,.310,.338,.383,.331,.318,.222)) %>% 
+    mutate(year=as.character(year),
+           pct=pct_yes*100) #%>% 
+  write_rds("clean_data/Working Age/policy/flu_working_adults.rds")
+
+```
+
+### Uninsured
+
+#### Barriers To Care Among Adults
+
+```{r}
+barriers_to_care_us <- tibble(
+  insur_type = c("Uninsured", "Medicaid/Other Public", "Employer"),
+  no_source = c(.52,.13,.12),
+  postponed_care_cost = c(.27,.09,.07),
+  went_without_care = c(.21,.07,.04),
+  postponed_prescrip_cost = c(.19,.13,),
+)
+
+barriers_to_care_us <- tibble(
+  care_status = c("No usual source of care", 
+                  "Postponed seeking care due to cost", 
+                  "Went without needed care due to cost", 
+                  "Postponed or did not get needed prescription drug due to cost"),
+  `Uninsured` = c(.52,.27,.21,.19),
+  `Medicaid/Other Public` = c(.13,.09,.07,.13),
+  `Employer/Other Private` = c(.12,.07,.04,.06),
+) %>% 
+  pivot_longer(cols= 2:4, names_to = "insurance_type", values_to = "pct") %>% 
+  mutate(source = "Kaiser Family Foundation",
+         report = "Key Facts About The Uninsured Population",
+         figure = "Figure 8: Barriers to Health Care among Nonelderly Adults by Insurance Status, 2018",
+         link = "https://www.kff.org/uninsured/issue-brief/key-facts-about-the-uninsured-population/") %>% 
+  filter(care_status!="Postponed seeking care due to cost") %>% 
+  write_rds("clean_data/Working Age/policy/barriers_to_care_us.rds")
+
+```
+
+#### Characteristics of Nonelderly Uninsured
+
+```{r}
+library(tidycensus)
+fpl_vars <- tidycensus::load_variables(2019, "acs1", cache=TRUE) %>% 
+  filter(str_detect(name, "^B27016"))
+
+fpl_status <- get_acs(geography="state", survey = "acs1",
+                      year = 2019, table = "B27016", state = "TX")
+
+fpl_status_fltr <- fpl_status %>% 
+  clean_names() %>% 
+  left_join(fpl_vars, by=c("variable"="name")) %>% 
+  filter(str_detect(label, "No health insurance coverage"),
+         str_detect(label, "19 to 64 years")) %>% 
+  mutate(group = case_when(
+    str_detect(variable,"B27016_016|B27016_038") ~ "Under 100%",
+    str_detect(variable,"B27016_060|B27016_082|B27016_104") ~ "100 to 199%",
+    str_detect(variable,"B27016_126|B27016_148|B27016_170") ~ "200 to 399%",
+    str_detect(variable,"B27016_192") ~ "Over 400%"
+  )) %>% 
+  group_by(name, group) %>% 
+  summarise(group_est = sum(estimate)) %>% 
+  ungroup() %>% 
+  mutate(summary_est = 4160793) %>% 
+  mutate(pct_group = group_est/summary_est) %>% 
+  write_rds("clean_data/Working Age/policy/uninsured_income.rds")
+
+```
+
+```{r}
+library(tidycensus)
+race_vars <- tidycensus::load_variables(2019, "acs1", cache=TRUE) %>% 
+  filter(str_detect(concept, "HEALTH INSURANCE COVERAGE STATUS BY AGE"),
+         str_detect(label, "No health insurance coverage"),
+         str_detect(label, "19 to 64 years"))
+
+race_vars_lst <- c(
+   "AIAN" = "C27001C_007",
+   "Asian" = "C27001D_007",
+   "White" = "C27001A_007",
+   "Black" = "C27001B_007",
+   "NHOPI" = "C27001E_007",
+   "Other" = "C27001F_007",
+   "Other" = "C27001G_007",
+   "Hispanic" = "C27001I_007"
+   )
+
+race_tbl <- get_acs(geography="state", survey = "acs1",
+                      year = 2019, variables = race_vars_lst, state = "TX")
+
+race_tbl_fltr <- race_tbl %>% 
+  clean_names() %>% 
+  group_by(name, variable) %>% 
+  summarise(group_est = sum(estimate)) %>% 
+  ungroup() %>% 
+  mutate(summary_est = 6716900) %>% 
+  mutate(pct_group = group_est/summary_est) %>% 
+  write_rds("clean_data/Working Age/policy/uninsured_race.rds")
+ 
+```
+
+# Childhood
+
+## Overview
+
+```{r}
+change_in_childhood_pop <- tibble(
+  `Texas` = c(.076),
+  `Florida` = c(.058),
+  `California` = c(-.031),
+  `Pennsylvania` = c(-.049),
+  `New York` = c(-.058),
+  `Illinois` = c(-.085),
+) %>%
+  pivot_longer(cols = 1:6, names_to = "state_name", values_to = "value") %>% 
+  mutate(value=value*100) %>% 
+  write_rds("clean_data/Children/change_in_childhood_pop.rds")
+```
+
+
+### Obesity
+
+## Risk Factors
+
+### Phys Inactivity Demographics Table
+
+```{r}
+phys_inactivity_dem_table <- read_csv("raw_data/Children/YRBS_Bar_Chart.csv") %>% 
+  clean_names() %>% 
+  # filter(stratification!="Total") %>% 
+  drop_na(data_value) %>% 
+  select(stratification_category, stratification, data_value) %>% 
+  write_rds("clean_data/Children/phys_inactivity_dem_table.rds")
+```
+
+### Phys Inactivity Demographics Table
+
+```{r}
+vaping_tx_hs_dem_table <- read_csv("raw_data/Children/YRBS_vaping_Bar_Chart.csv") %>% 
+  clean_names() %>% 
+  # filter(stratification!="Total") %>% 
+  drop_na(data_value) %>% 
+  select(stratification_category, stratification, data_value) %>% 
+  write_rds("clean_data/Children/vaping_tx_hs_students_chart.rds")
+```
+
+
+### WIC Data
+
+```{r}
+
+files_list <- fs::dir_ls(path="raw_data/Children/wic_obesity/", pattern=".csv")
+
+wic_data <- map_df(files_list,
+                        ~read_csv(.x) %>%
+                          clean_names() %>%
+                          rename(state_abbr=5, state_name=6) %>% 
+                          filter(str_detect(state_name, states_long),
+                                 state_name != "West Virginia"),
+                        .id = "file_name") %>% 
+  select(year=year_start,state_abbr,state_name,question,data_value) %>% 
+  mutate(year=as.character(year)) %>%
+  left_join(states_df, by = c("state_name" = "states_list", "state_abbr")) %>% 
+  arrange(year) %>% 
+  write_rds("clean_data/Children/wic_obesity_data.rds")
+
+```
+
+
+## Conditions
+
+### Teen Suicide Rates
+
+```{r}
+teen_suicide_rates <- ahr_hwc %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition >= 2012,
+         measure_name == "Teen Suicide") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Children/teen_suicide_rates.rds")
+```
+
+
+## Policy & Clinical Care
+
+### Children Uninsured Rates
+
+```{r}
+child_uninsured_rates <- Knoema('udfegke', client.id = Sys.getenv("knoema_id"), 
+                                 client.secret=Sys.getenv("knoema_secret"), 
+                                 type = "DataTable", list('Location' = 'US_CA;US_GA;US_TX;US_IL;US_CO;US_FL;US_OH;US_PA;US_VA;US_NC;US_NY', 'Indicator' = 'KN.VA12', 'Age Group' = 'KN.A6', 'Measure' = 'M.13'), host='datalab.texas2036.org') %>% 
+  as_tibble() %>% 
+  clean_names() %>% 
+  mutate(date=str_remove(date, "-01-01"),
+         link = "https://datalab.texas2036.org/udfegke/health-insurance-coverage-status-and-type-of-coverage-by-state-united-states?accesskey=qfzcrmb") %>% 
+  select(edition=date, state_name=location, indicator,value=freq) %>% 
+  write_rds("clean_data/Children/child_uninsured_rates.rds")
+```
+
+
+### Access To Care Children
+
+```{r}
+files_list <- fs::dir_ls(path="raw_data/ahr_hwc/", pattern=".csv")
+
+access_to_care_children <- map_df(files_list,
+                        ~read_csv(.x, col_types = cols(`Source Year` = col_character())) %>%
+                          clean_names() %>%
+                          filter(measure_name=="Access to Care - Children"),
+                        .id = "file_name") %>% 
+  select(2:5, rank, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  left_join(states_df, by = c("state_name" = "states_list")) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Children/child_access_to_care.rds")
+
+```
+
+
+```{r}
+child_uninsured_rates <- ahr_hwc %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition >= 2012,
+         measure_name == "Uninsured Children") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Children/child_uninsured_rates.rds")
+```
+
+### Prevention 
+
+```{r}
+
+childhood_immunization_rates <- ahr_annual %>% 
+  clean_names() %>%
+  mutate(edition = as.numeric(edition)) %>% 
+  filter(edition >= 2012,
+         measure_name == "Immunizations - Children") %>% 
+  mutate(edition = as.character(edition)) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/Children/childhood_immunization_rates")
+```
+
+# Maternity 
+
+## Overview
+
+### Birth Rate Per 1,000
+
+```{r}
+birth_rate_per_1k <- Knoema('iobswxf', 
+                            client.id = Sys.getenv("knoema_id"), 
+                                 client.secret=Sys.getenv("knoema_secret"), 
+                                 type = "DataTable",
+                            list('Region' = 'US;US_TX', 'Indicator' = 'VST020'),
+                            host='datalab.texas2036.org') %>% 
+  as_tibble() %>% 
+  clean_names() %>% 
+  mutate(date = as_date(date)) %>%
+  filter(date > as_date("2000-01-01")) %>% 
+  mutate(date = as.character(date)) %>%
+  mutate(date=str_remove(date, "-01-01"),
+         link = "https://datalab.texas2036.org/iobswxf/usa-vital-statistics-2013?accesskey=xihekxg") %>% 
+  select(edition=date, state_name=region, indicator,value=freq) %>% 
+  write_rds("clean_data/maternity/birth_rates_per1k.rds")
+```
+
+### Distribution of Race/Ethnic Groups Among Live Births
+
+```{r}
+distr_of_births_by_race <- tibble(
+  year = c("2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"),
+  white = c(33.9,34.6,35,34.6,34.4,34.3,33.9,33.3,32.8,32.3),
+  hispanic = c(50.1,49.0,48.3,47.8,47.9,47.4,47.4,47.3,47.2,47.3),
+  other = c(4.7,4.9,5.2,6.3,6.3,6.8,7.0,7.5,7.8,8.2),
+  black = c(11.3,11.5,11.4,11.3,11.4,11.5,11.8,11.9,12.2,12.3)
+) %>% 
+  pivot_longer(cols = 2:5,names_to="group", values_to="value") %>% 
+  write_rds("clean_data/maternity/distr_of_births_by_race.rds")
+
+```
+
+### Birth Rate Counties
+
+```{r}
+county_birth_rate_map <- read_excel("raw_data/maternity/2010-2014 Maps Source Tables.xlsx",
+                                    sheet = "Figure 2", skip =1) %>% 
+  clean_names() %>% 
+  mutate(report = "Data for the 2014 Vital Statistics Annual Report Maps (Texas Residents, 2010-2014)",
+         source = "Texas Department of State Health Services",
+         link = "https://www.dshs.texas.gov/chs/vstat/vs14/map2.aspx") %>% 
+  drop_na(rate) %>% 
+  mutate(rate=as.numeric(rate)) %>% 
+  write_rds("clean_data/maternity/county_birth_rate_map.rds")
+
+```
+
+### Teen Birth Rate Counties
+
+```{r}
+county_teen_birth_rate_map <- read_csv("raw_data/maternity/teen_birth_rates_cdc.csv") %>% 
+  clean_names() %>% 
+  filter(state=="Texas",
+         year=="2018") %>% 
+  select(year,county,birth_rate) %>% 
+  mutate(report = "Estimated Teen Birth Rates for Females Aged 15–19 by County: Continental U.S., 2018",
+         unit = "Per 1,000 Females aged 15-19",
+         source = "U.S. Center for Disease Control and Prevention",
+         link = "cdc.gov/nchs/data-visualization/county-teen-births/#data-tables") %>% 
+  drop_na(birth_rate) %>% 
+  mutate(birth_rate=as.numeric(birth_rate)) %>% 
+  write_rds("clean_data/maternity/county_teen_birth_rate_map.rds")
+
+```
+
+
+
+## Risk Factors
+
+### Obesity Trends Among Women 18-44
+
+```{r}
+obesity_trends_women_18_44 <- ahr_hwc %>%
+  filter(measure_name=="Obesity - Women") %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/maternity/obesity_trends_women_18_44.rds")
+  
+```
+
+### Physical Inactivity Trends Among Women 18-44
+
+```{r}
+phys_inactivity_trends_women_18_44 <- ahr_hwc %>%
+  filter(measure_name=="Physical Inactivity - Women") %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/maternity/phys_inactivity_trends_women_18_44.rds")
+  
+```
+
+### Smoking Trends Among Women 18-44
+
+```{r}
+smoking_trends_women_18_44 <- ahr_hwc %>%
+  filter(measure_name=="Smoking - Women") %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/maternity/smoking_trends_women_18_44.rds")
+  
+```
+
+## Conditions
+
+### Diabetes Inactivity Trends Among Women 18-44
+
+```{r}
+diabetes_trends_women_18_44 <- ahr_hwc %>%
+  filter(measure_name=="Diabetes - Women") %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/maternity/diabetes_trends_women_18_44.rds")
+  
+```
+
+### Postpartum Depression
+
+```{r}
+files_list <- fs::dir_ls(path="raw_data/ahr_hwc/", pattern=".csv")
+
+postpartum_depression <- map_df(files_list,
+                        ~read_csv(.x, col_types = cols(`Source Year` = col_character())) %>%
+                          clean_names() %>%
+                          filter(measure_name=="Postpartum Depression",
+                                 edition=="2020"),
+                        .id = "file_name") %>% 
+  select(2:5, rank, value, source, source_year) %>% 
+  mutate(edition=as.character(edition)) %>%
+  left_join(states_df, by = c("state_name" = "states_list")) %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/maternity/postpartum_depression_map.rds")
+
+```
+
+## Policy 
+
+### Pct of Live Births Not Receiving Prenatal Care in First Trimester
+
+```{r}
+prenatal_deficiency_rate_map <- read_excel("raw_data/maternity/2010-2014 Maps Source Tables.xlsx",
+                                    sheet = "Figure 7", skip =1) %>% 
+  clean_names() %>% 
+  mutate(report = "Data for the 2014 Vital Statistics Annual Report Maps (Texas Residents, 2010-2014)",
+         source = "Texas Department of State Health Services",
+         link = "https://www.dshs.texas.gov/chs/vstat/vs14/map2.aspx") %>% 
+  drop_na(percent) %>% 
+  mutate(percent=as.numeric(percent)) %>% 
+  write_rds("clean_data/maternity/prenatal_deficiency_rate_map.rds")
+
+```
+
+### Infant Mortality Rate Peer Comparison
+
+```{r}
+infant_mortality_trends <- ahr_hwc %>%
+  filter(measure_name=="Infant Mortality") %>% 
+  arrange(edition) %>% 
+  write_rds("clean_data/maternity/infant_mortality_trends.rds")
+```
+
+### Infant Mortality County Map
+
+```{r}
+infant_mortality_map <- read_excel("raw_data/maternity/2010-2014 Maps Source Tables.xlsx",
+                                    sheet = "Figure 10", skip =1) %>% 
+  clean_names() %>% 
+  mutate(report = "Data for the 2014 Vital Statistics Annual Report Maps (Texas Residents, 2010-2014)",
+         source = "Texas Department of State Health Services",
+         link = "https://www.dshs.texas.gov/chs/vstat/vs14/map2.aspx") %>% 
+  drop_na(rate) %>% 
+  mutate(rate=as.numeric(rate)) %>% 
+  write_rds("clean_data/maternity/infant_mortality_map.rds")
+
+```
+
+### Infant  Mortality Race/Ethnicity Trends
+
+```{r}
+
+infant_mortality_demographic_trends <- ahr_hwc %>%
+  filter(str_detect(measure_name, "Infant Mortality"),
+         str_detect(measure_name, "Black|Hispanic|White|Other|Asian"),
+         state_name=="Texas") %>% 
+  mutate(measure_name = str_remove(measure_name, "Infant Mortality - ")) %>%
+  arrange(edition) %>% 
+  write_rds("clean_data/maternity/infant_mortality_demographic_trends.rds")
+
+```
+
+
+
+# COVID
+
+## Risk Factors
+
+### Medical Conditions Table
+
+```{r}
+medical_conditions_tbl_covid <- tibble(
+  condition = c("Diabetes", "Obesity", 'Cancer', "COPD", "Cardiovascular Diseases"),
+  tx_rate = c(12.6,34.8,5.1,6.2,9.1),
+  us_rate = c(10.9,30.9,7.1,6.6,9.0),
+  tx_rank = c(40,40,1,20,28)
+  ) %>% 
+  write_rds("clean_data/covid/covid_rf_medical_conditions_tbl.rds")
+```
+
+### COVID Hospitalizations Table
+
+```{r}
+covid_us_hospitalizations <- tibble(
+  rate_ratio_groups = c("Cases", "Hospitalization", "Death"),
+  aian = c(2.8,5.3,1.4),
+  asian = c(1.1,1.3,NA),
+  black = c(2.6,4.7,2.1),
+  hispanic = c(2.8,4.6,1.1)
+  ) %>% 
+  write_rds("clean_data/covid/covid_rf_race_hospitalizations.rds")
+
+# 1 Data source: COVID-19 case-level data reported by state and territorial jurisdictions. Case-level data include about 80% of total reported cases. Numbers are unadjusted rate ratios.
+# 
+# 2 Data source: COVID-NET (https://www.cdc.gov/coronavirus/2019-ncov/covid-data/covidview/index.html, accessed 08/06/20). Numbers are ratios of age-adjusted rates.
+# 
+# 3 Data source: NCHS Provisional Death Counts (https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm, accessed 08/06/20). Numbers are unadjusted rate ratios.
+```
+
+### Age adjusted Deaths by Race
+
+```{r}
+deaths_per_100k_age_adjust <- tibble(
+  group = c("BIPOC", "BIPOC", "BIPOC", "BIPOC", "General", "General"),
+  subgroup = c("Indigneous", "Asian", "Black", "Latino", "White", "All deaths"),
+  rate_per_100k = c(69.7,31.7,79.2,140,33.1,64)
+) %>% 
+    write_rds("clean_data/covid/age_adjusted_deaths_by_race.rds")
+```
+
+### Case Fatality Demographics
+
+```{r}
+
+dem_vars <- tidycensus::load_variables(2018, "acs5/profile") 
+
+race_vars <- c(White = "DP05_0064P",
+               Black = "DP05_0065P",
+               Hispanic = "DP05_0071P",
+               Asian = "DP05_0067P",
+               Other = "DP05_0069P") 
+state_dem <- tidycensus::get_acs(geography="state",
+                                 survey="acs5", 
+                                 variables = race_vars, state="TX") %>% 
+  select(race_ethnicity=variable, percent=estimate) %>% 
+  mutate(group = "population",
+         number = NA,
+         percent = percent/100)
+
+case_dem_tx <- read_excel("raw_data/covid/covid_tx_demographics.xlsx", 
+    sheet = "Cases by RaceEthnicity") %>% 
+    mutate(group = "cases") %>% 
+    clean_names() 
+
+
+fatality_dem_tx <- read_excel("raw_data/covid/covid_tx_demographics.xlsx", 
+    sheet = "Fatalities by Race-Ethnicity") %>% 
+    mutate(group = "fatalities") %>% 
+    clean_names() 
+
+
+case_fatality_dem <- bind_rows(case_dem_tx,
+                               state_dem,
+                               fatality_dem_tx) %>% 
+  filter(race_ethnicity!="Total",
+         race_ethnicity!="Unknown") %>% 
+  write_rds("clean_data/covid/case_fatality_demographics.rds")
+
+
+```
+
+### SVI Death Rate Map
+
+```{r}
+
+county_death_rates <- read_excel("raw_data/covid/case_fatality_by_county.xlsx", skip=1) %>% 
+  clean_names() %>% 
+  mutate(death_rate_per_1k = (fatalities/cases)*1000)
+
+county_lat_long <- read_rds("raw_data/covid/county_lat_long_data.rds") %>% 
+  select(county, lat, lon=long)
+
+svi_data <- read_csv("raw_data/covid/tx_counties_svi.csv") %>% 
+  select(COUNTY, FIPS, tot_pop=E_TOTPOP, svi_score=RPL_THEMES) %>% 
+  clean_names() %>% 
+  left_join(county_death_rates, by = "county") %>% 
+  left_join(county_lat_long, by = "county") %>% 
+  write_rds("clean_data/covid/svi_death_rate_map.rds")
+
+```
+
+### Hospitalization Rate by Age Group
+
+```{r}
+
+hospitalizations_by_age_group_us <- read_csv("raw_data/covid/covid_hosp_rates_by_age.csv", skip=2) %>% 
+  clean_names() %>% 
+  filter(network=="COVID-NET",
+         sex=="Overall",
+         race=="Overall",
+         mmwr_year=="2020",
+         mmwr_week=="41") %>% 
+  filter(str_detect(age_category, "0-4 yr|5-17 yr|18-29 yr|30-39 yr|40-49 yr|50-64 yr|65-74 yr|75-84 yr|85+")) %>% 
+  mutate(week_ending = "October 10, 2020",
+         order = case_when(
+    age_category == "0-4 yr" ~ 1,
+    age_category == "5-17 yr" ~ 2,
+    age_category == "18-29 yr" ~ 3,
+    age_category == "30-39 yr" ~ 4,
+    age_category == "40-49 yr" ~ 5,
+    age_category == "50-64 yr" ~ 6,
+    age_category == "65-74 yr" ~ 7,
+    age_category == "75-84 yr" ~ 8,
+    age_category == "85+" ~ 9
+  )) %>% 
+  select(year, mmwr_week, week_ending, order, age_category, cumulative_rate) %>% 
+  write_rds("clean_data/covid/hosp_rate_by_age_us.rds")
+
+```
+
+### Case Rate by County
+
+```{r}
+
+case_rate_map <- read_csv("raw_data/covid/tx_counties_svi.csv") %>% 
+  select(COUNTY, FIPS, tot_pop=E_TOTPOP, svi_score=RPL_THEMES) %>% 
+  clean_names() %>% 
+  left_join(county_death_rates, by = "county") %>% 
+  mutate(case_rate_per_1k = (cases/tot_pop)*1000) %>% 
+  write_rds("clean_data/covid/case_rate_map.rds")
+
+```
+
+

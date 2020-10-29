@@ -1,0 +1,255 @@
+## Import Statements
+
+```{r}
+library(highcharter)
+library(dplyr)
+library(texas2036)
+library(tidyr)
+```
+
+## reading in data
+```{r}
+# obestiy
+
+#physical inactivity
+childhood_inactivity <- readRDS(file = 'clean_data/Children/child_inactivity_data.rds')
+childhood_inactivity$percentage = childhood_inactivity$percentage*100 
+
+#WIC Obesity
+wic_obesity <- readRDS(file = 'clean_data/Children/wic_obesity_data.rds')
+
+#smoking trends
+tobacco_trends <- readRDS(file = 'clean_data/Children/child_tobacco_trend.rds')
+
+#vaping us
+vaping_use <- readRDS(file = 'clean_data/Children/child_vape_data.rds')
+
+#teen suicides
+teen_suicides <- readRDS(file = 'clean_data/Children/teen_suicide_data.rds')
+
+teen_suicides_us <- teen_suicides %>% filter(state_name == 'United States')
+teen_suicides_tx <- teen_suicides %>% filter(state_name == 'Texas')
+
+#uninsured rates
+child_uninsurance <- readRDS(file = 'clean_data/Children/child_uninsured_data.rds') %>%
+  separate(col = 'name', into=c('county', 'state'), sep = ',') %>% 
+  filter(state == ' TX')
+  
+child_uninsurance$county <- sub(' County', '', child_uninsurance$county)
+child_uninsurance <- child_uninsurance %>% mutate(uninsured_percent = as.numeric(uninsured_percent)) %>% 
+  write_rds("clean_data/Children/child_uninsurance_rates.rds")
+
+#primary care coverage
+primary_care <- readRDS(file = 'clean_data/Children/childhood_primary_care.rds') %>%
+  select(state_name, rank)
+
+#mental health
+child_mental_health <- readRDS(file = 'clean_data/Children/child_mental_health_data.rds') %>%
+  na.omit()
+child_mental_health <- select(child_mental_health, -13)
+```
+
+
+# Making the charts 
+
+## Risk Factors
+### Obesity
+```{r}
+col_pal <- RColorBrewer::brewer.pal(9,"Blues")
+  
+hcmap(map = "countries/us/us-all",
+      data = childhood_obesity,
+      value = "value",
+      joinBy = c("name","state_name"),
+      name = "% of overweight or obese children",
+      borderColor = "#FAFAFA",
+          borderWidth = 0.1,
+          tooltip = list(valueSuffix = '%'))  %>% 
+      hc_legend(layout='vertical',
+                align='left',
+                verticalAlign='bottom',
+                itemMarginTop=10,
+                itemMarginBottom=10) %>% 
+      hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
+                   reversed=FALSE) %>%
+      hc_credits(
+        enabled = TRUE,
+        useHTML = TRUE,
+        text = "America’s Health Rankings based on the Child and Adolescent Health Measurement Initiative (CAHMI) component of the National Survey of Children’s Health",
+        href = "https://www.census.gov/programs-surveys/nsch/data.html.") %>%
+      hc_title(text="Percentage of Overweight or Obese Children") %>% 
+      hc_subtitle(text="The percentage of children ages 10-17 who are overweight or obese") %>% 
+  hc_add_theme(tx2036_hc_light())
+```
+### Obesity Rates WIC
+```{r}
+
+```
+
+
+## Physical Inactivity
+## Physical Inactivity Rate
+```{r}
+## need formatting
+
+highchart() %>%
+  hc_add_series(childhood_inactivity,
+                'line',
+                name = 'Texas',
+                hcaes(x=year, y=percentage),
+                lineWidth=5) %>%
+  hc_title(text = "Percentage of Texas high school students who were physically active") %>%
+   hc_yAxis(title=list(text="% of High Schoolers Reporting Physical Inactivity"),
+               labels = list(enabled=TRUE,
+                             format = "{value}%")) %>%
+   hc_xAxis(tickColor = "#ffffff", 
+               opposite = TRUE,
+               useHTML = TRUE,
+               alternateGridColor = "#f3f3f3",
+            title = list(text = "Year")) %>%
+  hc_add_theme(tx2036_hc_light())
+```
+
+
+## Teen suicide rates
+```{r}
+## Seems to be complete, need formatting
+
+highchart() %>%
+  hc_add_series(teen_suicides_tx,
+                'line',
+                hcaes(x=edition, y=value),
+                lineWidth=5,
+                name="Texas") %>%
+  hc_add_series(teen_suicides_us,
+                'line',
+                hcaes(x=edition, y=value),
+                color="#DBDCDD",
+                lineWidth=5,
+                name='US') %>%
+  hc_title(text="Teen Suicide Rates") %>%
+  hc_subtitle(text='Number of deaths by suicide per 100,000 adolescents ages 15-19') %>%
+  hc_yAxis(title=list(text="Rates")) %>% 
+  hc_xAxis(tickColor = "#ffffff", 
+               opposite = TRUE,
+               useHTML = TRUE,
+               alternateGridColor = "#f3f3f3",
+               categories = c("2016","2017","2018","2019"),
+               title = list(text = "Year of America's Health Ranking Report")) %>%
+  hc_credits(enabled = TRUE,
+        text = "America's Health Rankings analysis of CDC WONDER AmericasHealthRankings.org, Accessed 2020.") %>%
+      hc_add_theme(tx2036_hc_light())
+```
+
+
+## Current Smoking Rates
+```{r}
+## Ask and see if there is more data about this
+
+
+highchart() %>%
+  hc_add_series(tobacco_trends,
+                'line',
+                hcaes(x=year, y=data_value),
+                name = 'US',
+                lineWidth=5) %>%
+  hc_title(text = "Percentage of US high school students who currently use tobacco") %>%
+   hc_yAxis(title=list(text="% of High Schoolers Using Tobacco"),
+               labels = list(enabled=TRUE,
+                             format = "{value}%")) %>%
+   hc_xAxis(tickColor = "#ffffff", 
+               opposite = TRUE,
+               useHTML = TRUE,
+              categories = c("2017","2018","2019"),
+               alternateGridColor = "#f3f3f3",
+            title = list(text = "Year")) %>%
+  hc_add_theme(tx2036_hc_light())
+
+```
+
+```{r}
+## this needs more data too
+
+## this needs to become a line chart, fix this
+hchart(child_uninsurance%>%filter(`peer` == 'Y' | `name` == 'Texas'),
+       'line',
+       hcaes(x = year, y = uninsured_percent, group = peer))
+       
+```
+
+## Uninsurance rates
+
+```{r}
+col_pal <- RColorBrewer::brewer.pal(9,"Greens")
+    
+
+hcmap(map = "countries/us/us-tx-all",
+      data = child_uninsurance,
+          value = "uninsured_percent",
+          joinBy = c("name","county"),
+          name = "Percent Uninsured",
+          borderColor = "#FAFAFA",
+          borderWidth = 0.1,
+          tooltip = list(
+            valueSuffix = "%")) %>%
+hc_legend(layout='vertical',
+                align='left',
+                verticalAlign='bottom',
+                itemMarginTop=10,
+                itemMarginBottom=10) %>% 
+      hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
+                   reversed=FALSE) %>%
+  hc_title(text="Percentage of Uninsured Children") %>% 
+  hc_subtitle(text="Percentage of Children Under Age 19 without Health Insurance") %>%
+  hc_add_theme(tx2036_hc_light())
+```
+# Policy and Clinical Care
+
+## Access to primary care
+```{r}
+col_pal <- RColorBrewer::brewer.pal(9,"Blues")
+  
+hcmap(map = "countries/us/us-all",
+      data = primary_care,
+      value = "rank",
+      joinBy = c("name","state_name"),
+      name = "Rank",
+      borderColor = "#FAFAFA",
+          borderWidth = 0.1)  %>% 
+      hc_legend(layout='vertical',
+                align='left',
+                verticalAlign='bottom',
+                itemMarginTop=10,
+                itemMarginBottom=10) %>% 
+      hc_colorAxis(stops = color_stops(n=, colors=col_pal),
+                   reversed=FALSE) %>%
+      hc_credits(
+        enabled = TRUE,
+        useHTML = TRUE,
+        text = "America’s Health Rankings") %>%
+      hc_title(text="Rank of Primary Care Access for Children") %>% 
+      hc_subtitle(text="Texas is ranked 49th") %>% 
+  hc_add_theme(tx2036_hc_light())
+```
+
+## Mental Health
+```{r}
+highchart() %>%
+  hc_add_series(child_mental_health, type = 'bar', hcaes(x = age, y = depression_percent), name = 'Depression') %>%
+  hc_add_series(child_mental_health, type = 'bar', hcaes(x = age, y = anxiety_percent), name = 'Anxiety') %>%
+  hc_add_series(child_mental_health, type = 'bar', hcaes(x = age, y = behavorial_disorder_percent), name = 'Behavioral Disorders') %>% 
+  hc_xAxis(tickColor = "#ffffff", 
+               opposite = FALSE,
+               useHTML = TRUE,
+           categories = c("3-5","6-11","12-17")) %>%
+  hc_add_theme(tx2036_hc_light()) %>%
+  hc_title(text="Depression, Anxiety and Behavior Disorders by Age") %>%
+  hc_subtitle(text = 'Percentage of children in age cohort') %>%
+  hc_credits(
+        enabled = TRUE,
+        useHTML = TRUE,
+        text = "National Survey of Children's Health",
+        href = "https://www.jpeds.com/article/S0022-3476(18)31292-7/fulltext")
+
+```
+
