@@ -49,10 +49,10 @@ childhood_rf_ui <- function(id) {
                                highcharter::highchartOutput(NS(id, "phys_inactivity_hs_chart"))),
                         column(width = 6,
                                gt::gt_output(NS(id, "phys_inactivity_hs_demographics"))))),
-             tabPanel(title="Smoking", 
+             tabPanel(title="Adolescence Smoking", 
                       fluidRow(
                         column(width = 5,
-                               h2("Smoking"),
+                               h2("Adolescence Smoking"),
                                includeMarkdown("markdown/childhood/risk_factors/smoking.md")),
                         column(width = 7,
                                highcharter::highchartOutput(NS(id, "tobacco_hs_use_ts"), height="325px"),

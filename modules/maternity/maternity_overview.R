@@ -60,7 +60,7 @@ maternity_overview_server <- function(id, df) {
                     hcaes(x=edition, y=value, labels = edition),
                     lineWidth=5,
                     name="Texas") %>% 
-      hc_title(text="Birth Rate in Texas & The United States") %>%
+      hc_title(text="Birth Rate in Texas & the United States") %>%
       hc_subtitle(text="Data for birth rates shown represents data between 2000-2018") %>%
       hc_yAxis(title=list(text="Rate Per 1,000 Population"),
                labels = list(enabled=TRUE,

@@ -96,7 +96,7 @@ covid_overview_server <- function(id, df) {
       hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
                    reversed=FALSE) %>%
       hc_title(text="COVID-19 Case Rate, Per 1,000 People") %>%
-      hc_subtitle(text="Rate of The Population (Per 1,000 people) who have become infected with COVID-19 since the start of the pandemic.") %>%
+      hc_subtitle(text="Rate of The Population (Per 1,000 people) who have become infected with COVID-19 since March 16, 2020.") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -107,7 +107,7 @@ covid_overview_server <- function(id, df) {
       arrange(order) %>% 
       hchart("column", hcaes(x=age_category, y=cumulative_rate)) %>% 
       hc_title(text="COVID-19 Associated Hospitalizations, by Age Group") %>%
-      hc_subtitle(text="Data shown reflect thruogh the end of the week ending on October 10, 2020.") %>% 
+      hc_subtitle(text="Data shown reflect through the end of the week ending on October 10, 2020.") %>% 
       hc_xAxis(title=list(text="Age Group")) %>% 
       hc_yAxis(title=list(text="Hospitalizations per 100,000 population")) %>% 
       hc_credits(
@@ -124,7 +124,7 @@ covid_overview_server <- function(id, df) {
       mutate_at(vars(tx_rank), scales::label_ordinal()) %>% 
       gt() %>% 
       tab_source_note(
-        source_note = md("[America's Health Rankings Analysis of CDC Behavioral Risk Factor Surveillsnce System](https://www.americashealthrankings.org/health-topics/subtag-92?topics=category-15,tag-121)")
+        source_note = md("[America's Health Rankings Analysis of CDC Behavioral Risk Factor Surveillance System](https://www.americashealthrankings.org/health-topics/subtag-92?topics=category-15,tag-121)")
       ) %>% 
       fmt_percent(columns = vars(tx_rate,us_rate),
                   decimals = 1,
