@@ -11,4 +11,4 @@ When pregnant, women with obesity also are more likely to:
 
 To combat these issues, women should eat healthy foods and be physically active. As for all women, women with obesity should engage in prenatal care, during which they can be monitored for changes to their blood sugar and blood pressure.
 
-**Among women of child-bearing age, the obesity rate in Texas is 32.1% in Texas versus 28.7% nationally. This ranks Texas 35th in the nation and 11th among Texas’ 12 peer states.**
+**Among women of child-bearing age, the obesity rate in Texas is 32.1% versus 28.7% nationally. This ranks Texas 35th in the nation and 11th among Texas’ 12 peer states.**

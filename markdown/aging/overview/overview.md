@@ -1,3 +1,3 @@
-In 2018, 12.6% of Texans were age 65 and older. The senior population at the county level varied from 8.9% to 36.1% of the population.  By 2036, Texas’65+ population is expected to be a larger share of the state’s total population at 16.7%.
+In 2018, 12.6% of Texans were age 67 and older. The senior population at the county level varied from 8.9% to 36.1% of the population.  By 2036, Texas’ 65+ population is expected to be a larger share of the state’s total population at 16.7%.
 
 As people age, average health care costs increase due to chronic and acute conditions, including related to heart health, cancer, arthritis, diabetes and dementia. While this is expected as part of the aging process, there are many ways to improve quality of life and reduce health risks and associated costs for Texas’ seniors.  <LINKS NAVIGATE TO “CONDITIONS” AND “RISK FACTORS” SECTIONS OF THE AGING PAGE>

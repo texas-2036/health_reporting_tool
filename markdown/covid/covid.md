@@ -1,6 +1,6 @@
 COVID-19 has had a dramatic impact on the lives of Texans. As of October 18, 2020, the Texas Department of State Health Services (DSHS) has reported 823,779 confirmed cases of COVID-19 in Texas and 17,019 deaths.
 
-This resource on COVID-19 provides an overview on COVID-19 prevalence in Texas, prevention and testing, and risk factors for the illness. Texas 2036 also has a vast amount of detailed Texas and county-level medical and economic data on its [COVID Tracker](https://texas2036.shinyapps.io/covid_tracker/) resource.
+This resource on COVID-19 provides an overview on COVID-19 prevalence in Texas, prevention and testing, and risk factors for the illness. Texas 2036 also has a vast amount of detailed Texas and county-level medical and economic data on its **[COVID Tracker](https://texas2036.shinyapps.io/covid_tracker/)** resource.
 
 Key Texas Facts:
 
