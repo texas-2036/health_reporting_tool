@@ -34,7 +34,7 @@ childhood_overview_server <- function(id, df) {
     change_in_childhood_pop %>% 
       hchart("bar", hcaes(x=state_name, y=value),
              negativeColor = "#F26852") %>% 
-      hc_title(text="Change in the Under-19 Population in The Six Largest States") %>% 
+      hc_title(text="Change in the Under-18 Population in The Six Largest States") %>% 
       hc_subtitle(text="Between 2010-2018") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light()) %>% 
       hc_yAxis(title=list(text="% of Change in Population Between 2010 & 2018"),

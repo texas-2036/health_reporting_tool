@@ -103,7 +103,8 @@ childhood_rf_server <- function(id) {
       hc_credits(
         enabled = TRUE,
         useHTML = TRUE,
-        text = "America’s Health Rankings based on the Child and Adolescent Health Measurement Initiative (CAHMI) component of the National Survey of Children’s Health",
+        text = "America’s Health Rankings", 
+        #based on the Child and Adolescent Health Measurement Initiative (CAHMI) component of the National Survey of Children’s Health",
         href = "https://www.census.gov/programs-surveys/nsch/data.html.") %>%
       hc_title(text="Percentage of Overweight or Obese Children") %>% 
       hc_subtitle(text="The percentage of children ages 10-17 who are overweight or obese") %>% 
@@ -138,7 +139,7 @@ childhood_rf_server <- function(id) {
                useHTML = TRUE,
                alternateGridColor = "#f3f3f3",
                categories = c("2008","2010","2012","2014","2016"),
-               title = list(text = "Year of America's Health Ranking Report")) %>%
+               title = list(text = "Year")) %>%
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(
         enabled = TRUE,
@@ -175,7 +176,7 @@ childhood_rf_server <- function(id) {
         stops = color_stops(10, viridisLite::inferno(8, direction = -1))) %>% 
       hc_credits(
         enabled = TRUE,
-        text = "DATA: 1991-2019 High School Youth Risk Behavior Survey Data | SOURCE: Centers for Disease Control and Prevention",
+        text = "High School Youth Risk Behavior Survey Data | SOURCE: Centers for Disease Control and Prevention",
         href = "https://yrbs-explorer.services.cdc.gov/#/graphs?questionCode=QNPA7DAY&topicCode=C06&location=TX&year=2019") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
@@ -223,7 +224,7 @@ childhood_rf_server <- function(id) {
         subtitle = "Shown is the 2019 prevalence of daily physical activity by student demographic, in Texas."
       ) %>% 
       tab_source_note(
-        source_note = md("[Centers for Disease Control and Prevention (CDC). 1991-2019 High School Youth Risk Behavior Survey Data.](https://yrbs-explorer.services.cdc.gov/#/graphs?questionCode=QNPA7DAY&topicCode=C06&location=TX&year=2019)")
+        source_note = md("[Centers for Disease Control and Prevention (CDC). High School Youth Risk Behavior Survey Data.](https://yrbs-explorer.services.cdc.gov/#/graphs?questionCode=QNPA7DAY&topicCode=C06&location=TX&year=2019)")
       ) %>% 
       fmt_percent(columns = vars(data_value),
                   decimals = 1,
@@ -275,14 +276,14 @@ childhood_rf_server <- function(id) {
                                          17.4,14.1,NA,7.4,4.9))
     tobacco_youth_compare %>% 
       hchart("column", hcaes(x=year, y=pct)) %>% 
-      hc_title(text="Prevalence of current cigarette use over time among Texas HS Students") %>% 
+      hc_title(text="Prevalence of current cigarette use over time among Texas High School Students") %>% 
       hc_colorAxis(
         stops = color_stops(10, viridisLite::inferno(8, direction = 1))) %>%
       hc_legend(enabled=FALSE) %>% 
       hc_yAxis(labels=list(format="{value}%")) %>% 
       hc_credits(
         enabled = TRUE,
-        text = "DATA: 1991-2019 High School Youth Risk Behavior Survey Data | SOURCE: Centers for Disease Control and Prevention",
+        text = "High School Youth Risk Behavior Survey Data | SOURCE: Centers for Disease Control and Prevention",
         href = "https://yrbs-explorer.services.cdc.gov/#/graphs?questionCode=H32&topicCode=C02&location=TX&year=2019") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
@@ -301,7 +302,6 @@ childhood_rf_server <- function(id) {
       hc_plotOptions(series=list(
         groupPadding = 0
       )) %>% 
-      
       hc_legend(align = "right",
                 reversed = TRUE,
                 verticalAlign = "top",
@@ -312,10 +312,11 @@ childhood_rf_server <- function(id) {
                 floating = TRUE) %>% 
       hc_xAxis(categories = c(" ")) %>% 
       hc_yAxis(labels = list(format = "{value}%")) %>% 
-      hc_title(text="Electronic Vaping Rates Among HS Students, 2019") %>%
+      
+      hc_title(text="Electronic Vaping Rates Among High School Students, 2019") %>%
       hc_credits(
         enabled = TRUE,
-        text = "DATA: 1991-2019 High School Youth Risk Behavior Survey Data | SOURCE: Centers for Disease Control and Prevention",
+        text = "High School Youth Risk Behavior Survey Data | SOURCE: Centers for Disease Control and Prevention",
         href = "https://yrbs-explorer.services.cdc.gov/#/tables?questionCode=H35&topicCode=C02&location=TX&year=2019") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
@@ -362,8 +363,8 @@ childhood_rf_server <- function(id) {
     vaping_dem_gt %>% 
       gt(rowname_col = "stratification", groupname_col = "stratification_category") %>% 
       tab_header(
-        title = md("**Key Demographics For Students Who Currently Use Electronic Vapor Products**"),
-        subtitle = "Shown is the 2019 current electronic vapor product use by student demographic, in Texas."
+        title = md("**Key Demographics For High School Students Who Currently Use Electronic Vapor Products**"),
+        subtitle = "Shown is the 2019 current electronic vapor product use by high school student demographic, in Texas."
       ) %>% 
       tab_source_note(
         source_note = md("[Centers for Disease Control and Prevention (CDC). 1991-2019 High School Youth Risk Behavior Survey Data.](https://yrbs-explorer.services.cdc.gov/#/graphs?questionCode=H35&topicCode=C02&location=TX&year=2019)")
