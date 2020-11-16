@@ -1,0 +1,7 @@
+Texas ranks 15th in the nation and 5th among Texas 2036 peer states in the percentage of adults (11.7%) who reported their mental health was not good 14 or more days in the past 30 days. Both in Texas and nationally, the rate of adults reporting frequent mental distress has increased over the past several years. For Texas adults ages 18-44, the rate was 12%, and for those ages 45-64, it was 12.7%.
+
+Frequent mental distress is a measure based on self-reported days in which mental health was not good, including stress, depression, and problems with emotions. The measure, and associated 14-day cutoff point, aims to capture the population with possible clinical markers for depression and anxiety disorders. People with more poor mental health days also have a comparatively higher adverse impact of their mental health on their usual daily activities, such as engaging in self-care, work, and recreation.1
+
+A study found that direct medical spending in the U.S. associated with mental health disorders (including anxiety, depression and dementia), were the most costly among conditions studied at about $201 billion in 2013.2 These expenditures exceeded the costs for heart disease ($147 billion), traumatic injury ($143 billion), and a variety of other conditions. 
+
+A healthy mental state is also highly related to good physical health. People with mental health challenges may find it more difficult to engage in positive physical health behaviors, like getting proper sleep, nutrition, and exercise.   
