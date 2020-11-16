@@ -97,6 +97,10 @@ covid_overview_server <- function(id, df) {
                    reversed=FALSE) %>%
       hc_title(text="COVID-19 Case Rate, Per 1,000 People") %>%
       hc_subtitle(text="Rate of The Population (Per 1,000 people) who have become infected with COVID-19 since March 16, 2020.") %>%
+      hc_credits(
+        enabled = TRUE,
+        text = "SOURCE: Texas Department of Health Services",
+        href = "https://www.dshs.state.tx.us/coronavirus/") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -113,7 +117,8 @@ covid_overview_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "SOURCE: National Center for Health Statistics (NCHS) Mortality Reporting System",
-        href = "https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/older-adults.html") %>% 
+        href = "https://gis.cdc.gov/grasp/COVIDNet/COVID19_3.html
+        ") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })

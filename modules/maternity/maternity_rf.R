@@ -41,7 +41,8 @@ maternity_rf_ui <- function(id) {
                       fluidRow(
                         column(width = 5,
                                h2("Physical Inactivity"),
-                               includeMarkdown("markdown/maternity/risk_factors/physical_inactivity.md")),
+                               includeMarkdown("markdown/maternity/risk_factors/physical_inactivity.md"),
+                               includeMarkdown("markdown/maternity/risk_factors/physical_inactivity_co.md")),
                         column(width = 7,
                                highcharter::highchartOutput(NS(id, "m_phys_inactivity_trends_women_18_44"), height = "600px")))),
              tabPanel(title="Smoking", 

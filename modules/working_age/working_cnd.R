@@ -62,7 +62,7 @@ working_cnd_server <- function(id, df) {
                     name="Texas") %>% 
       hc_title(text="Diagnosed Diabetes Among Adults") %>%
       hc_subtitle(text="Diabetes Trends Among Adults Aged 18+ in Texas and Peer States identified by Texas 2036.") %>%
-      hc_yAxis(title=list(text="% of Seniors Reporting Frequent Mental Distress"),
+      hc_yAxis(title=list(text="% of Adults Reporting Diabetes Diagnosis"),
                labels = list(enabled=TRUE,
                              format = "{value}%")) %>% 
       hc_xAxis(tickColor = "#ffffff", 
@@ -98,7 +98,7 @@ working_cnd_server <- function(id, df) {
                     lineWidth=5,
                     name="Texas") %>% 
       hc_title(text="Frequent Mental Distress Among Adults") %>%
-      hc_subtitle(text="Frequent Mental Distress Trends Among Adults in Texas and Peer States identified by Texas 2036.") %>%
+      hc_subtitle(text="Frequent Mental Distress Trends (14 or more poor mental health days in the past 30 days) Among Adults in Texas and Peer States identified by Texas 2036.") %>%
       hc_yAxis(title=list(text="% of Adults Reporting Frequent Mental Distress"),
                labels = list(enabled=TRUE,
                              format = "{value}%")) %>% 
@@ -137,7 +137,7 @@ working_cnd_server <- function(id, df) {
           hc_title(text = .x,
                    style = list(fontSize = "16px", useHTML = TRUE)) %>% 
           hc_yAxis(labels = list(format = '{value}%'),
-                   title = list(text = "% of Current Adult Smokers")) %>% 
+                   title = list(text = "% of Demographic Reporting Frequent Mental Distress")) %>% 
           hc_plotOptions(series=list(
             groupPadding = 0
           )) %>% 

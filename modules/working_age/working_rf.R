@@ -235,7 +235,7 @@ working_rf_server <- function(id) {
           hc_title(text = .x,
                    style = list(fontSize = "16px", useHTML = TRUE)) %>% 
           hc_yAxis(labels = list(format = '{value}%'),
-                   title = list(text = "% of Current Adult Smokers")) %>% 
+                   title = list(text = "% of demographic who are Current Adult Smokers")) %>% 
           hc_plotOptions(series=list(
             groupPadding = 0
           )) %>% 
@@ -282,10 +282,10 @@ working_rf_server <- function(id) {
                    reversed=FALSE) %>%
       hc_credits(
         enabled = TRUE,
-        text = "SOURCE: County Health Rankings Analysis | DATA: CDC Interactive Diabetes Atlas",
+        text = "SOURCE: CDC Behavioral Risk Factor Surveillance System",
         href = "https://datalab.texas2036.org/fywtqfb/texas-county-health-ranking?accesskey=dpyjylb") %>%
       hc_title(text="Smoking Prevalence Among Adult Texans") %>% 
-      hc_subtitle(text="According to County Health Rankings,Adult Smokers is defined as the percentage of the adult population in a county who both report that they currently smoke every day or most days and have smoked at least 100 cigarettes in their lifetime.") %>% 
+      hc_subtitle(text="According to County Health Ranking, Adult Smokers is defined as the percentage of the adult population in a county who both report that they currently smoke every day or most days and have smoked at least 100 cigarettes in their lifetime.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })

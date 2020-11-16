@@ -83,7 +83,7 @@ working_pol_server <- function(id, df) {
                               "Postponed or did not get needed prescription drug due to cost")) %>% 
       hc_yAxis(labels = list(format = '{value}%')) %>% 
       hc_title(text="Barriers to Care Among Nonelderly Adults in the US by Insurance Status, 2018") %>% 
-      hc_subtitle(text="Source: KFF Analysis of 2018 National Health Interview Survey") %>% 
+      hc_subtitle(text="Source: Kaiser Family Foundation Analysis of 2018 National Health Interview Survey") %>% 
       hc_legend(align = "right",
                 reversed = TRUE,
                 verticalAlign = "top",
@@ -219,8 +219,8 @@ working_pol_server <- function(id, df) {
 
     prevention_wk %>% 
       hchart("column", hcaes(x=year, y=pct)) %>%
-      hc_title(text="Flu Vaccination Coverage for Texans Aged 18-64, by Year") %>%
-      hc_subtitle(text="Shown: The Estimates % of Population Aged 18-64 Reporting 'Yes' to 'Flu Shot in the Past year?'") %>% 
+      hc_title(text="Flu Vaccination for Texans Aged 18-64, by Year") %>%
+      hc_subtitle(text="Shown: Estimated % of Population Aged 18-64 Reporting 'Yes' to 'Flu Shot in the Past year?'") %>% 
       hc_yAxis(title=list(text="Est. % of Vaccinated Texans, Aged 18-64"),
                min = 0,
                max = 100,
@@ -229,7 +229,7 @@ working_pol_server <- function(id, df) {
       hc_xAxis(tickColor = "#ffffff",
                useHTML = TRUE,
                alternateGridColor = "#f3f3f3",
-               title = list(text = "Year of America's Health Ranking Report")) %>%
+               title = list(text = "Year")) %>%
       hc_legend(enabled = FALSE) %>%
       hc_colorAxis(
         stops = color_stops(10, viridisLite::inferno(8, direction = -1))) %>% 

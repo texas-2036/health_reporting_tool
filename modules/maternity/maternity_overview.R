@@ -75,7 +75,7 @@ maternity_overview_server <- function(id, df) {
                useHTML = TRUE,
                alternateGridColor = "#f3f3f3",
                categories = c("2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019"),
-               title = list(text = "Year of America's Health Ranking Report")) %>%
+               title = list(text = "Year")) %>%
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(
         enabled = TRUE,
@@ -133,6 +133,10 @@ maternity_overview_server <- function(id, df) {
                    reversed=FALSE) %>%
       hc_title(text="Birth Rates Among Texas Counties") %>%
       hc_subtitle(text="Births per 1,000 Population") %>%
+      hc_credits(
+        enabled = TRUE,
+        text = "Texas Department of State Health Services",
+        href = "https://www.dshs.texas.gov/chs/vstat/vs14/map2.aspx") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -159,6 +163,10 @@ maternity_overview_server <- function(id, df) {
                    reversed=FALSE) %>%
       hc_title(text="Teen Birth Rate For Females Aged 15-19 (Per 1,000 Population), by County") %>%
       hc_subtitle(text="Teen Births per 1,000 Population") %>%
+      hc_credits(
+        enabled = TRUE,
+        text = "Khan D, Hamilton B, Rossen LM, He Y, Wei R, Dienes E. Teen birth rates for age group 15–19 in the United States by county, 2003–2018. National Center for Health Statistics. 2020.",
+        href = "https://www.cdc.gov/nchs/data-visualization/county-teen-births/#data-tables") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
