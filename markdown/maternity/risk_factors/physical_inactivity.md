@@ -8,4 +8,4 @@ Physical activity during pregnancy has many benefits, such as:
 * avoiding the risk of pregnancy complications, like pregnancy-related diabetes and high blood pressure, and the related risk of preterm birth; and
 * reducing the risk of having a C-section.
 
-In addition, physical activity in the first year after delivery (the postpartum period), reduces symptoms of postpartum depression and can help women return to their pre-pregnancy weight.
+In addition, physical activity in the first year after delivery (the postpartum period), reduces symptoms of [postpartum depression](https://health.gov/sites/default/files/2019-09/Physical_Activity_Guidelines_2nd_edition.pdf) and can help women return to their pre-pregnancy weight.

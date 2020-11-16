@@ -11,3 +11,5 @@ Babies of mothers who smoke during pregnancy are at higher risk for the followin
 Secondhand smoke can also lead to higher risk of low birthweight or birth defects in babies when women are exposed during pregnancy. Infants exposed to secondhand smoke also are at higher risk for conditions like asthma, bronchitis, ear infections, and pneumonia.
 
 The use of other tobacco products, including e-cigarettes, during pregnancy is also harmful.
+
+Source of facts in text: March of Dimes site website, Smoking During Pregnancy. Accessed at https://www.marchofdimes.org/pregnancy/smoking-during-pregnancy.aspx. 

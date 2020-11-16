@@ -2,7 +2,8 @@ Heart-related illness is one of the worst conditions in the U.S. for the number 
 
 Texas ranks 34th out of states for cardiovascular-related deaths. The rate of deaths from these conditions had been trending down, but in the last few years started to rise again, in part due to increases in risk factors such as obesity and diabetes.
 
-The estimated direct medical costs and lost productivity attributable to cardiovascular disease was $555 billion in 2016, and are projected to reach $1.1 trillion by 2035.
+The estimated direct medical costs and lost productivity attributable to cardiovascular disease was [$555 billion](http://www.heart.org/idc/groups/heart-
+public/@wcm/@adv/documents/downloadable/ucm_491543.pdf) in 2016, and are projected to reach $1.1 trillion by 2035.
 
 Many risk factors for heart disease can be controlled - smoking, cholesterol levels, uncontrolled high blood pressure (hypertension), physical inactivity, obesity, uncontrolled diabetes, and stress.
 
