@@ -54,15 +54,15 @@ childhood_cnd_server <- function(id, df) {
       hc_xAxis(tickColor = "#ffffff", 
                opposite = FALSE,
                useHTML = TRUE,
-               categories = c("3-5","6-11","12-17")) %>%
+               categories = c("Ages 3-5","Ages 6-11","Ages 12-17")) %>%
       hc_add_theme(tx2036_hc_light()) %>%
       hc_title(text="Depression, Anxiety and Behavior Disorders by Age") %>%
       hc_subtitle(text = 'Percentage of children in age cohort') %>%
       hc_credits(
         enabled = TRUE,
         useHTML = TRUE,
-        text = "National Survey of Children's Health",
-        href = "https://www.jpeds.com/article/S0022-3476(18)31292-7/fulltext")
+        text = "Analysis of the 2016 National Survey of Children's Health",
+        href = "https://doi.org/10.1016/j.jpeds.2018.09.021")
       
     })
   
@@ -94,7 +94,8 @@ childhood_cnd_server <- function(id, df) {
                title = list(text = "Year of America's Health Ranking Report")) %>%
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(enabled = TRUE,
-                 text = "America's Health Rankings analysis of CDC WONDER AmericasHealthRankings.org, Accessed 2020.") %>%
+                 text = "America's Health Rankings analysis of CDC WONDER AmericasHealthRankings.org, Accessed 2020.",
+                 href = "https://www.americashealthrankings.org/explore/health-of-women-and-children") %>%
       hc_add_theme(tx2036_hc_light())
     
   })

@@ -101,7 +101,7 @@ aging_rf_server <- function(id) {
       hchart("line", 
              hcaes(x=date, y=data_value),
              tooltip = list(pointFormat="<hr style='color:#3A4A9F;margin:2px 2px !important'><span style='font-weight:800;font-size:1.25em'>{point.y:.0f}%</span><span style='font-weight:400;font-size:1.25em'> of Texans Aged 65 years<br>& older reported being obese.</span>")) %>%
-      hc_title(text="Obesity rates are climbing among older Texans",
+      hc_title(text="Obesity Rates Among Texans Ages 65+",
                useHTML = TRUE) %>% 
       hc_subtitle(text="In the past six years, senior obesity in Texas increased 16% from 26.3% to 30.6% of adults ages 65+.",
                   useHTML = TRUE) %>%
@@ -109,7 +109,7 @@ aging_rf_server <- function(id) {
         enabled = TRUE,
         text = "SOURCE: U.S. Centers for Disease Control and Prevention | DATA: Behavioral Risk Factor Surveillance System",
         href = "https://datalab.texas2036.org/bwhqgjc/behavioral-risk-factor-surveillance-system-brfss-prevalence-data?accesskey=xclhoac") %>%
-      hc_yAxis(title = list(text = "Growth Rate From Previous Day"),
+      hc_yAxis(title = list(text = "% of 65+ population"),
                format = "{value}%") %>% 
       hc_xAxis(title=NULL) %>% 
       hc_tooltip(headerFormat = "<span style='font-size:1.25em;font-weight:800;text-transform:uppercase'>DURING {point.key:%Y}...</span><br>",
@@ -135,8 +135,8 @@ aging_rf_server <- function(id) {
                     hcaes(x=edition, y=value),
                     lineWidth=5,
                     name="Texas") %>% 
-      # hc_title(text="Physical Inactivity Trends Among Seniors") %>%
-      # hc_subtitle(text="Physical Inactivity Trends Among Seniors in Texas and Peer States identified by Texas 2036") %>%
+      #hc_title(text="Physical Inactivity Trends Among Seniors") %>%
+      #hc_subtitle(text="Physical Inactivity Trends Among Seniors in Texas and Peer States identified by Texas 2036") %>%
       hc_yAxis(title=list(text="% of Seniors Reporting Physical Inactivity"),
                labels = list(enabled=TRUE,
                              format = "{value}%")) %>% 
@@ -184,8 +184,8 @@ aging_rf_server <- function(id) {
         enabled = TRUE,
         text = "SOURCE: County Health Rankings Analysis | DATA: CDC Interactive Diabetes Atlas",
         href = "https://datalab.texas2036.org/fywtqfb/texas-county-health-ranking?accesskey=yygfyw") %>%
-      hc_title(text="Adult Texans reporting no leisure-time physical activity") %>% 
-      hc_subtitle(text="Shown: Percentage of adults age 20 and over.") %>% 
+      hc_title(text="Texans ages 65+ reporting no leisure-time physical activity") %>% 
+      hc_subtitle(text="Percentage of adults ages 65 and older in fair or better health who Reporting Doing No Leisure Time Physical Activity.") %>% 
       # hc_size(height=550) %>% 
     highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     

@@ -118,6 +118,10 @@ childhood_pol_server <- function(id, df) {
                    reversed=FALSE) %>%
       hc_title(text="Percentage of Uninsured Children") %>%
       hc_subtitle(text="Percentage of Children Under Age 19 without Health Insurance") %>%
+      hc_credits(
+        enabled = TRUE,
+        text = "SOURCE: Small Area Health Insurance Estimates (SAHIE) Program",
+        href = "https://www.census.gov/data-tools/demo/sahie/#/?s_statefips=48") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -200,7 +204,7 @@ childhood_pol_server <- function(id, df) {
                useHTML = TRUE,
                alternateGridColor = "#f3f3f3",
                categories = c("2012","2013","2014","2015","2016","2017","2018","2019"),
-               title = list(text = "Year")) %>%
+               title = list(text = "Year of America's Health Rankings Report")) %>%
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(
         enabled = TRUE,

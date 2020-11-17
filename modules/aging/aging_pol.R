@@ -36,12 +36,12 @@ aging_pol_ui <- function(id) {
                                div(class = "reactable2036-theme",
                                    div(class = "reactable2036-header",
                                        div(class = "reactable2036-title", 
-                                           "Vaccination Trends Among Seniors In The United States"),
+                                           "Vaccination Rates Among Seniors In The United States"),
                                        div(class = "reactable2036-subtitle", 
                                            "Shown are the percentages of those aged 65 years and older who received a given vaccine within each state. While the data was reported in 2020 by America's Health Rankings, the latest Flu + Pneumonia rates come from 2018 surveys by the CDC while the latest Shingles rates come from 2017 surveys by the CDC."),
                                    reactableOutput(NS(id, "prevention_chart")),
                                    div(class = "reactable2036-caption", 
-                                       a("SOURCE: America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.", href = "https://www.americashealthrankings.org/explore/senior/measure/immunizations_sr/state/ALL"))
+                                       a("SOURCE: America’s Health Rankings Analysis of U.S. HHS, Centers for Medicare & Medicaid Services, Nursing Home Compare.", href = "https://www.americashealthrankings.org/explore/senior/measure/immunizations_sr/state/ALL"))
                                ))
                       ))),
              tabPanel("Nursing Home Quality",  

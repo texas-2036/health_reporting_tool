@@ -42,10 +42,10 @@ aging_cnd_ui <- function(id) {
                                includeMarkdown("markdown/aging/conditions/heart_health.md")),
                         column(width = 6,
                                highcharter::highchartOutput(NS(id, "heart_health_chart"), height="550px")))),
-             tabPanel("Alzheimers",  
+             tabPanel("Alzheimer's",  
                       fluidRow(
                         column(width = 12,
-                               h2("Alzheimers"),
+                               h2("Alzheimer's"),
                                includeMarkdown("markdown/aging/conditions/alzheimers_top.md"))),
                       fluidRow(
                         column(width = 6,
@@ -82,7 +82,7 @@ aging_cnd_server <- function(id, df) {
                # opposite = TRUE,
                useHTML = TRUE,
                alternateGridColor = "#f3f3f3",
-               categories = c("2013","2014","2015","2016","2017","2018","2019"),
+               categories = c("2013","2014","2015","2016","2017","2018","2019","2020"),
                title = list(text = "Year of America's Health Ranking Report")) %>%
       hc_credits(
         enabled = TRUE,
@@ -157,7 +157,7 @@ aging_cnd_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         useHTML = TRUE,
-        text = "SOURCE: Interactive Atlas of Heart Disease and Stroke, by Center for Disease Control and Prevention.",
+        text = "SOURCE: Interactive Atlas of Heart Disease and Stroke, by Centers for Disease Control and Prevention.",
         href = "https://nccd.cdc.gov/DHDSPAtlas/?state=State") %>%
       hc_title(text="Cardiovascular Disease Deaths, Rate Per 100,000") %>% 
       hc_subtitle(text="The chart below shows the combined rate of deaths from all cardiovascular related diseases in the United States. Represented in the data are adults aged 65+ of all races and genders.") %>% 
@@ -191,7 +191,7 @@ aging_cnd_server <- function(id, df) {
         useHTML = TRUE,
         text = "SOURCE: Alzheimer's Disease Mortality by State, by Center for Disease Control and Prevention.",
         href = "https://www.cdc.gov/nchs/pressroom/sosmap/alzheimers_mortality/alzheimers_disease.htm") %>%
-      hc_title(text="Alzheimers Disease Mortality, Rate Per 100,000") %>% 
+      hc_title(text="Alzheimer's Disease Mortality, Rate Per 100,000") %>% 
       hc_subtitle(text="The chart below shows the age-adjusted mortality rate of deaths from Alzheimer's diseases in the United States.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
