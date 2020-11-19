@@ -1,3 +1,0 @@
-Texas has 113.5 primary care providers per 100,000 population. This ranks Texas 45th. The national average is 159.6, with a range of 96.6 to 466.1. In Texas 68.2% of adults report having a personal health care provider or doctor, compared to the national average of 77.7%.
-
-People with appropriate primary care may be more likely to avoid preventable chronic conditions or have their health concerns diagnosed at an earlier stage to avoid worse long-term outcomes. They may also have better health outcomes due to proper maintenance of their costly chronic conditions, such as cardiovascular disease, diabetes, and asthma.

@@ -1,1 +1,0 @@
-**According to 2018 birth certificate data, white women in Texas smoked most often during pregnancy, with a rate of 5.9%. Hispanics and people with a race/ethnicity of “Other” are significantly less likely to smoke during pregnancy.**

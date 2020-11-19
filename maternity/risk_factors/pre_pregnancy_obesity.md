@@ -1,1 +1,0 @@
-Pre-pregnancy obesity rates, which are derived from information on birth certificates about how much moms weighed before pregnancy, are significantly higher among women of certain races/ethnicities and in certain areas of the state. 
