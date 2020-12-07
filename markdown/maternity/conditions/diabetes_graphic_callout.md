@@ -1,0 +1,1 @@
+**In 2018, 6.2% of Texas births were to women with diabetes. The rate was highest for women whose race/ethnicity was classified as “Other” at 8.1% followed by Hispanic moms, at 7.1%. Black and White moms had lower rates, at 4.7% and 4.8% respectively.** 

@@ -1,0 +1,1 @@
+**The rate of preterm births for Black infants is significantly higher than the rate for other races/ethnicities at 14.8% in 2018. This compares to 10.8% for Hispanic infants, 9.6% for White infants, and 9.5% for infants classified as “Other” race/ethnicity.**

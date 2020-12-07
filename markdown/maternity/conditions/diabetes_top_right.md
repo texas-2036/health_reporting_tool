@@ -1,0 +1,1 @@
+Women with diabetes should have additional prenatal care checkups to monitor their condition and the health of their baby. Diabetes-related complications in pregnancy may be reduced or prevented by undertaking the following, in consultation with a doctor:

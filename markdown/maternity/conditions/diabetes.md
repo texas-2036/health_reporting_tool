@@ -1,3 +1,14 @@
-In 2018, 12.6% of Texans were age 65 and older. The senior population at the county level varied from 8.9% to 36.1% of the population.  By 2036, Texas’65+ population is expected to be a larger share of the state’s total population at 16.7%.
+Women who have diabetes before pregnancy or who develop diabetes for the first time during pregnancy (gestational diabetes) are at higher risk for adverse pregnancy outcomes. Women with any type of diabetes during pregnancy have a higher risk of:
 
-As people age, average health care costs increase due to chronic and acute conditions, including related to heart health, cancer, arthritis, diabetes and dementia. While this is expected as part of the aging process, there are many ways to improve quality of life and reduce health risks and associated costs for Texas’ seniors.  <LINKS NAVIGATE TO “CONDITIONS” AND “RISK FACTORS” SECTIONS OF THE AGING PAGE>
+* high blood pressure and preeclampsia, which is when a mother has high blood pressure and signs of damage to another organ system;
+* preterm delivery;
+* miscarriage or stillbirth;
+* requiring a C-section delivery;
+* depression before or after giving birth;
+* having a baby with birth defects; and
+* having a baby that weighs much more than average, which increases the risk of birth injuries.
+
+Gestational diabetes, which is a common complication of pregnancy, is likely to go away after pregnancy. However, mothers with gestational diabetes are more likely to develop diabetes later in life. Babies born to moms with any kind of diabetes are more likely to have diabetes and/or be obese in the future.
+
+**The rate of women of child-bearing age reporting they had ever been told by a health professional that they have diabetes was 3.0% in Texas versus 3.2% in the United States. The Texas figure has trended down in the past two years and ranks Texas 20th in the nation, with only four peer states performing better.**
+
