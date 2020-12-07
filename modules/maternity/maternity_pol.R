@@ -1,40 +1,79 @@
+# load data ----------
+
+##this section will be where all the data for this page will be loaded once that data is collected
+
 # text module ----
-aging_pol_ui <- function(id) {
+maternity_pol_ui <- function(id) {
   
   fluidRow(
            tabBox(
-             title = "Risk Factors",
              id = "tabset1", 
              side="left",
              width = 12,
-             tabPanel(title="Obesity", 
+             tabPanel(title="Uninsurance", 
                       fluidRow(
                       column(width = 6,
-                             h2("Obesity"),
-                             includeMarkdown("markdown/aging/risk_factors/obesity.md")),
+                             h2("Uninsurance Among Women of Child-bearing age"),
+                             includeMarkdown("markdown/maternity/policy/uninsurance.md"))
+                      )),
+             tabPanel(title = "Provider Access",
+                      fluidRow(
                       column(width = 6,
-                             highcharter::highchartOutput(NS(id, "diabetes_chart"))))),
-             tabPanel("Physical Inactivity", 
-                      h2("Obesity")),
-             tabPanel("Smoking",  
-                      h2("obesity"))
-             )
-           )
+                      h2("Access to Obstetrics and Gynecology"),
+                      includeMarkdown("markdown/maternity/policy/access.md"))
+                      )),
+             tabPanel(title = "Prevention",
+                      fluidRow(
+                      column(width = 6,
+                             h2("Prenatal Care"),
+                             includeMarkdown("markdown/maternity/policy/prenatal_care.md")
+                             )  
+                      ),
+                      fluidRow(
+                        column(width = 6,
+                               h2("Prenatal Care by Race/Ethnicity"),
+                               includeMarkdown("markdown/maternity/policy/prenatal_care_race.md")
+                        )  
+                      ),
+                      fluidRow(
+                        column(width = 6,
+                               h2("Preterm Birth"),
+                               includeMarkdown("markdown/maternity/policy/preterm_birth.md")
+                        )  
+                      ),
+                      fluidRow(
+                        column(width = 6,
+                               h2("Preterm Birth Outcomes and Risk Factors"),
+                               includeMarkdown("markdown/maternity/policy/preterm_birth_outcomes_rf.md")
+                        ),
+                        column(width = 6,
+                               includeMarkdown("markdown/maternity/policy/preterm_birth_outcomes_rf_bottom_right.md")
+                        ) 
+                      ),
+                      fluidRow(
+                        column(width = 6,
+                               h2("Infant Mortality"),
+                               includeMarkdown("markdown/maternity/policy/infant_mortality.md")
+                        )  
+                      ),
+                      fluidRow(
+                        column(width = 6,
+                               h2("Infant Mortality Causes"),
+                               includeMarkdown("markdown/maternity/policy/infant_mortality_causes.md")
+                        ),
+                        column(width = 6,
+                               includeMarkdown("markdown/maternity/policy/infant_mortality_causes_bottom_right.md")
+                        ), 
+                      ),
+             ))
+  )
   
 }
 
-aging_pol_server <- function(id, df) {
+maternity_pol_server <- function(id, df) {
   
   moduleServer(id, function(input, output, session) {
-    
-  output$diabetes_chart <- highcharter::renderHighchart({
-      
-      df %>% 
-      hchart("line", hcaes(x=year, y=x75_percentage)) %>% 
-      hc_title(text="This is the title") %>% 
-      highcharter::hc_add_theme(texas2036::tx2036_hc_light())
-      
-    })
+  
     
   })
   

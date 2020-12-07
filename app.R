@@ -55,8 +55,8 @@ thumbnail_label <- function (title, label, content, button_link, button_label) {
 ## MATERNITY MODULES
 source("modules/maternity/maternity_overview.R")
 source("modules/maternity/maternity_rf.R")
-# source("modules/maternity/maternity_cnd.R")
-# source("modules/maternity/maternity_pol.R")
+source("modules/maternity/maternity_cnd.R")
+source("modules/maternity/maternity_pol.R")
 
 ## CHILDHOOD MODULES
 source("modules/childhood/childhood_overview.R")
@@ -112,13 +112,13 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                                    icon = NULL),
                                        menuSubItem('Risk Factors', 
                                                    tabName = 'maternity_rf',
-                                                   icon = NULL)
-                                       # menuSubItem('Conditions', 
-                                       #             tabName = 'maternity_cnd',
-                                       #             icon = NULL),
-                                       # menuSubItem('Policy & Clinical Care', 
-                                       #             tabName = 'maternity_pol',
-                                       #             icon = NULL)
+                                                   icon = NULL),
+                                       menuSubItem('Conditions', 
+                                                    tabName = 'maternity_cnd',
+                                                    icon = NULL),
+                                       menuSubItem('Policy & Clinical Care', 
+                                                    tabName = 'maternity_pol',
+                                                    icon = NULL)
                                        ),
                               menuItem("Childhood",
                                        icon = icon("door-open", class="fad fa-child"),
@@ -263,14 +263,16 @@ body <- dashboardBody(
             h1("Maternity | Risk Factors", class="page-header1"),
             hr(class="page-header-hr"),
             maternity_rf_ui("maternity_rf_charts")),
-    # tabItem(tabName = "maternity_cnd",
-    #         h1("Maternity | Conditions", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         h1("cnd_charts")),
-    # tabItem(tabName = "maternity_pol",
-    #         h1("Maternity | Policy & Clinical Care", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         h1("pol_charts")),
+    tabItem(tabName = "maternity_cnd",
+             h1("Maternity | Conditions", class="page-header1"),
+             hr(class="page-header-hr"),
+             h1("cnd_charts")),
+             maternity_cnd_ui("maternity_cnd_charts"),
+     tabItem(tabName = "maternity_pol",
+             h1("Maternity | Policy & Clinical Care", class="page-header1"),
+             hr(class="page-header-hr"),
+             h1("pol_charts")),
+             maternity_pol_ui("maternity_pol_charts"),
     # **Childhood Section ---------------------------------------------------------------------------
     tabItem(tabName = "childhood_overview",
             h1("Childhood | Overview", class="page-header1"),
@@ -394,8 +396,8 @@ server <- function(input, output, session) {
   # ## MATERNITY SERVER MODULES
   maternity_overview_server("maternity_overview")
   maternity_rf_server("maternity_rf_charts")
-  # maternity_cnd_server("maternity_cnd_charts")
-  # maternity_pol_server("maternity_pol_charts")
+  maternity_cnd_server("maternity_cnd_charts")
+  maternity_pol_server("maternity_pol_charts")
   
   # ## CHILDHOOD SERVER MODULES
   childhood_overview_server("childhood_overview")
