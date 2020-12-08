@@ -27,6 +27,9 @@ teen_suicides <- readRDS(file = 'clean_data/Children/teen_suicide_data.rds')
 
 #uninsured rates
 child_uninsurance <- readRDS(file = 'clean_data/Children/child_uninsured_data.rds')
+
+diabetes_trends_women_18_44 <- read_rds("clean_data/maternity/diabetes_trends_women_18_44.rds")
+
 ```
 
 
@@ -82,5 +85,7 @@ hchart(child_uninsurance%>%filter(`peer` == 'Y' | `name` == 'Texas'),
 ```
 
 ```{r}
-
+highchart(
+  
+)
 ```
