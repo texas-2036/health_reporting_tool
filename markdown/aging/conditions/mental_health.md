@@ -1,4 +1,4 @@
-In 2018, 8.7% of Texans age 65 and older reported their mental health was not good 14 or more days in the past 30 days in 2018. This ranked Texas seniors at 38th in the nation on this measure of frequent mental distress. 
+Among Texans age 65 and older, 8.7% reported their mental health was not good 14 or more days in the past 30 days. This ranked Texas seniors at 38th in the nation on this measure of frequent mental distress and 11th among Texas 2036 peer states.
 
 Frequent mental distress is a measure based on self-reported poor mental health days. The measure aims to capture the population experiencing persistent, and likely severe, mental health issues, which may have a significant impact on health-related quality of life and overall wellness. There is a strong relationship between the 14-day period and clinically diagnosed mental disorders, such as depression and anxiety.
 
