@@ -30,7 +30,7 @@ childhood_pol_ui <- function(id) {
                       hr(),
                       fluidRow(
                         column(width = 6,
-                               h2("Strategies to Increase Child Insurance Rates"),
+                               h2("Children Eligible for but not Enrolled in Medicaid/CHIP"),
                                includeMarkdown("markdown/childhood/policy/uninsured_strategies.md")),
                         column(width = 6,
                                highcharter::highchartOutput(NS(id, "uninsurance_rate_children_pie"))))),
