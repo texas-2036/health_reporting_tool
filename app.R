@@ -106,8 +106,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        icon = icon("square", class="fad fa-square")
                               ),
                               actionLink("button", "LIFE STAGES", class = "btn-section"),
-                              menuItem("Maternity", 
-                                       tabName = "Maternity",
+                              menuItem("Maternity", expandedName = "maternity_expand",
                                        icon = icon("door-open", class="fad fa-baby-carriage"),
                                        menuSubItem('Overview',
                                                    tabName = 'maternity_overview',
@@ -122,7 +121,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                                     tabName = 'maternity_pol',
                                                     icon = NULL)
                                        ),
-                              menuItem("Childhood",
+                              menuItem("Childhood", expandedName = "childhood_expand",
                                        icon = icon("door-open", class="fad fa-child"),
                                        menuSubItem('Overview', 
                                                    tabName = 'childhood_overview',
@@ -136,7 +135,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        menuSubItem('Policy & Clinical Care', 
                                                    tabName = 'childhood_pol',
                                                    icon = NULL)),
-                              menuItem("Working Age",
+                              menuItem("Working Age", expandedName = "working_expand",
                                        icon = icon("door-open", class="fad fa-user-hard-hat"),
                                        menuSubItem('Overview', 
                                                    tabName = 'working_overview',
@@ -150,7 +149,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        menuSubItem('Policy & Clinical Care', 
                                                    tabName = 'working_pol',
                                                    icon = NULL)),
-                              menuItem("Aging",
+                              menuItem("Aging", expandedName = "aging_expand",
                                        icon = icon("door-open", class="fad fa-user-friends"),
                                        menuSubItem('Overview', 
                                                    tabName = 'aging_overview',
@@ -206,6 +205,8 @@ body <- dashboardBody(
   use_hostess(),
   useShinyjs(),
   extendShinyjs(text = jsCode),
+  
+  
   HTML('<div data-iframe-height></div>'),
   waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
                                      spin_cube_grid()),
@@ -396,15 +397,28 @@ server <- function(input, output, session) {
     js$scrolltop()
   })
   
-  observe(print(input$tabs))
-  # observeEvent(input$tabs, {
-  #   if (input$tabs == "Maternity") {
-  #   updateTabItems(session, "tabs", "maternity_overview")
-  #   }
-  #   
-  # })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "maternity_expand"){
+      updateTabItems(session, "tabs", selected = "maternity_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "childhood_expand"){
+      updateTabItems(session, "tabs", selected = "childhood_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "working_expand"){
+      updateTabItems(session, "tabs", selected = "working_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "aging_expand"){
+      updateTabItems(session, "tabs", selected = "aging_overview")
+    }
+  })
   
-  Sys.sleep(3) # do something that takes time
+  Sys.sleep(1) # do something that takes time
   waiter_hide()
   
   # # ## MATERNITY SERVER MODULES
