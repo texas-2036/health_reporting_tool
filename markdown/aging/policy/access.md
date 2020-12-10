@@ -1,11 +1,7 @@
-Primary care access can become even more critical among older adults, because they often require coordination of care for multiple chronic conditions.
+Primary care access can become even more critical among older adults, because they often require coordination of care for multiple chronic conditions.  
 
-In 2018, 91.2% of Texans age 65 and older reported havng a personal doctor or health care provider.   This ranks Texas 42nd in the nation for this measure. The national average is 93.7%. 
+Among Texans ages 65 and older, 91.2% reported having a personal doctor or health care provider. This ranks Texas 42nd in the nation and last among Texas 2036 peer states. The national average is 93.7%. 
 
-Having a regular health care provider is associated with a number of benefits, including:
+Good primary care is associated with lower health care costs and better health outcomes. Patients with a usual source of care are more likely to receive preventive care and avoid using the emergency department for nonurgent conditions.^[1]
 
-* Lower health care costs and better overall health status.
-* Improvements in preventive care.
-* Improvements in chronic care management for conditions such as hypertension and high cholesterol.
-* Fewer emergency department visits for non-urgent or avoidable problems.
-* A reduced risk of mortality.
+<span style="font-size:12px; line-height:1.1 !important">^[1]: Friedberg, Mark W., et al. “Primary Care: A Critical Review Of The Evidence On Quality And Costs Of Health Care.” Health Affairs, vol. 29, no. 5, May 2010, pp. 766–72. DOI.org (Crossref), https://doi.org/10.1377/hlthaff.2010.0025.
