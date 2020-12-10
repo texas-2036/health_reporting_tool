@@ -54,7 +54,7 @@ childhood_cnd_server <- function(id, df) {
       hc_xAxis(tickColor = "#ffffff", 
                opposite = FALSE,
                useHTML = TRUE,
-               categories = c("3-5","6-11","12-17")) %>%
+               categories = c("Ages 3-5","Ages 6-11","Ages 12-17")) %>%
       hc_add_theme(tx2036_hc_light()) %>%
       hc_title(text="Depression, Anxiety and Behavior Disorders by Age") %>%
       hc_subtitle(text = 'Percentage of children in age cohort') %>%
