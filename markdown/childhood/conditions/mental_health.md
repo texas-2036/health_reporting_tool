@@ -4,4 +4,5 @@ The percent of children aged 6–17 ever having been diagnosed with either anxie
 
 Children with untreated mental illness are more likely to fail school, interface with juvenile justice, engage in high risk health behaviors, and have poor health as adults.
 
-Children who experience more adverse childhood experiences (ACEs), such as those who live with abuse, neglect, a parent with mental illness, parent with addiction, or domestic violence, are more likely to develop mental illness in adulthood. A study found having 4 or more ACEs was strongly associated with poor mental health outcomes. At 19.9 percent, Texas ranks 18th in the nation for the percentage of children ages 0-17 who experienced two or more of a select set of ACEs.
+Children who experience more adverse childhood experiences (ACEs), such as those who live with abuse, neglect, a parent with mental illness, parent with addiction, or domestic violence, are more likely to develop mental illness in adulthood. Studies have found poor outcomes associated with individual ACEs, and one recent study found having 4 or more ACEs was associated with poor mental health outcomes, poor physical health outcomes, and unhealthy behaviors. At 19.9 percent, Texas ranks 18th in the nation for the percentage of children ages 0-17 who experienced two or more of a select set of ACEs.
+
