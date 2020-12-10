@@ -24,6 +24,7 @@ library(vroom)
 library(waiter)
 library(zoo)
 library(viridisLite)
+library(shinyjs)
 
 # HELPER FUNCTIONS ----------------------------------------------------------
   
@@ -186,6 +187,8 @@ sidebar <- dashboardSidebar(disable = FALSE,
                               )
                             )
 # BODY CODE  ------------------------------------------------------------
+# function to scroll to top of page
+jsCode <- "shinyjs.scrolltop = function() {window.scrollTo(0, 0)};" 
 body <- dashboardBody(
   tags$head(
     tags$script(src="https://kit.fontawesome.com/5272d94c6c.js", crossorigin="anonymous"),
@@ -200,6 +203,8 @@ body <- dashboardBody(
   use_sever(),
   use_waiter(),
   use_hostess(),
+  useShinyjs(),
+  extendShinyjs(text = jsCode),
   HTML('<div data-iframe-height></div>'),
   waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
                                      spin_cube_grid()),
@@ -365,6 +370,8 @@ server <- function(input, output, session) {
     
     
     updateTabItems(session, "tabs", "maternity_overview")
+    # scroll to top of page
+    js$scrolltop()
     
   })
   
@@ -372,6 +379,8 @@ server <- function(input, output, session) {
     
     
     updateTabItems(session, "tabs", "childhood_overview")
+    # scroll to top of page
+    js$scrolltop()
     
   })
   
@@ -386,6 +395,8 @@ server <- function(input, output, session) {
     
     
     updateTabItems(session, "tabs", "aging_overview")
+    # scroll to top of page
+    js$scrolltop()
     
   })
   
