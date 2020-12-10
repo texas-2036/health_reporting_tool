@@ -208,11 +208,11 @@ body <- dashboardBody(
   useShinyalert(),
   meta() %>%
     meta_social(
-      title = "Texas 2036 | Building A Healthy Texas",
+      title = "Texas 2036 | Health Evaluation of Life Phases",
       description = "A Check-up on The Lone Star State",
       url = "http://healthy.texas2036.org",
       image = "https://texas-2036.github.io/covid-pages/images/trends_cover.png",
-      image_alt = "Texas 2036 | Building A Healthy Texas",
+      image_alt = "Texas 2036 | Health Evaluation of Life Phases",
       twitter_creator = "@mrworthington",
       twitter_card_type = "summary",
       twitter_site = "@texas2036"
@@ -220,7 +220,7 @@ body <- dashboardBody(
   # **Landing ----------------------------------------------------------
   tabItems(
     tabItem(tabName = "intro",
-            jumbotron("Building A Healthy Texas", 
+            jumbotron("Health Evaluation of Life Phases (HELP)", 
                       "A Check-up on The Lone Star State",
                       button = FALSE),
             hr(class="landing-hr"),

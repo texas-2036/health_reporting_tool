@@ -3,3 +3,7 @@ An economic review of the evidence found the benefit-to-cost ratio for mass-reac
 An economic review of the evidence estimated that healthcare cost savings from a 20 percent price increase for tobacco products ranged from -$0.14 to $90.02 per person per year (2011 dollars) in addition to averted productivity losses.
 
 An economic review of the evidence estimated that net savings resulting from a nationwide U.S. smoke-free policy would range from $700 to $1,297 per person not currently covered by a smoke-free policy (2011 dollars).
+
+
+<span style="font-size:12px; line-height:1.1;"> Evidence-based interventions/cost source: Centers for Disease Control and Prevention, Office of the Associate Director for Policy and Strategy. Tobacco Control Interventions. 
+www.cdc.gov/policy/hst/hi5/tobaccointerventions/index.html. Accessed 4 Oct. 2020.
