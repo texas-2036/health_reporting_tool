@@ -131,7 +131,7 @@ maternity_overview_server <- function(id, df) {
                 itemMarginBottom=10) %>% 
       hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
                    reversed=FALSE) %>%
-      hc_title(text="Birth Rates Among Texas Counties") %>%
+      hc_title(text="Birth Rates Among Texas Counties, 2010-2014") %>%
       hc_subtitle(text="Births per 1,000 Population") %>%
       hc_credits(
         enabled = TRUE,
