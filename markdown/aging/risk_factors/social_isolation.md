@@ -1,4 +1,4 @@
-Social isolation can adversely impact quality of life and both physical and mental health. For example, social isolation has been associated with^[1] :
+Social isolation can adversely impact quality of life and both physical and mental health. For example, social isolation has been associated with:^[1] 
 
 * a significantly increased risk of premature mortality from all causes; 
 * an approximately 50 percent increased risk of developing dementia;
