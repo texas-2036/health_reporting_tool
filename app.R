@@ -24,6 +24,7 @@ library(vroom)
 library(waiter)
 library(zoo)
 library(viridisLite)
+library(shinyjs)
 
 # HELPER FUNCTIONS ----------------------------------------------------------
   
@@ -105,22 +106,22 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        icon = icon("square", class="fad fa-square")
                               ),
                               actionLink("button", "LIFE STAGES", class = "btn-section"),
-                              menuItem("Maternity",
+                              menuItem("Maternity", expandedName = "maternity_expand",
                                        icon = icon("door-open", class="fad fa-baby-carriage"),
-                                       menuSubItem('Overview', 
+                                       menuSubItem('Overview',
                                                    tabName = 'maternity_overview',
                                                    icon = NULL),
-                                       menuSubItem('Risk Factors', 
+                                       menuSubItem('Risk Factors',
                                                    tabName = 'maternity_rf',
                                                    icon = NULL),
-                                       menuSubItem('Conditions', 
+                                       menuSubItem('Conditions',
                                                     tabName = 'maternity_cnd',
                                                     icon = NULL),
-                                       menuSubItem('Policy & Clinical Care', 
+                                       menuSubItem('Policy & Clinical Care',
                                                     tabName = 'maternity_pol',
                                                     icon = NULL)
                                        ),
-                              menuItem("Childhood",
+                              menuItem("Childhood", expandedName = "childhood_expand",
                                        icon = icon("door-open", class="fad fa-child"),
                                        menuSubItem('Overview', 
                                                    tabName = 'childhood_overview',
@@ -134,7 +135,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        menuSubItem('Policy & Clinical Care', 
                                                    tabName = 'childhood_pol',
                                                    icon = NULL)),
-                              menuItem("Working Age",
+                              menuItem("Working Age", expandedName = "working_expand",
                                        icon = icon("door-open", class="fad fa-user-hard-hat"),
                                        menuSubItem('Overview', 
                                                    tabName = 'working_overview',
@@ -148,7 +149,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        menuSubItem('Policy & Clinical Care', 
                                                    tabName = 'working_pol',
                                                    icon = NULL)),
-                              menuItem("Aging",
+                              menuItem("Aging", expandedName = "aging_expand",
                                        icon = icon("door-open", class="fad fa-user-friends"),
                                        menuSubItem('Overview', 
                                                    tabName = 'aging_overview',
@@ -186,6 +187,8 @@ sidebar <- dashboardSidebar(disable = FALSE,
                               )
                             )
 # BODY CODE  ------------------------------------------------------------
+# function to scroll to top of page
+jsCode <- "shinyjs.scrolltop = function() {window.scrollTo(0, 0)};" 
 body <- dashboardBody(
   tags$head(
     tags$script(src="https://kit.fontawesome.com/5272d94c6c.js", crossorigin="anonymous"),
@@ -200,6 +203,10 @@ body <- dashboardBody(
   use_sever(),
   use_waiter(),
   use_hostess(),
+  useShinyjs(),
+  extendShinyjs(text = jsCode),
+  
+  
   HTML('<div data-iframe-height></div>'),
   waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
                                      spin_cube_grid()),
@@ -232,95 +239,100 @@ body <- dashboardBody(
                   includeMarkdown("markdown/intro/overview.md"))
             ),
             fluidRow(
-              column(6, thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6'></i>",
+              column(6, 
+                     thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>",
                                         label = 'Maternity',
                                         content = includeMarkdown("markdown/intro/maternity.md"),
                                         button_link ='explore_maternity', 
                                         button_label = 'Explore')),
-              column(6, thumbnail_label(title="<i class='fad fa-child fa-3x' style='color:#EAEFF6'></i>", 
+              column(6, 
+                     thumbnail_label(title="<i class='fad fa-child fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>", 
                                         label = 'Childhood',
                                         content = includeMarkdown("markdown/intro/childhood.md"),
                                         button_link ='explore_childhood', 
                                         button_label = 'Explore'))),
             fluidRow(
-              column(6, thumbnail_label(title="<i class='fad fa-user-hard-hat fa-3x' style='color:#EAEFF6'></i>", 
+              column(6, 
+                     thumbnail_label(title="<i class='fad fa-user-hard-hat fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>", 
                                         label = 'Working Age',
                                         content = includeMarkdown("markdown/intro/working_age.md"),
                                         button_link ='explore_working', 
                                         button_label = 'Explore')),
-              column(6, thumbnail_label(title="<i class='fad fa-user-friends fa-3x' style='color:#EAEFF6'></i>",
+              column(6,  
+                     thumbnail_label(title="<i class='fad fa-user-friends fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>",
                                         label = 'Aging',
                                         content = includeMarkdown("markdown/intro/aging.md"),
                                         button_link ='explore_aging', 
                                         button_label = 'Explore'))
             )),
     # **Maternity Section ---------------------------------------------------------------------------
+    
     tabItem(tabName = "maternity_overview",
-            h1("Maternity | Overview", class="page-header1"),
+            h2("Maternity | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             maternity_overview_ui("maternity_overview")),
     tabItem(tabName = "maternity_rf",
-            h1("Maternity | Risk Factors", class="page-header1"),
+            h2("Maternity | Risk Factors", class="page-header1"),
             hr(class="page-header-hr"),
             maternity_rf_ui("maternity_rf_charts")),
     tabItem(tabName = "maternity_cnd",
-             h1("Maternity | Conditions", class="page-header1"),
+             h2("Maternity | Conditions", class="page-header1"),
              hr(class="page-header-hr"),
              maternity_cnd_ui("maternity_cnd_charts")),
      tabItem(tabName = "maternity_pol",
-             h1("Maternity | Policy & Clinical Care", class="page-header1"),
+             h2("Maternity | Policy & Clinical Care", class="page-header1"),
              hr(class="page-header-hr"),
              h1("pol_charts"),
              maternity_pol_ui("maternity_pol_charts")),
     # **Childhood Section ---------------------------------------------------------------------------
     tabItem(tabName = "childhood_overview",
-            h1("Childhood | Overview", class="page-header1"),
+            h2("Childhood | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             childhood_overview_ui("childhood_overview")),
     tabItem(tabName = "childhood_rf",
-            h1("Childhood | Risk Factors", class="page-header1"),
+            h2("Childhood | Risk Factors", class="page-header1"),
             hr(class="page-header-hr"),
             childhood_rf_ui("childhood_rf_charts")),
     tabItem(tabName = "childhood_cnd",
-            h1("Childhood | Conditions", class="page-header1"),
+            h2("Childhood | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
             childhood_cnd_ui("childhood_cnd_charts")),
     tabItem(tabName = "childhood_pol",
-            h1("Childhood | Policy & Clinical Care", class="page-header1"),
+            h2("Childhood | Policy & Clinical Care", class="page-header1"),
             hr(class="page-header-hr"),
             childhood_pol_ui("childhood_pol_charts")),
     # **Working Age Section ---------------------------------------------------------------------------
     tabItem(tabName = "working_overview",
-            h1("Working Age | Overview", class="page-header1"),
+            h2("Working Age | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             working_overview_ui("working_overview")),
     tabItem(tabName = "working_rf",
-            h1("Working Age | Risk Factors", class="page-header1"),
+            h2("Working Age | Risk Factors", class="page-header1"),
             hr(class="page-header-hr"),
             working_rf_ui("working_rf_charts")),
     tabItem(tabName = "working_cnd",
-            h1("Working Age | Conditions", class="page-header1"),
+            h2("Working Age | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
             working_cnd_ui("working_cnd_charts")),
     tabItem(tabName = "working_pol",
-            h1("Working Age | Policy & Clinical Care", class="page-header1"),
+            h2("Working Age | Policy & Clinical Care", class="page-header1"),
             hr(class="page-header-hr"),
             working_pol_ui("working_pol_charts")),
     # **Aging Section ---------------------------------------------------------------------------
     tabItem(tabName = "aging_overview",
-            h1("Aging | Overview", class="page-header1"),
+            h2("Aging | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             aging_overview_ui("aging_overview")),
     tabItem(tabName = "aging_rf",
-            h1("Aging | Risk Factors", class="page-header1"),
+            h2("Aging | Risk Factors", class="page-header1"),
             hr(class="page-header-hr"),
             aging_rf_ui("aging_rf_charts")),
     tabItem(tabName = "aging_cnd",
-            h1("Aging | Conditions", class="page-header1"),
+            h2("Aging | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
             aging_cnd_ui("aging_cnd_charts")),
     tabItem(tabName = "aging_pol",
-            h1("Aging | Policy & Clinical Care", class="page-header1"),
+            h2("Aging | Policy & Clinical Care", class="page-header1"),
             hr(class="page-header-hr"),
             aging_pol_ui("aging_pol_charts")),
     # **Condition - Diabetes ---------------------------------------------------------------------------
@@ -334,7 +346,7 @@ body <- dashboardBody(
     #         h1("hh_charts")),
     # **COVID-19 ---------------------------------------------------------------------------
     tabItem(tabName = "covid",
-            h1("COVID-19 | Spotlight", class="page-header1"),
+            h2("COVID-19 | Spotlight", class="page-header1"),
             hr(class="page-header-hr"),
             covid_overview_ui("covid_charts"))),
     hr(),
@@ -362,61 +374,78 @@ server <- function(input, output, session) {
   # Tab Switching Functions ---------------------------------------------------------------------
   
   observeEvent(input$explore_maternity, {
-    
-    
     updateTabItems(session, "tabs", "maternity_overview")
-    
+    # scroll to top of page
+    js$scrolltop()
   })
   
   observeEvent(input$explore_childhood, {
-    
-    
     updateTabItems(session, "tabs", "childhood_overview")
-    
+    # scroll to top of page
+    js$scrolltop()
   })
   
   observeEvent(input$explore_working, {
-    
-    
     updateTabItems(session, "tabs", "working_overview")
-    
+    # scroll to top of page
+    js$scrolltop()
   })
   
   observeEvent(input$explore_aging, {
-    
-    
     updateTabItems(session, "tabs", "aging_overview")
-    
+    # scroll to top of page
+    js$scrolltop()
   })
   
-  Sys.sleep(3) # do something that takes time
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "maternity_expand"){
+      updateTabItems(session, "tabs", selected = "maternity_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "childhood_expand"){
+      updateTabItems(session, "tabs", selected = "childhood_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "working_expand"){
+      updateTabItems(session, "tabs", selected = "working_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "aging_expand"){
+      updateTabItems(session, "tabs", selected = "aging_overview")
+    }
+  })
+  
+  Sys.sleep(1) # do something that takes time
   waiter_hide()
   
-  # ## MATERNITY SERVER MODULES
+  # # ## MATERNITY SERVER MODULES
   maternity_overview_server("maternity_overview")
   maternity_rf_server("maternity_rf_charts")
   maternity_cnd_server("maternity_cnd_charts")
   maternity_pol_server("maternity_pol_charts")
-  
-  # ## CHILDHOOD SERVER MODULES
+
+  # # ## CHILDHOOD SERVER MODULES
   childhood_overview_server("childhood_overview")
   childhood_rf_server("childhood_rf_charts")
   childhood_cnd_server("childhood_cnd_charts")
   childhood_pol_server("childhood_pol_charts")
-  
-  # ## WORKING SERVER MODULES
+
+  # # ## WORKING SERVER MODULES
   working_overview_server("working_overview")
   working_rf_server("working_rf_charts")
   working_cnd_server("working_cnd_charts")
   working_pol_server("working_pol_charts")
-  
-  # ## AGING SERVER MODULES
+
+  # # ## AGING SERVER MODULES
   aging_overview_server("aging_overview")
   aging_rf_server("aging_rf_charts")
   aging_cnd_server("aging_cnd_charts")
   aging_pol_server("aging_pol_charts")
-  
-  # ## CONDITIONS SERVER MODULES
+
+  # # ## CONDITIONS SERVER MODULES
   # diabetes_server("diabetes_charts")
   # heart_health_server("heart_health_charts")
   # mental_health_server("heart_health_charts")

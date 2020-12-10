@@ -103,6 +103,12 @@ body {
     color: #fff !important;
 }
 
+
+.btn.btn-primary,.btn.btn-primary:focus,.btn.btn-primary:active  {
+  border:0;
+  box-shadow:none;
+}
+
 .skin-blue .sidebar-menu>li>.treeview-menu {
     margin: 0 1px;
     background: #f69788 !important;
@@ -111,6 +117,13 @@ body {
 .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li:hover>a {
     background: #f69788 !important;
     border-left-color: #fff !important;
+}
+
+
+.skin-blue .treeview-menu>li.active>a, .skin-blue .treeview-menu>li>a:hover[aria-expanded="true"]{
+  background: #fff !important;
+  color: #f69788 !important;
+  border-left-color: #ffff00 !important;
 }
 
 /* ### NAVBAR AREA CODE ### */
