@@ -121,11 +121,13 @@ body {
 
 
 .skin-blue .treeview-menu>li.active>a, .skin-blue .treeview-menu>li>a:hover[aria-expanded="true"]{
-  background: #fff !important;
-  color: #f69788 !important;
+  background: #3A4A9F !important;
+  color: #fff !important;
   border-left-color: #ffff00 !important;
 }
-
+.popover{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
 /* ### NAVBAR AREA CODE ### */
 
 .skin-blue .main-header .navbar {

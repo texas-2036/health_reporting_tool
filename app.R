@@ -25,6 +25,7 @@ library(waiter)
 library(zoo)
 library(viridisLite)
 library(shinyjs)
+library(shinyBS)
 
 # HELPER FUNCTIONS ----------------------------------------------------------
   
@@ -240,30 +241,47 @@ body <- dashboardBody(
             ),
             fluidRow(
               column(6, 
-                     thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>",
+                     thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6'></i>",
                                         label = 'Maternity',
                                         content = includeMarkdown("markdown/intro/maternity.md"),
                                         button_link ='explore_maternity', 
                                         button_label = 'Explore')),
+              bsPopover(id = "explore_maternity", 
+                        title = "Maternity",
+                        content = "The health of women before, during and after pregnancy is important for 
+                        healthy birth outcomes and to prevent future health problems for women and their children."),
+              
               column(6, 
-                     thumbnail_label(title="<i class='fad fa-child fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>", 
+                     thumbnail_label(title="<i class='fad fa-child fa-3x' style='color:#EAEFF6'></i>", 
                                         label = 'Childhood',
                                         content = includeMarkdown("markdown/intro/childhood.md"),
                                         button_link ='explore_childhood', 
                                         button_label = 'Explore'))),
+            bsPopover(id = "explore_childhood", 
+                      title = "Childhood",
+                      content = "Children’s well-being determines the health of the next generation - healthy children are 
+                      more likely to become healthy adults. We want Texas children to be as healthy as possible, and their 
+                      health can help predict future health challenges for families, communities, and the health care system."),
             fluidRow(
               column(6, 
-                     thumbnail_label(title="<i class='fad fa-user-hard-hat fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>", 
+                     thumbnail_label(title="<i class='fad fa-user-hard-hat fa-3x' style='color:#EAEFF6'></i>", 
                                         label = 'Working Age',
                                         content = includeMarkdown("markdown/intro/working_age.md"),
                                         button_link ='explore_working', 
                                         button_label = 'Explore')),
+              bsPopover(id = "explore_working", 
+                        title = "Working",
+                        content = "Working age adults are the backbone of Texas’ economy. They need to be healthy to work and to care for children and older adults."),
               column(6,  
-                     thumbnail_label(title="<i class='fad fa-user-friends fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>",
+                     thumbnail_label(title="<i class='fad fa-user-friends fa-3x' style='color:#EAEFF6'></i>",
                                         label = 'Aging',
                                         content = includeMarkdown("markdown/intro/aging.md"),
                                         button_link ='explore_aging', 
-                                        button_label = 'Explore'))
+                                        button_label = 'Explore')),
+              bsPopover("explore_aging", 
+                        title = "Aging",
+                        content = "As people age, health care needs increase due to chronic and acute conditions, 
+                        but there are still many ways to improve quality of life and reduce health risks for Texas seniors."),
             )),
     # **Maternity Section ---------------------------------------------------------------------------
     
@@ -421,37 +439,37 @@ server <- function(input, output, session) {
   Sys.sleep(1) # do something that takes time
   waiter_hide()
   
-  # # ## MATERNITY SERVER MODULES
-  maternity_overview_server("maternity_overview")
-  maternity_rf_server("maternity_rf_charts")
-  maternity_cnd_server("maternity_cnd_charts")
-  maternity_pol_server("maternity_pol_charts")
-
-  # # ## CHILDHOOD SERVER MODULES
-  childhood_overview_server("childhood_overview")
-  childhood_rf_server("childhood_rf_charts")
-  childhood_cnd_server("childhood_cnd_charts")
-  childhood_pol_server("childhood_pol_charts")
-
-  # # ## WORKING SERVER MODULES
-  working_overview_server("working_overview")
-  working_rf_server("working_rf_charts")
-  working_cnd_server("working_cnd_charts")
-  working_pol_server("working_pol_charts")
-
-  # # ## AGING SERVER MODULES
-  aging_overview_server("aging_overview")
-  aging_rf_server("aging_rf_charts")
-  aging_cnd_server("aging_cnd_charts")
-  aging_pol_server("aging_pol_charts")
-
-  # # ## CONDITIONS SERVER MODULES
-  # diabetes_server("diabetes_charts")
-  # heart_health_server("heart_health_charts")
-  # mental_health_server("heart_health_charts")
-  
-  # ## COVID SERVER MODULE
-  covid_overview_server("covid_charts")
+  # # # ## MATERNITY SERVER MODULES
+  # maternity_overview_server("maternity_overview")
+  # maternity_rf_server("maternity_rf_charts")
+  # maternity_cnd_server("maternity_cnd_charts")
+  # maternity_pol_server("maternity_pol_charts")
+  # 
+  # # # ## CHILDHOOD SERVER MODULES
+  # childhood_overview_server("childhood_overview")
+  # childhood_rf_server("childhood_rf_charts")
+  # childhood_cnd_server("childhood_cnd_charts")
+  # childhood_pol_server("childhood_pol_charts")
+  # 
+  # # # ## WORKING SERVER MODULES
+  # working_overview_server("working_overview")
+  # working_rf_server("working_rf_charts")
+  # working_cnd_server("working_cnd_charts")
+  # working_pol_server("working_pol_charts")
+  # 
+  # # # ## AGING SERVER MODULES
+  # aging_overview_server("aging_overview")
+  # aging_rf_server("aging_rf_charts")
+  # aging_cnd_server("aging_cnd_charts")
+  # aging_pol_server("aging_pol_charts")
+  # 
+  # # # ## CONDITIONS SERVER MODULES
+  # # diabetes_server("diabetes_charts")
+  # # heart_health_server("heart_health_charts")
+  # # mental_health_server("heart_health_charts")
+  # 
+  # # ## COVID SERVER MODULE
+  # covid_overview_server("covid_charts")
 
 }
 
