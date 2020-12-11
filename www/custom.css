@@ -121,8 +121,8 @@ body {
 
 
 .skin-blue .treeview-menu>li.active>a, .skin-blue .treeview-menu>li>a:hover[aria-expanded="true"]{
-  background: #fff !important;
-  color: #f69788 !important;
+  background: #3A4A9F !important;
+  color: #fff !important;
   border-left-color: #ffff00 !important;
 }
 
@@ -471,4 +471,9 @@ letter-spacing: 3px;
 .lds-facebook div {
   width: 20px;
   background: #F26852 !important;
+}
+
+.popover{
+    max-width: 500% !important; /* Max Width of the popover (depending on the container!) */
+    height: 300px !important;
 }

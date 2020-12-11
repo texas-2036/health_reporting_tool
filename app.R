@@ -25,6 +25,8 @@ library(waiter)
 library(zoo)
 library(viridisLite)
 library(shinyjs)
+library(shinyBS)
+library(tippy)
 
 # HELPER FUNCTIONS ----------------------------------------------------------
   
@@ -106,7 +108,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        icon = icon("square", class="fad fa-square")
                               ),
                               actionLink("button", "LIFE STAGES", class = "btn-section"),
-                              menuItem("Maternity", expandedName = "maternity_expand",
+                              menuItem("Maternity", expandedName = "maternity_expand", tabName = "Maternity",
                                        icon = icon("door-open", class="fad fa-baby-carriage"),
                                        menuSubItem('Overview',
                                                    tabName = 'maternity_overview',
@@ -121,7 +123,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                                     tabName = 'maternity_pol',
                                                     icon = NULL)
                                        ),
-                              menuItem("Childhood", expandedName = "childhood_expand",
+                              menuItem("Childhood", expandedName = "childhood_expand", tabName = "Childhood",
                                        icon = icon("door-open", class="fad fa-child"),
                                        menuSubItem('Overview', 
                                                    tabName = 'childhood_overview',
@@ -135,7 +137,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        menuSubItem('Policy & Clinical Care', 
                                                    tabName = 'childhood_pol',
                                                    icon = NULL)),
-                              menuItem("Working Age", expandedName = "working_expand",
+                              menuItem("Working Age", expandedName = "working_expand", tabName = "Working Age",
                                        icon = icon("door-open", class="fad fa-user-hard-hat"),
                                        menuSubItem('Overview', 
                                                    tabName = 'working_overview',
@@ -149,7 +151,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        menuSubItem('Policy & Clinical Care', 
                                                    tabName = 'working_pol',
                                                    icon = NULL)),
-                              menuItem("Aging", expandedName = "aging_expand",
+                              menuItem("Aging", expandedName = "aging_expand", tabName = "Aging",
                                        icon = icon("door-open", class="fad fa-user-friends"),
                                        menuSubItem('Overview', 
                                                    tabName = 'aging_overview',
@@ -205,6 +207,12 @@ body <- dashboardBody(
   use_hostess(),
   useShinyjs(),
   extendShinyjs(text = jsCode),
+  extendShinyjs(text = "shinyjs.activateTab = function(name){
+                  setTimeout(function(){
+                  $('a[href$=' + '\"#shiny-tab-' + name + '\"' + ']').closest('li').addClass('active')
+                  }, 200);
+                        
+                  }"),
   
   
   HTML('<div data-iframe-height></div>'),
@@ -240,30 +248,43 @@ body <- dashboardBody(
             ),
             fluidRow(
               column(6, 
-                     thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>",
+                     thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6'></i>",
                                         label = 'Maternity',
                                         content = includeMarkdown("markdown/intro/maternity.md"),
                                         button_link ='explore_maternity', 
                                         button_label = 'Explore')),
+              tippy_this("explore_maternity",
+                        "The health of women before, during and after pregnancy is important for healthy
+                        birth outcomes and to prevent future health problems for women and their children."),
+              
               column(6, 
-                     thumbnail_label(title="<i class='fad fa-child fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>", 
+                     thumbnail_label(title="<i class='fad fa-child fa-3x' style='color:#EAEFF6'></i>", 
                                         label = 'Childhood',
                                         content = includeMarkdown("markdown/intro/childhood.md"),
                                         button_link ='explore_childhood', 
                                         button_label = 'Explore'))),
+            tippy_this("explore_childhood",
+            "Children’s well-being determines the health of the next generation - healthy children 
+                      are more likely to become healthy adults. We want Texas children to be as healthy as possible, and 
+                      their health can help predict future health challenges for families, communities, and the health care system."),
             fluidRow(
               column(6, 
-                     thumbnail_label(title="<i class='fad fa-user-hard-hat fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>", 
+                     thumbnail_label(title="<i class='fad fa-user-hard-hat fa-3x' style='color:#EAEFF6'></i>", 
                                         label = 'Working Age',
                                         content = includeMarkdown("markdown/intro/working_age.md"),
                                         button_link ='explore_working', 
                                         button_label = 'Explore')),
+              tippy_this("explore_working", 
+                        "Working age adults are the backbone of Texas’ economy. They need to be healthy to work and to care for children and older adults."),
               column(6,  
-                     thumbnail_label(title="<i class='fad fa-user-friends fa-3x' style='color:#EAEFF6' style = 'overflow-y:auto'></i>",
+                     thumbnail_label(title="<i class='fad fa-user-friends fa-3x' style='color:#EAEFF6'></i>",
                                         label = 'Aging',
                                         content = includeMarkdown("markdown/intro/aging.md"),
                                         button_link ='explore_aging', 
-                                        button_label = 'Explore'))
+                                        button_label = 'Explore')),
+              tippy_this("explore_aging", 
+              "As people age, health care needs increase due to chronic and acute conditions, 
+                        but there are still many ways to improve quality of life and reduce health risks for Texas seniors."),
             )),
     # **Maternity Section ---------------------------------------------------------------------------
     
@@ -373,30 +394,40 @@ server <- function(input, output, session) {
 
   # Tab Switching Functions ---------------------------------------------------------------------
   
+  # Navigate from Explore buttons to that tab panel
   observeEvent(input$explore_maternity, {
     updateTabItems(session, "tabs", "maternity_overview")
     # scroll to top of page
     js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Maternity")
   })
   
   observeEvent(input$explore_childhood, {
     updateTabItems(session, "tabs", "childhood_overview")
     # scroll to top of page
     js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Childhood")
   })
   
   observeEvent(input$explore_working, {
     updateTabItems(session, "tabs", "working_overview")
     # scroll to top of page
     js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Working Age")
   })
   
   observeEvent(input$explore_aging, {
     updateTabItems(session, "tabs", "aging_overview")
     # scroll to top of page
     js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Aging")
   })
   
+  # When a new section is opened, navigate directly to the overview subsection
   observeEvent(input$sidebarItemExpanded, {
     if(input$sidebarItemExpanded == "maternity_expand"){
       updateTabItems(session, "tabs", selected = "maternity_overview")
@@ -417,6 +448,7 @@ server <- function(input, output, session) {
       updateTabItems(session, "tabs", selected = "aging_overview")
     }
   })
+  
   
   Sys.sleep(1) # do something that takes time
   waiter_hide()
@@ -449,7 +481,7 @@ server <- function(input, output, session) {
   # diabetes_server("diabetes_charts")
   # heart_health_server("heart_health_charts")
   # mental_health_server("heart_health_charts")
-  
+
   # ## COVID SERVER MODULE
   covid_overview_server("covid_charts")
 
