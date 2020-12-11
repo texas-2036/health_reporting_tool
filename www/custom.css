@@ -125,9 +125,7 @@ body {
   color: #fff !important;
   border-left-color: #ffff00 !important;
 }
-.popover{
-    max-width: 100%; /* Max Width of the popover (depending on the container!) */
-}
+
 /* ### NAVBAR AREA CODE ### */
 
 .skin-blue .main-header .navbar {
@@ -473,4 +471,9 @@ letter-spacing: 3px;
 .lds-facebook div {
   width: 20px;
   background: #F26852 !important;
+}
+
+.popover{
+    max-width: 500% !important; /* Max Width of the popover (depending on the container!) */
+    height: 300px !important;
 }
