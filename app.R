@@ -211,6 +211,7 @@ body <- dashboardBody(
                   setTimeout(function(){
                   $('a[href$=' + '\"#shiny-tab-' + name + '\"' + ']').closest('li').addClass('active')
                   }, 200);
+                        
                   }"),
   
   
@@ -399,7 +400,7 @@ server <- function(input, output, session) {
     # scroll to top of page
     js$scrolltop()
     # open sidebar panel
-    js$activateTab("Maternity")
+    #js$activateTab("Maternity")
   })
   
   observeEvent(input$explore_childhood, {
@@ -407,7 +408,7 @@ server <- function(input, output, session) {
     # scroll to top of page
     js$scrolltop()
     # open sidebar panel
-    js$activateTab("Childhood")
+    #js$activateTab("Childhood")
   })
   
   observeEvent(input$explore_working, {
@@ -415,7 +416,7 @@ server <- function(input, output, session) {
     # scroll to top of page
     js$scrolltop()
     # open sidebar panel
-    js$activateTab("Working Age")
+    #js$activateTab("Working Age")
   })
   
   observeEvent(input$explore_aging, {
@@ -423,7 +424,7 @@ server <- function(input, output, session) {
     # scroll to top of page
     js$scrolltop()
     # open sidebar panel
-    js$activateTab("Aging")
+    #js$activateTab("Aging")
   })
   
   # When a new section is opened, navigate directly to the overview subsection
@@ -452,37 +453,37 @@ server <- function(input, output, session) {
   Sys.sleep(1) # do something that takes time
   waiter_hide()
   
-  # # # ## MATERNITY SERVER MODULES
-  # maternity_overview_server("maternity_overview")
-  # maternity_rf_server("maternity_rf_charts")
-  # maternity_cnd_server("maternity_cnd_charts")
-  # maternity_pol_server("maternity_pol_charts")
-  # 
-  # # # ## CHILDHOOD SERVER MODULES
-  # childhood_overview_server("childhood_overview")
-  # childhood_rf_server("childhood_rf_charts")
-  # childhood_cnd_server("childhood_cnd_charts")
-  # childhood_pol_server("childhood_pol_charts")
-  # 
-  # # # ## WORKING SERVER MODULES
-  # working_overview_server("working_overview")
-  # working_rf_server("working_rf_charts")
-  # working_cnd_server("working_cnd_charts")
-  # working_pol_server("working_pol_charts")
-  # 
-  # # # ## AGING SERVER MODULES
-  # aging_overview_server("aging_overview")
-  # aging_rf_server("aging_rf_charts")
-  # aging_cnd_server("aging_cnd_charts")
-  # aging_pol_server("aging_pol_charts")
-  # 
-  # # # ## CONDITIONS SERVER MODULES
-  # # diabetes_server("diabetes_charts")
-  # # heart_health_server("heart_health_charts")
-  # # mental_health_server("heart_health_charts")
-  # 
-  # # ## COVID SERVER MODULE
-  # covid_overview_server("covid_charts")
+  # # ## MATERNITY SERVER MODULES
+  maternity_overview_server("maternity_overview")
+  maternity_rf_server("maternity_rf_charts")
+  maternity_cnd_server("maternity_cnd_charts")
+  maternity_pol_server("maternity_pol_charts")
+
+  # # ## CHILDHOOD SERVER MODULES
+  childhood_overview_server("childhood_overview")
+  childhood_rf_server("childhood_rf_charts")
+  childhood_cnd_server("childhood_cnd_charts")
+  childhood_pol_server("childhood_pol_charts")
+
+  # # ## WORKING SERVER MODULES
+  working_overview_server("working_overview")
+  working_rf_server("working_rf_charts")
+  working_cnd_server("working_cnd_charts")
+  working_pol_server("working_pol_charts")
+
+  # # ## AGING SERVER MODULES
+  aging_overview_server("aging_overview")
+  aging_rf_server("aging_rf_charts")
+  aging_cnd_server("aging_cnd_charts")
+  aging_pol_server("aging_pol_charts")
+
+  # # ## CONDITIONS SERVER MODULES
+  # diabetes_server("diabetes_charts")
+  # heart_health_server("heart_health_charts")
+  # mental_health_server("heart_health_charts")
+
+  # ## COVID SERVER MODULE
+  covid_overview_server("covid_charts")
 
 }
 
