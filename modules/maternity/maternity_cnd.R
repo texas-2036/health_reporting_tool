@@ -30,11 +30,7 @@ maternity_cnd_ui <- function(id) {
                                h2('Rates of Maternal Diabetes by Race/Ethnicity'),
                                img(src = "figures/maternity/conditions/fig_35_rates_of_maternal_diabetes_by_race.jpg",
                                    width = "90%"),
-                               includeMarkdown("markdown/maternity/conditions/diabetes_graphic_callout.md")),
-                        column(width = 6,
-                               h2("Diabetes Rates Among Women Ages 18-44"),
-                               
-                              )),
+                               includeMarkdown("markdown/maternity/conditions/diabetes_graphic_callout.md"))),
                       
                       ),
              tabPanel(title = "Heart Health", 
@@ -91,7 +87,7 @@ maternity_cnd_server <- function(id, df) {
                       type="line", 
                       hcaes(x=edition, y=value, group=state_name), 
                       color="#DBDCDD") %>%
-        hc_add_series(access_pcp %>% filter(state_name=="Texas"),
+        hc_add_series(diabetes_trends_women_18_44 %>% filter(state_name=="Texas"),
                       type="line", 
                       hcaes(x=edition, y=value),
                       lineWidth=5,
@@ -100,11 +96,11 @@ maternity_cnd_server <- function(id, df) {
         hc_subtitle(text="Diabetes Rates Among Women in Texas and Peer States identified by Texas 2036.") %>%
         hc_yAxis(title=list(text="Percentage of Women Ages 18-44"),
                  labels = list(enabled=TRUE,
-                               format = "{value}")) %>% 
+                               format = "{value}%")) %>% 
         hc_xAxis(tickColor = "#ffffff", 
                  # opposite = TRUE,
                  min = 0.5,
-                 max = 13.5,
+                 max = 2.5,
                  tickInterval = 1,
                  maxPadding = 0,
                  endOnTick = FALSE,

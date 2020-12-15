@@ -23,17 +23,18 @@ library(tidyverse)
 library(janitor)
 library(tidycensus)
 library(reticulate)
+library(xlsx)
 ```
 
 # Peer States Prep
 
 ```{r}
 #making the peer states df that can be joined to other dfs
-states_list <- c('California', 'Colorado', 'Florida', 'Georgia', 'Illinois', 'New York', 'North Carolina', 'Ohio', 'Pennsylvania', 'Virginia', 'Washington')
+states_list <- c('California', 'Colorado', 'Florida', 'Georgia', 'Illinois', 'New York', 'North Carolina', 'Ohio', 'Pennsylvania', 'Texas', 'Virginia', 'Washington')
 
-state_short <- c('CA', 'CO', 'FL', 'GA', 'IL', 'NY', 'NC', 'OH', 'PA', 'VA', 'WA')
+state_short <- c('CA', 'CO', 'FL', 'GA', 'IL', 'NY', 'NC', 'OH', 'PA', 'TX', 'VA', 'WA')
 
-peer <- c('Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y')
+peer <- c('Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y')
 
 states <- data.frame(states_list, state_short, peer)
 
@@ -357,3 +358,34 @@ adul_inse <- read_csv('raw_data/Working Age/SAHIE_28SEP20_16_32_06_79.csv') %>%
   merge(x=adul_inse, y=states, by.x='name', by.y='states', all.x = TRUE) %>%
   write_rds('clean_data/Working Age/adult_uninsured_data.rds')
 ```
+
+# Maternity
+
+## Woman's unisurance
+```{r}
+wi <- read_csv('raw_data/maternity/uninsured_w_US_2008_2018_grph_158_r807.csv') %>%
+  merge(states, by.x = 'Region', by.y = 'state_short', all.x = TRUE) %>%
+  filter(`peer` == 'Y' | `Region` == 'US') 
+
+wi_long <- pivot_longer(wi, cols=c('2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'), values_to = 'rate') %>%
+  write_rds('clean_data/maternity/women_uninsured_data.rds')
+```
+
+## Access to OB/GYN
+```{r}
+obgyn <- read_excel('raw_data/maternity/obgyn_access_rates_by_county.xlsx', skip =3) %>%
+  clean_names()
+  
+obgyn$county <- gsub(' County, TX', '', obgyn$county)
+
+obgyn %>% write_rds('clean_data/maternity/obgyn_access.rds')
+```
+
+
+## Care timing distribution
+```{r}
+care_dist <- read_csv('raw_data/maternity/mat_care_dist.csv') %>%
+  clean_names() %>%
+  write_rds('clean_data/maternity/maternity_care_dist.rds')
+```
+

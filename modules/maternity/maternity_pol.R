@@ -5,6 +5,9 @@ prenatal_care <- readr::read_rds("clean_data/maternity/prenatal_deficiency_rate_
 infant_mortality <- readr::read_rds("clean_data/maternity/infant_mortality_trends.rds")
 im_map <-readr::read_rds("clean_data/maternity/infant_mortality_map.rds")
 im_demo_trends <- readr::read_rds("clean_data/maternity/infant_mortality_demographic_trends.rds")
+w_in <- readr::read_rds("clean_data/maternity/women_uninsured_data.rds")
+obgyn_access <- readr::read_rds("clean_data/maternity/obgyn_access.rds")
+care_dist <- readr::read_rds("clean_data/maternity/maternity_care_dist.rds")
 
 # text module ----
 maternity_pol_ui <- function(id) {
@@ -18,8 +21,11 @@ maternity_pol_ui <- function(id) {
                       fluidRow(
                       column(width = 6,
                              h2("Uninsurance Among Women of Child-bearing age"),
-                             includeMarkdown("markdown/maternity/policy/uninsurance.md"))
-                      )),
+                             includeMarkdown("markdown/maternity/policy/uninsurance.md")),
+                      column(width = 6,
+                             highcharter::highchartOutput(NS(id, "women_uninsur")))
+                      )
+                      ),
              tabPanel(title = "Provider Access",
                       fluidRow(
                       column(width = 6,
@@ -27,17 +33,29 @@ maternity_pol_ui <- function(id) {
                       includeMarkdown("markdown/maternity/policy/access.md"),
                       img(src = "figures/maternity/policy/Percent of Primary Care Physician Demand Exceeding Supply and FTE shortage_surplus.png",
                           width = "90%")
-                      )
+                      ),
+                      column(width = 6,
+                             highcharter::highchartOutput(NS(id, "obgyn_access_map"))
+                             )
                       )),
              tabPanel(title = "Prevention",
                       fluidRow(
                       column(width = 6,
-                             h2("Prenatal Care"),
-                             includeMarkdown("markdown/maternity/policy/prenatal_care.md")
+                             h2("Distribution of Prenatal Care Timing, 2018"),
+                             highcharter::highchartOutput(NS(id, "care_distribution_tx"))
                              ),
                       column(width = 6,
-                             highcharter::highchartOutput(NS(id, "prenatal_birth_map"))
+                             highcharter::highchartOutput(NS(id, "care_distribution_us"))
                       ) 
+                      ),
+                      fluidRow(
+                        column(width = 6,
+                               h2("Prenatal Care"),
+                               includeMarkdown("markdown/maternity/policy/prenatal_care.md")
+                        ),
+                        column(width = 6,
+                               highcharter::highchartOutput(NS(id, "prenatal_birth_map"))
+                        ) 
                       ),
                       fluidRow(
                         column(width = 6,
@@ -231,6 +249,111 @@ maternity_pol_server <- function(id, df) {
           text = "SOURCE: 2019 Healthy Texas Mothers and Babies (HTMB) Report.",
           href = "https://wonder.cdc.gov/natality.html") %>%
         hc_add_theme(tx2036_hc_light())
+      
+    })
+    
+    output$women_uninsur <- highcharter::renderHighchart({
+      
+      highchart() %>% 
+        hc_add_series(w_in %>% filter(Region!="TX"), 
+                      type="line", 
+                      hcaes(x=name, y=rate, group=Region), 
+                      color="#DBDCDD") %>% 
+        hc_add_series(w_in %>% filter(Region =="TX"),
+                      type="line", 
+                      hcaes(x=name, y=rate),
+                      lineWidth=5,
+                      name="Texas") %>% 
+        hc_title(text="Uninsured Rate Among Women in Texas, Peer States, and the United States") %>%
+        hc_subtitle(text="Uninsured Rate Among Women Ages 15-44 in Texas and Peer States identified by Texas 2036.") %>%
+        hc_yAxis(title=list(text="Percent of Women"),
+                 labels = list(enabled=TRUE,
+                               format = "{value}%")) %>% 
+        hc_xAxis(tickColor = "#ffffff", 
+                 min = 0.5,
+                 max = 10,
+                 tickInterval = 1,
+                 maxPadding = 0,
+                 endOnTick = FALSE,
+                 startOnTick = FALSE,
+                 useHTML = TRUE,
+                 alternateGridColor = "#f3f3f3",
+                 categories = c('2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'),
+                 title = list(text = "Year")) %>%
+        hc_legend(layout = "proximate", align = "right") %>% 
+        hc_credits(
+          enabled = TRUE,
+          text = "SOURCE: American Community Survey, US Census Bureau.",
+          href = "https://www.marchofdimes.org/Peristats/ViewSubtopic.aspx?reg=99&top=11&stop=158&lev=1&obj=1&cmp=00&slev=4&sty=2008&eny=2018&chy=") %>%
+        hc_add_theme(tx2036_hc_light())
+      
+      
+    })
+    
+    output$obgyn_access_map <- highcharter::renderHighchart({
+      
+      obgyn_access$rate_per_100_000_population <- as.numeric(as.character(obgyn_access$rate_per_100_000_population))
+      
+      col_pal <- RColorBrewer::brewer.pal(9,"Blues")
+      
+      
+      hcmap(map = "countries/us/us-tx-all",
+            data = obgyn_access,
+            value = "rate_per_100_000_population",
+            joinBy = c("name","county"),
+            name = "Rate",
+            borderColor = "#FAFAFA",
+            borderWidth = 0.1,
+            tooltip = list(
+              valueSuffix = "%")) %>%
+        hc_legend(layout='vertical',
+                  align='left',
+                  verticalAlign='bottom',
+                  itemMarginTop=10,
+                  itemMarginBottom=10) %>% 
+        hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
+                     reversed=FALSE) %>%
+        hc_title(text="Rate of Physicans Practicing Obstetrics and Gynecology by County") %>%
+        hc_subtitle(text="Number of OB/GYN Physicans per 100,000 People") %>%
+        hc_credits(
+          enabled = TRUE,
+          text = "SOURCE: Texas Department of State Health Services",
+          href = "https://dshs.texas.gov/legislative/2018-Reports/SB-18-Physicians-Workforce-Report-Final.pdf") %>%
+        hc_add_theme(tx2036_hc_light())
+    })
+    
+    
+    output$care_distribution_tx <- highcharter::renderHighchart({
+      
+      
+      care_dist %>%
+        filter(`name` == 'Texas') %>%
+        hchart("pie", 
+               hcaes(name=group, y=value, color = group),
+               tooltip = list(pointFormat = "% of All Live Births: {value} %")) %>% 
+        hc_legend(enabled=FALSE) %>% 
+        hc_xAxis(title=list(enabled=FALSE)) %>% 
+        hc_yAxis(title = list(text= "% of All Live Births"),
+                 labels = list(format = '{value}%')) %>% 
+        hc_title(text="Texas") 
+        highcharter::hc_add_theme(texas2036::tx2036_hc_light())
+      
+    })
+    
+    output$care_distribution_us <- highcharter::renderHighchart({
+      
+      
+      care_dist %>%
+        filter(`name` == 'US') %>%
+        hchart("pie", 
+               hcaes(name=group, y=value, color = group),
+               tooltip = list(pointFormat = "% of All Live Births: {value}%")) %>% 
+        hc_legend(enabled=FALSE) %>% 
+        hc_xAxis(title=list(enabled=FALSE)) %>% 
+        hc_yAxis(title = list(text= "% of All Live Births"),
+                 labels = list(format = '{value}%')) %>% 
+        hc_title(text="United States") 
+      highcharter::hc_add_theme(texas2036::tx2036_hc_light())
       
     })
     
