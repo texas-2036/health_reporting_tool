@@ -206,13 +206,13 @@ body <- dashboardBody(
   use_waiter(),
   use_hostess(),
   useShinyjs(),
-  extendShinyjs(text = jsCode, functions = c("winprint")),
+  extendShinyjs(text = jsCode, functions = c("scrolltop")),
   extendShinyjs(text = "shinyjs.activateTab = function(name){
                   setTimeout(function(){
                   $('a[href$=' + '\"#shiny-tab-' + name + '\"' + ']').closest('li').addClass('active')
                   }, 200);
                         
-                  }", functions = c("winprint")),
+                  }", functions = c("activateTab")),
   
   
   HTML('<div data-iframe-height></div>'),
