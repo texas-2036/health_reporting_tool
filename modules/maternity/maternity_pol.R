@@ -67,7 +67,8 @@ maternity_pol_ui <- function(id) {
                                img(src = "figures/maternity/policy/fig_26_pct_of_live_births_with_prenatal_care_by_race.jpg",
                                    width = "90%")
                         )
-                      ),
+                      )),
+              tabPanel(title = "Outcomes",
                       fluidRow(
                         column(width = 6,
                                h2("Preterm Birth"),
