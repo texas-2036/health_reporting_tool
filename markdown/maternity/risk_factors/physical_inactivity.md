@@ -1,6 +1,6 @@
 Moderate-intensity physical activity is safe and recommended for healthy pregnant women to help avoid pregnancy complications and ease pregnancy discomforts. Pregnant women have some special considerations for physical activity that they should discuss with their health care provider, such as if they are at high risk for preterm labor, how certain health conditions like high blood pressure affect their participation in exercise, or activities that should be avoided during pregnancy (e.g., contact sports or activities with higher risk of falls).
 
-Physical activity during pregnancy has many benefits, such as:
+Physical activity during pregnancy has many benefits, such as:^[1]
 
 * helping women gain a healthy amount of weight during pregnancy;
 * helping manage stress;
@@ -9,3 +9,5 @@ Physical activity during pregnancy has many benefits, such as:
 * reducing the risk of having a C-section.
 
 In addition, physical activity in the first year after delivery (the postpartum period), reduces symptoms of [postpartum depression](https://health.gov/sites/default/files/2019-09/Physical_Activity_Guidelines_2nd_edition.pdf) and can help women return to their pre-pregnancy weight.
+
+<span style="font-size:12px; line-height:1.1 !important">^[1]: March of Dimes. Exercise During Pregnancy. Accessed at https://www.marchofdimes.org/pregnancy/exercise-during-pregnancy.aspx
