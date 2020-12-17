@@ -15,3 +15,5 @@ People who have been exposed to COVID-19 or who have certain symptoms may want t
 * Congestion or runny nose
 * Nausea or vomiting
 * Diarrhea
+
+The Texas Department of State Health Services has the [Texas Health Trace](https://txctt.force.com/ct/s/?language=en_US) tool that can help people determine if they should be tested for COVID-19 and where they can get tested.
