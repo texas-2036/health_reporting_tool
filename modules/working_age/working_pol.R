@@ -126,7 +126,7 @@ working_pol_server <- function(id, df) {
       hc_yAxis(title = list(text= "% of All Uninsured, Ages 19-64"),
                labels = list(format = '{value}%')) %>% 
       hc_title(text="Family Incomes (% of FPL)") %>% 
-      hc_subtitle(text="Individuals with income below 200% of the Federal Poverty Level (FPL)5 are at the highest risk of being uninsured. About 86% of the uninsured were in families with incomes below 400% of poverty.") %>% 
+      hc_subtitle(text="Individuals with income below 200% of the Federal Poverty Level (FPL) are at the highest risk of being uninsured. About 86% of the uninsured were in families with incomes below 400% of poverty.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })

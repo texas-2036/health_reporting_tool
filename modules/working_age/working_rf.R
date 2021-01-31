@@ -176,7 +176,7 @@ working_rf_server <- function(id) {
         enabled = TRUE,
         text = "SOURCE: County Health Rankings Analysis | DATA: CDC Interactive Diabetes Atlas",
         href = "https://datalab.texas2036.org/fywtqfb/texas-county-health-ranking?accesskey=yygfyw") %>%
-      hc_title(text="Adult Texans reporting no leisure-time physical activity") %>% 
+      hc_title(text="Adult Texans Reporting No Leisure-time Physical Activity, 2016") %>% 
       hc_subtitle(text="Shown: Percentage of adults age 20 and over.") %>% 
       # hc_size(height=550) %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())

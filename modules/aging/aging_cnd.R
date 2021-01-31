@@ -105,7 +105,7 @@ aging_cnd_server <- function(id, df) {
                     lineWidth=5,
                     name="Texas") %>% 
       hc_title(text="Frequent Mental Distress Among Seniors") %>%
-      hc_subtitle(text="Frequent Mental Distress Trends Among Seniors in Texas and Peer States identified by Texas 2036.") %>%
+      hc_subtitle(text="Percent of seniors reporting their mental health was not good 14 or more days in the past 30 days") %>%
       hc_yAxis(title=list(text="% of Seniors Reporting Frequent Mental Distress"),
                labels = list(enabled=TRUE,
                              format = "{value}%")) %>% 
@@ -191,7 +191,7 @@ aging_cnd_server <- function(id, df) {
         useHTML = TRUE,
         text = "SOURCE: Alzheimer's Disease Mortality by State, by Center for Disease Control and Prevention.",
         href = "https://www.cdc.gov/nchs/pressroom/sosmap/alzheimers_mortality/alzheimers_disease.htm") %>%
-      hc_title(text="Alzheimer's Disease Mortality, Rate Per 100,000") %>% 
+      hc_title(text="Alzheimer's Disease Mortality, Rate Per 100,000, 2018") %>% 
       hc_subtitle(text="The chart below shows the age-adjusted mortality rate of deaths from Alzheimer's diseases in the United States.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     

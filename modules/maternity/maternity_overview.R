@@ -161,7 +161,7 @@ maternity_overview_server <- function(id, df) {
                 itemMarginBottom=10) %>% 
       hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
                    reversed=FALSE) %>%
-      hc_title(text="Teen Birth Rate For Females Aged 15-19 (Per 1,000 Population), by County") %>%
+      hc_title(text="Estimated Teen Birth Rate For Females Aged 15-19 (Per 1,000 Population), by County, 2018") %>%
       hc_subtitle(text="Teen Births per 1,000 Population") %>%
       hc_credits(
         enabled = TRUE,

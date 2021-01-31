@@ -78,7 +78,7 @@ aging_pol_server <- function(id, df) {
                     name="Texas") %>% 
       hc_title(text="Dedicated Health Care Access Among Seniors") %>%
       hc_subtitle(text="The chart below shows trends in the percentage of adults ages 65 and older who reported having one or more people they think of as their personal doctor or health care provider. Shown are Texas and Peer States identified by Texas 2036.") %>%
-      hc_yAxis(title=list(text="% of Seniors Reporting Frequent Mental Distress"),
+      hc_yAxis(title=list(text="% of Seniors Reporting Dedicated Health Care Access"),
                labels = list(enabled=TRUE,
                              format = "{value}%")) %>% 
       hc_legend(layout = "proximate", align = "right") %>%
@@ -260,7 +260,7 @@ aging_pol_server <- function(id, df) {
         text = "SOURCE: Interactive Atlas of Heart Disease and Stroke, by Center for Disease Control and Prevention.",
         href = "https://nccd.cdc.gov/DHDSPAtlas/?state=State") %>%
       hc_title(text="Nursing Home Quality In The United States") %>% 
-      hc_subtitle(text="Shown are the percentage of certified nursing home beds rated four- or five-stars over a three-month period in each state.") %>% 
+      hc_subtitle(text="Shown are the percentage of certified nursing home beds rated four- or five-stars over a three-month period spanning 2018-2019 in each state.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })
