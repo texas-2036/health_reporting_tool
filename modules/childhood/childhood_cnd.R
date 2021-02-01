@@ -1,10 +1,15 @@
 
 # Load Data -----------------------------------------------------------------------------------
-
 child_mental_health <- read_rds('clean_data/Children/child_mental_health_data.rds') %>%
   na.omit() %>% select(-13)
 
+child_mental_health$age <- gsub("\\?6-11", "6-11", child_mental_health$age)
+child_mental_health$age <- gsub("\\?3-5", "3-5", child_mental_health$age)
+child_mental_health$age <- gsub("\\?12-17", "12-17", child_mental_health$age)
+
 teen_suicide_rates <- read_rds("clean_data/Children/teen_suicide_rates.rds")
+
+teen_suicide_rates <- teen_suicide_rates %>% filter(state_name!="West Virginia")
 
 # text module ----
 childhood_cnd_ui <- function(id) {
