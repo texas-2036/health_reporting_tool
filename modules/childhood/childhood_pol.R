@@ -117,7 +117,7 @@ childhood_pol_server <- function(id, df) {
       hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
                    reversed=FALSE) %>%
       hc_title(text="Percentage of Uninsured Children") %>%
-      hc_subtitle(text="Percentage of Children Under Age 19 without Health Insurance") %>%
+      hc_subtitle(text="Percentage of Uninsured Children, 2018") %>%
       hc_credits(
         enabled = TRUE,
         text = "SOURCE: Small Area Health Insurance Estimates (SAHIE) Program",
@@ -171,7 +171,7 @@ childhood_pol_server <- function(id, df) {
         text = "America's Health Rankings analysis of America's Health Rankings composite measure, United Health Foundation.",
         href = "https://www.americashealthrankings.org/explore/health-of-women-and-children/measure/access_children/state/ALL") %>%
       hc_title(text="National Rankings of Access to Care for Children") %>% 
-      hc_subtitle(text="Shown are rankings based on America's Health Rankingd sum of weighted 'z-scores' of all ranked access to care measures for children.") %>% 
+      hc_subtitle(text="Shown are rankings based on America's Health Rankings sum of weighted 'z-scores' of all ranked access to care measures for children.") %>% 
       hc_add_theme(tx2036_hc_light())
     
   })

@@ -108,11 +108,11 @@ maternity_cnd_server <- function(id, df) {
                  useHTML = TRUE,
                  alternateGridColor = "#f3f3f3",
                  categories = c("2016","2017","2018","2019", "2020"),
-                 title = list(text = "Year")) %>%
+                 title = list(text = "Year of America's Health Rankings Report")) %>%
         hc_legend(layout = "proximate", align = "right") %>% 
         hc_credits(
           enabled = TRUE,
-          text = "America's Health Rankings analysis of CDC BRFSS",
+          text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System",
           href = "https://www.americashealthrankings.org") %>%
         hc_add_theme(tx2036_hc_light())
     )
