@@ -1,0 +1,157 @@
+edition,state_name,indicator,value
+2008,California,Not Covered,10.5
+2009,California,Not Covered,10
+2010,California,Not Covered,9.5
+2011,California,Not Covered,8.6
+2012,California,Not Covered,8.4
+2013,California,Not Covered,7.9
+2014,California,Not Covered,5.8
+2015,California,Not Covered,3.5
+2016,California,Not Covered,3.1
+2017,California,Not Covered,3.1
+2018,California,Not Covered,3.1
+2019,California,Not Covered,3.6
+2008,Georgia,Not Covered,11.4
+2009,Georgia,Not Covered,11.6
+2010,Georgia,Not Covered,10.3
+2011,Georgia,Not Covered,10.2
+2012,Georgia,Not Covered,9.3
+2013,Georgia,Not Covered,10.1
+2014,Georgia,Not Covered,8
+2015,Georgia,Not Covered,7.2
+2016,Georgia,Not Covered,6.7
+2017,Georgia,Not Covered,7.5
+2018,Georgia,Not Covered,8.1
+2019,Georgia,Not Covered,7.4
+2008,Texas,Not Covered,17.6
+2009,Texas,Not Covered,16.9
+2010,Texas,Not Covered,15.2
+2011,Texas,Not Covered,13.9
+2012,Texas,Not Covered,13
+2013,Texas,Not Covered,13.3
+2014,Texas,Not Covered,11.6
+2015,Texas,Not Covered,10
+2016,Texas,Not Covered,9.8
+2017,Texas,Not Covered,10.7
+2018,Texas,Not Covered,11.2
+2019,Texas,Not Covered,12.7
+2008,Illinois,Not Covered,5.6
+2009,Illinois,Not Covered,4.9
+2010,Illinois,Not Covered,4.9
+2011,Illinois,Not Covered,4
+2012,Illinois,Not Covered,3.6
+2013,Illinois,Not Covered,4.4
+2014,Illinois,Not Covered,3.7
+2015,Illinois,Not Covered,2.8
+2016,Illinois,Not Covered,2.6
+2017,Illinois,Not Covered,2.9
+2018,Illinois,Not Covered,3.4
+2019,Illinois,Not Covered,4
+2008,Colorado,Not Covered,14.1
+2009,Colorado,Not Covered,10.6
+2010,Colorado,Not Covered,10.7
+2011,Colorado,Not Covered,9.9
+2012,Colorado,Not Covered,9.5
+2013,Colorado,Not Covered,8.8
+2014,Colorado,Not Covered,5.8
+2015,Colorado,Not Covered,4.4
+2016,Colorado,Not Covered,4.3
+2017,Colorado,Not Covered,4.3
+2018,Colorado,Not Covered,4.6
+2019,Colorado,Not Covered,5.5
+2008,Florida,Not Covered,17.3
+2009,Florida,Not Covered,15.3
+2010,Florida,Not Covered,13.4
+2011,Florida,Not Covered,12.6
+2012,Florida,Not Covered,11.5
+2013,Florida,Not Covered,11.7
+2014,Florida,Not Covered,9.7
+2015,Florida,Not Covered,7.4
+2016,Florida,Not Covered,6.6
+2017,Florida,Not Covered,7.3
+2018,Florida,Not Covered,7.6
+2019,Florida,Not Covered,7.6
+2008,Ohio,Not Covered,7.1
+2009,Ohio,Not Covered,6.7
+2010,Ohio,Not Covered,6.3
+2011,Ohio,Not Covered,6.1
+2012,Ohio,Not Covered,5.6
+2013,Ohio,Not Covered,5.5
+2014,Ohio,Not Covered,5
+2015,Ohio,Not Covered,4.5
+2016,Ohio,Not Covered,3.8
+2017,Ohio,Not Covered,4.5
+2018,Ohio,Not Covered,4.8
+2019,Ohio,Not Covered,4.8
+2008,Pennsylvania,Not Covered,6
+2009,Pennsylvania,Not Covered,5.6
+2010,Pennsylvania,Not Covered,5.4
+2011,Pennsylvania,Not Covered,5.6
+2012,Pennsylvania,Not Covered,5.2
+2013,Pennsylvania,Not Covered,5.5
+2014,Pennsylvania,Not Covered,5.3
+2015,Pennsylvania,Not Covered,4.2
+2016,Pennsylvania,Not Covered,4.4
+2017,Pennsylvania,Not Covered,4.4
+2018,Pennsylvania,Not Covered,4.4
+2019,Pennsylvania,Not Covered,4.6
+2008,Virginia,Not Covered,7.5
+2009,Virginia,Not Covered,6.9
+2010,Virginia,Not Covered,6.9
+2011,Virginia,Not Covered,6.2
+2012,Virginia,Not Covered,6
+2013,Virginia,Not Covered,5.8
+2014,Virginia,Not Covered,6.1
+2015,Virginia,Not Covered,5.1
+2016,Virginia,Not Covered,5
+2017,Virginia,Not Covered,5.1
+2018,Virginia,Not Covered,5.1
+2019,Virginia,Not Covered,4.9
+2008,North Carolina,Not Covered,9.9
+2009,North Carolina,Not Covered,8.7
+2010,North Carolina,Not Covered,8.3
+2011,North Carolina,Not Covered,8
+2012,North Carolina,Not Covered,7.9
+2013,North Carolina,Not Covered,6.8
+2014,North Carolina,Not Covered,5.5
+2015,North Carolina,Not Covered,4.6
+2016,North Carolina,Not Covered,4.7
+2017,North Carolina,Not Covered,4.8
+2018,North Carolina,Not Covered,5.3
+2019,North Carolina,Not Covered,5.8
+2008,New York,Not Covered,5.6
+2009,New York,Not Covered,4.9
+2010,New York,Not Covered,5.1
+2011,New York,Not Covered,4.5
+2012,New York,Not Covered,4.2
+2013,New York,Not Covered,4.2
+2014,New York,Not Covered,3.4
+2015,New York,Not Covered,2.6
+2016,New York,Not Covered,2.5
+2017,New York,Not Covered,2.7
+2018,New York,Not Covered,2.5
+2019,New York,Not Covered,2.4
+2008,Washington,Not Covered,8
+2009,Washington,Not Covered,7.4
+2010,Washington,Not Covered,6.8
+2011,Washington,Not Covered,6.5
+2012,Washington,Not Covered,6.1
+2013,Washington,Not Covered,6.3
+2014,Washington,Not Covered,4.9
+2015,Washington,Not Covered,2.9
+2016,Washington,Not Covered,2.7
+2017,Washington,Not Covered,2.6
+2018,Washington,Not Covered,2.7
+2019,Washington,Not Covered,3.1
+2008,United States,Not Covered,9.7
+2009,United States,Not Covered,9
+2010,United States,Not Covered,8.5
+2011,United States,Not Covered,7.9
+2012,United States,Not Covered,7.5
+2013,United States,Not Covered,7.5
+2014,United States,Not Covered,6.3
+2015,United States,Not Covered,5.1
+2016,United States,Not Covered,4.7
+2017,United States,Not Covered,5
+2018,United States,Not Covered,5.2
+2019,United States,Not Covered,5.7

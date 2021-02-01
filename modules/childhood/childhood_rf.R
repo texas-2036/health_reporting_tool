@@ -295,22 +295,13 @@ childhood_rf_server <- function(id) {
                                 pct=c(.187,.327)
     )
     highchart() %>% 
-      hc_add_series(vaping_df_compare,
-                    "bar", hcaes(x=geo, y=pct*100,
-                                 group = geo),
-                    color=c("#002D74", "#F26852")) %>% 
-      hc_plotOptions(series=list(
-        groupPadding = 0
-      )) %>% 
-      hc_legend(align = "right",
-                reversed = TRUE,
-                verticalAlign = "top",
-                layout = "vertical",
-                x = -20,
-                y = 220,
-                itemStyle = list(fontSize="14px", textTransform="uppercase"),
-                floating = TRUE) %>% 
-      hc_xAxis(categories = c(" ")) %>% 
+      hc_add_series(vaping_df_compare%>%filter(geo =='TX') , type = "bar", hcaes(x=geo, y=pct*100), name ='TX') %>% 
+      hc_add_series(vaping_df_compare%>%filter(geo =='US'), type = "bar", hcaes(x=geo, y=pct*100), name ='US') %>% 
+      hc_xAxis(tickColor = "#ffffff", 
+               opposite = FALSE,
+               useHTML = TRUE,
+               title = list(text = 'State'),
+               categories = c(" ")) %>% 
       hc_yAxis(labels = list(format = "{value}%")) %>% 
       
       hc_title(text="Electronic Vaping Rates Among High School Students, 2019") %>%

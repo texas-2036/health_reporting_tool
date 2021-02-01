@@ -302,11 +302,9 @@ maternity_pol_server <- function(id, df) {
             data = obgyn_access,
             value = "rate_per_100_000_population",
             joinBy = c("name","county"),
-            name = "Rate",
+            name = "OB/GYN physicians per 100,000 people",
             borderColor = "#FAFAFA",
-            borderWidth = 0.1,
-            tooltip = list(
-              valueSuffix = "%")) %>%
+            borderWidth = 0.1) %>%
         hc_legend(layout='vertical',
                   align='left',
                   verticalAlign='bottom',
@@ -314,12 +312,12 @@ maternity_pol_server <- function(id, df) {
                   itemMarginBottom=10) %>% 
         hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
                      reversed=FALSE) %>%
-        hc_title(text="Rate of Physicans Practicing Obstetrics and Gynecology by County") %>%
+        hc_title(text="Rate of Physicians Practicing Obstetrics and Gynecology by County, 2018") %>%
         hc_subtitle(text="Number of OB/GYN Physicans per 100,000 People") %>%
         hc_credits(
           enabled = TRUE,
-          text = "SOURCE: Texas Department of State Health Services",
-          href = "https://dshs.texas.gov/legislative/2018-Reports/SB-18-Physicians-Workforce-Report-Final.pdf") %>%
+          text = "SOURCE: U.S. Health Resources & Services Administration analysis of American Medical Association Physician Master File",
+          href = "https://data.hrsa.gov/topics/health-workforce/ahrf") %>%
         hc_add_theme(tx2036_hc_light())
     })
     

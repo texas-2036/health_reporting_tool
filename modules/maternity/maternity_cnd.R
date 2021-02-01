@@ -135,7 +135,7 @@ maternity_cnd_server <- function(id, df) {
             borderWidth = 0.1,
             tooltip = list(
               valueDecimals = 2,
-              valueSuffix = " Percentage of Women with a Recent Live Birth")) %>% 
+              valueSuffix = "%")) %>% 
         hc_legend(layout='vertical',
                   align='left',
                   verticalAlign='bottom',
@@ -148,9 +148,9 @@ maternity_cnd_server <- function(id, df) {
         hc_credits(
           enabled = TRUE,
           useHTML = TRUE,
-          text = "SOURCE: America's Health Rankings",
-          href = "https://www.americashealthrankings.org/explore/health-of-women-and-children/measure/postpartum_depression/state/TX?edition-year=2018") %>%
-        hc_title(text="Percentage of Women with a Recent Live Birth Who Reported Experiencing Postpartum Depressive Symptoms") %>% 
+          text = "SOURCE: America's Health Rankings analysis of CDC, Pregnancy Risk Assessment Monitoring System data",
+          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
+        hc_title(text="Percentage of Women with a Recent Live Birth Who Reported Experiencing Postpartum Depressive Symptoms, 2015") %>% 
         highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     })
     

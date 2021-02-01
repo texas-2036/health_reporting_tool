@@ -168,8 +168,8 @@ childhood_pol_server <- function(id, df) {
       hc_colorAxis(stops = color_stops(n=9, colors=rev(col_pal))) %>%
       hc_credits(
         enabled = TRUE,
-        text = "America's Health Rankings analysis of America's Health Rankings composite measure, United Health Foundation.",
-        href = "https://www.americashealthrankings.org/explore/health-of-women-and-children/measure/access_children/state/ALL") %>%
+        text = "America's Health Rankings composite measure, United Health Foundation.",
+        href = "https://www.americashealthrankings.org/explore/health-of-women-and-children/measure/access_children/state/ALL?edition-year=2020") %>%
       hc_title(text="National Rankings of Access to Care for Children") %>% 
       hc_subtitle(text="Shown are rankings based on America's Health Rankings sum of weighted 'z-scores' of all ranked access to care measures for children.") %>% 
       hc_add_theme(tx2036_hc_light())

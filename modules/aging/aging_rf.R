@@ -40,13 +40,11 @@ aging_rf_ui <- function(id) {
                       ),
              tabPanel(title="Physical Inactivity", 
                       fluidRow(
-                        column(width = 6,
+                        column(width = 12,
                                h2("Physical Inactivity"),
                                includeMarkdown("markdown/aging/risk_factors/physical_inactivity.md"),
                                highcharter::highchartOutput(NS(id, "phys_inactivity_chart"), height="500px"),
-                               ),
-                        column(width = 6,
-                               highcharter::highchartOutput(NS(id, "phys_inactivity_map"), height="650px")))),
+                               ))),
              tabPanel(title="Social Isolation", 
                       fluidRow(
                         column(width = 5,
@@ -135,7 +133,7 @@ aging_rf_server <- function(id) {
                     hcaes(x=edition, y=value),
                     lineWidth=5,
                     name="Texas") %>% 
-      #hc_title(text="Physical Inactivity Trends Among Seniors") %>%
+      hc_title(text="People Age 65+ reporting no leisure-time physical activity") %>%
       #hc_subtitle(text="Physical Inactivity Trends Among Seniors in Texas and Peer States identified by Texas 2036") %>%
       hc_yAxis(title=list(text="% of Seniors Reporting Physical Inactivity"),
                labels = list(enabled=TRUE,
