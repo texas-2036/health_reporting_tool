@@ -168,7 +168,7 @@ maternity_pol_server <- function(id, df) {
                       name="Texas") %>% 
         hc_title(text="Infant Mortality Rate in Texas, Peer States, and the United States") %>%
         #hc_subtitle(text="Diabetes Trends Among Adults Aged 18+ in Texas and Peer States identified by Texas 2036.") %>%
-        hc_yAxis(title=list(text="Deaths per 100,000 Births"),
+        hc_yAxis(title=list(text="Deaths per 100,000 Live Births"),
                  labels = list(enabled=TRUE,
                                format = "{value}")) %>% 
         hc_xAxis(tickColor = "#ffffff", 
