@@ -157,35 +157,33 @@ maternity_pol_server <- function(id, df) {
     output$infant_mort <- highcharter::renderHighchart({
       
       highchart() %>% 
-        hc_add_series(infant_mortality %>% filter(state_name!="Texas"), 
+        hc_add_series(infant_mortality %>% filter(state!="Texas"), 
                       type="line", 
-                      hcaes(x=edition, y=value, group=state_name), 
+                      hcaes(x=year, y=value, group=state), 
                       color="#DBDCDD") %>% 
-        hc_add_series(infant_mortality %>% filter(state_name=="Texas"),
+        hc_add_series(infant_mortality %>% filter(state=="Texas"),
                       type="line", 
-                      hcaes(x=edition, y=value),
+                      hcaes(x=year, y=value),
                       lineWidth=5,
                       name="Texas") %>% 
-        hc_title(text="Infant Mortality Rate in Texas, Peer States, and the United States") %>%
+        hc_title(text="Number of Infant Deaths (before age 1) per 1,000 Live Births") %>%
         #hc_subtitle(text="Diabetes Trends Among Adults Aged 18+ in Texas and Peer States identified by Texas 2036.") %>%
-        hc_yAxis(title=list(text="Deaths per 100,000 Live Births"),
+        hc_yAxis(title=list(text="Deaths per 1,000 Live Births"),
                  labels = list(enabled=TRUE,
                                format = "{value}")) %>% 
         hc_xAxis(tickColor = "#ffffff", 
-                 min = 0.5,
-                 max = 3,
+                 min = 2008,
                  tickInterval = 1,
                  maxPadding = 0,
                  endOnTick = FALSE,
                  startOnTick = FALSE,
                  useHTML = TRUE,
                  alternateGridColor = "#f3f3f3",
-                 categories = c("2016","2018","2019", "2020"),
                  title = list(text = "Year")) %>%
         hc_legend(layout = "proximate", align = "right") %>% 
         hc_credits(
           enabled = TRUE,
-          text = "SOURCE: CDC WONDER.",
+          text = "CDC WONDER Online Database, Linked Birth/Infant Death files",
           href = "https://wonder.cdc.gov/lbd-current.html") %>%
         hc_add_theme(tx2036_hc_light())
       
