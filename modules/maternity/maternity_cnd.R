@@ -6,6 +6,11 @@ diabetes_trends_women_18_44 <- read_rds("clean_data/maternity/diabetes_trends_wo
 #postpartum depression data
 post_part <- readr::read_rds("clean_data/maternity/postpartum_depression_map.rds")
 
+#maternal diabetes
+maternal_diabetes <- readr::read_rds("clean_data/maternity/maternal_diabetes.rds")
+
+#maternal hypertension
+maternal_hypertension <- readr::read_rds("clean_data/maternity/maternal_hypertension.rds")
 
 # text module ----
 maternity_cnd_ui <- function(id) {
@@ -28,8 +33,7 @@ maternity_cnd_ui <- function(id) {
                       fluidRow(
                         column(width = 6,
                                h2('Rates of Maternal Diabetes by Race/Ethnicity'),
-                               img(src = "figures/maternity/conditions/fig_35_rates_of_maternal_diabetes_by_race.jpg",
-                                   width = "90%"),
+                               highcharter::highchartOutput(NS(id, "race_diabetes_trends")),
                                includeMarkdown("markdown/maternity/conditions/diabetes_graphic_callout.md"))),
                       
                       ),
@@ -39,9 +43,7 @@ maternity_cnd_ui <- function(id) {
                       h2("High Blood Pressure"),
                       includeMarkdown("markdown/maternity/conditions/high_blood_pressure.md")),
                column(width = 6,
-                      h2("Rates of Maternal Hypertension by Race/Ethnicity"),
-                      img(src = "figures/maternity/conditions/fig_34_rates_of_maternal_hypertension_by_race.jpg",
-                          width = "90%"),
+                      highcharter::highchartOutput(NS(id, "hypertension_chart")),
                       includeMarkdown("markdown/maternity/conditions/high_blood_pressure_top_right.md")
                )),
                fluidRow(
@@ -114,6 +116,71 @@ maternity_cnd_server <- function(id, df) {
           enabled = TRUE,
           text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System",
           href = "https://www.americashealthrankings.org") %>%
+        hc_add_theme(tx2036_hc_light())
+    )
+    
+    output$race_diabetes_trends <- highcharter::renderHighchart(
+      
+      highchart() %>%
+        hc_add_series(maternal_diabetes %>% filter(race!="Texas"),
+                      type = 'line',
+                      hcaes(x=year, y=value, group=race),
+                      color = "#DBDCDD") %>%
+        hc_add_series(maternal_diabetes %>% filter(race =="Texas"),
+                      type = 'line',
+                      hcaes(x=year, y=value),
+                      lineWidth=5,
+                      name="Texas") %>%
+        hc_yAxis(title=list(text="Percentage of Live Births"),
+                 labels = list(enabled=TRUE,
+                               format = "{value}%")) %>% 
+        hc_xAxis(tickColor = "#ffffff", 
+                 # opposite = TRUE,
+                 tickInterval = 1,
+                 maxPadding = 0,
+                 endOnTick = FALSE,
+                 startOnTick = FALSE,
+                 useHTML = TRUE,
+                 alternateGridColor = "#f3f3f3",
+                 title = list(text = "Year")) %>%
+        hc_legend(layout = "proximate", align = "right") %>% 
+        hc_credits(
+          enabled = TRUE,
+          text = "* Note: The 2017 and 2018 data are provisional.|| SOURCE:  Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book",
+          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
+        hc_add_theme(tx2036_hc_light())
+    )
+    
+    output$hypertension_chart <- highcharter::renderHighchart(
+      
+      highchart() %>%
+        hc_add_series(maternal_hypertension %>% filter(race!="Texas"),
+                      type = 'line',
+                      hcaes(x=year, y=value, group=race),
+                      color = "#DBDCDD") %>%
+        hc_add_series(maternal_hypertension %>% filter(race =="Texas"),
+                      type = 'line',
+                      hcaes(x=year, y=value),
+                      lineWidth=5,
+                      name="Texas") %>%
+        hc_title(text="Rates of Maternal Hypertension by Race/Ethnicity, 2009-2018") %>%
+        hc_yAxis(title=list(text="Percentage of Live Births"),
+                 labels = list(enabled=TRUE,
+                               format = "{value}%")) %>% 
+        hc_xAxis(tickColor = "#ffffff", 
+                 # opposite = TRUE,
+                 tickInterval = 1,
+                 maxPadding = 0,
+                 endOnTick = FALSE,
+                 startOnTick = FALSE,
+                 useHTML = TRUE,
+                 alternateGridColor = "#f3f3f3",
+                 title = list(text = "Year")) %>%
+        hc_legend(layout = "proximate", align = "right") %>% 
+        hc_credits(
+          enabled = TRUE,
+          text = "* Note: The 2017 and 2018 data are provisional.|| SOURCE:  Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book",
+          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
         hc_add_theme(tx2036_hc_light())
     )
     

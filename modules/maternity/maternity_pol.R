@@ -3,11 +3,15 @@
 ##this section will be where all the data for this page will be loaded once that data is collected
 prenatal_care <- readr::read_rds("clean_data/maternity/prenatal_deficiency_rate_map.rds")
 infant_mortality <- readr::read_rds("clean_data/maternity/infant_mortality_trends.rds")
+preterm_race_trends <- readr::read_rds("clean_data/maternity/preterm_births_race.rds")
 im_map <-readr::read_rds("clean_data/maternity/infant_mortality_map.rds")
 im_demo_trends <- readr::read_rds("clean_data/maternity/infant_mortality_demographic_trends.rds")
 w_in <- readr::read_rds("clean_data/maternity/women_uninsured_data.rds")
 obgyn_access <- readr::read_rds("clean_data/maternity/obgyn_access.rds")
 care_dist <- readr::read_rds("clean_data/maternity/maternity_care_dist.rds")
+pre_term <- readr::read_rds("clean_data/maternity/preterm_births.rds")
+
+
 
 # text module ----
 maternity_pol_ui <- function(id) {
@@ -32,7 +36,9 @@ maternity_pol_ui <- function(id) {
                       h2("Access to Obstetrics and Gynecology"),
                       includeMarkdown("markdown/maternity/policy/access.md"),
                       img(src = "figures/maternity/policy/Percent of Primary Care Physician Demand Exceeding Supply and FTE shortage_surplus.png",
-                          width = "90%")
+                          width = "90%"),
+                      a("SOURCE: Texas Department of State Health Services",
+                        href = 'https://dshs.texas.gov/legislative/2018-Reports/SB-18-Physicians-Workforce-Report-Final.pdf')
                       ),
                       column(width = 6,
                              highcharter::highchartOutput(NS(id, "obgyn_access_map"))
@@ -73,12 +79,12 @@ maternity_pol_ui <- function(id) {
                         column(width = 6,
                                h2("Preterm Birth"),
                                includeMarkdown("markdown/maternity/policy/preterm_birth.md"),
-                               img(src = "figures/maternity/policy/fig_13_pct_born_preterm_tx_vs_us.jpg",
-                                   width = "90%")
+                               highcharter::highchartOutput(NS(id, 'preterm_births'))
                         ),
                         column(width = 6,
-                               h2("Percent of Live Births Born Preterm in Texas Counties"),
-                               img(src = "figures/maternity/policy/fig_15_pct_born_preterm.jpg",
+                               h2("Percent of Live Births Born Preterm in Texas Counties, 2017"),
+                               img(src = "figures/maternity/policy/fig_15_pct_born_preterm.jpg", 
+                                   href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx",
                                    width = "90%")
                         )
                       ),
@@ -88,6 +94,7 @@ maternity_pol_ui <- function(id) {
                                includeMarkdown("markdown/maternity/policy/preterm_birth_outcomes_rf.md")
                         ),
                         column(width = 6,
+                               highcharter::highchartOutput(NS(id, "preterm_birth_demo")),
                                includeMarkdown("markdown/maternity/policy/preterm_birth_outcomes_rf_bottom_right.md")
                         ) 
                       ),
@@ -166,8 +173,7 @@ maternity_pol_server <- function(id, df) {
                       hcaes(x=year, y=value),
                       lineWidth=5,
                       name="Texas") %>% 
-        hc_title(text="Number of Infant Deaths (before age 1) per 1,000 Live Births") %>%
-        #hc_subtitle(text="Diabetes Trends Among Adults Aged 18+ in Texas and Peer States identified by Texas 2036.") %>%
+        hc_title(text="Number of Infant Deaths (Before Age 1) per 1,000 Live Births") %>%
         hc_yAxis(title=list(text="Deaths per 1,000 Live Births"),
                  labels = list(enabled=TRUE,
                                format = "{value}")) %>% 
@@ -190,6 +196,74 @@ maternity_pol_server <- function(id, df) {
       
     })
     
+    output$preterm_birth_demo <- highcharter::renderHighchart({
+      
+      highchart() %>%
+        hc_add_series(preterm_race_trends %>% filter(race != 'Texas'), 
+                      type="line", 
+                      hcaes(x=year, y=value, group=race), 
+                      color="#808080") %>% 
+        hc_add_series(preterm_race_trends %>% filter(race == 'Texas'), 
+                      type="line", 
+                      hcaes(x=year, y=value, group=race), 
+                      name="Texas",
+                      lineWidth = 5) %>% 
+        hc_title(text="Percent of Live Births Born Preterm in Texas by Race/Ethnicity") %>%
+        hc_yAxis(title=list(text="Percent of Live Births"),
+                 labels = list(enabled=TRUE,
+                               format = "{value}%")) %>%
+        hc_xAxis(tickColor = "#ffffff", 
+                 tickInterval = 1,
+                 maxPadding = 0,
+                 endOnTick = FALSE,
+                 startOnTick = FALSE,
+                 useHTML = TRUE,
+                 alternateGridColor = "#f3f3f3",
+                 title = list(text = "Year")) %>%
+        hc_legend(layout = "proximate", align = "right") %>%
+        hc_credits(
+          enabled = TRUE,
+          text = "Texas Department of State Health Services",
+          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
+        hc_add_theme(tx2036_hc_light())
+      
+      
+    })
+    
+    output$preterm_births <- highcharter::renderHighchart({
+      
+      highchart() %>%
+        hc_add_series(preterm_births %>% filter(state != 'Texas'),
+                      type="line", 
+                      hcaes(x=year, y=value, group=state), 
+                      color="#808080") %>%
+        hc_add_series(preterm_births %>% filter(state == 'Texas'),
+                      type="line", 
+                      hcaes(x=year, y=value, group=state), 
+                      name="Texas",
+                      lineWidth = 5) %>% 
+        hc_title(text="Percent of Live Births Born Preterm from 2009-2018, Texas and the United States") %>%
+        hc_yAxis(title=list(text="Percent of Live Births"),
+                 labels = list(enabled=TRUE,
+                               format = "{value}%")) %>%
+        hc_xAxis(tickColor = "#ffffff", 
+                 tickInterval = 1,
+                 maxPadding = 0,
+                 endOnTick = FALSE,
+                 startOnTick = FALSE,
+                 useHTML = TRUE,
+                 alternateGridColor = "#f3f3f3",
+                 title = list(text = "Year")) %>%
+        hc_legend(layout = "proximate", align = "right") %>%
+        hc_credits(
+          enabled = TRUE,
+          text = "SOURCE: Texas Department of State Health Services Analysis of National Center for Health Statistics",
+          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
+        hc_add_theme(tx2036_hc_light())
+    
+      
+    })
+    
     output$infant_mort_tx_map <- highcharter::renderHighchart({
       
       col_pal <- RColorBrewer::brewer.pal(9,"Blues")
@@ -199,11 +273,9 @@ maternity_pol_server <- function(id, df) {
             data = im_map,
             value = "rate",
             joinBy = c("name","county_of_residence"),
-            name = "Rate",
+            name = "Number of deaths per 1,000 live births",
             borderColor = "#FAFAFA",
-            borderWidth = 0.1,
-            tooltip = list(
-              valueSuffix = "%")) %>%
+            borderWidth = 0.1) %>%
         hc_legend(layout='vertical',
                   align='left',
                   verticalAlign='bottom',
@@ -211,12 +283,12 @@ maternity_pol_server <- function(id, df) {
                   itemMarginBottom=10) %>% 
         hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
                      reversed=FALSE) %>%
-        hc_title(text="Infant Mortality Rate in Texas Counties") %>%
-        hc_subtitle(text="Deaths per 1,000 live births") %>%
+        hc_title(text="Infant Mortality Rate in Texas Counties, 2010 - 2014") %>%
+        hc_subtitle(text="Deaths per 1,000 live births in counties with avaliable data") %>%
         hc_credits(
           enabled = TRUE,
-          text = "SOURCE: 2019 Healthy Texas Mothers and Babies (HTMB) Report",
-          href = "https://wonder.cdc.gov/natality.html") %>%
+          text = "SOURCE: 2014 Vital Statistics Annual Report, Texas DSHS",
+          href = "https://www.dshs.texas.gov/chs/vstat/vs14/map2.aspx") %>%
         hc_add_theme(tx2036_hc_light())
     })
     
@@ -225,28 +297,27 @@ maternity_pol_server <- function(id, df) {
       highchart() %>%
         hc_add_series(im_demo_trends,
                       type="line", 
-                      hcaes(x=edition, y=value, group=measure_name), 
+                      hcaes(x=year, y=rate, group=race), 
                       color="#808080")%>% 
         hc_title(text="Infant Mortality Rate in Texas by Race/Ethnicity") %>%
         hc_yAxis(title=list(text="Deaths per 1,000 Live Births"),
-                 labels = list(enabled=TRUE,
-                               format = "{value} Deaths")) %>% 
+                 tickInterval = 1,
+                 min = 0,
+                 min = 13) %>% 
         hc_xAxis(tickColor = "#ffffff", 
-                 min = 0.5,
-                 max = 3,
+                 min = 2009,
                  tickInterval = 1,
                  maxPadding = 0,
                  endOnTick = FALSE,
                  startOnTick = FALSE,
                  useHTML = TRUE,
                  alternateGridColor = "#f3f3f3",
-                 categories = c("2016","2018","2019", "2020"),
                  title = list(text = "Year")) %>%
         hc_legend(layout = "proximate", align = "right") %>% 
         hc_credits(
           enabled = TRUE,
-          text = "SOURCE: 2019 Healthy Texas Mothers and Babies (HTMB) Report.",
-          href = "https://wonder.cdc.gov/natality.html") %>%
+          text = "SOURCE: Texas Department of State Health Services, 2019 Healthy Texas Mothers and Babies Report.",
+          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
         hc_add_theme(tx2036_hc_light())
       
     })
