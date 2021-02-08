@@ -2,6 +2,7 @@
 # Load Data -----------------------------------------------------------------------------------
 
 obesity_plus <- readr::read_rds("clean_data/Aging/risk_factors/aging_rf_obesity.rds")
+obesity_plus <- obesity_plus[order(obesity_plus$edition), ]
 
 phys_inactivity_chart_tx <- readr::read_rds("clean_data/Aging/risk_factors/aging_rf_phys_inactivity.rds") %>% 
   mutate(edition=as.character(edition)) %>% 
@@ -93,25 +94,36 @@ aging_rf_server <- function(id) {
      
   output$obesity_charts <- highcharter::renderHighchart({
     
-    # dataset()
-      
-    obesity_plus %>% 
-      hchart("line", 
-             hcaes(x=date, y=data_value),
-             tooltip = list(pointFormat="<hr style='color:#3A4A9F;margin:2px 2px !important'><span style='font-weight:800;font-size:1.25em'>{point.y:.0f}%</span><span style='font-weight:400;font-size:1.25em'> of Texans Aged 65 years<br>& older reported being obese.</span>")) %>%
+    highchart() %>% 
+      hc_add_series(obesity_plus %>% filter(state_name!="Texas"), 
+                    type="line", 
+                    hcaes(x=edition, y=value, group=state_name), 
+                    color="#DBDCDD") %>% 
+      hc_add_series(obesity_plus %>% filter(state_name=="Texas"),
+                    type="line", 
+                    hcaes(x=edition, y=value),
+                    lineWidth=5,
+                    name="Texas") %>%
       hc_title(text="Obesity Rates Among Texans Ages 65+",
                useHTML = TRUE) %>% 
-      hc_subtitle(text="In the past six years, senior obesity in Texas increased 16% from 26.3% to 30.6% of adults ages 65+.",
+      hc_subtitle(text="In the past seven years, senior obesity in Texas increased 16% from 26.3% to 35.3% of adults ages 65+.",
                   useHTML = TRUE) %>%
       hc_credits(
         enabled = TRUE,
-        text = "SOURCE: U.S. Centers for Disease Control and Prevention | DATA: Behavioral Risk Factor Surveillance System",
-        href = "https://datalab.texas2036.org/bwhqgjc/behavioral-risk-factor-surveillance-system-brfss-prevalence-data?accesskey=xclhoac") %>%
+        text = "SOURCE: America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System, United Health Foundation",
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=kfltoge") %>%
       hc_yAxis(title = list(text = "% of 65+ population"),
                format = "{value}%") %>% 
-      hc_xAxis(title=NULL) %>% 
-      hc_tooltip(headerFormat = "<span style='font-size:1.25em;font-weight:800;text-transform:uppercase'>DURING {point.key:%Y}...</span><br>",
-                 useHTML = TRUE) %>%
+      hc_xAxis(tickColor = "#ffffff", 
+               tickInterval = 1,
+               maxPadding = 0,
+               endOnTick = FALSE,
+               startOnTick = FALSE,
+               useHTML = TRUE,
+               alternateGridColor = "#f3f3f3",
+               title = list(text = "Year of America's Health Ranking Report")) %>% 
+      hc_tooltip(valueSuffix = "%") %>%
+      hc_legend(layout = "proximate", align = "right") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
       
     })

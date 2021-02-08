@@ -4,7 +4,8 @@ access_to_hc <- read_rds("clean_data/Aging/policy/access_pcp.rds")
 
 prevention <- read_rds("clean_data/Aging/policy/immunizations.rds")
 
-nh_quality_peers <- read_rds("clean_data/Aging/policy/nh_quality_peers.rds")
+nh_quality_peers <- read_rds("clean_data/Aging/policy/nh_quality_peers.rds") %>%
+                    filter(edition!= 2020)
 
 nh_quality <- read_rds("clean_data/Aging/policy/nh_quality.rds")
 
@@ -215,14 +216,14 @@ aging_pol_server <- function(id, df) {
       hc_xAxis(tickColor = "#ffffff", 
                # opposite = TRUE,
                min = 0.5,
-               max = 2.5,
+               max = 1.5,
                tickInterval = 1,
                maxPadding = 0,
                endOnTick = FALSE,
                startOnTick = FALSE,
                useHTML = TRUE,
                alternateGridColor = "#f3f3f3",
-               categories = c("2017","2018","2019","2020"),
+               categories = c("2017","2018","2019"),
                title = list(text = "Year of America's Health Ranking Report")) %>%
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(

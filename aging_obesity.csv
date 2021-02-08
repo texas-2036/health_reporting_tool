@@ -1,0 +1,105 @@
+edition,state_name,value
+2013,Ohio,28.8
+2012,Ohio,28.7
+2014,Ohio,28.6
+2015,Ohio,33.4
+2016,Ohio,29
+2017,Ohio,29.7
+2018,Ohio,30.9
+2019,Ohio,32.7
+2019,Florida,27.8
+2013,Florida,22.9
+2012,Florida,23.4
+2014,Florida,24.8
+2015,Florida,23.2
+2016,Florida,25.8
+2018,Florida,25.3
+2017,Florida,25.8
+2014,Washington,27
+2013,Washington,25.6
+2012,Washington,25.6
+2016,Washington,27.2
+2015,Washington,26.4
+2017,Washington,28.3
+2018,Washington,26.9
+2019,Washington,26.9
+2018,New York,26.9
+2017,New York,24.6
+2016,New York,24.9
+2015,New York,27.3
+2014,New York,25.9
+2012,New York,25.9
+2013,New York,25.7
+2019,New York,27
+2019,Colorado,21.8
+2015,Colorado,20.5
+2016,Colorado,20
+2017,Colorado,21
+2018,Colorado,22.4
+2014,Colorado,18.6
+2013,Colorado,19.6
+2012,Colorado,20.2
+2018,United States,28.5
+2017,United States,28
+2015,United States,27.5
+2016,United States,27.6
+2014,United States,26.5
+2013,United States,25.8
+2012,United States,25.3
+2019,United States,28.9
+2018,Pennsylvania,32.4
+2017,Pennsylvania,30.5
+2016,Pennsylvania,30.8
+2015,Pennsylvania,29.5
+2012,Pennsylvania,27.9
+2013,Pennsylvania,29.3
+2014,Pennsylvania,30.1
+2019,Pennsylvania,28.3
+2016,Illinois,31.3
+2015,Illinois,31
+2018,Illinois,30.2
+2017,Illinois,30.8
+2014,Illinois,28.8
+2012,Illinois,29.1
+2013,Illinois,27.7
+2019,Illinois,32.5
+2019,Virginia,29.2
+2018,Virginia,28.2
+2017,Virginia,27.8
+2016,Virginia,29.3
+2015,Virginia,26.9
+2014,Virginia,26.4
+2012,Virginia,26.8
+2013,Virginia,26.8
+2019,North Carolina,27.6
+2018,North Carolina,30.3
+2017,North Carolina,28.6
+2016,North Carolina,26.7
+2015,North Carolina,25.9
+2012,North Carolina,25.7
+2013,North Carolina,26.2
+2014,North Carolina,25.7
+2016,California,22.8
+2015,California,24.1
+2017,California,23.5
+2018,California,24.2
+2014,California,22
+2013,California,21.1
+2012,California,21.2
+2019,California,24.2
+2013,Georgia,25.4
+2012,Georgia,25.4
+2014,Georgia,26.5
+2015,Georgia,29.5
+2016,Georgia,29.7
+2017,Georgia,31
+2018,Georgia,29.3
+2019,Georgia,29.6
+2015,Texas,30.7
+2016,Texas,29.7
+2018,Texas,30.6
+2017,Texas,30
+2014,Texas,27.6
+2013,Texas,26.9
+2012,Texas,26.3
+2019,Texas,35.3
