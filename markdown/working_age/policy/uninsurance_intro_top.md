@@ -1,0 +1,1 @@
+Texas has the highest uninsured rate in the nation. In 2018, the Texas uninsured rate for adults aged 18-64 was 23.8% versus 12.5& in the United States. Massachusetts has the lowest uninsured rate at 4.0%.

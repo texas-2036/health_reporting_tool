@@ -12,6 +12,10 @@ uninsured_race <- read_rds("clean_data/Working Age/policy/uninsured_race.rds")
 
 uninsured_income <- read_rds("clean_data/Working Age/policy/uninsured_income.rds")
 
+uninsured_rates <- read_rds("clean_data/Working Age/policy/uninsured_rates.rds")
+
+tx_uninsurance <- read_rds("clean_data/Working Age/policy/tx_uninsured.rds")
+
 # text module ----
 working_pol_ui <- function(id) {
   
@@ -21,10 +25,18 @@ working_pol_ui <- function(id) {
              id = "tabset1", 
              side="left",
              width = 12,
-             tabPanel(title="Uninsurance", 
+             tabPanel(title="Uninsurance",
+                      fluidRow(
+                        column(width = 6,
+                               h2("Uninsurance"),
+                               includeMarkdown("markdown/working_age/policy/uninsurance_intro_top.md"),
+                               highcharter::highchartOutput(NS(id, "uninsured_chart"))),
+                        column(width = 6,
+                               highcharter::highchartOutput(NS(id, "uninsured_map")))),
+                      hr(),
                       fluidRow(
                       column(width = 6,
-                             h2("Why does insurance matter?"),
+                             h2("Why does uninsurance matter?"),
                              includeMarkdown("markdown/working_age/policy/uninsurance_top.md")),
                       column(width = 6,
                              highcharter::highchartOutput(NS(id, "barriers_chart")))),
@@ -64,6 +76,80 @@ working_pol_server <- function(id, df) {
   
   moduleServer(id, function(input, output, session) {
     
+    
+  output$uninsured_chart <- highcharter::renderHighchart({
+    
+    highchart() %>%
+      hc_add_series(uninsured_rates %>% filter(state!="Texas"), 
+                    type="line", 
+                    hcaes(x=year, y=value, group=state), 
+                    color="#DBDCDD") %>% 
+      hc_add_series(uninsured_rates %>% filter(state=="Texas"),
+                    type="line", 
+                    hcaes(x=year, y=value),
+                    lineWidth=5,
+                    name="Texas") %>% 
+      hc_title(text="Texas Uninsured Rate Compared to Peer States, Ages 18-64, 2008-2018") %>%
+      hc_yAxis(title=list(text="Percent"),
+               labels = list(enabled=TRUE,
+                             format = "{value}%")) %>% 
+      hc_xAxis(tickColor = "#ffffff", 
+               # opposite = TRUE,
+               tickInterval = 1,
+               maxPadding = 0,
+               endOnTick = FALSE,
+               startOnTick = FALSE,
+               useHTML = TRUE,
+               alternateGridColor = "#f3f3f3",
+               categories = c("2008","2009","2010","2011",
+                              "2012","2013","2014","2015","2016","2017","2018"),
+               title = list(text = "Year")) %>%
+      hc_tooltip(valueSuffix = "%") %>%
+      hc_legend(layout = "proximate", align = "right") %>% 
+      hc_credits(
+        enabled = TRUE,
+        text = "SOURCE: Small Area Health Insurance Estimates (SAHIE), U.S. Census Bureau",
+        href = "https://www.census.gov/data-tools/demo/sahie/#/") %>%
+      hc_add_theme(tx2036_hc_light())
+    
+  })
+  
+    
+  output$uninsured_map <- highcharter::renderHighchart({
+    
+    col_pal <- RColorBrewer::brewer.pal(9,"RdPu")
+    
+    hcmap(map = "countries/us/us-tx-all",
+          data = tx_uninsurance,
+          value = "value",
+          joinBy = c("name","county"),
+          name = "Uninsurance Rate",
+          borderColor = "#FAFAFA",
+          borderWidth = 0.1,
+          tooltip = list(
+            valueDecimals = 2,
+            valueSuffix = "%")) %>% 
+      hc_legend(layout='vertical',
+                align='left',
+                verticalAlign='bottom',
+                itemMarginTop=10,
+                itemMarginBottom=10) %>% 
+      hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
+                   min = 10,
+                   max = 35,
+                   reversed=FALSE) %>%
+      hc_credits(
+        enabled = TRUE,
+        useHTML = TRUE,
+        text = "SOURCE: Small Area Health Insurance Estimates (SAHIE), U.S. Census Bureau",
+        href = "https://www.census.gov/data-tools/demo/sahie/#/") %>%
+      hc_title(text="Uninsurance Rate in Texas Counties, Ages 18-64, 2018") 
+      highcharter::hc_add_theme(texas2036::tx2036_hc_light())
+    
+  })
+  
+  
+    
   output$barriers_chart <- highcharter::renderHighchart({
       
       highchart() %>% 
@@ -96,13 +182,16 @@ working_pol_server <- function(id, df) {
       
     })
   
+  
+  
+  
   output$uninsurance_race <- highcharter::renderHighchart({
     
     uninsured_race %>% 
-      mutate(pct_group = round(pct_group*100, digits=0)) %>% 
-      arrange(pct_group) %>% 
+      mutate(percent = round(percent*100, digits=0)) %>% 
+      arrange(percent) %>% 
       hchart("pie", 
-             hcaes(name=variable, y=pct_group, color = variable),
+             hcaes(name=race, y=percent),
              tooltip = list(pointFormat = "% of All Uninsured: {point.y}%")) %>% 
       hc_legend(enabled=FALSE) %>% 
       hc_xAxis(title=list(enabled=FALSE)) %>% 
