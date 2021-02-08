@@ -11,7 +11,7 @@ childhood_overview_ui <- function(id) {
              fluidRow(
                column(width = 12,
                       column(width = 6,
-                             h2("Childhood in Texas"),
+                             h2("Childhood/Adolescence in Texas"),
                              includeMarkdown("markdown/childhood/overview/overview.md")),
                       column(width = 6,
                              highcharter::highchartOutput(NS(id, "childhood_overview_chart"), height="500px")))),

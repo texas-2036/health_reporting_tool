@@ -27,8 +27,7 @@ maternity_cnd_ui <- function(id) {
                              h2("Diabetes and Gestational Diabetes"),
                              includeMarkdown("markdown/maternity/conditions/diabetes.md")),
                       column(width = 6,
-                             highcharter::highchartOutput(NS(id, "diabetes_chart")),
-                             includeMarkdown("markdown/maternity/conditions/diabetes_top_right.md"),
+                             highcharter::highchartOutput(NS(id, "diabetes_chart"))
                              )),
                       fluidRow(
                         column(width = 6,
@@ -55,13 +54,10 @@ maternity_cnd_ui <- function(id) {
                ), 
              tabPanel(title = "Mental Health",  
                       fluidRow(
-                        column(width = 6,
+                        column(width = 12,
                                h2("Depression During Pregnancy"),
-                               includeMarkdown("markdown/maternity/conditions/depression.md")),
-                        column(width = 6,
-                               h2("Treating Depression During Pregnancy"),
-                               includeMarkdown("markdown/maternity/conditions/treating_depression.md")
-                        )),
+                               includeMarkdown("markdown/maternity/conditions/depression.md"))
+                        ),
                       fluidRow(
                         column(width = 6,
                                h2("Postpartum Depression"),

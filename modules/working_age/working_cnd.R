@@ -7,7 +7,6 @@ mh_chart_ts_wk <- readr::read_rds("clean_data/Working Age/conditions/mh_chart_ts
 mh_chart_bar_wk <- readr::read_rds("clean_data/Working Age/conditions/mh_chart_bar_wk.rds")
 
 hh_map_wk <- readr::read_rds("clean_data/Working Age/conditions/heart_health.rds")  
-hh_map_wk$display_name <- gsub(' County', '', hh_map_wk$display_name)
 
 # text module ----
 working_cnd_ui <- function(id) {
@@ -162,7 +161,10 @@ working_cnd_server <- function(id, df) {
     
   })
   
-  output$hh$dis_map <- highcharter::renderHighchart({
+  output$hh_map <- highcharter::renderHighchart({
+    
+    hh_map_wk$display_name <- gsub(' County', '', hh_map_wk$display_name)
+    
     
     hcoptslang <- getOption("highcharter.lang")
     hcoptslang$thousandsSep <- ","

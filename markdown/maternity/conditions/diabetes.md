@@ -1,4 +1,4 @@
-Women who have diabetes before pregnancy or who develop diabetes for the first time during pregnancy (gestational diabetes) are at higher risk for adverse pregnancy outcomes. Women with any type of diabetes during pregnancy have a higher risk of:
+Women who have diabetes before pregnancy or who develop diabetes for the first time during pregnancy (gestational diabetes) are at higher risk for adverse pregnancy outcomes. Women with any type of diabetes during pregnancy have a higher risk of:^[1]
 
 * high blood pressure and preeclampsia, which is when a mother has high blood pressure and signs of damage to another organ system;
 * preterm delivery;
@@ -12,3 +12,4 @@ Gestational diabetes, which is a common complication of pregnancy, is likely to 
 
 **The rate of women of child-bearing age reporting they had ever been told by a health professional that they have diabetes was 3.0% in Texas versus 3.2% in the United States. The Texas figure has trended down in the past two years and ranks Texas 20th in the nation, with only four peer states performing better.**
 
+<span style="font-size:12px; line-height:1.1 !important">^[1]: March of Dimes. Preexisting Diabetes. www.marchofdimes.org/complications/preexisting-diabetes.aspx. Accessed 4 Oct. 2020.

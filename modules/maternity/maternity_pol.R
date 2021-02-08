@@ -394,9 +394,11 @@ maternity_pol_server <- function(id, df) {
     output$care_distribution_tx <- highcharter::renderHighchart({
       
       
-      care_dist %>%
-        filter(`name` == 'Texas') %>%
-        hchart("pie", 
+      tx_care_dist <- care_dist %>%
+        filter(`name` == 'Texas')
+      
+        hchart(tx_care_dist,
+               "pie", 
                hcaes(name=group, y=value, color = group),
                tooltip = list(pointFormat = "% of All Live Births: {value} %")) %>% 
         hc_legend(enabled=FALSE) %>% 
@@ -411,9 +413,10 @@ maternity_pol_server <- function(id, df) {
     output$care_distribution_us <- highcharter::renderHighchart({
       
       
-      care_dist %>%
-        filter(`name` == 'US') %>%
-        hchart("pie", 
+      us_care_dist <- care_dist %>% filter(`name` == 'US') 
+      
+      hchart(us_care_dist,
+               "pie", 
                hcaes(name=group, y=value, color = group),
                tooltip = list(pointFormat = "% of All Live Births: {value}%")) %>% 
         hc_legend(enabled=FALSE) %>% 
