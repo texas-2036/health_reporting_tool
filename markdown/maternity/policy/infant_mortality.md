@@ -1,1 +1,1 @@
-The Texas infant mortality rate of 5.5 deaths per 1,000 live births in 2018 was better than the U.S., which had a rate of 5.7 deaths per 1,000 live births that year. Texas 5th among the 12 peer states on infant mortality.
+The Texas infant mortality rate of 5.5 deaths per 1,000 live births in 2018 was better than the U.S., which had a rate of 5.7 deaths per 1,000 live births that year. Texas ranks 5th among the 12 peer states on infant mortality.

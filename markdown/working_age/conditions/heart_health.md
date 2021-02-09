@@ -8,6 +8,6 @@ Many risk factors for heart disease can be controlled - smoking, cholesterol lev
 
 In 2018, almost 1/3 of adult Texans (32.2%) reported they had been told by a health professional that they have high blood pressure. This was up from 29.5% in 2016. Uncontrolled high blood pressure can lead to complications including heart attack or stroke, heart failure, and trouble with memory/dementia.
 
-Across the U.S., among those with high blood pressure, about 64 million are aware of their condition and 57 million are taking blood pressure–lowering medication; however, only about half have their blood pressure under control. In 2011 high blood pressure was associated with $45 billion in direct medical costs.
+Across the U.S., among those with high blood pressure, about 64 million are aware of their condition and 57 million are taking blood pressure–lowering medication; however, only about half have their blood pressure under control. In 2011 high blood pressure was associated with $45 billion in direct medical costs.^[1]
 
 <span style="font-size:12px; line-height:1.1 !important">^[1]: Centers for Disease Control. 6 | 18 Initiative: Accelerating Evidence into Action. Control High Blood Pressure.  https://www.cdc.gov/sixeighteen/bloodpressure/index.htm. Accessed 28 Oct 2020. 

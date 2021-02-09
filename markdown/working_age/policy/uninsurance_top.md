@@ -1,4 +1,4 @@
-Health insurance helps increase the likelihood that people receive the health care care they need and avoid accruing prohibitive medical debt. Compared to those with insurance, the uninsured were **four times more likely to lack a usual source of health care and more likely to postpone medical care or forego medical care due to cost.**
+Health insurance helps increase the likelihood that people receive the health care they need and avoid accruing prohibitive medical debt. Compared to those with insurance, the uninsured were **four times more likely to lack a usual source of health care and more likely to postpone medical care or forego medical care due to cost.**
 
 Compared with insured adults, uninsured adults have more health disadvantages, including:
 

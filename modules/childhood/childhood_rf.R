@@ -38,7 +38,7 @@ childhood_rf_ui <- function(id) {
                                h2("The Cost of Obesity"),
                                includeMarkdown("markdown/childhood/risk_factors/obesity_cost.md")),
                         column(width = 7,
-                               h3("Policy Spotlight"),
+                               h2("Policy Spotlight"),
                                includeMarkdown("markdown/childhood/risk_factors/obesity_wic.md"),
                                highcharter::highchartOutput(NS(id, "obesity_wic_chart"))))),
              tabPanel(title="Physical Inactivity", 

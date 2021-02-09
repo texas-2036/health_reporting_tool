@@ -1,6 +1,6 @@
 Nothing kills more Americans than heart disease and stroke. The total cardiovascular disease death rate was 1,423 deaths per 100,000 Texas seniors in 2016-2018. This ranked Texas 35th in the nation and 8th among Texas 2036 peer states. 
 
-An analysis found that Medicare beneficiaries with cardiovascular disease incur spend 30.5% more in medical costs than those without cardiovascular disease.^[1]  The following information reflects actual per capita spending for Texas fee-for-service Medicare beneficiaries for various cardiovascular conditions in 2017:^[2]
+An analysis found that Medicare beneficiaries with cardiovascular disease incur 30.5% more in medical costs than those without cardiovascular disease.^[1]  The following information reflects actual per capita spending for Texas fee-for-service Medicare beneficiaries for various cardiovascular conditions in 2017:^[2]
 
 * Heart Failure:  $31,796
 * Hypertension:	$16,178

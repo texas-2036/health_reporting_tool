@@ -63,10 +63,10 @@ working_rf_ui <- function(id) {
                       ),
                       fluidRow(
                         column(width = 6,
-                               h3("Evidence Based Interventions"),
+                               h3("Evidence Based Interventions^[3]"),
                                includeMarkdown("markdown/working_age/risk_factors/smoking_bottom_evidence.md")),
                         column(width = 6,
-                               h3("Cost Savings"),
+                               h3("Associated Cost Savings^[3]"),
                                includeMarkdown("markdown/working_age/risk_factors/smoking_bottom_cost_savings.md"))))
              )
            )
