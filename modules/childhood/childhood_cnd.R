@@ -100,7 +100,7 @@ childhood_cnd_server <- function(id, df) {
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(enabled = TRUE,
                  text = "America's Health Rankings analysis of CDC WONDER AmericasHealthRankings.org, Accessed 2020.",
-                 href = "https://www.americashealthrankings.org/explore/health-of-women-and-children") %>%
+                 href = "https://datalab.texas2036.org/uxoopxe/health-of-women-and-children-report-for-u-s?accesskey=potjbm") %>%
       hc_add_theme(tx2036_hc_light())
     
   })

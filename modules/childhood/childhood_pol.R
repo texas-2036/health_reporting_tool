@@ -90,7 +90,7 @@ childhood_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "Health Insurance Coverage Status and Type of Coverage by State, U.S. Census Bureau, 2018",
-        href = "https://datalab.texas2036.org/udfegke/health-insurance-coverage-status-and-type-of-coverage-by-state-united-states?accesskey=qfzcrmb") %>%
+        href = "https://datalab.texas2036.org/udfegke/health-insurance-coverage-status-and-type-of-coverage-by-state-united-states?accesskey=hcashx") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -121,7 +121,7 @@ childhood_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "SOURCE: Small Area Health Insurance Estimates (SAHIE) Program",
-        href = "https://www.census.gov/data-tools/demo/sahie/#/?s_statefips=48") %>%
+        href = "https://www.census.gov/data-tools/demo/sahie/#/?s_agecat=4&s_statefips=48") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -209,7 +209,8 @@ childhood_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, National Immunization Survey-Child, United Health Foundation.",
-        href = "https://www.americashealthrankings.org/explore/annual/measure/Immunize/state/ALL") %>%
+        href = "https://www.americashealthrankings.org/explore/annual/measure/Immunize/state/ALL",
+        target="_blank") %>%
       hc_add_theme(tx2036_hc_light())
   
   })
