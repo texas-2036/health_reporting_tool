@@ -1,7 +1,7 @@
 
 # Load Data -----------------------------------------------------------------------------------
 
-childhood_obesity <- read_rds('clean_data/Children/childhood_obesity_data.rds')
+childhood_obesity <- readr::read_rds('clean_data/Children/childhood_obesity_data.rds')
 
 wic_obesity <- read_rds('clean_data/Children/wic_obesity_data.rds')
 
@@ -87,8 +87,8 @@ childhood_rf_server <- function(id) {
     
     hcmap(map = "countries/us/us-all",
           data = childhood_obesity,
-          value = "value",
-          joinBy = c("name","state_name"),
+          value = "Value",
+          joinBy = c("name","State Name"),
           name = "% of overweight or obese children",
           borderColor = "#FAFAFA",
           borderWidth = 0.1,
@@ -103,10 +103,10 @@ childhood_rf_server <- function(id) {
       hc_credits(
         enabled = TRUE,
         useHTML = TRUE,
-        text = "America’s Health Rankings", 
+        text = "SOURCE: America's Health Rankings Analysis of U.S. Department of Health and Human Services, Maternal and Child Health Bureau National Survey of Children's Health, 2018-2019", 
         #based on the Child and Adolescent Health Measurement Initiative (CAHMI) component of the National Survey of Children’s Health",
-        href = "https://www.census.gov/programs-surveys/nsch/data.html.") %>%
-      hc_title(text="Percentage of Overweight or Obese Children") %>% 
+        href = "https://www.americashealthrankings.org/explore/health-of-women-and-children/measure/youth_overweight/state/ALL?edition-year=2020") %>%
+      hc_title(text="Percentage of Overweight or Obese Youth, 2018-2019") %>% 
       hc_subtitle(text="The percentage of children ages 10-17 who are overweight or obese") %>% 
       hc_add_theme(tx2036_hc_light())
       
