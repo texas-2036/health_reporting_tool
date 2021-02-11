@@ -108,8 +108,8 @@ working_rf_server <- function(id) {
           enabled = TRUE,
           text = "SOURCE: CDC Interactive Diabetes Atlas | DATA: CDC Interactive Diabetes Atlas",
           href = "https://gis.cdc.gov/grasp/diabetes/DiabetesAtlas.html#") %>%
-        hc_title(text="Diabetes Prevalance Among Adult Texans") %>% 
-        hc_subtitle(text="Shown: Age-adjusted percentage of diagnosed diabetes among adults age 20 and over.") %>% 
+        hc_title(text="Obesity Prevalence Among Texas Adults, 2017") %>% 
+        hc_subtitle(text="Age-adjusted percentage of adults age 20 and older who are obese.") %>% 
         highcharter::hc_add_theme(texas2036::tx2036_hc_light())
       
     })
@@ -146,7 +146,7 @@ working_rf_server <- function(id) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System, United Health Foundation.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=pkrplpc") %>%
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=jjobgc") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -175,10 +175,9 @@ working_rf_server <- function(id) {
       hc_credits(
         enabled = TRUE,
         text = "SOURCE: County Health Rankings Analysis | DATA: CDC Interactive Diabetes Atlas",
-        href = "https://datalab.texas2036.org/fywtqfb/texas-county-health-ranking?accesskey=yygfyw") %>%
+        href = "https://www.countyhealthrankings.org/app/texas/2020/measure/factors/70/map") %>%
       hc_title(text="Adult Texans Reporting No Leisure-time Physical Activity, 2016") %>% 
       hc_subtitle(text="Shown: Percentage of adults age 20 and over.") %>% 
-      # hc_size(height=550) %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })
@@ -215,7 +214,7 @@ working_rf_server <- function(id) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System, United Health Foundation, AmericasHealthRankings.org, Accessed 2020.",
-        href = "https://datalab.texas2036.org/ljosakb/america-s-health-rankings-senior-report?accesskey=esasind") %>%
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=lgiytld") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -282,9 +281,9 @@ working_rf_server <- function(id) {
                    reversed=FALSE) %>%
       hc_credits(
         enabled = TRUE,
-        text = "SOURCE: CDC Behavioral Risk Factor Surveillance System",
-        href = "https://datalab.texas2036.org/fywtqfb/texas-county-health-ranking?accesskey=dpyjylb") %>%
-      hc_title(text="Smoking Prevalence Among Adult Texans") %>% 
+        text = "SOURCE: County Health Rankings Analysis of CDC Behavioral Risk Factor Surveillance System",
+        href = "https://www.countyhealthrankings.org/app/texas/2020/measure/factors/9/map") %>%
+      hc_title(text="Smoking Prevalence Among Adult Texans, 2017") %>% 
       hc_subtitle(text="According to County Health Ranking, Adult Smokers is defined as the percentage of the adult population in a county who both report that they currently smoke every day or most days and have smoked at least 100 cigarettes in their lifetime.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     

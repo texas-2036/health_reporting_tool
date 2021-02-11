@@ -80,7 +80,7 @@ working_cnd_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=hujmlqb") %>%
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=zquiswg") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -117,7 +117,7 @@ working_cnd_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=ghvskpe") %>%
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=cabafid") %>%
       hc_add_theme(tx2036_hc_light())
     
   })

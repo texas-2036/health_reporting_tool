@@ -254,7 +254,7 @@ working_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of Special data request for information on active state licensed physicians provided by Redi-Data.",
-        href = "https://www.americashealthrankings.org/explore/annual/measure/PCP/state/TX") %>%
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=qtdfqqb") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -299,7 +299,7 @@ working_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of U.S. HHS, Centers for Medicare & Medicaid Services, National Plan and Provider Enumeration System.",
-        href = "https://www.americashealthrankings.org/explore/annual/measure/PCP/state/TX") %>%
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=mlrafhb") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -325,7 +325,7 @@ working_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "DATA: Texas Behavioral Risk Factor Surveillance System | SOURCE: Texas Department of State Health Services",
-        href = "http://www.dshs.texas.gov/chs/brfss/") %>%
+        href = "http://healthdata.dshs.texas.gov/dashboard/surveys-and-profiles/behavioral-risk-factor-surveillance-system") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })
