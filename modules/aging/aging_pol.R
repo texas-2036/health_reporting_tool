@@ -43,7 +43,7 @@ aging_pol_ui <- function(id) {
                                            "Shown are the percentages of those aged 65 years and older who received a given vaccine within each state. While the data was reported in 2020 by America's Health Rankings, the latest Flu + Pneumonia rates come from 2018 surveys by the CDC while the latest Shingles rates come from 2017 surveys by the CDC."),
                                    reactableOutput(NS(id, "prevention_chart")),
                                    div(class = "reactable2036-caption", 
-                                       a("SOURCE: America’s Health Rankings Analysis of U.S. HHS, Centers for Medicare & Medicaid Services, Nursing Home Compare.", href = "https://www.americashealthrankings.org/explore/senior/measure/immunizations_sr/state/ALL"))
+                                       a("SOURCE: America’s Health Rankings Analysis of CDC, Behavioral Risk Factor Surveillance System.", href = "https://www.americashealthrankings.org/explore/senior/measure/immunizations_sr/state/ALL"))
                                ))
                       ))),
              tabPanel("Nursing Home Quality",  
@@ -97,7 +97,7 @@ aging_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=uamzsne") %>%
+        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=ufagnad") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -230,7 +230,7 @@ aging_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of U.S. HHS, Centers for Medicare & Medicaid Services, Nursing Home Compare.",
-        href = "https://datalab.texas2036.org/ljosakb/america-s-health-rankings-senior-report?accesskey=qbwgcag") %>%
+        href = "https://datalab.texas2036.org/ljosakb/america-s-health-rankings-senior-report?accesskey=dnepgnb") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -259,8 +259,8 @@ aging_pol_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         useHTML = TRUE,
-        text = "SOURCE: Interactive Atlas of Heart Disease and Stroke, by Center for Disease Control and Prevention.",
-        href = "https://nccd.cdc.gov/DHDSPAtlas/?state=State") %>%
+        text = "SOURCE: America’s Health Rankings Analysis of U.S. HHS, Centers for Medicare & Medicaid Services, Nursing Home Compare.",
+        href = "https://datalab.texas2036.org/ljosakb/america-s-health-rankings-senior-report?accesskey=dnepgnb") %>%
       hc_title(text="Nursing Home Quality In The United States") %>% 
       hc_subtitle(text="Shown are the percentage of certified nursing home beds rated four- or five-stars over a three-month period spanning 2018-2019 in each state.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())

@@ -159,7 +159,7 @@ aging_rf_server <- function(id) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System, United Health Foundation, AmericasHealthRankings.org, Accessed 2020.",
-        href = "https://datalab.texas2036.org/ljosakb/america-s-health-rankings-senior-report?accesskey=esasind") %>%
+        href = "https://datalab.texas2036.org/ljosakb/america-s-health-rankings-senior-report?accesskey=qekjpzd") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -231,7 +231,7 @@ aging_rf_server <- function(id) {
         enabled = TRUE,
         useHTML = TRUE,
         text = "SOURCE: America's Health Rankings Analysis | DATA: U.S. Census Bureau, American Community Survey, 2014-2018",
-        href = "https://datalab.texas2036.org/fywtqfb/texas-county-health-ranking?accesskey=yygfyw") %>%
+        href = "https://www.americashealthrankings.org/explore/senior/measure/isolationrisk_sr/state/ALL") %>%
       hc_title(text="Texans Aged 65+ At Risk of Social Isolation") %>% 
       hc_subtitle(text="Risk of social isolation is calculated by America's Health Rankings using a model that incorporates risk factors in adults ages 65 and older using the following indicators from publicly available census data: poverty; living alone; divorced, separated or widowed; never married; disability; and independent living difficulty") %>% 
       # hc_size(height=550) %>% 

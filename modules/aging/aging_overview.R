@@ -65,7 +65,7 @@ aging_overview_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "Source: Texas Demographic Center | Data: Texas Population Projections",
-        href = "https://demographics.texas.gov/Data/TPEPP/Projections/Index") %>%
+        href = "https://demographics.texas.gov/Data/TPEPP/Projections/Tool?fid=4CE397EF19B74FE98486A11BC38CC70D") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
       
     })
@@ -91,7 +91,7 @@ aging_overview_server <- function(id, df) {
       hc_credits(
         enabled = TRUE,
         text = "Source: Texas Demographic Center | Data: Texas Population Projections",
-        href = "https://demographics.texas.gov/Data/TPEPP/Projections/Index") %>%
+        href = "https://demographics.texas.gov/Data/TPEPP/Projections/Tool?fid=4CE397EF19B74FE98486A11BC38CC70D") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })
