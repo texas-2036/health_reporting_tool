@@ -8,6 +8,7 @@ county_birth_rate_map <- read_rds("clean_data/maternity/county_birth_rate_map.rd
 
 county_teen_birth_rate_map <- read_rds("clean_data/maternity/county_teen_birth_rate_map.rds")
 
+teen_birth_rates <- read_rds("clean_data/maternity/teen_birth_rate_map.rds")
 
 # text module ----
 maternity_overview_ui <- function(id) {
@@ -35,8 +36,7 @@ maternity_overview_ui <- function(id) {
                column(width = 6,
                       h2("Teen Birth Rate"),
                       includeMarkdown("markdown/maternity/overview/teen_birth_rate.md"),
-                      img(src = "figures/maternity/overview/fig_5_teen_birth_rates_per1k_by_race_ethnicity.jpg",
-                          width = "90%")),
+                      highcharter::highchartOutput(NS(id, "teen_birthrates"), height = "600px")),
                column(width = 6,
                       highcharter::highchartOutput(NS(id, "m_county_teen_birth_rate_map"), height = "600px")))
              )
@@ -79,8 +79,8 @@ maternity_overview_server <- function(id, df) {
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(
         enabled = TRUE,
-        text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=hujmlqb") %>%
+        text = "SOURCE: Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book.",
+        href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx.") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -135,11 +135,44 @@ maternity_overview_server <- function(id, df) {
       hc_subtitle(text="Births per 1,000 Population") %>%
       hc_credits(
         enabled = TRUE,
-        text = "Texas Department of State Health Services",
+        text = "SOURCE: Texas Department of State Health Services",
         href = "https://www.dshs.texas.gov/chs/vstat/vs14/map2.aspx") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
+  
+  output$teen_birthrates <- highcharter::renderHighchart({
+    
+    highchart() %>%
+      hc_add_series(teen_birth_rates %>% filter(race != 'Texas'), 
+                    type="line", 
+                    hcaes(x=year, y=value, group=race)) %>% 
+      hc_add_series(teen_birth_rates %>% filter(race == 'Texas'), 
+                    type="line", 
+                    hcaes(x=year, y=value, group=race), 
+                    name="Texas",
+                    lineWidth = 5) %>% 
+      hc_title(text="Teen (15-19 years old) Birth Rate by Race/Ethnicity") %>%
+      hc_yAxis(title=list(text="Rate per 1,000 Population"),
+               labels = list(enabled=TRUE,
+                             format = "{value}")) %>%
+      hc_xAxis(tickColor = "#ffffff", 
+               tickInterval = 1,
+               maxPadding = 0,
+               endOnTick = FALSE,
+               startOnTick = FALSE,
+               useHTML = TRUE,
+               alternateGridColor = "#f3f3f3",
+               title = list(text = "Year")) %>%
+      hc_legend(layout = "proximate", align = "right") %>%
+      hc_credits(
+        enabled = TRUE,
+        text = "Note: The 2017 and 2018 data are provisional. | SOURCE: Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book",
+        href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
+      hc_add_theme(tx2036_hc_light())
+    
+  })
+  
   
   output$m_county_teen_birth_rate_map <- highcharter::renderHighchart({
     

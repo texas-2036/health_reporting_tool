@@ -6,6 +6,8 @@ phys_inactivity_trends_women_18_44 <- read_rds("clean_data/maternity/phys_inacti
 
 smoking_trends_women_18_44 <- read_rds("clean_data/maternity/smoking_trends_women_18_44.rds")
 
+smoking_maternal <- read_rds("clean_data/maternity/maternal_smoking.rds")
+
 
 # text module ----
 maternity_rf_ui <- function(id) {
@@ -28,13 +30,15 @@ maternity_rf_ui <- function(id) {
                         column(width = 6,
                                h2("Pre-Pregnancy Obesity"),
                                includeMarkdown("markdown/maternity/risk_factors/pre_pregnancy_obesity.md"),
-                               img(src = "figures/maternity/risk_factors/fig_31_maternal_prepregnancy_obesity_by_race.jpg",
-                                   width = "90%"),
+                               highcharter::highchartOutput(NS(id, "maternal_smoking_trends"), height = "500px"),
+                               a("SOURCE:  Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book", href="https://www.dshs.texas.gov/healthytexasbabies/data.aspx"),
+                               a("NOTE: The 2017 and 2018 data are provisional"),
                                includeMarkdown("markdown/maternity/risk_factors/pre_pregnancy_obesity_co.md"),
                         ),
                         column(width = 6,
                                img(src = "figures/maternity/risk_factors/fig_33_pct_of_births_to_obese_mother.jpg",
                                    width = "90%"),
+                               a("SOURCE:  Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book", href="https://www.dshs.texas.gov/healthytexasbabies/data.aspx"),
                                includeMarkdown("markdown/maternity/risk_factors/pre_pregnancy_obesity_co_right.md"))
                       )),
              tabPanel(title="Physical Inactivity", 
@@ -56,8 +60,7 @@ maternity_rf_ui <- function(id) {
                       hr(),
                       fluidRow(
                         column(width = 6,
-                               img(src = "figures/maternity/risk_factors/fig_28_pct_of_births_to_smoking_mother.jpg",
-                                   width = "90%"),
+                               highcharter::highchartOutput(NS(id, "maternal_smoking_trends"), height = "500px"),
                                includeMarkdown("markdown/maternity/risk_factors/smoking_bottom_co_left.md")),
                         column(width = 6,
                                img(src = "figures/maternity/risk_factors/fig_29_pct_of_births_where_mother_smoked.jpg",
@@ -111,7 +114,7 @@ maternity_rf_server <- function(id) {
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=hujmlqb") %>%
+        href = "https://datalab.texas2036.org/uxoopxe/health-of-women-and-children-report-for-u-s?accesskey=ydwsfcd") %>%
       hc_add_theme(tx2036_hc_light())
       
     })
@@ -144,11 +147,11 @@ maternity_rf_server <- function(id) {
                alternateGridColor = "#f3f3f3",
                categories = c("2016","2018","2019","2020"),
                title = list(text = "Year of America's Health Ranking Report")) %>%
-      hc_legend(layout = "proximate", align = "right") %>% 
+      hc_legend(layout = "proximate", align = "right") %>%
       hc_credits(
         enabled = TRUE,
         text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=hujmlqb") %>%
+        href = "https://datalab.texas2036.org/uxoopxe/health-of-women-and-children-report-for-u-s?accesskey=rrcnmzd") %>%
       hc_add_theme(tx2036_hc_light())
     
   })
@@ -184,10 +187,42 @@ maternity_rf_server <- function(id) {
       hc_legend(layout = "proximate", align = "right") %>% 
       hc_credits(
         enabled = TRUE,
-        text = "America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
-        href = "https://datalab.texas2036.org/mskvxdg/america-s-health-rankings-annual-report?accesskey=hujmlqb") %>%
+        text = "SOURCE: America's Health Rankings analysis of CDC, Behavioral Risk Factor Surveillance System.",
+        href = "https://datalab.texas2036.org/uxoopxe/health-of-women-and-children-report-for-u-s?accesskey=zngcflg") %>%
       hc_add_theme(tx2036_hc_light())
     
+  })
+  
+  output$maternal_smoking_trends <- highcharter::renderHighchart({
+    
+    highchart() %>%
+      hc_add_series(smoking_maternal %>% filter(race != "Texas"),
+                    type = "line",
+                    hcaes(x=year, y=value, group=race, labels = year)) %>%
+      hc_add_series(smoking_maternal %>% filter(race == 'Texas'),
+                    type = 'line',
+                    hcaes(x=year, y=value, labels = year),
+                    lineWidth=5,
+                    name="Texas") %>%
+      hc_title(text="Percent of Live Births in Texas Where Mother Smoked During Pregnancy") %>%
+      hc_yAxis(title=list(text="Percentage of Live Births"),
+               labels = list(enabled=TRUE,
+                             format = "{value}%")) %>% 
+      hc_xAxis(tickColor = "#ffffff", 
+               tickInterval = 1,
+               maxPadding = 0,
+               endOnTick = FALSE,
+               startOnTick = FALSE,
+               useHTML = TRUE,
+               alternateGridColor = "#f3f3f3",
+               title = list(text = "Year")) %>%
+      hc_tooltip(valueSuffix = "%") %>%
+      hc_legend(layout = "proximate", align = "right") %>% 
+      hc_credits(
+        enabled = TRUE,
+        text = "NOTE: The 2017 and 2018 data are provisional. | SOURCE: Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book.",
+        href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
+      hc_add_theme(tx2036_hc_light())
   })
     
   })
