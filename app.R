@@ -220,10 +220,11 @@ body <- dashboardBody(
   
   
   HTML('<div data-iframe-height></div>'),
-  waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
-                                     spin_cube_grid()),
-                      color = "#EAEFF6",
-                      logo = "logo.png"),
+  # waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
+  #                                    spin_cube_grid()),
+  #                     color = "#EAEFF6",
+  #                     logo = "logo.png"),
+  # waiter_hide_on_render("covid_charts"),
   useShinyalert(),
   meta() %>%
     meta_social(
@@ -458,8 +459,8 @@ server <- function(input, output, session) {
   })
   
   
-  Sys.sleep(1) # do something that takes time
-  waiter_hide()
+  # Sys.sleep(1) # do something that takes time
+  # waiter_hide()
   
   # # ## MATERNITY SERVER MODULES
   maternity_overview_server("maternity_overview")
