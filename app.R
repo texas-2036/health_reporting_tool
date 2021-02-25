@@ -100,6 +100,10 @@ header <- dashboardHeader(disable = FALSE,
 # SIDEBAR CODE  ------------------------------------------------------------
 sidebar <- dashboardSidebar(disable = FALSE,
                             # startExpanded = TRUE,
+                            tags$head(
+                              tags$style(HTML("
+                                        .sidebar { height: 90vh; overflow-y: auto; } " )
+                              )),
                             sidebarMenu(
                               id = "tabs",
                               menuItem("Introduction",

@@ -5,9 +5,15 @@ account: vmm28
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2957440
+<<<<<<< HEAD
 bundleId: 4216808
 url: https://texas2036.shinyapps.io/health_reporting_tool/
 when: 1613171899.93098
+=======
+bundleId: 4268737
+url: https://texas2036.shinyapps.io/health_reporting_tool/
+when: 1614211449.42807
+>>>>>>> debugging_vm
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: .RData|charts_test.Rmd|Health Reporting Tool Workbook.nb.html|Health Reporting Tool Workbook.Rmd|my_notebook.Rmd|README.md|README.Rmd|vishakh charts.Rmd
+ignoredFiles: .RData|charts_test.Rmd|Health Reporting Tool Workbook.nb.html|Health Reporting Tool Workbook.Rmd|my_notebook.Rmd|README.md|README.Rmd|uninsured_race.csv|vishakh charts.Rmd
