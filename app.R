@@ -220,11 +220,11 @@ body <- dashboardBody(
   
   
   HTML('<div data-iframe-height></div>'),
+  ## Waiter doesn't leave anymore, so I turned it off for now
   # waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
   #                                    spin_cube_grid()),
   #                     color = "#EAEFF6",
   #                     logo = "logo.png"),
-  # waiter_hide_on_render("covid_charts"),
   useShinyalert(),
   meta() %>%
     meta_social(
@@ -457,10 +457,9 @@ server <- function(input, output, session) {
       updateTabItems(session, "tabs", selected = "aging_overview")
     }
   })
-  
-  
-  # Sys.sleep(1) # do something that takes time
-  # waiter_hide()
+
+  Sys.sleep(1) # do something that takes time
+  hide_waiter()
   
   # # ## MATERNITY SERVER MODULES
   maternity_overview_server("maternity_overview")
