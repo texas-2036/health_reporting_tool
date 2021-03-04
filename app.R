@@ -111,7 +111,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
                                        selected = TRUE,
                                        icon = icon("square", class="fad fa-square")
                               ),
-                              actionLink("button", "LIFE PHASES", class = "btn-section"),
+                              actionLink("button", "LIFE PHASES", class = "btn-section shiny-bound-input"),
                               menuItem("Maternity", expandedName = "maternity_expand", tabName = "Maternity",
                                        icon = icon("door-open", class="fad fa-baby-carriage"),
                                        menuSubItem('Overview',
