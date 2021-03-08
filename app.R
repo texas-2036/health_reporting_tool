@@ -253,6 +253,7 @@ body <- dashboardBody(
             ),
             fluidRow(
               column(6, 
+                     
                      thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6'></i>",
                                         label = 'Maternity',
                                         content = includeMarkdown("markdown/intro/maternity.md"),

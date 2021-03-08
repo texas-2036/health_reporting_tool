@@ -22,7 +22,9 @@ maternity_overview_ui <- function(id) {
                       h2("Maternity in Texas"),
                       includeMarkdown("markdown/maternity/overview/maternity.md")),
                column(width = 6,
-                      highcharter::highchartOutput(NS(id, "m_birth_rate_per_1k"), height = "600px"))),
+                      plotOutput("m_birth_rate_per_1k")
+                      #highcharter::highchartOutput(NS(id, "m_birth_rate_per_1k"), height = "600px"))),
+               )),
              hr(),
              fluidRow(
                column(width = 6,
@@ -48,40 +50,46 @@ maternity_overview_server <- function(id, df) {
   
   moduleServer(id, function(input, output, session) {
     
-  output$m_birth_rate_per_1k <- highcharter::renderHighchart({
+  output$m_birth_rate_per_1k <- renderPlot({
+      # birth_rate_per_1k %>% 
+      # filter(state_name != "Texas") %>% 
+      # ggplot(aes(x = edition, y = value, color = state_name)) %>% 
+      # geom_line()
       
-    highchart() %>% 
-      hc_add_series(birth_rate_per_1k %>% filter(state_name!="Texas"), 
-                    type="line", 
-                    hcaes(x=edition, y=value, group=state_name, labels = edition), 
-                    color="#DBDCDD") %>% 
-      hc_add_series(birth_rate_per_1k %>% filter(state_name=="Texas"),
-                    type="line", 
-                    hcaes(x=edition, y=value, labels = edition),
-                    lineWidth=5,
-                    name="Texas") %>% 
-      hc_title(text="Birth Rate in Texas & the United States") %>%
-      hc_subtitle(text="Data for birth rates shown represents data between 2000-2018") %>%
-      hc_yAxis(title=list(text="Rate Per 1,000 Population"),
-               labels = list(enabled=TRUE,
-                             format = "{value}")) %>% 
-      hc_xAxis(tickColor = "#ffffff", 
-               min = 0.5,
-               max = 16.5,
-               tickInterval = 1,
-               maxPadding = 0,
-               endOnTick = FALSE,
-               startOnTick = FALSE,
-               useHTML = TRUE,
-               alternateGridColor = "#f3f3f3",
-               categories = c("2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019"),
-               title = list(text = "Year")) %>%
-      hc_legend(layout = "proximate", align = "right") %>% 
-      hc_credits(
-        enabled = TRUE,
-        text = "SOURCE: Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book.",
-        href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx.") %>%
-      hc_add_theme(tx2036_hc_light())
+    birth <- ggplot(cars, aes(x = speed, y = dist)) + geom_point()
+    return(birth)
+    # highchart() %>% 
+    #   hc_add_series(birth_rate_per_1k %>% filter(state_name!="Texas"), 
+    #                 type="line", 
+    #                 hcaes(x=edition, y=value, group=state_name, labels = edition), 
+    #                 color="#DBDCDD") %>% 
+    #   hc_add_series(birth_rate_per_1k %>% filter(state_name=="Texas"),
+    #                 type="line", 
+    #                 hcaes(x=edition, y=value, labels = edition),
+    #                 lineWidth=5,
+    #                 name="Texas") %>% 
+    #   hc_title(text="Birth Rate in Texas & the United States") %>%
+    #   hc_subtitle(text="Data for birth rates shown represents data between 2000-2018") %>%
+    #   hc_yAxis(title=list(text="Rate Per 1,000 Population"),
+    #            labels = list(enabled=TRUE,
+    #                          format = "{value}")) %>% 
+    #   hc_xAxis(tickColor = "#ffffff", 
+    #            min = 0.5,
+    #            max = 16.5,
+    #            tickInterval = 1,
+    #            maxPadding = 0,
+    #            endOnTick = FALSE,
+    #            startOnTick = FALSE,
+    #            useHTML = TRUE,
+    #            alternateGridColor = "#f3f3f3",
+    #            categories = c("2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019"),
+    #            title = list(text = "Year")) %>%
+    #   hc_legend(layout = "proximate", align = "right") %>% 
+    #   hc_credits(
+    #     enabled = TRUE,
+    #     text = "SOURCE: Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book.",
+    #     href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx.") %>%
+    #   hc_add_theme(tx2036_hc_light())
       
     })
   
