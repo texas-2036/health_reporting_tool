@@ -51,13 +51,13 @@ maternity_overview_server <- function(id, df) {
   moduleServer(id, function(input, output, session) {
     
   output$m_birth_rate_per_1k <- renderPlot({
-      # birth_rate_per_1k %>% 
-      # filter(state_name != "Texas") %>% 
-      # ggplot(aes(x = edition, y = value, color = state_name)) %>% 
+      # birth_rate_per_1k %>%
+      # filter(state_name != "Texas") %>%
+      # ggplot(aes(x = edition, y = value, color = state_name)) %>%
       # geom_line()
       
-    birth <- ggplot(cars, aes(x = speed, y = dist)) + geom_point()
-    return(birth)
+   ggplot(cars, aes(x = speed, y = dist)) + geom_point()
+    
     # highchart() %>% 
     #   hc_add_series(birth_rate_per_1k %>% filter(state_name!="Texas"), 
     #                 type="line", 

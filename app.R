@@ -204,7 +204,7 @@ body <- dashboardBody(
     tags$script(HTML("$('body').addClass('fixed');")),
     tags$link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"),
   tags$link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap")),
-  
+
   # **Waiter + Meta Page ----------------------------------------------------------
   use_sever(),
   use_waiter(),
@@ -215,11 +215,11 @@ body <- dashboardBody(
                   setTimeout(function(){
                   $('a[href$=' + '\"#shiny-tab-' + name + '\"' + ']').closest('li').addClass('active')
                   }, 200);
-                        
+
                   }", functions = c("activateTab")),
   
   
-  HTML('<div data-iframe-height></div>'),
+  #HTML('<div data-iframe-height></div>'),
   ## Waiter doesn't leave anymore, so I turned it off for now
   # waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
   #                                    spin_cube_grid()),
@@ -299,6 +299,8 @@ body <- dashboardBody(
     # **Maternity Section ---------------------------------------------------------------------------
     
     tabItem(tabName = "maternity_overview",
+            
+            
             h2("Maternity | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             maternity_overview_ui("maternity_overview")),
@@ -388,6 +390,7 @@ body <- dashboardBody(
 
 ui <- dashboardPage(title="Texas 2036 | Health of Texans",
                     header = header,
+                    #plotOutput("ggplot_test"),
                     sidebar = sidebar,
                     body = body
 )
@@ -401,7 +404,9 @@ server <- function(input, output, session) {
   
   sever(html = disconnected, bg_color = "#3A4A9F", opacity = .92)
   
-
+  output$ggplot_test <- renderPlot({
+    ggplot(cars, aes(x = speed, y = dist)) + geom_point()
+  })
   # Tab Switching Functions ---------------------------------------------------------------------
   
   # Navigate from Explore buttons to that tab panel
@@ -459,7 +464,7 @@ server <- function(input, output, session) {
     }
   })
 
-  Sys.sleep(1) # do something that takes time
+  #Sys.sleep(1) # do something that takes time
   hide_waiter()
   
   # # ## MATERNITY SERVER MODULES
