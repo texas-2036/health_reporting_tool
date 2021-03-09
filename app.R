@@ -79,10 +79,10 @@ source("modules/aging/aging_rf.R")
 source("modules/aging/aging_cnd.R")
 source("modules/aging/aging_pol.R")
 
-## CONDITION MODULES
-# source("modules/aging/diabetes.R")
-# source("modules/aging/mental_health.R")
-# source("modules/aging/heart_health.R")
+# ## CONDITION MODULES
+# # source("modules/aging/diabetes.R")
+# # source("modules/aging/mental_health.R")
+# # source("modules/aging/heart_health.R")
 
 ## COVID MODULES
 source("modules/covid/overview.R")
@@ -204,7 +204,7 @@ body <- dashboardBody(
     tags$script(HTML("$('body').addClass('fixed');")),
     tags$link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"),
   tags$link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap")),
-  
+
   # **Waiter + Meta Page ----------------------------------------------------------
   use_sever(),
   use_waiter(),
@@ -215,11 +215,11 @@ body <- dashboardBody(
                   setTimeout(function(){
                   $('a[href$=' + '\"#shiny-tab-' + name + '\"' + ']').closest('li').addClass('active')
                   }, 200);
-                        
+
                   }", functions = c("activateTab")),
   
   
-  HTML('<div data-iframe-height></div>'),
+  #HTML('<div data-iframe-height></div>'),
   ## Waiter doesn't leave anymore, so I turned it off for now
   # waiter_show_on_load(html = tagList(h4("Thanks for being patient while we get everything set up."),
   #                                    spin_cube_grid()),
@@ -253,6 +253,7 @@ body <- dashboardBody(
             ),
             fluidRow(
               column(6, 
+                     
                      thumbnail_label(title="<i class='fad fa-baby-carriage fa-3x' style='color:#EAEFF6'></i>",
                                         label = 'Maternity',
                                         content = includeMarkdown("markdown/intro/maternity.md"),
@@ -314,7 +315,7 @@ body <- dashboardBody(
              hr(class="page-header-hr"),
              h1("pol_charts"),
              maternity_pol_ui("maternity_pol_charts")),
-    # **Childhood Section ---------------------------------------------------------------------------
+    # # **Childhood Section ---------------------------------------------------------------------------
     tabItem(tabName = "childhood_overview",
             h2("Childhood/Adolescence | Overview", class="page-header1"),
             hr(class="page-header-hr"),
@@ -331,7 +332,7 @@ body <- dashboardBody(
             h2("Childhood/Adolescence | Policy & Clinical Care", class="page-header1"),
             hr(class="page-header-hr"),
             childhood_pol_ui("childhood_pol_charts")),
-    # **Working Age Section ---------------------------------------------------------------------------
+    # # **Working Age Section ---------------------------------------------------------------------------
     tabItem(tabName = "working_overview",
             h2("Working Age | Overview", class="page-header1"),
             hr(class="page-header-hr"),
@@ -348,7 +349,7 @@ body <- dashboardBody(
             h2("Working Age | Policy & Clinical Care", class="page-header1"),
             hr(class="page-header-hr"),
             working_pol_ui("working_pol_charts")),
-    # **Aging Section ---------------------------------------------------------------------------
+    # # **Aging Section ---------------------------------------------------------------------------
     tabItem(tabName = "aging_overview",
             h2("Aging | Overview", class="page-header1"),
             hr(class="page-header-hr"),
@@ -378,7 +379,8 @@ body <- dashboardBody(
     tabItem(tabName = "covid",
             h2("COVID-19 | Spotlight", class="page-header1"),
             hr(class="page-header-hr"),
-            covid_overview_ui("covid_charts"))),
+            covid_overview_ui("covid_charts"))
+    ),
     hr(),
     tags$footer(includeMarkdown("footer.md"), align = "center")
   )
@@ -400,7 +402,6 @@ server <- function(input, output, session) {
   
   sever(html = disconnected, bg_color = "#3A4A9F", opacity = .92)
   
-
   # Tab Switching Functions ---------------------------------------------------------------------
   
   # Navigate from Explore buttons to that tab panel
@@ -411,7 +412,7 @@ server <- function(input, output, session) {
     # open sidebar panel
     #js$activateTab("Maternity")
   })
-  
+
   observeEvent(input$explore_childhood, {
     updateTabItems(session, "tabs", "childhood_overview")
     # scroll to top of page
@@ -419,7 +420,7 @@ server <- function(input, output, session) {
     # open sidebar panel
     #js$activateTab("Childhood")
   })
-  
+
   observeEvent(input$explore_working, {
     updateTabItems(session, "tabs", "working_overview")
     # scroll to top of page
@@ -427,7 +428,7 @@ server <- function(input, output, session) {
     # open sidebar panel
     #js$activateTab("Working Age")
   })
-  
+
   observeEvent(input$explore_aging, {
     updateTabItems(session, "tabs", "aging_overview")
     # scroll to top of page
@@ -435,7 +436,7 @@ server <- function(input, output, session) {
     # open sidebar panel
     #js$activateTab("Aging")
   })
-  
+
   # When a new section is opened, navigate directly to the overview subsection
   observeEvent(input$sidebarItemExpanded, {
     if(input$sidebarItemExpanded == "maternity_expand"){
@@ -458,39 +459,39 @@ server <- function(input, output, session) {
     }
   })
 
-  Sys.sleep(1) # do something that takes time
-  hide_waiter()
+  #Sys.sleep(1) # do something that takes time
+  waiter_hide()
   
-  # # ## MATERNITY SERVER MODULES
+  ## MATERNITY SERVER MODULES
   maternity_overview_server("maternity_overview")
   maternity_rf_server("maternity_rf_charts")
   maternity_cnd_server("maternity_cnd_charts")
   maternity_pol_server("maternity_pol_charts")
-
-  # # ## CHILDHOOD SERVER MODULES
+  
+  ## CHILDHOOD SERVER MODULES
   childhood_overview_server("childhood_overview")
   childhood_rf_server("childhood_rf_charts")
   childhood_cnd_server("childhood_cnd_charts")
   childhood_pol_server("childhood_pol_charts")
-
-  # # ## WORKING SERVER MODULES
+  
+  ## WORKING SERVER MODULES
   working_overview_server("working_overview")
   working_rf_server("working_rf_charts")
   working_cnd_server("working_cnd_charts")
   working_pol_server("working_pol_charts")
-
-  # # ## AGING SERVER MODULES
+  
+  ## AGING SERVER MODULES
   aging_overview_server("aging_overview")
   aging_rf_server("aging_rf_charts")
   aging_cnd_server("aging_cnd_charts")
   aging_pol_server("aging_pol_charts")
-
-  # # ## CONDITIONS SERVER MODULES
-  # diabetes_server("diabetes_charts")
-  # heart_health_server("heart_health_charts")
-  # mental_health_server("heart_health_charts")
-
-  # ## COVID SERVER MODULE
+  
+  # # # ## CONDITIONS SERVER MODULES
+  # # diabetes_server("diabetes_charts")
+  # # heart_health_server("heart_health_charts")
+  # # mental_health_server("heart_health_charts")
+  
+  ## COVID SERVER MODULE
   covid_overview_server("covid_charts")
 
 }
