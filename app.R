@@ -55,37 +55,37 @@ thumbnail_label <- function (title, label, content, button_link, button_label) {
 
 # LOAD MODULES --------------------------------------------------------------------------------
 
-# ## MATERNITY MODULES
+## MATERNITY MODULES
 source("modules/maternity/maternity_overview.R")
 # source("modules/maternity/maternity_rf.R")
 source("modules/maternity/maternity_cnd.R")
-# source("modules/maternity/maternity_pol.R")
-# 
-# ## CHILDHOOD MODULES
+source("modules/maternity/maternity_pol.R")
+
+## CHILDHOOD MODULES
 source("modules/childhood/childhood_overview.R")
-# source("modules/childhood/childhood_rf.R")
+source("modules/childhood/childhood_rf.R")
 source("modules/childhood/childhood_cnd.R")
-# source("modules/childhood/childhood_pol.R")
-# 
-# ## WORKING AGE MODULES
+source("modules/childhood/childhood_pol.R")
+
+## WORKING AGE MODULES
 source("modules/working_age/working_overview.R")
 # source("modules/working_age/working_rf.R")
 source("modules/working_age/working_cnd.R")
-# source("modules/working_age/working_pol.R")
-# 
-# ## AGING MODULES
+source("modules/working_age/working_pol.R")
+
+## AGING MODULES
 source("modules/aging/aging_overview.R")
 # source("modules/aging/aging_rf.R")
 source("modules/aging/aging_cnd.R")
-# source("modules/aging/aging_pol.R")
-# 
+source("modules/aging/aging_pol.R")
+
 # ## CONDITION MODULES
 # # source("modules/aging/diabetes.R")
 # # source("modules/aging/mental_health.R")
 # # source("modules/aging/heart_health.R")
-# 
-# ## COVID MODULES
-# source("modules/covid/overview.R")
+
+## COVID MODULES
+source("modules/covid/overview.R")
 
 ## full application
 
@@ -310,28 +310,28 @@ body <- dashboardBody(
              h2("Maternity | Conditions", class="page-header1"),
              hr(class="page-header-hr"),
              maternity_cnd_ui("maternity_cnd_charts")),
-    #  tabItem(tabName = "maternity_pol",
-    #          h2("Maternity | Policy & Clinical Care", class="page-header1"),
-    #          hr(class="page-header-hr"),
-    #          h1("pol_charts"),
-    #          maternity_pol_ui("maternity_pol_charts")),
+     tabItem(tabName = "maternity_pol",
+             h2("Maternity | Policy & Clinical Care", class="page-header1"),
+             hr(class="page-header-hr"),
+             h1("pol_charts"),
+             maternity_pol_ui("maternity_pol_charts")),
     # # **Childhood Section ---------------------------------------------------------------------------
     tabItem(tabName = "childhood_overview",
             h2("Childhood/Adolescence | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             childhood_overview_ui("childhood_overview")),
-    # tabItem(tabName = "childhood_rf",
-    #         h2("Childhood/Adolescence | Risk Factors", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         childhood_rf_ui("childhood_rf_charts")),
+    tabItem(tabName = "childhood_rf",
+            h2("Childhood/Adolescence | Risk Factors", class="page-header1"),
+            hr(class="page-header-hr"),
+            childhood_rf_ui("childhood_rf_charts")),
     tabItem(tabName = "childhood_cnd",
             h2("Childhood/Adolescence | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
             childhood_cnd_ui("childhood_cnd_charts")),
-    # tabItem(tabName = "childhood_pol",
-    #         h2("Childhood/Adolescence | Policy & Clinical Care", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         childhood_pol_ui("childhood_pol_charts")),
+    tabItem(tabName = "childhood_pol",
+            h2("Childhood/Adolescence | Policy & Clinical Care", class="page-header1"),
+            hr(class="page-header-hr"),
+            childhood_pol_ui("childhood_pol_charts")),
     # # **Working Age Section ---------------------------------------------------------------------------
     tabItem(tabName = "working_overview",
             h2("Working Age | Overview", class="page-header1"),
@@ -345,10 +345,10 @@ body <- dashboardBody(
             h2("Working Age | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
             working_cnd_ui("working_cnd_charts")),
-    # tabItem(tabName = "working_pol",
-    #         h2("Working Age | Policy & Clinical Care", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         working_pol_ui("working_pol_charts")),
+    tabItem(tabName = "working_pol",
+            h2("Working Age | Policy & Clinical Care", class="page-header1"),
+            hr(class="page-header-hr"),
+            working_pol_ui("working_pol_charts")),
     # # **Aging Section ---------------------------------------------------------------------------
     tabItem(tabName = "aging_overview",
             h2("Aging | Overview", class="page-header1"),
@@ -362,10 +362,10 @@ body <- dashboardBody(
             h2("Aging | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
             aging_cnd_ui("aging_cnd_charts")),
-    # tabItem(tabName = "aging_pol",
-    #         h2("Aging | Policy & Clinical Care", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         aging_pol_ui("aging_pol_charts")),
+    tabItem(tabName = "aging_pol",
+            h2("Aging | Policy & Clinical Care", class="page-header1"),
+            hr(class="page-header-hr"),
+            aging_pol_ui("aging_pol_charts")),
     # **Condition - Diabetes ---------------------------------------------------------------------------
     # tabItem(tabName = "diabetes",
     #         h1("diabetes_charts")),
@@ -378,8 +378,8 @@ body <- dashboardBody(
     # **COVID-19 ---------------------------------------------------------------------------
     tabItem(tabName = "covid",
             h2("COVID-19 | Spotlight", class="page-header1"),
-            hr(class="page-header-hr"))
-            #covid_overview_ui("covid_charts"))
+            hr(class="page-header-hr"),
+            covid_overview_ui("covid_charts"))
     ),
     hr(),
     tags$footer(includeMarkdown("footer.md"), align = "center")
@@ -462,37 +462,37 @@ server <- function(input, output, session) {
   #Sys.sleep(1) # do something that takes time
   waiter_hide()
   
-  # # # ## MATERNITY SERVER MODULES
+  ## MATERNITY SERVER MODULES
   maternity_overview_server("maternity_overview")
   # maternity_rf_server("maternity_rf_charts")
   maternity_cnd_server("maternity_cnd_charts")
-  # maternity_pol_server("maternity_pol_charts")
-  # 
-  # # # ## CHILDHOOD SERVER MODULES
+  maternity_pol_server("maternity_pol_charts")
+  
+  ## CHILDHOOD SERVER MODULES
   childhood_overview_server("childhood_overview")
-  # childhood_rf_server("childhood_rf_charts")
+  childhood_rf_server("childhood_rf_charts")
   childhood_cnd_server("childhood_cnd_charts")
-  # childhood_pol_server("childhood_pol_charts")
-  # 
-  # # # ## WORKING SERVER MODULES
+  childhood_pol_server("childhood_pol_charts")
+  
+  ## WORKING SERVER MODULES
   working_overview_server("working_overview")
   # working_rf_server("working_rf_charts")
   working_cnd_server("working_cnd_charts")
-  # working_pol_server("working_pol_charts")
-  # 
-  # # # ## AGING SERVER MODULES
+  working_pol_server("working_pol_charts")
+  
+  ## AGING SERVER MODULES
   aging_overview_server("aging_overview")
   # aging_rf_server("aging_rf_charts")
   aging_cnd_server("aging_cnd_charts")
-  # aging_pol_server("aging_pol_charts")
-  # 
+  aging_pol_server("aging_pol_charts")
+  
   # # # ## CONDITIONS SERVER MODULES
   # # diabetes_server("diabetes_charts")
   # # heart_health_server("heart_health_charts")
   # # mental_health_server("heart_health_charts")
-  # 
-  # # ## COVID SERVER MODULE
-  # covid_overview_server("covid_charts")
+  
+  ## COVID SERVER MODULE
+  covid_overview_server("covid_charts")
 
 }
 
