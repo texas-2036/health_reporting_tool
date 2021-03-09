@@ -57,7 +57,7 @@ thumbnail_label <- function (title, label, content, button_link, button_label) {
 
 ## MATERNITY MODULES
 source("modules/maternity/maternity_overview.R")
-# source("modules/maternity/maternity_rf.R")
+source("modules/maternity/maternity_rf.R")
 source("modules/maternity/maternity_cnd.R")
 source("modules/maternity/maternity_pol.R")
 
@@ -302,10 +302,10 @@ body <- dashboardBody(
             h2("Maternity | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             maternity_overview_ui("maternity_overview")),
-    # tabItem(tabName = "maternity_rf",
-    #         h2("Maternity | Risk Factors", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         maternity_rf_ui("maternity_rf_charts")),
+    tabItem(tabName = "maternity_rf",
+            h2("Maternity | Risk Factors", class="page-header1"),
+            hr(class="page-header-hr"),
+            maternity_rf_ui("maternity_rf_charts")),
     tabItem(tabName = "maternity_cnd",
              h2("Maternity | Conditions", class="page-header1"),
              hr(class="page-header-hr"),
@@ -404,67 +404,67 @@ server <- function(input, output, session) {
   
   # Tab Switching Functions ---------------------------------------------------------------------
   
-  # # Navigate from Explore buttons to that tab panel
-  # observeEvent(input$explore_maternity, {
-  #   updateTabItems(session, "tabs", "maternity_overview")
-  #   # scroll to top of page
-  #   js$scrolltop()
-  #   # open sidebar panel
-  #   #js$activateTab("Maternity")
-  # })
-  # 
-  # observeEvent(input$explore_childhood, {
-  #   updateTabItems(session, "tabs", "childhood_overview")
-  #   # scroll to top of page
-  #   js$scrolltop()
-  #   # open sidebar panel
-  #   #js$activateTab("Childhood")
-  # })
-  # 
-  # observeEvent(input$explore_working, {
-  #   updateTabItems(session, "tabs", "working_overview")
-  #   # scroll to top of page
-  #   js$scrolltop()
-  #   # open sidebar panel
-  #   #js$activateTab("Working Age")
-  # })
-  # 
-  # observeEvent(input$explore_aging, {
-  #   updateTabItems(session, "tabs", "aging_overview")
-  #   # scroll to top of page
-  #   js$scrolltop()
-  #   # open sidebar panel
-  #   #js$activateTab("Aging")
-  # })
-  # 
-  # # When a new section is opened, navigate directly to the overview subsection
-  # observeEvent(input$sidebarItemExpanded, {
-  #   if(input$sidebarItemExpanded == "maternity_expand"){
-  #     updateTabItems(session, "tabs", selected = "maternity_overview")
-  #   }
-  # })
-  # observeEvent(input$sidebarItemExpanded, {
-  #   if(input$sidebarItemExpanded == "childhood_expand"){
-  #     updateTabItems(session, "tabs", selected = "childhood_overview")
-  #   }
-  # })
-  # observeEvent(input$sidebarItemExpanded, {
-  #   if(input$sidebarItemExpanded == "working_expand"){
-  #     updateTabItems(session, "tabs", selected = "working_overview")
-  #   }
-  # })
-  # observeEvent(input$sidebarItemExpanded, {
-  #   if(input$sidebarItemExpanded == "aging_expand"){
-  #     updateTabItems(session, "tabs", selected = "aging_overview")
-  #   }
-  # })
+  # Navigate from Explore buttons to that tab panel
+  observeEvent(input$explore_maternity, {
+    updateTabItems(session, "tabs", "maternity_overview")
+    # scroll to top of page
+    js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Maternity")
+  })
+
+  observeEvent(input$explore_childhood, {
+    updateTabItems(session, "tabs", "childhood_overview")
+    # scroll to top of page
+    js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Childhood")
+  })
+
+  observeEvent(input$explore_working, {
+    updateTabItems(session, "tabs", "working_overview")
+    # scroll to top of page
+    js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Working Age")
+  })
+
+  observeEvent(input$explore_aging, {
+    updateTabItems(session, "tabs", "aging_overview")
+    # scroll to top of page
+    js$scrolltop()
+    # open sidebar panel
+    #js$activateTab("Aging")
+  })
+
+  # When a new section is opened, navigate directly to the overview subsection
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "maternity_expand"){
+      updateTabItems(session, "tabs", selected = "maternity_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "childhood_expand"){
+      updateTabItems(session, "tabs", selected = "childhood_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "working_expand"){
+      updateTabItems(session, "tabs", selected = "working_overview")
+    }
+  })
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "aging_expand"){
+      updateTabItems(session, "tabs", selected = "aging_overview")
+    }
+  })
 
   #Sys.sleep(1) # do something that takes time
   waiter_hide()
   
   ## MATERNITY SERVER MODULES
   maternity_overview_server("maternity_overview")
-  # maternity_rf_server("maternity_rf_charts")
+  maternity_rf_server("maternity_rf_charts")
   maternity_cnd_server("maternity_cnd_charts")
   maternity_pol_server("maternity_pol_charts")
   
