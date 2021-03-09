@@ -69,13 +69,13 @@ source("modules/childhood/childhood_pol.R")
 
 ## WORKING AGE MODULES
 source("modules/working_age/working_overview.R")
-# source("modules/working_age/working_rf.R")
+source("modules/working_age/working_rf.R")
 source("modules/working_age/working_cnd.R")
 source("modules/working_age/working_pol.R")
 
 ## AGING MODULES
 source("modules/aging/aging_overview.R")
-# source("modules/aging/aging_rf.R")
+source("modules/aging/aging_rf.R")
 source("modules/aging/aging_cnd.R")
 source("modules/aging/aging_pol.R")
 
@@ -337,10 +337,10 @@ body <- dashboardBody(
             h2("Working Age | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             working_overview_ui("working_overview")),
-    # tabItem(tabName = "working_rf",
-    #         h2("Working Age | Risk Factors", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         working_rf_ui("working_rf_charts")),
+    tabItem(tabName = "working_rf",
+            h2("Working Age | Risk Factors", class="page-header1"),
+            hr(class="page-header-hr"),
+            working_rf_ui("working_rf_charts")),
     tabItem(tabName = "working_cnd",
             h2("Working Age | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
@@ -354,10 +354,10 @@ body <- dashboardBody(
             h2("Aging | Overview", class="page-header1"),
             hr(class="page-header-hr"),
             aging_overview_ui("aging_overview")),
-    # tabItem(tabName = "aging_rf",
-    #         h2("Aging | Risk Factors", class="page-header1"),
-    #         hr(class="page-header-hr"),
-    #         aging_rf_ui("aging_rf_charts")),
+    tabItem(tabName = "aging_rf",
+            h2("Aging | Risk Factors", class="page-header1"),
+            hr(class="page-header-hr"),
+            aging_rf_ui("aging_rf_charts")),
     tabItem(tabName = "aging_cnd",
             h2("Aging | Conditions", class="page-header1"),
             hr(class="page-header-hr"),
@@ -476,13 +476,13 @@ server <- function(input, output, session) {
   
   ## WORKING SERVER MODULES
   working_overview_server("working_overview")
-  # working_rf_server("working_rf_charts")
+  working_rf_server("working_rf_charts")
   working_cnd_server("working_cnd_charts")
   working_pol_server("working_pol_charts")
   
   ## AGING SERVER MODULES
   aging_overview_server("aging_overview")
-  # aging_rf_server("aging_rf_charts")
+  aging_rf_server("aging_rf_charts")
   aging_cnd_server("aging_cnd_charts")
   aging_pol_server("aging_pol_charts")
   
