@@ -197,7 +197,7 @@ sidebar <- dashboardSidebar(disable = FALSE,
 jsCode <- "shinyjs.scrolltop = function() {window.scrollTo(0, 0)};" 
 body <- dashboardBody(
   tags$head(
-    tags$script(src="https://kit.fontawesome.com/5272d94c6c.js", crossorigin="anonymous"),
+    tags$script(src="https://kit.fontawesome.com/8abb217f2e.js", crossorigin="anonymous"),
     tags$link(rel="shortcut icon", href="favicon.png"),
     tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
     includeHTML(("www/google_analytics.html")),
