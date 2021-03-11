@@ -32,7 +32,9 @@ working_pol_ui <- function(id) {
                                includeMarkdown("markdown/working_age/policy/uninsurance_intro_top.md"),
                                highcharter::highchartOutput(NS(id, "uninsured_chart"))),
                         column(width = 6,
-                               highcharter::highchartOutput(NS(id, "uninsured_map")))),
+                               # highcharter::highchartOutput(NS(id, "uninsured_tx"))
+                               )
+                               ),
                       hr(),
                       fluidRow(
                       column(width = 6,
@@ -114,8 +116,15 @@ working_pol_server <- function(id, df) {
     
   })
   
+  
+  output$uninsured_tx <- highcharter::renderHighchart({
+    hc_add_series(uninsured_rates %>% filter(state!="Texas"), 
+                  type="line", 
+                  hcaes(x=year, y=value, group=state), 
+                  color="#DBDCDD")
+  })
     
-  output$uninsured_map <- highcharter::renderHighchart({
+  output$uninsured_wa_map <- highcharter::renderHighchart({
     
     col_pal <- RColorBrewer::brewer.pal(9,"RdPu")
     

@@ -45,15 +45,15 @@ maternity_pol_ui <- function(id) {
                              )
                       )),
              tabPanel(title = "Prevention",
-                      fluidRow(
-                      column(width = 6,
-                             h2("Distribution of Prenatal Care Timing, 2018"),
-                             highcharter::highchartOutput(NS(id, "care_distribution_tx"))
-                             ),
-                      column(width = 6,
-                             highcharter::highchartOutput(NS(id, "care_distribution_us"))
-                      ) 
-                      ),
+                      # fluidRow(
+                      # column(width = 6,
+                      #        h2("Distribution of Prenatal Care Timing, 2018"),
+                      #        highcharter::highchartOutput(NS(id, "care_distribution_tx"))
+                      #        ),
+                      # column(width = 6,
+                      #        highcharter::highchartOutput(NS(id, "care_distribution_us"))
+                      # ) 
+                      # ),
                       fluidRow(
                         column(width = 6,
                                h2("Prenatal Care"),
@@ -79,7 +79,7 @@ maternity_pol_ui <- function(id) {
                         column(width = 6,
                                h2("Preterm Birth"),
                                includeMarkdown("markdown/maternity/policy/preterm_birth.md"),
-                               highcharter::highchartOutput(NS(id, 'preterm_births'))
+                               highcharter::highchartOutput(NS(id, 'preterm_births_chart'))
                         ),
                         column(width = 6,
                                h2("Percent of Live Births Born Preterm in Texas Counties, 2017"),
@@ -230,14 +230,14 @@ maternity_pol_server <- function(id, df) {
       
     })
     
-    output$preterm_births <- highcharter::renderHighchart({
+    output$preterm_births_chart <- highcharter::renderHighchart({
       
       highchart() %>%
-        hc_add_series(preterm_births %>% filter(state != 'Texas'),
+        hc_add_series(pre_term %>% filter(state != 'Texas'),
                       type="line", 
                       hcaes(x=year, y=value, group=state), 
                       color="#808080") %>%
-        hc_add_series(preterm_births %>% filter(state == 'Texas'),
+        hc_add_series(pre_term %>% filter(state == 'Texas'),
                       type="line", 
                       hcaes(x=year, y=value, group=state), 
                       name="Texas",
