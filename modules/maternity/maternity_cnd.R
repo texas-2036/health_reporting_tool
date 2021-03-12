@@ -1,5 +1,6 @@
 # Load Data -----------------------------------------------------------------------------------
-
+us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+#tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 #diabetes data
 diabetes_trends_women_18_44 <- read_rds("clean_data/maternity/diabetes_trends_women_18_44.rds")
 
@@ -189,7 +190,7 @@ maternity_cnd_server <- function(id, df) {
       
       col_pal <- RColorBrewer::brewer.pal(9,"Blues")
       
-      hcmap(map = "countries/us/us-all",
+      hcmap(map = us_map,
             data = post_part,
             value = "value",
             joinBy = c("name","state_name"),

@@ -1,5 +1,6 @@
 # Load Data -----------------------------------------------------------------------------------
-
+#us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 diabetes_chart_wk <- readr::read_rds("clean_data/Working Age/conditions/diabetes_chart_wk.rds")
 
 mh_chart_ts_wk <- readr::read_rds("clean_data/Working Age/conditions/mh_chart_ts_wk.rds")
@@ -172,7 +173,7 @@ working_cnd_server <- function(id, df) {
     
     col_pal <- RColorBrewer::brewer.pal(9,"RdPu")
     
-    hcmap(map = "countries/us/us-tx-all",
+    hcmap(map = tx_map,
           data = hh_map_wk,
           value = "Value",
           joinBy = c("name","display_name"),

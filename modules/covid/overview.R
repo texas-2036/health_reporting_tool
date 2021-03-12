@@ -1,6 +1,7 @@
 
 # Load Data -----------------------------------------------------------------------------------
-
+#us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 case_rate_map <- read_rds("clean_data/covid/case_rate_map.rds") %>% 
   mutate(case_rate_per_1k=round(case_rate_per_1k, digits=1))
 
@@ -79,7 +80,7 @@ covid_overview_server <- function(id, df) {
       
     col_pal <- RColorBrewer::brewer.pal(9,"YlOrBr")
     
-    hcmap(map = "countries/us/us-tx-all",
+    hcmap(map = tx_map,
           data = case_rate_map,
           value = "case_rate_per_1k",
           joinBy = c("name","county"),
@@ -231,7 +232,7 @@ covid_overview_server <- function(id, df) {
       select(name=county,lat,lon,z=death_rate_per_1k) %>% 
       drop_na(lat)
     
-    hcmap(map = "countries/us/us-tx-all",
+    hcmap(map = tx_map,
           data = svi_death_rate_map,
           value = "svi_score",
           joinBy = c("name","county"),
@@ -262,7 +263,7 @@ covid_overview_server <- function(id, df) {
       mutate(z=round(z,digits=1)) %>% 
       drop_na(lat)
     
-    hcmap(map = "countries/us/us-tx-all",
+    hcmap(map = tx_map,
           showInLegend = FALSE,
           nullColor="#fff") %>%
       hc_add_series(

@@ -1,5 +1,6 @@
 # load data ----------
-
+#us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 ##this section will be where all the data for this page will be loaded once that data is collected
 prenatal_care <- readr::read_rds("clean_data/maternity/prenatal_deficiency_rate_map.rds")
 infant_mortality <- readr::read_rds("clean_data/maternity/infant_mortality_trends.rds")
@@ -134,7 +135,7 @@ maternity_pol_server <- function(id, df) {
       
       col_pal <- RColorBrewer::brewer.pal(9,"Reds")
       
-      hcmap(map = "countries/us/us-tx-all",
+      hcmap(map =tx_map,
             data = prenatal_care,
             value = "percent",
             joinBy = c("name","county_of_residence"),
@@ -269,7 +270,7 @@ maternity_pol_server <- function(id, df) {
       col_pal <- RColorBrewer::brewer.pal(9,"Blues")
       
       
-      hcmap(map = "countries/us/us-tx-all",
+      hcmap(map = tx_map,
             data = im_map,
             value = "rate",
             joinBy = c("name","county_of_residence"),
@@ -367,7 +368,7 @@ maternity_pol_server <- function(id, df) {
       col_pal <- RColorBrewer::brewer.pal(9,"Blues")
       
       
-      hcmap(map = "countries/us/us-tx-all",
+      hcmap(map = tx_map,
             data = obgyn_access,
             value = "rate_per_100_000_population",
             joinBy = c("name","county"),
