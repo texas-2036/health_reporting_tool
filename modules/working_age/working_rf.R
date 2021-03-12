@@ -1,5 +1,6 @@
 # Load Data ---------------------------------------------------------------------------------
-
+#us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 obesity_map_wk <- readr::read_rds("clean_data/Working Age/risk_factors/obesity_county_map.rds")
 
 obesity_chart_wk <- readr::read_rds("clean_data/Working Age/risk_factors/obesity_chart.rds")
@@ -87,7 +88,7 @@ working_rf_server <- function(id) {
       
       col_pal <- RColorBrewer::brewer.pal(9,"Blues")
       
-      hcmap(map = "countries/us/us-tx-all",
+      hcmap(map = tx_map,
             data = obesity_map_wk,
             value = "percentage",
             joinBy = c("name","county"),
@@ -155,7 +156,7 @@ working_rf_server <- function(id) {
     
     col_pal <- RColorBrewer::brewer.pal(9,"Greens")
     
-    hcmap(map = "countries/us/us-tx-all",
+    hcmap(map = tx_map,
           data = phys_inactivity_map_df,
           value = "value",
           joinBy = c("name","county"),
@@ -262,7 +263,7 @@ working_rf_server <- function(id) {
     
     col_pal <- RColorBrewer::brewer.pal(9,"Reds")
     
-    hcmap(map = "countries/us/us-tx-all",
+    hcmap(map = tx_map,
           data = smoking_map_wk,
           value = "value",
           joinBy = c("name","county"),

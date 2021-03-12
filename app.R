@@ -27,6 +27,7 @@ library(viridisLite)
 library(shinyjs)
 library(shinyBS)
 library(tippy)
+library(here)
 
 # HELPER FUNCTIONS ----------------------------------------------------------
   
@@ -52,7 +53,8 @@ thumbnail_label <- function (title, label, content, button_link, button_label) {
 # LOAD DATASETS -------------------------------------------------------------------------------
 
 # source("load_data.R")
-
+# us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+# tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 # LOAD MODULES --------------------------------------------------------------------------------
 
 ## MATERNITY MODULES

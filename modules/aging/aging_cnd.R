@@ -1,6 +1,6 @@
 
 # Load Data -----------------------------------------------------------------------------------
-
+us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
 diabetes <- read_rds("clean_data/Aging/conditions/diabetes_data.rds") %>% 
   filter(peer_states=="Peer State")
 
@@ -137,7 +137,7 @@ aging_cnd_server <- function(id, df) {
     
     col_pal <- RColorBrewer::brewer.pal(9,"Reds")
     
-    hcmap(map = "countries/us/us-all",
+    hcmap(map = us_map,
           data = heart_health,
           value = "value",
           joinBy = c("name","state_name"),
@@ -169,7 +169,7 @@ aging_cnd_server <- function(id, df) {
     
     col_pal <- RColorBrewer::brewer.pal(9,"Purples")
     
-    hcmap(map = "countries/us/us-all",
+    hcmap(map = us_map,
           data = alzheimers,
           value = "rate",
           joinBy = c("hc-a2","state"),

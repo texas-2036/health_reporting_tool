@@ -1,6 +1,7 @@
 
 # Load Data -----------------------------------------------------------------------------------
-
+us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+#tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 childhood_obesity <- readr::read_rds('clean_data/Children/childhood_obesity_data.rds')
 
 wic_obesity <- read_rds('clean_data/Children/wic_obesity_data.rds')
@@ -85,7 +86,7 @@ childhood_rf_server <- function(id) {
       
     col_pal <- RColorBrewer::brewer.pal(9,"Blues")
     
-    hcmap(map = "countries/us/us-all",
+    hcmap(map = us_map,
           data = childhood_obesity,
           value = "Value",
           joinBy = c("name","State Name"),

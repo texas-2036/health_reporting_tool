@@ -1,5 +1,6 @@
 # Load  Data ----------------------------------------------------------------------------------
-
+#us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 birth_rate_per_1k <- read_rds("clean_data/maternity/birth_rates_per1k.rds")
 
 distr_of_births_by_race <- read_rds("clean_data/maternity/distr_of_births_by_race.rds")
@@ -115,7 +116,7 @@ maternity_overview_server <- function(id, df) {
       
       col_pal <- RColorBrewer::brewer.pal(9,"Blues")
       
-      hcmap(map = "countries/us/us-tx-all",
+      hcmap(map = tx_map,
             data = county_birth_rate_map,
             value = "rate",
             joinBy = c("name","county_of_residence"),
@@ -178,7 +179,7 @@ maternity_overview_server <- function(id, df) {
       
       col_pal <- RColorBrewer::brewer.pal(9,"Purples")
       
-      hcmap(map = "countries/us/us-tx-all",
+      hcmap(map = tx_map,
             data = county_teen_birth_rate_map,
             value = "birth_rate",
             joinBy = c("name","county"),

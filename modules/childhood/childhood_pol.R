@@ -1,6 +1,7 @@
 
 # Load Data -----------------------------------------------------------------------------------
-
+us_map <- "https://code.highcharts.com/mapdata/countries/us/us-all.js"
+#tx_map <- "https://code.highcharts.com/mapdata/countries/us/us-tx-all.js"
 child_uninsurance_rates <- read_rds("clean_data/Children/child_uninsurance_rates.rds") %>% 
   select(county, uninsured_percent)
 
@@ -100,7 +101,7 @@ childhood_pol_server <- function(id, df) {
     col_pal <- RColorBrewer::brewer.pal(9,"Greens")
     
     
-    hcmap(map = "countries/us/us-tx-all",
+    hcmap(map = us_map,
           data = child_uninsurance_rates,
           value = "uninsured_percent",
           joinBy = c("name","county"),
@@ -153,7 +154,7 @@ childhood_pol_server <- function(id, df) {
     
     col_pal <- RColorBrewer::brewer.pal(11,"RdBu")
     
-    hcmap(map = "countries/us/us-all",
+    hcmap(map = us_map,
           data = primary_care_children_access,
           value = "rank",
           joinBy = c("name","state_name"),
