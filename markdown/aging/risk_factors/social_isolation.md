@@ -1,3 +1,5 @@
+Social isolation is having few meaningful social relationships or limited social contact. There may be increasing rates of social isolation as a result of the COVID-19 pandemic. For 2020, Texas ranks 32nd in the nation in a measurement of risk of social isolation among people aged 65 and over. This ranked Texas 6th among Texas 2036 peer states.
+
 Social isolation can adversely impact quality of life and both physical and mental health. For example, social isolation has been associated with:^[1] 
 
 * a significantly increased risk of premature mortality from all causes; 

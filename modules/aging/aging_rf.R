@@ -35,7 +35,7 @@ aging_rf_ui <- function(id) {
                       fluidRow(
                       column(width = 5,
                              h2("Obesity"),
-                             includeMarkdown("markdown/aging/overview/overview.md")),
+                             includeMarkdown("markdown/aging/risk_factors/obesity.md")),
                       column(width = 7,
                              highcharter::highchartOutput(NS(id, "obesity_charts"))))
                       ),

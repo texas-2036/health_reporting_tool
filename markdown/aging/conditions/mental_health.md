@@ -1,13 +1,9 @@
-Among Texans age 65 and older, 8.7% reported their mental health was not good 14 or more days in the past 30 days. This ranked Texas seniors at 38th in the nation on this measure of frequent mental distress and 11th among Texas 2036 peer states.
+Among Texans age 65 and older, 8.7% reported their mental health was not good 14 or more days in the past 30 days. This ranked Texas seniors at 38th in the nation on this measure of frequent mental distress and 11th among Texas 2036 peer states. 
 
-Frequent mental distress is a measure based on self-reported poor mental health days. The measure aims to capture the population experiencing persistent, and likely severe, mental health issues, which may have a significant impact on health-related quality of life and overall wellness. There is a strong relationship between the 14-day period and clinically diagnosed mental disorders, such as depression and anxiety.
+Frequent mental distress is a measure based on self-reported days in which mental health was not good, including stress, depression, and problems with emotions. The measure, and associated 14-day cutoff point, aims to capture the population with possible clinical markers for depression and anxiety disorders. People with more poor mental health days also have a comparatively higher adverse impact of their mental health on their usual daily activities, such as engaging in self-care, work, and recreation.^[1]
 
-A healthy mental state is essential to overall positive health and wellness. Mental health issues, however, can be difficult to identify in older adults and often go undiagnosed and untreated. In extreme cases, untreated chronic or severe psychological distress can lead to suicide, for which seniors ages 85 and older, have the second highest rate in the nation at 19.07 deaths per 100,000 adults in 2018.
+Mental well-being is an integral part of quality of life and can influence other health behaviors. However, mental health issues may be more difficult to identify in older adults as people assume feelings of sadness and anxiety are interrelated to loss of loved ones, emergence of chronic illness, or other factors associated with aging. Among the most extreme cases, undiagnosed mental health issues can lead to suicide. Males over the age of 75 have the highest suicide rate, at 39.9 deaths per 100,000 population in 2018.^[2]  
 
-Frequent mental distress is associated with a number of other health conditions that pose problems for seniors including:
+<span style="font-size:12px; line-height:1.1 !important">^[1]: Centers for Disease Control and Prevention (CDC). Self-reported frequent mental distress among adults--United States, 1993-1996. MMWR Morb Mortal Wkly Rep. 1998 May 1;47(16):325-331. https://www.cdc.gov/mmwr/preview/mmwrhtml/00052469.html
 
-* Physical inactivity
-* Insufficient sleep
-* Obesity
-* Smoking
-* Alcohol consumption
+<span style="font-size:12px; line-height:1.1 !important">^[2]: Hedegaard H, Curtin SC, Warner M. Increase in suicide mortality in the United States, 1999–2018. NCHS Data Brief, no 362. Hyattsville, MD: National Center for Health Statistics. 2020.  https://www.cdc.gov/nchs/data/databriefs/db362-h.pdf. Accessed 4 Oct 2020. 

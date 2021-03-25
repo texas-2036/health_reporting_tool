@@ -1,7 +1,7 @@
-Both in Texas and nationally, teen suicide rates have increased over the past few years. Texas ranked 20th among states with 12.0 deaths by suicide per 100,000 adolescents.
+Both in Texas and nationally, teen suicide rates have increased over the past few years. Texas ranked 20th among all states and 9th among Texas 2036 peer states with 12.0 deaths by suicide per 100,000 adolescents.
 
-Suicide is a serious public health problem among all age groups. Among youth it exacts an enormous toll due to the significant years of potential life lost. In 2017, there were more than 6,200 suicide deaths among adolescents and young adults ages 15-24 across the US, making it the second-leading cause of death for that age group.
+Suicide is a serious public health problem among teens. In 2018, there were 242 deaths among adolescents and young adults ages 15-19 across Texas, making it the second-leading cause of death for that age group behind unintentional accidents.
 
-Youth suicidal ideation, attempt and completion are on the rise. Far more adolescents have suicidal thoughts or attempt suicide and survive than those who die by suicide. In the past year 17.2 percent of high school students seriously considered attempting suicide and 7.4 percent attempted suicide.
+Many more adolescents have suicidal thoughts or attempt suicide and survive than those who die by suicide. In 2019, [18.9 percent](https://yrbs-explorer.services.cdc.gov/#/tables?questionCode=H26&topicCode=C01&year=2019) of Texas high school students seriously considered attempting suicide and [10.0 percent](https://yrbs-explorer.services.cdc.gov/#/tables?questionCode=H28&topicCode=C01&year=2019) attempted suicide.
 
-The cost of suicide attempts in the United States in 2013 was estimated to be $58.4 billion. The average cost per suicide for adolescents and young adults is estimated to be at least $1.4 million, with most of the cost resulting from lost productivity.
+The cost of suicide attempts in the United States in 2013 was estimated to be [$58.4 billion](https://doi.org/10.1111/sltb.12225). The average cost per suicide for adolescents and young adults ages 15-24 is estimated to be at least $1.4 million, with most of the cost resulting from lost productivity.

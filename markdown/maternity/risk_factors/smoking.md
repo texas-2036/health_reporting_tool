@@ -12,4 +12,4 @@ Secondhand smoke can also lead to higher risk of low birthweight or birth defect
 
 The use of other tobacco products, including e-cigarettes, during pregnancy is also harmful.
 
-<span style="font-size:12px; line-height:1.1 !important">^[1]: Source of facts in text: March of Dimes site website, Smoking During Pregnancy. Accessed at https://www.marchofdimes.org/pregnancy/smoking-during-pregnancy.aspx. 
+<span style="font-size:12px; line-height:1.1 !important">^[1]: March of Dimes site website, Smoking During Pregnancy. Accessed at https://www.marchofdimes.org/pregnancy/smoking-during-pregnancy.aspx. 

@@ -10,4 +10,4 @@ In 2018, almost 1/3 of adult Texans (32.2%) reported they had been told by a hea
 
 Across the U.S., among those with high blood pressure, about 64 million are aware of their condition and 57 million are taking blood pressure–lowering medication; however, only about half have their blood pressure under control. In 2011 high blood pressure was associated with $45 billion in direct medical costs.^[1]
 
-<span style="font-size:12px; line-height:1.1 !important">^[1]: Centers for Disease Control. 6 | 18 Initiative: Accelerating Evidence into Action. Control High Blood Pressure.  https://www.cdc.gov/sixeighteen/bloodpressure/index.htm. Accessed 28 Oct 2020. 
+<span style="font-size:12px; line-height:1.1 !important">^[1]: Centers for Disease Control. 6 | 18 Initiative: Accelerating Evidence into Action. Control High Blood Pressure.  https://www.cdc.gov/sixeighteen/bloodpressure/index.html. Accessed 28 Oct 2020. 

@@ -32,7 +32,7 @@ working_pol_ui <- function(id) {
                                includeMarkdown("markdown/working_age/policy/uninsurance_intro_top.md"),
                                highcharter::highchartOutput(NS(id, "uninsured_chart"))),
                         column(width = 6,
-                               # highcharter::highchartOutput(NS(id, "uninsured_tx"))
+                                #highcharter::highchartOutput(NS(id, "uninsured_tx"))
                                )
                                ),
                       hr(),
