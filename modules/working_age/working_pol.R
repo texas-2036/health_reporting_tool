@@ -27,27 +27,27 @@ working_pol_ui <- function(id) {
              width = 12,
              tabPanel(title="Uninsurance",
                       fluidRow(
-                        column(width = 6,
+                        column(width = 5,
                                h2("Uninsurance"),
                                includeMarkdown("markdown/working_age/policy/uninsurance_intro_top.md"),
                                highcharter::highchartOutput(NS(id, "uninsured_chart"))),
-                        column(width = 6,
+                        column(width = 7,
                                 #highcharter::highchartOutput(NS(id, "uninsured_tx"))
                                )
                                ),
                       hr(),
                       fluidRow(
-                      column(width = 6,
+                      column(width = 5,
                              h2("Why does uninsurance matter?"),
                              includeMarkdown("markdown/working_age/policy/uninsurance_top.md")),
-                      column(width = 6,
+                      column(width = 7,
                              highcharter::highchartOutput(NS(id, "barriers_chart")))),
                       hr(),
                       h2("Characteristics of the Nonelderly Uninsured, 2018"),
                       fluidRow(
-                        column(width = 6,
+                        column(width = 5,
                                highcharter::highchartOutput(NS(id, "uninsurance_income"))),
-                        column(width = 6,
+                        column(width = 7,
                                highcharter::highchartOutput(NS(id, "uninsurance_race"))))),
              tabPanel("Provider Access", 
                       fluidRow(
@@ -82,11 +82,11 @@ working_pol_server <- function(id, df) {
   output$uninsured_chart <- highcharter::renderHighchart({
     
     highchart() %>%
-      hc_add_series(uninsured_rates %>% filter(state!="Texas"), 
+      hc_add_series(uninsured_rates %>% filter(name!="Texas"), 
                     type="line", 
-                    hcaes(x=year, y=value, group=state), 
+                    hcaes(x=year, y=value, group=name), 
                     color="#DBDCDD") %>% 
-      hc_add_series(uninsured_rates %>% filter(state=="Texas"),
+      hc_add_series(uninsured_rates %>% filter(name=="Texas"),
                     type="line", 
                     hcaes(x=year, y=value),
                     lineWidth=5,
@@ -178,15 +178,19 @@ working_pol_server <- function(id, df) {
                               "Postponed or did not get needed prescription drug due to cost")) %>% 
       hc_yAxis(labels = list(format = '{value}%')) %>% 
       hc_title(text="Barriers to Care Among Nonelderly Adults in the US by Insurance Status, 2018") %>% 
-      hc_subtitle(text="Source: Kaiser Family Foundation Analysis of 2018 National Health Interview Survey") %>% 
       hc_legend(align = "right",
                 reversed = TRUE,
-                verticalAlign = "top",
-                layout = "vertical",
-                x = -20,
-                y = 220,
+                verticalAlign = "bottom",
+                layout = "horizontal",
+                #x = -20,
+                #y = 00,
                 itemStyle = list(fontSize="14px", textTransform="uppercase"),
-                floating = TRUE) %>%
+                floating = FALSE) %>%
+      hc_credits(
+        enabled = TRUE,
+        useHTML = TRUE,
+        text = "SOURCE: Kaiser Family Foundation Analysis of 2018 National Health Interview Survey",
+        href = "https://www.kff.org/uninsured/issue-brief/key-facts-about-the-uninsured-population/") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
       
     })
@@ -207,7 +211,11 @@ working_pol_server <- function(id, df) {
       hc_yAxis(title = list(text= "% of All Uninsured, Ages 19-64"),
                labels = list(format = '{value}%')) %>% 
       hc_title(text="Race/Ethnicity") %>% 
-      hc_subtitle(text="People of color make up 61% of the nonelderly Texas population but account for about 76% of the total nonelderly uninsured population.") %>% 
+      hc_subtitle(text="People of color make up 62% of the nonelderly Texas population but account for about 76% of the total nonelderly uninsured population.") %>% 
+      hc_credits(
+        enabled = TRUE,
+        text = "SOURCE: Kaiser Family Foundation analysis of the U.S. Census Bureau, 2019 American Community Survey, 1-Year Estimates.",
+        href = "https://www.kff.org/8f56b88/") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })
@@ -224,7 +232,11 @@ working_pol_server <- function(id, df) {
       hc_yAxis(title = list(text= "% of All Uninsured, Ages 19-64"),
                labels = list(format = '{value}%')) %>% 
       hc_title(text="Family Incomes (% of FPL)") %>% 
-      hc_subtitle(text="Individuals with income below 200% of the Federal Poverty Level (FPL) are at the highest risk of being uninsured. About 86% of the uninsured were in families with incomes below 400% of poverty.") %>% 
+      hc_subtitle(text="Individuals with incomes below 200% of the Federal Poverty Level (FPL) are at the highest risk of being uninsured. About 85% of the uninsured were in families with incomes below 400% of poverty.") %>%
+      hc_credits(
+        enabled = TRUE,
+        text = "SOURCE: Kaiser Family Foundation analysis of the U.S. Census Bureau, 2019 American Community Survey, 1-Year Estimates.",
+        href = "https://www.kff.org/c4eb9ab/") %>%
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     
   })

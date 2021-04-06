@@ -92,7 +92,7 @@ working_rf_server <- function(id) {
             data = obesity_map_wk,
             value = "percentage",
             joinBy = c("name","county"),
-            name = "% of Diagnosed Diabetes",
+            name = "%",
             borderColor = "#FAFAFA",
             borderWidth = 0.1,
             tooltip = list(

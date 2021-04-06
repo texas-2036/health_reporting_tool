@@ -9,6 +9,8 @@ mh_chart_bar_wk <- readr::read_rds("clean_data/Working Age/conditions/mh_chart_b
 
 hh_map_wk <- readr::read_rds("clean_data/Working Age/conditions/heart_health.rds")  
 
+diabetes_map_wk <- readr::read_rds("clean_data/Working Age/conditions/diabetes_map.rds")
+
 # text module ----
 working_cnd_ui <- function(id) {
 
@@ -24,7 +26,8 @@ working_cnd_ui <- function(id) {
                                h2("Diabetes"),
                                includeMarkdown("markdown/working_age/conditions/diabetes.md")),
                         column(width = 7,
-                               highcharter::highchartOutput(NS(id, "diabetes_chart"))))),
+                               highcharter::highchartOutput(NS(id, "diabetes_chart")),
+                               highcharter::highchartOutput(NS(id, "diabetes_map"))))),
              tabPanel(title="Mental Health", 
                       fluidRow(
                         column(width = 6,
@@ -85,6 +88,37 @@ working_cnd_server <- function(id, df) {
       hc_add_theme(tx2036_hc_light())
       
     })
+  
+  output$diabetes_map <- highcharter::renderHighchart({
+    
+    col_pal <- RColorBrewer::brewer.pal(9,"Blues")
+    
+    hcmap(map = tx_map,
+          data = diabetes_map_wk,
+          value = "percent",
+          joinBy = c("name","county"),
+          name = "% of Diagnosed Diabetes",
+          borderColor = "#FAFAFA",
+          borderWidth = 0.1,
+          tooltip = list(
+            valueDecimals = 2,
+            valueSuffix = "%")) %>% 
+      hc_legend(layout='vertical',
+                align='left',
+                verticalAlign='bottom',
+                itemMarginTop=10,
+                itemMarginBottom=10) %>% 
+      hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
+                   reversed=FALSE) %>%
+      hc_credits(
+        enabled = TRUE,
+        text = "SOURCE: CDC Interactive Diabetes Atlas | DATA: CDC Interactive Diabetes Atlas",
+        href = "https://gis.cdc.gov/grasp/diabetes/DiabetesAtlas.html#") %>%
+      hc_title(text="Diagnosed Diabetes Prevelance Among Texas Adults, 2017") %>% 
+      hc_subtitle(text="Age-adjusted percentage of adults age 20 and older who have diabetes.") %>% 
+      highcharter::hc_add_theme(texas2036::tx2036_hc_light())
+    
+  })
   
   output$mh_chart_ts <- highcharter::renderHighchart({
     
@@ -197,7 +231,7 @@ working_cnd_server <- function(id, df) {
         useHTML = TRUE,
         text = "SOURCE: Interactive Atlas of Heart Disease and Stroke, by Center for Disease Control and Prevention.",
         href = "https://www.cdc.gov/dhdsp/maps/atlas/index.html") %>%
-      hc_title(text="Cardiovascular Disease Deaths, Rate Per 100,000, 2018-2018") %>% 
+      hc_title(text="Cardiovascular Disease Deaths, Rate Per 100,000, 2016-2018") %>% 
       hc_subtitle(text="The chart below shows the combined rate of deaths from all cardiovascular related diseases in Texas. Represented in the data are adults aged 45-64 of all races and genders.") %>% 
       highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     

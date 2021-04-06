@@ -1,8 +1,10 @@
 # Load Data -----------------------------------------------------------------------------------
 
-obesity_trends_women_18_44 <- read_rds("clean_data/maternity/obesity_trends_women_18_44.rds")
+obesity_trends_women_18_44 <- read_rds("clean_data/maternity/obesity_trends_women_18_44.rds") %>%
+  filter(state_name != 'West Virginia')
 
-phys_inactivity_trends_women_18_44 <- read_rds("clean_data/maternity/phys_inactivity_trends_women_18_44.rds")
+phys_inactivity_trends_women_18_44 <- read_rds("clean_data/maternity/phys_inactivity_trends_women_18_44.rds") %>%
+  filter(state_name != 'West Virginia')
 
 smoking_trends_women_18_44 <- read_rds("clean_data/maternity/smoking_trends_women_18_44.rds")
 
@@ -30,12 +32,14 @@ maternity_rf_ui <- function(id) {
                         column(width = 6,
                                h2("Pre-Pregnancy Obesity"),
                                includeMarkdown("markdown/maternity/risk_factors/pre_pregnancy_obesity.md"),
-                               highcharter::highchartOutput(NS(id, "maternal_smoking_trends"), height = "500px"),
+                               img(src = "figures/maternity/risk_factors/fig_31_maternal_prepregnancy_obesity_by_race.jpg",
+                                   width = "90%"),
                                a("SOURCE:  Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book", href="https://www.dshs.texas.gov/healthytexasbabies/data.aspx"),
                                a("NOTE: The 2017 and 2018 data are provisional"),
                                includeMarkdown("markdown/maternity/risk_factors/pre_pregnancy_obesity_co.md"),
                         ),
                         column(width = 6,
+                               h2("Pre-Pregnancy Obesity Rates"),
                                img(src = "figures/maternity/risk_factors/fig_33_pct_of_births_to_obese_mother.jpg",
                                    width = "90%"),
                                a("SOURCE:  Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book", href="https://www.dshs.texas.gov/healthytexasbabies/data.aspx"),
@@ -64,8 +68,10 @@ maternity_rf_ui <- function(id) {
                                highcharter::highchartOutput(NS(id, "maternal_smoking_trends2"), height = "500px"),
                                includeMarkdown("markdown/maternity/risk_factors/smoking_bottom_co_left.md")),
                         column(width = 6,
+                               h2('Percent of Live Births Where Mother Smoked During Pregnancy, 2017'),
                                img(src = "figures/maternity/risk_factors/fig_29_pct_of_births_where_mother_smoked.jpg",
                                    width = "90%"),
+                               a("SOURCE:  Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book", href="https://www.dshs.texas.gov/healthytexasbabies/data.aspx"),
                                includeMarkdown("markdown/maternity/risk_factors/smoking_bottom_co_right.md"))
                       )
              )

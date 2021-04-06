@@ -117,8 +117,7 @@ childhood_pol_server <- function(id, df) {
                 itemMarginBottom=10) %>% 
       hc_colorAxis(stops = color_stops(n=8, colors=col_pal),
                    reversed=FALSE) %>%
-      hc_title(text="Percentage of Uninsured Children") %>%
-      hc_subtitle(text="Percentage of Uninsured Children, 2018") %>%
+      hc_title(text="Percentage of Uninsured Children, 2018") %>%
       hc_credits(
         enabled = TRUE,
         text = "SOURCE: Small Area Health Insurance Estimates (SAHIE) Program",

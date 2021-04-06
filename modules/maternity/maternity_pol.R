@@ -36,7 +36,7 @@ maternity_pol_ui <- function(id) {
                       column(width = 6,
                       h2("Access to Obstetrics and Gynecology"),
                       includeMarkdown("markdown/maternity/policy/access.md"),
-                      img(src = "figures/maternity/policy/Percent of Primary Care Physician Demand Exceeding Supply and FTE shortage_surplus.png",
+                      img(src = "figures/maternity/policy/Exceeding Supply and FTE shortage_surplus.png",
                           width = "90%"),
                       a("SOURCE: Texas Department of State Health Services",
                         href = 'https://dshs.texas.gov/legislative/2018-Reports/SB-18-Physicians-Workforce-Report-Final.pdf')
@@ -139,7 +139,7 @@ maternity_pol_server <- function(id, df) {
             data = prenatal_care,
             value = "percent",
             joinBy = c("name","county_of_residence"),
-            name = "Percent Inactive",
+            name = "Percent",
             borderColor = "#FAFAFA",
             borderWidth = 0.1,
             tooltip = list(
@@ -156,7 +156,7 @@ maternity_pol_server <- function(id, df) {
           enabled = TRUE,
           text = "SOURCE: CDC Birth Files",
           href = "https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68_13-508.pdf") %>%
-        hc_title(text="Percent of Live Births not Receiving Prenatal Care in the First Trimester") %>% 
+        hc_title(text="Percent of Live Births not Receiving Prenatal Care in the First Trimester, 2018") %>% 
         # hc_size(height=550) %>% 
         highcharter::hc_add_theme(texas2036::tx2036_hc_light())
     })
@@ -354,7 +354,7 @@ maternity_pol_server <- function(id, df) {
         hc_legend(layout = "proximate", align = "right") %>% 
         hc_credits(
           enabled = TRUE,
-          text = "SOURCE: American Community Survey, US Census Bureau.",
+          text = "SOURCE: March of Dimes analysis of IPUMS-USA, University of Minnesota, ipums.org. American Community Survey, US Census Bureau",
           href = "https://www.marchofdimes.org/Peristats/ViewSubtopic.aspx?reg=99&top=11&stop=158&lev=1&obj=1&cmp=00&slev=4&sty=2008&eny=2018&chy=") %>%
         hc_add_theme(tx2036_hc_light())
       

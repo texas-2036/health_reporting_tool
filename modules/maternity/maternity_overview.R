@@ -199,7 +199,7 @@ maternity_overview_server <- function(id, df) {
         hc_subtitle(text="Teen Births per 1,000 Population") %>%
         hc_credits(
           enabled = TRUE,
-          text = "Khan D, Hamilton B, Rossen LM, He Y, Wei R, Dienes E. Teen birth rates for age group 15–19 in the United States by county, 2003–2018. National Center for Health Statistics. 2020.",
+          text = "SOURCE: National Center for Health Statistics. 2020.",
           href = "https://www.cdc.gov/nchs/data-visualization/county-teen-births/#data-tables") %>%
         hc_add_theme(tx2036_hc_light())
       
