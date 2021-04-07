@@ -81,7 +81,7 @@ maternity_overview_server <- function(id, df) {
         hc_credits(
           enabled = TRUE,
           text = "SOURCE: Texas Department of State Health Services, 2019 Healthy Texas Mothers & Babies Data Book.",
-          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx.") %>%
+          href = "https://www.dshs.texas.gov/healthytexasbabies/data.aspx") %>%
         hc_add_theme(tx2036_hc_light())
       
     })
